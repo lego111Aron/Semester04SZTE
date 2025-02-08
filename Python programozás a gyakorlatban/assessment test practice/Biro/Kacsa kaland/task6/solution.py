@@ -9,6 +9,6 @@ def lakoma():
     for i in bodyParts:
         bodyParts[i] *= int(input())
     
-    return max(bodyParts, key=bodyParts.get)
+    return max(bodyParts, key=bodyParts.get) # Returns the key with the maximum value
 
 # print(lakoma())
