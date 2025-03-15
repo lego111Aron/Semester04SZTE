@@ -14,6 +14,7 @@ class ParkingLot {
     public synchronized void enter() {
         while (cars == capacity) {
             try {
+                System.out.println("Car is waiting...");
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
