@@ -4,10 +4,10 @@ class Palack:
         self.max_urtartalom = max_urtartalom
         self._jelenlegi_urtartalom = _jelenlegi_urtartalom
     
-    def 
+    # def 
 
 
-class VisszavalthatoPalack:
+# class VisszavalthatoPalack:
 
 
-class Rekesz:
+# class Rekesz:
