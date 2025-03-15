@@ -28,8 +28,10 @@ public class gyak3 {
         long totalSum = 0;
         for (Calculator calculator : calculators) {
             totalSum += calculator.sum;
+            System.out.println(calculator.sum);
         }
 
+        System.out.println("-----------------");
         System.out.println("Total sum: " + totalSum);
     }
 }
