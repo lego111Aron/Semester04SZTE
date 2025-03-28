@@ -1,0 +1,1803 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>12. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xml-technologiak" class="md-nav__link">
+    XML technológiák
+  </a>
+  
+    <nav class="md-nav" aria-label="XML technológiák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-generalized-markup-language-sgml" class="md-nav__link">
+    Standard Generalized Markup Language (SGML)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensible-markup-language-xml" class="md-nav__link">
+    Extensible Markup Language (XML)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-type-definition-dtd" class="md-nav__link">
+    Document Type Definition (DTD)
+  </a>
+  
+    <nav class="md-nav" aria-label="Document Type Definition (DTD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributum" class="md-nav__link">
+    Attribútum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elem" class="md-nav__link">
+    Elem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teljes-pelda" class="md-nav__link">
+    Teljes példa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hivatkozasok" class="md-nav__link">
+    Hivatkozások
+  </a>
+  
+    <nav class="md-nav" aria-label="Hivatkozások">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kulso-hivatkozasok" class="md-nav__link">
+    Külső hivatkozások
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#belso-hivatkozasok" class="md-nav__link">
+    Belső hivatkozások
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hivatkozasok-hasznalatanak-veszelyei" class="md-nav__link">
+    Hivatkozások használatának veszélyei
+  </a>
+  
+    <nav class="md-nav" aria-label="Hivatkozások használatának veszélyei">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dtd-valtozok" class="md-nav__link">
+    DTD változók
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-external-entity-xxe-sebezhetoseg" class="md-nav__link">
+    XML External Entity (XXE) sebezhetőség
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-schema-definition-xsd" class="md-nav__link">
+    XML Schema Definition (XSD)
+  </a>
+  
+    <nav class="md-nav" aria-label="XML Schema Definition (XSD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xsd-bevezeto" class="md-nav__link">
+    XSD Bevezető
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#element" class="md-nav__link">
+    Element
+  </a>
+  
+    <nav class="md-nav" aria-label="Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osszetett-elem" class="md-nav__link">
+    Összetett elem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#szamossag-megadasa" class="md-nav__link">
+    Számosság megadása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencia-masik-elemre" class="md-nav__link">
+    Referencia másik elemre
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributum_1" class="md-nav__link">
+    Attribútum
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribútum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sajat-tipus-megszoritasok" class="md-nav__link">
+    Saját típus, megszorítások
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teljes-xml" class="md-nav__link">
+    Teljes XML
+  </a>
+  
+    <nav class="md-nav" aria-label="Teljes XML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xml-gyokere" class="md-nav__link">
+    XML gyökere
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasznos-linkek" class="md-nav__link">
+    Hasznos linkek
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12-gyakorlat">12. gyakorlat<a class="headerlink" href="#12-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="xml-technologiak">XML technológiák<a class="headerlink" href="#xml-technologiak" title="Permanent link">&para;</a></h2>
+<h3 id="standard-generalized-markup-language-sgml">Standard Generalized Markup Language (SGML)<a class="headerlink" href="#standard-generalized-markup-language-sgml" title="Permanent link">&para;</a></h3>
+<p>Az SGML egy általános jelölő nyelv, amelyet ISO szabvány definiál. A célja, hogy egy adott szintaktikának megfelelő dokumentumot könnyen lehessen kezelni. Az SGML konkrét alkalmazása a HTML, de az XML is az SGML részhalmaza. Az SGML bonyolult, ezért széles körben nem is terjedt el, ezért ezzel külön nem is foglalkozunk, csak az XML-lel.</p>
+<h3 id="extensible-markup-language-xml">Extensible Markup Language (XML)<a class="headerlink" href="#extensible-markup-language-xml" title="Permanent link">&para;</a></h3>
+<p>Az 1. gyakorlaton már megismerkedtünk az XML-lel, és a félév során már a gyakorlati alkalmazását is láttuk, mert a maven projekt fájl (<code>pom.xml</code>), illetve a webes résznél a konfigurációs fájl (<code>web.xml</code>) is XML volt. Azonban ezek inkább a gyakorlatban történő alkalmazhatóságra példák, és nem arra, hogy magát az XML-t hogyan kell felépíteni, mit lehet és mit nem lehet használni, illetve hogyan kell validálni azt. A következőkben az XML technológiákkal fogunk megismerkedni, amihez az alábbi példát fogjuk használni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<span class="nt">&lt;jelentkezes</span><span class="w"> </span><span class="na">idoszak=</span><span class="s">&quot;2019/2020II&quot;</span><span class="w"> </span><span class="na">egyetem=</span><span class="s">&quot;SZTE&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;hallgato</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;KOJEAE.SZE&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;hnev&gt;</span>Kovács<span class="w"> </span>János<span class="nt">&lt;/hnev&gt;</span>
+<span class="w">    </span><span class="nt">&lt;szuletesnap&gt;</span>2000-01-08<span class="nt">&lt;/szuletesnap&gt;</span>
+<span class="w">    </span><span class="nt">&lt;szak</span><span class="w"> </span><span class="na">evf=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>programtervezo<span class="w"> </span>informatikus<span class="nt">&lt;/szak&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/hallgato&gt;</span>
+<span class="w">  </span><span class="nt">&lt;kurzusok&gt;</span>
+<span class="w">    </span><span class="nt">&lt;kurzus</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;IAB8532&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;nev&gt;</span>Alkalmazásfejlesztés<span class="w"> </span>I.<span class="nt">&lt;/nev&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kredit&gt;</span>2<span class="nt">&lt;/kredit&gt;</span>
+<span class="w">      </span><span class="nt">&lt;hely&gt;</span>I223<span class="nt">&lt;/hely&gt;</span>
+<span class="w">      </span><span class="nt">&lt;idopont&gt;</span>Szerda<span class="w"> </span>15:00-16:00<span class="nt">&lt;/idopont&gt;</span>
+<span class="w">      </span><span class="nt">&lt;tanar&gt;</span>Dr.<span class="w"> </span>Siket<span class="w"> </span>István<span class="nt">&lt;/tanar&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/kurzus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;kurzus</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;XEL24234&quot;</span><span class="w"> </span><span class="na">jovahagyas=</span><span class="s">&quot;igen&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;nev&gt;</span>E-Learning<span class="nt">&lt;/nev&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kredit&gt;</span>3<span class="nt">&lt;/kredit&gt;</span>
+<span class="w">      </span><span class="nt">&lt;hely&gt;</span>B107<span class="nt">&lt;/hely&gt;</span>
+<span class="w">      </span><span class="nt">&lt;idopont&gt;</span>Szerda<span class="w"> </span>12:00-14:00<span class="nt">&lt;/idopont&gt;</span>
+<span class="w">      </span><span class="nt">&lt;tanar&gt;</span>Dr.<span class="w"> </span>Kovács<span class="w"> </span>Géza<span class="nt">&lt;/tanar&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/kurzus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;kurzus</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;LL2458I&quot;</span><span class="w"> </span><span class="na">nyelv=</span><span class="s">&quot;német&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;nev&gt;</span>Német<span class="w"> </span>középfok<span class="nt">&lt;/nev&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kredit&gt;</span>0<span class="nt">&lt;/kredit&gt;</span>
+<span class="w">      </span><span class="nt">&lt;hely&gt;</span>VI.<span class="w"> </span>lektorátus<span class="nt">&lt;/hely&gt;</span>
+<span class="w">      </span><span class="nt">&lt;tanar&gt;</span>Dr.<span class="w"> </span>Szabó<span class="w"> </span>Gabriella<span class="nt">&lt;/tanar&gt;</span>
+<span class="w">      </span><span class="nt">&lt;oratarto&gt;</span>Nagy<span class="w"> </span>Annamária<span class="nt">&lt;/oratarto&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/kurzus&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/kurzusok&gt;</span>
+<span class="nt">&lt;/jelentkezes&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="document-type-definition-dtd">Document Type Definition (DTD)<a class="headerlink" href="#document-type-definition-dtd" title="Permanent link">&para;</a></h3>
+<p>A DTD szabályok halmaza, amely SGML típusú nyelvekhez határoz meg dokumentumtípust. A DTD meghatározza, hogy</p>
+<ul>
+<li>milyen elemek lehetnek a dokumentumban,</li>
+<li>az elemek hogyan kapcsolódhatnak egymáshoz,</li>
+<li>milyen tartalmuk lehet,</li>
+<li>milyen tulajdonságuk lehet.</li>
+</ul>
+<p>Fontos, hogy a DTD-ben minden olyan elemet definiálni kell, ami az XML-ben előfordul!</p>
+<p>A DTD-t kétféleképpen lehet megadni:</p>
+<ul>
+<li>Belső, amikor a DTD ugyanabban a fájlban van, mint amire vonatkozik.</li>
+<li>Külső, amikor a DTD egy külön fájlban van, és csak egy hivatkozást tartalmaz a dokumentum a DTD-re.</li>
+</ul>
+<p>A DTD felépítésénél definiáljuk az XML fa szerkezetét, amihez első lépésben a fa gyökerét adjuk meg. A jelentkezés xml esetében a fa gyökere a jelentkezés, amit a következő módon definiálunk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!DOCTYPE</span> <span class="nt">jelentkezes</span>
+<span class="k">[</span>
+ <span class="err">...</span>
+<span class="k">]&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Egy konkrét XML-hez nagyon sokféle validációs szabályt definiálhatunk, mert nem tudhatjuk, hogy mi kötelező és mi nem, melyik elemből mennyi a minimum és maximum, melyik elemre milyen megkötések vannak, stb. Mi most egyet fogunk megadni, ami logikusan következik az XML-ből, illetve bemutatja a DTD lehetőségeit is.</p>
+<p>A <code>jelentkezes</code> elemnek van egy attribútuma (<code>id</code>) és két gyereke, a <code>hallgato</code> és a <code>kurzusok</code>. Ezt az <code>ELEMENT</code> és <code>ATTLIST</code> segítségével adhatjuk meg.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!DOCTYPE</span> <span class="nt">jelentkezes</span>
+<span class="k">[</span>
+  <span class="k">&lt;!ELEMENT</span> <span class="nt">jelentkezes</span> <span class="o">(</span><span class="nt">hallgato</span><span class="o">,</span> <span class="nt">kurzusok</span><span class="o">)</span><span class="k">&gt;</span>
+  <span class="k">&lt;!ATTLIST</span> <span class="nt">jelentkezes</span> <span class="na">idoszak</span> <span class="kc">CDATA</span> <span class="kc">#REQUIRED</span><span class="k">&gt;</span>
+<span class="k">]&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az <code>idoszak</code> típusát is megadtuk, ez tetszőleges szöveg (<code>CDATA</code>) lehet, (amit a feldolgozó nem is fogja feldolgozni), illetve definiáltuk, hogy kötelező megadni (<code>#REQUIRED</code>).</p>
+<h4 id="attributum">Attribútum<a class="headerlink" href="#attributum" title="Permanent link">&para;</a></h4>
+<p>Az attribútum fontosabb lehetséges típusa:</p>
+<ul>
+<li><code>CDATA</code> - szöveges adat</li>
+<li><code>ID</code>  - egyedi azonosító, azaz egy azonosító nem fordulhat elő kétszer (pl. a <code>kurzus</code> <code>id</code>-ja)</li>
+<li>Felsorolás, amikor definiáljuk, hogy pontosan milyen értékeket vehet fel (pl.  a <code>kurzus</code> esetében a <code>jovahagyas</code>)</li>
+<li><code>ENTITY</code> és <code>ENTITIES</code> - külső hivatkozás megadása (később lesz rá példa)</li>
+<li><code>IDREF</code> és <code>IDREFS</code> - egy vagy több másik elemre történő hivatkozás</li>
+<li><code>NMTOKEN</code> és <code>NMTOKENS</code> - Valid XML név</li>
+</ul>
+<p>Az attribútum követelmények a következők lehetnek:</p>
+<ul>
+<li>
+<p><code>#REQUIRED</code> - kötelező megadni, például a jelentkezési időszakot vagy a hallgatónak az egyedi azonosítóját</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ATTLIST</span> <span class="nt">jelentkezes</span> <span class="na">idoszak</span> <span class="kc">CDATA</span> <span class="kc">#REQUIRED</span><span class="k">&gt;</span>
+<span class="k">&lt;!ATTLIST</span> <span class="nt">kurzus</span>      <span class="na">id</span>      <span class="kc">ID</span>    <span class="kc">#REQUIRED</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>#FIXED</code> - kötelező megadni, de csak egy fix értéket vehet fel, ami példa lehet, hogy az egyetem csak az SZTE lehet</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ATTLIST</span> <span class="nt">jelentkezes</span> <span class="na">egyetem</span> <span class="kc">CDATA</span> <span class="kc">#FIXED</span> <span class="s2">&quot;SZTE&quot;</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>#IMPLIED</code> - opcionális, azaz megadhatjuk, de nem kötelező, például a nyelv a kurzusoknál</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ATTLIST</span> <span class="nt">kurzus</span>      <span class="na">nyelv</span>   <span class="kc">CDATA</span> <span class="kc">#IMPLIED</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>felsorolás - megadhatjuk, hogy milyen értékeket vehet fel, mint például a jóváhagyásos kurzusoknál, de megadhatunk alapértelmezett értéket is, hogy ne kelljen minden nem jóváhagyásoshoz kiírni a "nem"-et</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ATTLIST</span> <span class="nt">kurzus</span>      <span class="na">jovahagyas</span>   <span class="o">(</span><span class="na">igen</span> <span class="o">|</span> <span class="na">nem</span><span class="o">)</span> <span class="s2">&quot;nem&quot;</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<h4 id="elem">Elem<a class="headerlink" href="#elem" title="Permanent link">&para;</a></h4>
+<p>Az elemek esetében megadhatjuk, hogy mi legyen a tartalmuk:</p>
+<ul>
+<li><code>EMPTY</code> - üres, az elemnek nem lehet tartalma (pl. HTML esetében a <code>&lt;br /&gt;</code>)</li>
+</ul>
+<ul>
+<li><code>ANY</code>- tetszőleges tartalmat megadhatunk, amit az XML megenged</li>
+</ul>
+<ul>
+<li><code>#PCDATA</code> - parsed data, azaz olyan adattartalom, amit az XML-parser feldolgoz</li>
+</ul>
+<ul>
+<li>Gyerek elemek - további XML elemek</li>
+</ul>
+<ul>
+<li>
+<p>Ezek kombinációja, amikor többféle tartalmat is megadhatunk, pl. a hallgató esetében</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ELEMENT</span> <span class="nt">hallgato</span> <span class="o">(</span><span class="nt">hnev</span><span class="o">,</span> <span class="nt">szuletesnap</span><span class="o">,</span> <span class="nt">szak</span><span class="o">)</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<p>A gyerek elemek esetében azt is megadhatjuk, hogy hányszor forduljanak elő:</p>
+<ul>
+<li>
+<p>Szekvencia: ha vesszővel elválasztva adjuk mega, akkor minden elemnek léteznie kell</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ELEMENT</span> <span class="nt">hallgato</span> <span class="o">(</span><span class="nt">hnev</span><span class="o">,</span> <span class="nt">szuletesnap</span><span class="o">,</span> <span class="nt">szak</span><span class="o">)</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>Ha több elem közül kell választani egyet, akkor a | jellel adhatjuk meg, pl. <code>tanar</code> vagy <code>oratarto</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ELEMENT</span> <span class="nt">kurzus</span> <span class="o">(</span><span class="nt">...</span> <span class="o">(</span><span class="nt">tanar</span><span class="o">|</span><span class="nt">oratarto</span><span class="o">)</span> <span class="o">)</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>Ismétlődés operátorok</p>
+<ul>
+<li>Nincs - pontosan egyszer kell előfordulnia</li>
+</ul>
+<ul>
+<li>? - egyszer vagy egyszer sem, pl. lehet, hogy még nem ismert a kurzus időpontja</li>
+</ul>
+<ul>
+<li>+ - legalább egyszer szerepelnie kell, pl. a hallgatónak legalább egy szakja van</li>
+</ul>
+<ul>
+<li>
+<p>* - akárhányszor szerepelhet (akár el is lehet hagyni), pl. tetszőleges kurzust felvehet</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ELEMENT</span> <span class="nt">hallgato</span> <span class="o">(</span><span class="nt">hnev</span><span class="o">,</span> <span class="nt">szuletesnap</span><span class="o">,</span> <span class="nt">szak</span><span class="o">+)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">kurzusok</span> <span class="o">(</span><span class="nt">kurzus</span><span class="o">*)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">kurzus</span> <span class="o">(</span><span class="nt">nev</span><span class="o">,</span> <span class="nt">kredit</span><span class="o">,</span> <span class="nt">hely</span><span class="o">,</span> <span class="nt">idopont</span><span class="o">?,</span> <span class="o">(</span><span class="nt">tanar</span><span class="o">|</span><span class="nt">oratarto</span><span class="o">)+</span> <span class="o">)</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="teljes-pelda">Teljes példa<a class="headerlink" href="#teljes-pelda" title="Permanent link">&para;</a></h4>
+<p>Ezen építőelemek felhasználva a <code>jelentkezes.xml</code>-hez tartozó egy lehetséges DTD a következő:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!DOCTYPE</span> <span class="nt">jelentkezes</span>
+<span class="k">[</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">jelentkezes</span> <span class="o">(</span><span class="nt">hallgato</span><span class="o">,</span> <span class="nt">kurzusok</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ATTLIST</span> <span class="nt">jelentkezes</span> 
+        <span class="na">idoszak</span> <span class="kc">CDATA</span> <span class="kc">#REQUIRED</span>
+        <span class="na">egyetem</span> <span class="kc">CDATA</span> <span class="kc">#FIXED</span> <span class="s2">&quot;SZTE&quot;</span>
+    <span class="k">&gt;</span>
+
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">hallgato</span> <span class="o">(</span><span class="nt">hnev</span><span class="o">,</span> <span class="nt">szuletesnap</span><span class="o">,</span> <span class="nt">szak</span><span class="o">+)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ATTLIST</span> <span class="nt">hallgato</span> <span class="na">id</span> <span class="kc">ID</span> <span class="kc">#REQUIRED</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">hnev</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">szuletesnap</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">szak</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ATTLIST</span> <span class="nt">szak</span> <span class="na">evf</span> <span class="kc">CDATA</span> <span class="kc">#REQUIRED</span><span class="k">&gt;</span>
+
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">kurzusok</span> <span class="o">(</span><span class="nt">kurzus</span><span class="o">*)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">kurzus</span> <span class="o">(</span><span class="nt">nev</span><span class="o">,</span> <span class="nt">kredit</span><span class="o">,</span> <span class="nt">hely</span><span class="o">,</span> <span class="nt">idopont</span><span class="o">?,</span> <span class="o">(</span><span class="nt">tanar</span><span class="o">|</span><span class="nt">oratarto</span><span class="o">)+</span> <span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ATTLIST</span> <span class="nt">kurzus</span>
+        <span class="na">id</span>    <span class="kc">ID</span>    <span class="kc">#REQUIRED</span>
+        <span class="na">nyelv</span> <span class="kc">CDATA</span> <span class="kc">#IMPLIED</span>
+        <span class="na">jovahagyas</span> <span class="o">(</span><span class="na">igen</span> <span class="o">|</span> <span class="na">nem</span><span class="o">)</span> <span class="s2">&quot;nem&quot;</span>
+    <span class="k">&gt;</span>
+
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">nev</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">kredit</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">hely</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">idopont</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+    <span class="k">&lt;!ELEMENT</span> <span class="nt">tanar</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+  <span class="k">&lt;!ELEMENT</span> <span class="nt">oratarto</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+
+<span class="k">]&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="hivatkozasok">Hivatkozások<a class="headerlink" href="#hivatkozasok" title="Permanent link">&para;</a></h4>
+<h5 id="kulso-hivatkozasok">Külső hivatkozások<a class="headerlink" href="#kulso-hivatkozasok" title="Permanent link">&para;</a></h5>
+<p>Az első külső hivatkozás maga a DTD lehet. Megtehetjük, hogy a fenti DTD-t bemásoljuk az XML elejére, de ez nem célszerű, mert így minden XML tartalmazza a DTD-t, ami nagyobb méretű lesz, a DTD redundánsan szerepel az összes XML-ben, illetve, ha módosítjuk a DTD-t, akkor minden XML-ben ki kell cserélni. Ezért célszerű külső hivatkozásként megadni a DTD-t, és ilyenkor az XML elejére csak a hivatkozást kell beszúrni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE jelentkezes SYSTEM &quot;jelentkezes.dtd&quot;&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>De nem csak a DTD-re lehet külső hivatkozást definiálni, hanem ,,bármire''. Például a <code>kurzusok</code> vagy a <code>kurzus</code> esetében is meg lehet adni, hogy valami külső fájlra vagy egy web címre hivatkozzon.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;!ENTITY</span> <span class="ni">kurzusok</span>    <span class="kc">SYSTEM</span> <span class="s2">&quot;https://www...&quot;</span><span class="k">&gt;</span>
+<span class="k">&lt;!ENTITY</span> <span class="ni">kurzus</span>      <span class="kc">SYSTEM</span> <span class="s2">&quot;file://C:...&quot;</span><span class="k">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="belso-hivatkozasok">Belső hivatkozások<a class="headerlink" href="#belso-hivatkozasok" title="Permanent link">&para;</a></h5>
+<p>A DTD lehetőséget biztosít változó definíciókra is, és ezekre a változókra később hivatkozhatunk is. Például ha az SZTE-t nem akarjuk mindenhova kiírni, helyette felveszünk egy változót, annak értékül adjuk, és ha valamiért változik az egyetem neve, akkor csak egy helyen kell módosítani. A korábbi példa kapcsolódó része (valid XML-lé alakítva):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE jelentkezes</span>
+<span class="cp">[</span>
+<span class="cp">  &lt;!ENTITY EGYETEMNEVE &quot;SZTE&quot;&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ELEMENT jelentkezes EMPTY&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ATTLIST jelentkezes egyetem CDATA #FIXED &quot;SZTE&quot;&gt;</span>
+]&gt;
+
+<span class="nt">&lt;jelentkezes</span><span class="w"> </span><span class="na">egyetem=</span><span class="s">&quot;&amp;EGYETEMNEVE;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="hivatkozasok-hasznalatanak-veszelyei">Hivatkozások használatának veszélyei<a class="headerlink" href="#hivatkozasok-hasznalatanak-veszelyei" title="Permanent link">&para;</a></h5>
+<p>Használjuk vagy ne használjuk a ne használjuk a hivatkozásokat? Láthatjuk, hogy számos előnyük van:</p>
+<ul>
+<li>csak egy helyen szerepel a DTD,</li>
+<li>csak egy helyen adok értéket a változónak, és aztán használom.</li>
+</ul>
+<p>Szóval akkor használjuk, <strong>mi baj történhet?</strong></p>
+<h6 id="dtd-valtozok">DTD változók<a class="headerlink" href="#dtd-valtozok" title="Permanent link">&para;</a></h6>
+<p>Tegyük fel, hogy van egy alkalmazásunk, ami egy webszerveren fut, és valami inputot várunk XML formátumban. Elővigyázatosak vagyunk, és hogy védjük a szervert (tárhely, memória, processzor kapacitás), lekorlátozzuk a feltöltendő fájlok méretét. Ekkor megnyugodhatunk, mi baj történhet, ,,mindenre'' gondolunk.</p>
+<p>Vagy mégsem? Mi van akkor, ha az egyik ,,barátunk'' meglep minket a következő XML-lel?</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE pelda [</span>
+<span class="cp">  &lt;!ENTITY a &quot;1234567890&quot;&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ENTITY b &quot;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&amp;a;&quot;&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ENTITY c &quot;&amp;b;&amp;b;&amp;b;&amp;b;&amp;b;&amp;b;&amp;b;&amp;b;&quot;&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ENTITY d &quot;&amp;c;&amp;c;&amp;c;&amp;c;&amp;c;&amp;c;&amp;c;&amp;c;&quot;&gt;</span>
+
+<span class="w">  </span><span class="cp">&lt;!ENTITY l &quot;&amp;k;&amp;k;&amp;k;&amp;k;&amp;k;&amp;k;&amp;k;&amp;k;&quot;&gt;</span>
+<span class="w">  </span><span class="cp">&lt;!ENTITY m &quot;&amp;l;&amp;l;&amp;l;&amp;l;&amp;l;&amp;l;&amp;l;&amp;l;&quot;&gt;</span>
+]&gt;
+<span class="nt">&lt;pelda&gt;</span><span class="ni">&amp;m;</span><span class="nt">&lt;/pelda&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Mi fog történni ekkor? Az XML feldolgozó elvégzi a dolgát, és előállítja az XML-t, amihez ki kell számolnia <code>m</code>-et, amihez előbb <code>l</code>-re is szüksége van, ... De mekkora lesz <code>m</code>?</p>
+<ul>
+<li><code>a</code> 10 bájtos</li>
+<li><code>b</code> 8-szor tartalmazza <code>a</code>-t, azaz 10 * 8 = 80 bájt</li>
+<li><code>c</code> 8-szor tartalmazza <code>b</code>-t, azaz 10 * 8 * 8 = 10 * 8<sup>2</sup> = 640 bájt</li>
+<li><code>d</code> 8-szor tartalmazza <code>c</code>-t, azaz 10 * 8<sup>3</sup> = 5 KB</li>
+<li><code>e</code> 8-szor tartalmazza <code>d</code>-t, azaz 10 * 8<sup>4</sup> = 40 KB</li>
+<li>...</li>
+<li><code>m</code> 8-sor tartalmazza <code>d</code>-t, azaz 10 * 8<sup>12</sup> = <strong>640 GB!!!</strong></li>
+</ul>
+<p>Azaz a fenti ,,ártatlannak tűnő'' XML feldolgozásához 640GB memóriára van szükség.</p>
+<h6 id="xml-external-entity-xxe-sebezhetoseg"><strong>XML External Entity (XXE)</strong> sebezhetőség<a class="headerlink" href="#xml-external-entity-xxe-sebezhetoseg" title="Permanent link">&para;</a></h6>
+<p>A külső hivatkozások hasznosak, de azokat is fenntartásokkal kell kezelni. Például, ha valami külső hivatkozás tartalmát a felhasználó láthatja, akkor esetleg olyan információhoz is hozzájuthat, amihez nincs jogosultsága. De ki lenne ilyen amatőr, hogy ezt megengedi, és vajon mihez férhet hozzá? Nos, egy valós példa erre, hogy korábban a google toolbart testre lehetett szabni XML segítségével. Ez egy hasznos funkció volt, csak nem (vagy nem megfelelően) validálták az XML-t, így ha valaki a szerveren található <code>/etc/passwd</code> vagy az <code>/etc/hosts</code> fájlok tartalmával akarta kiegészíteni a toolbarját, akkor megtehette <img alt="👏" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f44f.svg" title=":clap:" /><img alt="🤦‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f926-200d-2642-fe0f.svg" title=":man_facepalming:" /> </p>
+<ul>
+<li><a href="https://blog.detectify.com/2014/04/11/how-we-got-read-access-on-googles-production-servers/index.html">https://blog.detectify.com/2014/04/11/how-we-got-read-access-on-googles-production-servers/</a></li>
+<li><a href="https://blog.detectify.com/2014/04/11/how-we-got-read-access-on-googles-production-servers/index.html">https://news.softpedia.com/news/Google-Rewards-Experts-for-XXE-Vulnerability-in-Toolbar-Button-Gallery-437290.shtml</a></li>
+</ul>
+<h3 id="xml-schema-definition-xsd">XML Schema Definition (XSD)<a class="headerlink" href="#xml-schema-definition-xsd" title="Permanent link">&para;</a></h3>
+<p>Annak ellenére, hogy a DTD-vel is definiálthatjuk az XML formátumát, van néhány hátránya, amiért inkább az XSD-t érdemes használni. Anélkül, hogy ismernénk az XSD-t, a DTD-vel kapcsolatban lehetett néhol hiányérzetünk, ezért most előre összefoglaljuk a fontosabb különbségeket, illetve az XSD előnyeit a DTD-vel szemben:</p>
+<ul>
+<li>Az XSD XML alapú, míg a DTD nem, azaz a DTD-hez meg kell tanulni egy újabb szintaxist (ami azért nem annyira bonyolult <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f604.svg" title=":smile:" /> ).</li>
+<li>Az XSD sokféle típust definiál (szám, dátum, ...), míg a DTD alapból ezt nem támogatja.<ul>
+<li>Ezért nem tudtunk a születési évnek dátum típus megkövetelni, vagy a kredit számnak nemnegatív egész értéket.</li>
+</ul>
+</li>
+<li>Az XSD-vel definiálhatjuk a gyerek elemek számát és sorrendjét, míg a DTD ezt nem támogatja.</li>
+<li>Az XML-ben használhatunk névtereket, és az XSD támogatja ezt.</li>
+<li>Azért a DTD mellett szól például, hogy definiálhatunk <code>ENTITY</code>-t, amit az XSD nem támogat.</li>
+</ul>
+<h4 id="xsd-bevezeto">XSD Bevezető<a class="headerlink" href="#xsd-bevezeto" title="Permanent link">&para;</a></h4>
+<p>Az XSD XML alapon definiálja, hogy az adott XML hogyan nézhet ki, azaz </p>
+<ul>
+<li>milyen elemek és attribútumok fordulhatnak elő,</li>
+<li>mennyi gyerek elem és milyen sorrendben fordulhat elő,</li>
+<li>az elemek és attribútumok típusait,</li>
+<li>és az elemek és attribútumok fix értékeit.</li>
+</ul>
+<p>Az XSD megadása egy XML fájllal történik, ahol az XSD nyelvtanban definiált elemeket használhatjuk.
+A gyökérben megadjuk, hogy az XSD névteret használjuk, és ezen elemeket az <code>xs</code> prefixszel fogjuk használni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;xs:schema</span><span class="w"> </span><span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span>...
+<span class="nt">&lt;/xs:schema&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az XSD-ben megtalálhatóak azok az alaptípusok, amelyek a legtöbb nyelvben léteznek, például:</p>
+<ul>
+<li>szöveg: string</li>
+<li>szám: integer, long, short, byte, ..., float, double, ...</li>
+<li>dátum: date, time, ...</li>
+<li>egyéb: boolean</li>
+</ul>
+<h4 id="element">Element<a class="headerlink" href="#element" title="Permanent link">&para;</a></h4>
+<p>Egy XML elemet az XSD-ben az <code>element</code> segítségével adhatunk meg, ahol meg kell adni a nevét és azt, hogy mi lehet a tartalma. Az <code>element</code> lehet <strong>egyszerű</strong>, amikor egy XSD a típusa, de lehet összetett is, amikor mi írjuk le, hogy mit tartalmazhat.</p>
+<p>Például a <code>kredit</code> vagy a <code>tanár</code> esetében, amikor egyszerű elemnek tekintjük:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Komplex elemet <code>complexType</code> segítségével definiálhatunk, ahol meg kell adnunk azt is, hogy</p>
+<ul>
+<li>milyen elemeket tartalmazzon,</li>
+<li>melyikből mennyit tartalmazzon,</li>
+<li>és hogy számít-e a sorrendjük van sem.</li>
+</ul>
+<h5 id="osszetett-elem">Összetett elem<a class="headerlink" href="#osszetett-elem" title="Permanent link">&para;</a></h5>
+<p>Ha olyan összetett elemet szeretnénk definiálni, ahol az összes gyereknek elő kell fordulnia, de a sorrend tetszőleges lehet, akkor az <code>all</code>-t kell használni. Például a kurzusnak lehet neve, kreditje, helye, ... (a tanár vagy óratartó választást most még nem vesszük figyelembe).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:all&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hely&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idopont&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:all&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha az elemek sorrendje is fontos, akkor a <code>sequence</code>-t kell használni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hely&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idopont&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Azt is megtehetjük, hogy az elemek közül választunk (<code>choice</code>), például, ha a kurzusnak tanára vagy óratartója van, és ilyenkor vagy az egyiket, vagy a másikat kell megadni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:choice&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;oratarto&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:choice&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="szamossag-megadasa">Számosság megadása<a class="headerlink" href="#szamossag-megadasa" title="Permanent link">&para;</a></h5>
+<p>Lehetőségünk van azt is megadni, hogy egy elem hányszor forduljon, illetve összesen hány elem lehet. Ezekre a <code>minOccurs</code> és <code>maxOccurs</code> attribútumokat használhatjuk.</p>
+<p>Például ha a kurzus esetében az időpont opcionális, azaz nem kötelező, akkor a <code>minOccurs</code> értékét 0-ra kell állítani, és így elhagyható lesz. Továbbá ha legfeljebb 5 tanára lehet (most tekintsünk el a tanár vagy oktató megközelítéstől) a kurzusnak, akkor azt a következő módon lehet megadni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:all&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hely&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idopont&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:all&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>minOccurs</code> értéke 0 vagy 1 lehet, a <code>maxOccurs</code> tetszőleges egész. Mindkettőnek az alapértelmezett értéke 1, azaz minden gyerek elemnek egyszer kell szerepelnie, ha ezt nem specifikáljuk másképp.</p>
+<h5 id="referencia-masik-elemre">Referencia másik elemre<a class="headerlink" href="#referencia-masik-elemre" title="Permanent link">&para;</a></h5>
+<p>Mivel az XML-ben elég mély egymásba ágyazási hierarchia alakulhat ki, azért az XSD is elég bonyolult és mély lehet, ezért célszerű bizonyos részeket kiszervezni, és azokra csak hivatkozásokat megadni. Ilyen lehet, hogy a <code>jelentkezes</code>-t két nagyobb részre bontjuk, a <code>hallgato</code>-ra és a <code>kurzusok</code>-ra.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jelentkezes&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;hallgato&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;kurzusok&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+
+<span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hallgato&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/xs:element&gt;</span>
+
+<span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzusok&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="attributum_1">Attribútum<a class="headerlink" href="#attributum_1" title="Permanent link">&para;</a></h4>
+<p>Az attribútumokat az <code>attribute</code> segítségével adhatjuk meg, ahol meg kell adni az attribútum nevét, a típusát, és hogy kötelező (<code>required</code>) vagy opcionális (<code>optional</code>), és esetleg van-e alapértelmezett értéke.
+Néhány példa az attribútumokra, ahol az <code>evf</code> vagy az <code>id</code> megadása kötelező, a <code>nyelv</code> opcionális, mint ahogy a <code>jovahagyas</code> is, de ott még alapértelemezett értéket is megadunk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;evf&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;idTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jovahagyas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;igenNemTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;nem&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nyelv&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha egy elemnek van attribútuma, akkor az már nem lehet egyszerű elem, hiába nincs további gyereke. Például a <code>szak</code> esetében csak a szakot kell megadni szöveggel, de van egy <code>evf</code> attribútuma is.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;szak&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:simpleContent&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;evf&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/xs:extension&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:simpleContent&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Vagy például a <code>kurzus</code> attribútumainak megadása a következő lehet:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:all&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hely&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idopont&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:all&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;idTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jovahagyas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;igenNemTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;nem&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nyelv&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="sajat-tipus-megszoritasok">Saját típus, megszorítások<a class="headerlink" href="#sajat-tipus-megszoritasok" title="Permanent link">&para;</a></h5>
+<p>Eddig csak a <a href="https://www.w3.org/TR/xmlschema-2/#built-in-datatypes">beépített típusokat</a> használtuk, azonban lehetőségünk van megszorításokat is alkalmazni a típusokra, illetve új típusokat is definiálhatunk, amit később felhasználhatunk. Egy logikus megszorítás, hogy a kredit értéknek legyen minimum és maximum értéke. így a korábbi</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>helyett megadjuk, hogy továbbra is egész szám, de a megszorításokat is definiáljuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:simpleType&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:minInclusive</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:maxInclusive</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+<span class="nt">&lt;/xs:element&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Saját típus definiálásánál meg kell adni a típus nevét, valamint azt, hogy mit reprezentáljon. Például a hallgatók és a kurzusok azonosítóinak olyan string azonosítókat fogadunk el, amelyek legalább 5 és legfeljebb 10 hosszúak.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:minLength</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:maxLength</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="nt">&lt;/xs:simpleType&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha a jóváhagyáshoz szeretnénk egy típust definiálni, ami csak igen vagy nem lehet, akkor az string típus lesz, és megadott értékeket vehet fel.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;igenNemTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:enumeration</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;igen&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:enumeration</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;nem&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="nt">&lt;/xs:simpleType&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>De lehetőség van minta alapján is megszorítást definiálni. Ilyen lehet például az, hogy melyik időszakra vonatkozik, ahol a mintának az eleje az <code>évszám/évszám</code>, majd ezt követi egy vagy két <code>I</code>. Ez a minta nem fogja ellenőrizni, hogy az évszám jó-e, de legalább ilyen formátumban kapjuk meg.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idoszakTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:pattern</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;\d{4}/\d{4}I(I)?&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="nt">&lt;/xs:simpleType&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="teljes-xml">Teljes XML<a class="headerlink" href="#teljes-xml" title="Permanent link">&para;</a></h4>
+<p>Ezen építőelemek felhasználásával egy lehetséges XSD a jelentkezes.xml példához a következő:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;xs:schema</span><span class="w"> </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span><span class="w"> </span><span class="na">attributeFormDefault=</span><span class="s">&quot;unqualified&quot;</span><span class="nt">&gt;</span>
+
+<span class="cm">&lt;!-- Bevezetünk néhány típust amit a példában fogunk használni --&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idoszakTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:pattern</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;\d{4}/\d{4}I(I)?&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;egyetemTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:pattern</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;SZTE&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:minLength</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:maxLength</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:simpleType</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;igenNemTipus&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:enumeration</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;igen&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:enumeration</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;nem&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+
+
+<span class="cm">&lt;!-- Itt kezdjük el a szabályokat megadni az elementekre --&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jelentkezes&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;hallgato&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;kurzusok&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idoszak&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;idoszakTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;egyetem&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;egyetemTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:element&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hallgato&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:all&gt;</span><span class="w"> </span><span class="cm">&lt;!-- nem fontos az elemek sorrendje --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hnev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;szuletesnap&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:date&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;szak&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:simpleContent&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:extension</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;evf&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:integer&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;/xs:extension&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/xs:simpleContent&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/xs:element&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/xs:all&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;idTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:element&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzusok&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">      </span><span class="nt">&lt;xs:sequence&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kurzus&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;xs:complexType&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:all&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nev&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;kredit&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;xs:simpleType&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;xs:restriction</span><span class="w"> </span><span class="na">base=</span><span class="s">&quot;xs:integer&quot;</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;xs:minInclusive</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;xs:maxInclusive</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;/xs:restriction&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/xs:simpleType&gt;</span>
+<span class="w">              </span><span class="nt">&lt;/xs:element&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hely&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;idopont&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tanar&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">              </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;oratarto&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/xs:all&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;idTipus&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jovahagyas&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;igenNemTipus&quot;</span>
+<span class="w">                          </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;nem&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;nyelv&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="w"> </span><span class="na">use=</span><span class="s">&quot;optional&quot;</span><span class="nt">/&gt;</span>
+<span class="w">          </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/xs:element&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/xs:sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/xs:element&gt;</span>
+
+<span class="nt">&lt;/xs:schema&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h5 id="xml-gyokere">XML gyökere<a class="headerlink" href="#xml-gyokere" title="Permanent link">&para;</a></h5>
+<p>A fenti XSD esetében egyértelműnek tűnik, hogy a <code>jelentkezes</code>-t várjuk el az XML gyökerének, de ez nem így van, mert egy olyan XML is valid, aminek a hallgató a gyökere, és csak azt a részt valósítja meg.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+
+<span class="nt">&lt;hallgato</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;KOJEAE.SZE&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;hnev&gt;</span>Kovács<span class="w"> </span>János<span class="nt">&lt;/hnev&gt;</span>
+<span class="w">    </span><span class="nt">&lt;szuletesnap&gt;</span>2000-01-08<span class="nt">&lt;/szuletesnap&gt;</span>
+<span class="w">    </span><span class="nt">&lt;szak</span><span class="w"> </span><span class="na">evf=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>programtervezo<span class="w"> </span>informatikus<span class="nt">&lt;/szak&gt;</span>
+<span class="nt">&lt;/hallgato&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="hasznos-linkek">Hasznos linkek<a class="headerlink" href="#hasznos-linkek" title="Permanent link">&para;</a></h4>
+<ul>
+<li>XML online validálása: <a href="https://www.xmlvalidation.com/index.php?id=1&amp;L=0">https://www.xmlvalidation.com/index.php?id=1&amp;L=0</a></li>
+<li>DTD: <a href="https://www.w3schools.com/xml/xml_dtd_intro.asp">https://www.w3schools.com/xml/xml_dtd_intro.asp</a></li>
+<li>XSD: <a href="https://www.w3schools.com/xml/schema_intro.asp">https://www.w3schools.com/xml/schema_intro.asp</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-04-13 14:09:32</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>

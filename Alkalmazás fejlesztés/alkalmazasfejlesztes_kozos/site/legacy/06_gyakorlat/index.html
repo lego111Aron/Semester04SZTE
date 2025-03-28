@@ -1,0 +1,2009 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05_gyakorlat/index.html">
+      
+      
+        <link rel="next" href="../07_gyakorlat/index.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>6. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          6. gyakorlat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./index.html" class="md-nav__link md-nav__link--active">
+        6. gyakorlat
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-alkalmazas-folytatasa" class="md-nav__link">
+    Contact alkalmazás folytatása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ellenorzesek-es-kiegeszitesek" class="md-nav__link">
+    Ellenőrzések és kiegészítések
+  </a>
+  
+    <nav class="md-nav" aria-label="Ellenőrzések és kiegészítések">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact-ellenorzesek" class="md-nav__link">
+    Contact ellenőrzések
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kereses-a-kontaktok-listajaban" class="md-nav__link">
+    Keresés a kontaktok listájában
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#videok" class="md-nav__link">
+    Videók
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gyakorlo-projekt-pizzazas" class="md-nav__link">
+    Gyakorló Projekt - Pizzázás
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyakorló Projekt - Pizzázás">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pizza-felvetele" class="md-nav__link">
+    Pizza felvétele
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pizzak-listazasa" class="md-nav__link">
+    Pizzák listázása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pizza-rendeles" class="md-nav__link">
+    Pizza rendelés
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipushibak" class="md-nav__link">
+    Típushibák
+  </a>
+  
+    <nav class="md-nav" aria-label="Típushibák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forditasi-hibak" class="md-nav__link">
+    Fordítási hibák
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#futasi-hibak" class="md-nav__link">
+    Futási hibák
+  </a>
+  
+    <nav class="md-nav" aria-label="Futási hibák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adatbazis-dao" class="md-nav__link">
+    Adatbázis, DAO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logikai-hibak" class="md-nav__link">
+    Logikai hibák
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contact-alkalmazas-folytatasa" class="md-nav__link">
+    Contact alkalmazás folytatása
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ellenorzesek-es-kiegeszitesek" class="md-nav__link">
+    Ellenőrzések és kiegészítések
+  </a>
+  
+    <nav class="md-nav" aria-label="Ellenőrzések és kiegészítések">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact-ellenorzesek" class="md-nav__link">
+    Contact ellenőrzések
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kereses-a-kontaktok-listajaban" class="md-nav__link">
+    Keresés a kontaktok listájában
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#videok" class="md-nav__link">
+    Videók
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gyakorlo-projekt-pizzazas" class="md-nav__link">
+    Gyakorló Projekt - Pizzázás
+  </a>
+  
+    <nav class="md-nav" aria-label="Gyakorló Projekt - Pizzázás">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pizza-felvetele" class="md-nav__link">
+    Pizza felvétele
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pizzak-listazasa" class="md-nav__link">
+    Pizzák listázása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pizza-rendeles" class="md-nav__link">
+    Pizza rendelés
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipushibak" class="md-nav__link">
+    Típushibák
+  </a>
+  
+    <nav class="md-nav" aria-label="Típushibák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forditasi-hibak" class="md-nav__link">
+    Fordítási hibák
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#futasi-hibak" class="md-nav__link">
+    Futási hibák
+  </a>
+  
+    <nav class="md-nav" aria-label="Futási hibák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adatbazis-dao" class="md-nav__link">
+    Adatbázis, DAO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logikai-hibak" class="md-nav__link">
+    Logikai hibák
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-gyakorlat">6. gyakorlat<a class="headerlink" href="#6-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="contact-alkalmazas-folytatasa">Contact alkalmazás folytatása<a class="headerlink" href="#contact-alkalmazas-folytatasa" title="Permanent link">&para;</a></h2>
+<p>Az előző óra végén a listából a kontaktok törlését megvalósítottuk.
+Mielőtt a módosítást megcsinálnánk elkészítjük a fő ablak menüjében a <code>Close</code> menüpont eseménykezelését.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MainWindowController</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onExit</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">Platform</span><span class="p">.</span><span class="na">exit</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Az FXML-ben a következőnek kell szerepelnie, melyet a SceneBuilder-rel is megadhatunk (<code>Code -&gt; onAction</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;MenuItem</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#onExit&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezzel meg is vagyunk, így nézzük az <code>editContact</code> metódust!
+Mivel a szerkesztéshez egy új ablakra lesz szükségünk, ahol magát a kontaktot szerkeszteni tudjuk, így létre is fogunk hozni egyet <code>/fxml/add_edit_contact.fxml</code> néven a <code>resources</code> mappa alatt és ezt az FXML állományt fogjuk betölteni.
+Ezt a formot majd a hozzáadásnál is használhatjuk, így ilyen szemlélettel alakítjuk ki a felületet, illetve a neve is ezt tükrözi.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">editContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="n">fxmlLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">App</span><span class="p">.</span><span class="na">loadFXML</span><span class="p">((</span><span class="s">&quot;/fxml/add_edit_contact.fxml&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">AddEditContactController</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fxmlLoader</span><span class="p">.</span><span class="na">getController</span><span class="p">();</span>
+<span class="w">    </span><span class="n">controller</span><span class="p">.</span><span class="na">setContact</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onAddNewContact</span><span class="p">(){</span><span class="w"> </span><span class="c1">// kössük be az Edit/Add alá</span>
+<span class="w">    </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="n">fxmlLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">App</span><span class="p">.</span><span class="na">loadFXML</span><span class="p">((</span><span class="s">&quot;/fxml/add_edit_contact.fxml&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">AddEditContactController</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fxmlLoader</span><span class="p">.</span><span class="na">getController</span><span class="p">();</span>
+<span class="w">    </span><span class="n">controller</span><span class="p">.</span><span class="na">setContact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">());</span><span class="w"> </span><span class="c1">// ennyi a különbség</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel a form-on szeretnénk majd megjeleníteni a szerkeszteni kívánt kontakt információit, így ezt át fogjuk adni a controller számára.
+Hozzuk is létre az FXML állományt és a hozzá tartozó AddEditContactController-t!
+Készítsük el a felületet mely a következőképpen néz ki a SceneBuilder-ben:
+A bal oldalon látható TreeView segítséget nyújt a pontos elrendezés kialakításában</p>
+<p><img alt="Add/Edit Contact" src="../../img/06/add_edit_contact.png" /></p>
+<p>Az elemek pontos tulajdonságánál segítséget nyújt az FXML kód, melyből láthatjuk a megadott <code>fx:id</code>-kat és az eseménykezelőket is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="cp">&lt;?import javafx.geometry.*?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.*?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.layout.*?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.text.*?&gt;</span>
+
+<span class="nt">&lt;GridPane</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;400.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;600.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://javafx.com/javafx/11.0.1&quot;</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml/1&quot;</span><span class="w"> </span><span class="na">fx:controller=</span><span class="s">&quot;hu.alkfejl.controller.AddEditContactController&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;rowConstraints&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">maxHeight=</span><span class="s">&quot;60.0&quot;</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;36.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;33.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">maxHeight=</span><span class="s">&quot;28.0&quot;</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;27.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;8.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/rowConstraints&gt;</span>
+<span class="w">   </span><span class="nt">&lt;columnConstraints&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ColumnConstraints</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentWidth=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ColumnConstraints</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentWidth=</span><span class="s">&quot;70.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ColumnConstraints</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentWidth=</span><span class="s">&quot;70.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/columnConstraints&gt;</span>
+<span class="w">   </span><span class="nt">&lt;children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;StackPane</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;150.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnSpan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">         </span><span class="nt">&lt;children&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Add or Edit Contact&quot;</span><span class="nt">&gt;</span>
+<span class="w">               </span><span class="nt">&lt;font&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;Font</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;20.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">               </span><span class="nt">&lt;/font&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Label&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/StackPane&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Name&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Email&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Phone Numbers&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Address&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Date of Birth&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Company&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Position&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;7&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;HBox</span><span class="w"> </span><span class="na">alignment=</span><span class="s">&quot;CENTER&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">spacing=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnSpan=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;8&quot;</span><span class="nt">&gt;</span>
+<span class="w">         </span><span class="nt">&lt;children&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;saveBtn&quot;</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#onSave&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Save&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#onCancel&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Cancel&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/children&gt;</span>
+<span class="w">         </span><span class="nt">&lt;padding&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Insets</span><span class="w"> </span><span class="na">bottom=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">left=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">right=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">top=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/padding&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/HBox&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;address&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;company&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;position&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;7&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;DatePicker</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;dateOfBirth&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;25.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;421.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="na">spacing=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">         </span><span class="nt">&lt;children&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ListView</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;phones&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#addNewPhone&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Add&quot;</span><span class="nt">&gt;</span>
+<span class="w">               </span><span class="nt">&lt;VBox.margin&gt;</span>
+<span class="w">                  </span><span class="nt">&lt;Insets</span><span class="w"> </span><span class="na">bottom=</span><span class="s">&quot;5.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">               </span><span class="nt">&lt;/VBox.margin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Button&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/VBox&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;nameErrors&quot;</span><span class="w"> </span><span class="na">textFill=</span><span class="s">&quot;RED&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;emailErrors&quot;</span><span class="w"> </span><span class="na">textFill=</span><span class="s">&quot;RED&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/children&gt;</span>
+<span class="nt">&lt;/GridPane&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezen a ponton ellenőrizzük, hogy az edit contact gomb megnyomása esetén sikerül-e betölteni az FXML állományt, de ehhez először szükségünk van a <code>setContact</code> metódus definíciójára.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AddEditContactController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Fejlesszük tovább az <code>AddEditContactController</code>-t úgy, hogy az FXML-ben megadott vezérlőket injektáljuk a controller-be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AddEditContactController</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">saveBtn</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="n">ListView</span><span class="o">&lt;</span><span class="n">Phone</span><span class="o">&gt;</span><span class="w"> </span><span class="n">phones</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">address</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DatePicker</span><span class="w"> </span><span class="n">dateOfBirth</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">company</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@FXML</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezután a felületi vezérlők értékét (a fent injektált elemek) be szeretném állítani a megkapott contact megfelelő property értékeire.
+Így itt kötéseket fogok alkalmazni, melyet akkor hozok létre, amikor a <code>setContact</code>-ot meghívja valaki (azaz új kontakt kerül a felülethez).
+A <code>setContact</code> ennek megfelelően a következőképpen néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Phone</span><span class="o">&gt;</span><span class="w"> </span><span class="n">phonesList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">findAllByContactId</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">    </span><span class="n">contact</span><span class="p">.</span><span class="na">setPhones</span><span class="p">(</span><span class="n">FXCollections</span><span class="p">.</span><span class="na">observableArrayList</span><span class="p">(</span><span class="n">phonesList</span><span class="p">));</span>
+
+<span class="w">    </span><span class="n">name</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">nameProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">email</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">emailProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">phones</span><span class="p">.</span><span class="na">itemsProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">phonesProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">address</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">addressProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">dateOfBirth</span><span class="p">.</span><span class="na">valueProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">dateOfBirthProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">company</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">companyProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">position</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">positionProperty</span><span class="p">());</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel a contact alapvetően nem tud a hozzá tartozó phone-okról, így ezt a phoneDAO-tól kérjük le, melyet field-ként adjunk is meg a controller-ben:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">PhoneDAO</span><span class="w"> </span><span class="n">phoneDAO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PhoneDAOImpl</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>ListView</code> minket érdeklő property-je az <code>itemsProperty</code>, mely a benne lévő elemeket adja meg <code>ObjectProperty &lt;ObservableList &lt;T&gt;&gt;</code> formájában, ahol a <code>T</code> típusparaméter jelen esetben nyilván <code>Phone</code>.
+A <code>Contact</code> bean-ben nem véletlenül ilyen módon adjuk meg a telefonokat (<code>ObjectProperty&lt;ObservableList&lt;Phone&gt;&gt;</code>).
+A <code>dateOfBirth</code> vezérlő egy <code>valueProperty</code>-vel rendelkezik, mely visszaad egy <code>ObjectProperty&lt;T&gt;</code> property-t, ahol <code>T</code> jelenleg <code>LocalDate</code>, melyet szintén ilyen módon adtunk meg a <code>Contact</code> osztályban.</p>
+<p>A kétirányú kötés inicializálása fontos, mégpedig olyan szempontból, hogy az értékeket szinkronba fogjuk hozni és így az egyik property elveszti a jelenlegi értékét.
+Ha vesszük például a <code>name</code> property kötését, akkor a <code>name</code> felületi vezérlő <strong>értékét</strong> kötjük hozzá a <code>contact</code> <code>nameProperty</code>-jéhez, azaz a <code>contact</code> értéke másolódik a <code>name</code> felületi vezérlő property-jébe.
+Fordított esetben, azaz: <code>contact.nameProperty().bindBidirectional(name.textProperty());</code> esetében a <code>contact</code> objektumunk elvesztette volna az aktuális értékét és a felületen sem jelenne meg semmilyen érték.</p>
+<p>Ezen a ponton ellenőrizzük, hogy a megadott elemek megjelennek-e a felületen (Az adatbázisban adjunk meg ).</p>
+<p>A telefonok listájában, azaz a <code>ListView&lt;Phone&gt;</code> elemben az egy cellában megjelenő elemekre alapból a <code>toString()</code>-et hívja a rendszer és ezt írja ki a cellába, ezért láthatunk rosszul megjelenő (<code>Object osztály toString()</code> alapú) adatokat.
+Nincs más teendő, mint a <code>Phone</code> osztály <code>toString</code> metódusát elkészíteni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Phone</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="p">.</span><span class="na">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (&quot;</span><span class="o">+</span><span class="w"> </span><span class="n">phoneType</span><span class="p">.</span><span class="na">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha ezekkel megvagyunk akkor jöhet a tényleges mentés, de előtte implementáljuk a <kbd>Cancel</kbd> gomb eseménykezelését, mely szimplán annyit tesz, hogy visszatölti a fő ablakot.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCancel</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">App</span><span class="p">.</span><span class="na">loadFXML</span><span class="p">(</span><span class="s">&quot;/fxml/main_window.fxml&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A mentéshez szükségünk lesz egy <code>ContactDAO</code>-ra, így a következő field megadást is használjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">ContactDAO</span><span class="w"> </span><span class="n">contactDAO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContactDAOImpl</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>Maga a mentés a következőképpen néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSave</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contactDAO</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">contact</span><span class="p">);</span>
+<span class="w">    </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">    </span><span class="n">contact</span><span class="p">.</span><span class="na">getPhones</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">phone</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">phone</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">contact</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">App</span><span class="p">.</span><span class="na">loadFXML</span><span class="p">(</span><span class="s">&quot;/fxml/main_window.fxml&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Elsőre furán nézhet ki a telefonszámok törlése, majd létrehozása.
+Ezt azért csináljuk ilyen módon, mert majd a telefonszámokat is módosítani szeretnénk, ugyanakkor azokat egyből nem szeretnénk menteni, csak akkor amikor a kontakt szerkesztés/hozzáadás felületen megnyomjuk a <kbd>Save</kbd> gombot.
+Mivel kicsit nehezebb így számontartani, hogy mi változott, a legegyszerűbb az, ha minden számot kitörlünk és újra hozzáadjuk őket (lehet, hogy nem is változott semmi, de ettől még működni fog a fenti kódrészlet csak kis plusz melót végez).</p>
+<p>A <code>deleteAll</code> <code>phoneDAO</code> metódus még nem létezik, de azt nagyon könnyen implementálhatjuk (nyilván adjuk hozzá az interface-hez is a metódus fejlécét):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteAll</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">contactId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">findAllByContactId</span><span class="p">(</span><span class="n">contactId</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="k">this</span><span class="p">::</span><span class="n">delete</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Miután elmentettük a <code>contact</code>-ot és a telefonszámokat, ebben az esetben is visszatérünk a fő ablakhoz.</p>
+<p>A telefonok listájánál végigvihetjük a kontakt táblázatban látott megvalósítást is, amikor az <code>Edit</code> és a <code>Delete</code> gombokat hozzáadtuk egy külön oszlopban.
+A <code>ListView</code>-nál ez annyiban különbözne, hogy valamilyen <code>Label</code>-t is hozzáadnánk, melyen magát a telefonszámot adjuk meg, továbbá a két gombot is.
+Ez azért kell mert a <code>ListView</code> csak elemek sora, azaz olyan mintha egy egy oszlopos <code>TableView</code>-nk lenne.
+Annak érdekében, hogy egy újabb lehetőséget ismerjünk meg, így egy <code>ContextMenu</code> fogunk készíteni (jobb klikk az adott <code>ListView</code> elemen), melyben az <code>Edit</code> és a <code>Delete</code> menüpontokat fogjuk elhelyezni.
+Ehhez szükségünk lesz az <code>initialize</code> metódusra, így a controllert implementálja az <code>Initializable</code> interface-t!
+Maga az <code>initialize</code> a következőképpen alakul:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">URL</span><span class="w"> </span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">ResourceBundle</span><span class="w"> </span><span class="n">resources</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">phones</span><span class="p">.</span><span class="na">setCellFactory</span><span class="p">(</span><span class="n">param</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ListCell</span><span class="o">&lt;</span><span class="n">Phone</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListCell</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">ContextMenu</span><span class="w"> </span><span class="n">contextMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContextMenu</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">MenuItem</span><span class="w"> </span><span class="n">editItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MenuItem</span><span class="p">(</span><span class="s">&quot;Edit&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">MenuItem</span><span class="w"> </span><span class="n">deleteItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MenuItem</span><span class="p">(</span><span class="s">&quot;Delete&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">contextMenu</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="n">editItem</span><span class="p">,</span><span class="w"> </span><span class="n">deleteItem</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">editItem</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">...</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="n">deleteItem</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">...</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">StringBinding</span><span class="w"> </span><span class="n">cellTextBinding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">When</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="na">itemProperty</span><span class="p">().</span><span class="na">isNotNull</span><span class="p">()).</span><span class="na">then</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="na">itemProperty</span><span class="p">().</span><span class="na">asString</span><span class="p">()).</span><span class="na">otherwise</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cell</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">cellTextBinding</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">cell</span><span class="p">.</span><span class="na">emptyProperty</span><span class="p">().</span><span class="na">addListener</span><span class="p">((</span><span class="n">observable</span><span class="p">,</span><span class="w"> </span><span class="n">wasEmpty</span><span class="p">,</span><span class="w"> </span><span class="n">isNowEmpty</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">isNowEmpty</span><span class="p">){</span>
+<span class="w">                </span><span class="n">cell</span><span class="p">.</span><span class="na">setContextMenu</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span>
+<span class="w">                </span><span class="n">cell</span><span class="p">.</span><span class="na">setContextMenu</span><span class="p">(</span><span class="n">contextMenu</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cell</span><span class="p">;</span>
+
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>setCellFactory​(Callback &lt;ListView&lt;T&gt;,​ListCell&lt;T&gt;&gt; value)</code>-ban megadott <code>CAllback</code> egy <code>ListCell&lt;T&gt;</code> ad vissza.
+Ezt a cellát létre is hozzuk és később fel is használjuk, előtte azonban létrehozzuk a <code>ContextMenu</code>-t és hozzáadjuk a két <code>MenuItem</code> objektumot, amelyeket szintén itt hoztunk létre.
+A gombok viselkedését később nézzük meg, most elég a többi részt értelmeznünk, ahhoz, hogy a context menüt meg tudjuk jeleníteni.
+Mivel egy <code>ListView</code> tartalmazhat több sort, mint amennyi tényleges <code>Phone</code> van benne így kezelnünk kell azt az esetet, ha az adott sor üres.
+A cella szövegét ettől tesszük függővé a <code>new When(cell.itemProperty().isNotNull()).then(cell.itemProperty().asString()).otherwise("");</code> kötés létrehozásával, mely kötés aktuális értékét hozzákötjük a cella <code>textProperty-kéhez</code>.</p>
+<p>Ezen felül csinálunk egy <code>ChangeListener</code>-t is, mely azt figyeli, hogy ha az adott cella értéke üres lesz akkor nem ad hozzá context menüt (<code>cell.setContextMenu(null);</code>), illetve ha van érték a sorban, akkor hozzáadja a context menüt.</p>
+<p>Végül visszaadjuk magát a <code>cell</code>-t.</p>
+<p>Ezután nézzük az eseménykezelőket!
+A legfontosabb, hogy tudnunk kell, hogy melyik soron kattintottunk a kontextus menü elemekre (melyik <code>Phone</code> objektumot szeretnénk módosítani vagy törölni).
+Ehhez a <code>cell.getItem()</code> metódus ad segítséget, mely visszaadja a cellához rendelt <code>Phone</code> objektumot.
+Kezdjük a törléssel, mert az egyszerűbb:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">deleteItem</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">contact</span><span class="p">.</span><span class="na">getPhones</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="na">getItem</span><span class="p">());</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel a <code>contact</code> mentésénél törlünk minden az adott contact-hoz rendelt <code>Phone</code>-t, majd utána a következőképpen mentjük a telefonszámokat: <code>contact.getPhones().forEach(...)</code>, így elegendő, ha a <code>contact.getPhones()</code> listából kitöröljük azt a <code>Phone</code>-t, amelynek cellájában a context menü törlést kiválasztottuk.
+Fontos látni, hogy ezen a ponton az adatbázisban semmit sem matattunk.</p>
+<p>A módosításhoz szükség lesz egy form-ra, melyet egy modális ablakban (nem lehet belőle kikattintani) szeretnénk megjeleníteni.
+Ezért itt hívjuk meg a <code>showPhoneDialog</code> metódust az adott <code>Phone</code> típusú paraméterrel!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">editItem</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Phone</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="na">getItem</span><span class="p">();</span>
+<span class="w">    </span><span class="n">showPhoneDialog</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Maga a <code>showPhoneDialog</code> a következőképpen néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showPhoneDialog</span><span class="p">(</span><span class="n">Phone</span><span class="w"> </span><span class="n">phone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stage</span><span class="p">();</span>
+<span class="w">    </span><span class="n">stage</span><span class="p">.</span><span class="na">initModality</span><span class="p">(</span><span class="n">Modality</span><span class="p">.</span><span class="na">APPLICATION_MODAL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="p">(</span><span class="n">getClass</span><span class="p">().</span><span class="na">getResource</span><span class="p">(</span><span class="s">&quot;/fxml/add_edit_phone.fxml&quot;</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Parent</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+<span class="w">        </span><span class="n">AddEditPhoneController</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">getController</span><span class="p">();</span>
+<span class="w">        </span><span class="n">controller</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">contact</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">));</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">();</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A kód nagy része megegyezik azzal amit az <code>App.loadFXML</code>-en belül megcsináltunk.
+Itt egy saját <code>Stage</code>-be szeretném belerakni a tartalmat, így a fenti megközelítést alkalmazom.
+Ami fontos, hogy a kontrolleren beállítjuk a <code>stage</code>, <code>phone</code> és <code>contact</code> objektumokat, mivel ezekre szükség lesz (később látjuk).</p>
+<div class="admonition question">
+<p class="admonition-title">Challenge</p>
+<p>Oldjuk meg úgy, hogy az eddigi hívásokat ne kelljen átírnunk, viszont legyen lehetőség arra is, hogy a fenti problémát kiküszöböljük.
+Az egyik probléma az, hogy van olyan eset, amikor műveleteket is szeretnénk elvégezni a controller-en, a másik egyszerűbb probléma, hogy mi legyen a <code>Stage</code>-el.</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>Az <code>App.java</code> a következőképpen változik:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="nf">loadFXML</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fxml</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">loadFXML</span><span class="p">(</span><span class="n">fxml</span><span class="p">,</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{});</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="nf">loadFXML</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fxml</span><span class="p">,</span><span class="w"> </span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">controllerOps</span><span class="p">){</span>
+<span class="w">    </span><span class="n">FXMLLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="p">(</span><span class="n">App</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">fxml</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Parent</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+<span class="w">        </span><span class="n">controllerOps</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">loader</span><span class="p">.</span><span class="na">getController</span><span class="p">());</span>
+<span class="w">        </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">loader</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ilyen módon sehol nem kell változtatnunk a meglévő <code>loadFXML</code> hívásokon, azonban a <code>showPhoneDialog</code>-on belül tudjuk a következőt csinálni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stage</span><span class="p">();</span>
+<span class="n">stage</span><span class="p">.</span><span class="na">initModality</span><span class="p">(</span><span class="n">Modality</span><span class="p">.</span><span class="na">APPLICATION_MODAL</span><span class="p">);</span>
+<span class="n">App</span><span class="p">.</span><span class="o">&lt;</span><span class="n">AddEditPhoneController</span><span class="o">&gt;</span><span class="n">loadFXML</span><span class="p">(</span><span class="s">&quot;/fxml/add_edit_phone.fxml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">controller</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">contact</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="n">stage</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Kössük be az Add gombhoz is a <code>showPhoneDialog</code>-ot (<code>onAction</code> legyen beállítva a gombon):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">...</span>
+<span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addNewPhone</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">showPhoneDialog</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">showPhoneDialog</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">showPhoneDialog</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Phone</span><span class="p">());</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezután hozzuk létre az <code>/fxml/add_edit_phone.fxml</code> állományt, illetve a hozzá tartozó <code>AddEditPhoneController</code>-t.
+Hozzuk is létre a controller-ben az init metódust:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AddEditPhoneController</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Initializable</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Phone</span><span class="w"> </span><span class="n">phone</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">Phone</span><span class="w"> </span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stage</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">phone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phone</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contact</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Miután ezzel megvagyunk, alakítsuk ki a következő felületet a SceneBuilder segítségével (itt is segít a bal oldali tree view):</p>
+<p><img alt="Add/Edit Phone" src="../../img/06/add_edit_phone.png" /></p>
+<p>Az FXML-hez tartozó, generált FXML kód a követkető:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="cp">&lt;?import javafx.geometry.*?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.*?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.layout.*?&gt;</span>
+
+<span class="nt">&lt;GridPane</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;400.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;600.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://javafx.com/javafx/11.0.1&quot;</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml/1&quot;</span><span class="w"> </span><span class="na">fx:controller=</span><span class="s">&quot;hu.alkfejl.controller.AddEditPhoneController&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;rowConstraints&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;RowConstraints</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentHeight=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;30.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/rowConstraints&gt;</span>
+<span class="w">   </span><span class="nt">&lt;columnConstraints&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ColumnConstraints</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentWidth=</span><span class="s">&quot;50.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ColumnConstraints</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">percentWidth=</span><span class="s">&quot;50.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/columnConstraints&gt;</span>
+<span class="w">   </span><span class="nt">&lt;children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Number&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;PhoneType&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;HBox</span><span class="w"> </span><span class="na">alignment=</span><span class="s">&quot;CENTER&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">spacing=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnSpan=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">         </span><span class="nt">&lt;children&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#onSave&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Save&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#onCancel&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Cancel&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/HBox&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;number&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ComboBox</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;phoneType&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;25.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;298.0&quot;</span><span class="w"> </span><span class="na">GridPane.columnIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">GridPane.rowIndex=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/children&gt;</span>
+<span class="w">   </span><span class="nt">&lt;padding&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Insets</span><span class="w"> </span><span class="na">bottom=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">left=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">right=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">top=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/padding&gt;</span>
+<span class="nt">&lt;/GridPane&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az egyetlen új vezérlő a <code>ComboBox</code>, melyet a <code>PhoneType</code>-nál alkalmazunk.
+Ezen a ponton ellenőrizhetjük, hogy megfelelően betölti-e az oldalt az alkalmazás (mind az Add és mind az Edit esetén).</p>
+<p>Ezután a controllerbe injektáljuk a szükséges grafikus vezérlő elemeket:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">ComboBox</span><span class="o">&lt;</span><span class="n">Phone</span><span class="p">.</span><span class="na">PhoneType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">phoneType</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>ComboBox</code> választható elemeinek a megadásához használjuk az <code>Initializable</code> interface <code>initialize</code> metódusát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">phoneType</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">setAll</span><span class="p">(</span><span class="n">Phone</span><span class="p">.</span><span class="na">PhoneType</span><span class="p">.</span><span class="na">values</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<p>Itt lekérjük az összes lehetséges enum értéket és ezt állítjuk be lenyíló doboznak.</p>
+<p>A korábban megírt <code>init</code> metódusban ezután a kapott <code>Phone</code> tulajdonságok alapján hozzuk létre a felületi kötéseket, hasonlóan mint ahogy azt a <code>Contact</code> esetében is megtettük:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">Phone</span><span class="w"> </span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stage</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">phone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phone</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contact</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">number</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">phone</span><span class="p">.</span><span class="na">numberProperty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">phoneType</span><span class="p">.</span><span class="na">valueProperty</span><span class="p">().</span><span class="na">bindBidirectional</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">phone</span><span class="p">.</span><span class="na">phoneTypeProperty</span><span class="p">());</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">phoneType</span><span class="p">.</span><span class="na">getSelectionModel</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">phoneType</span><span class="p">.</span><span class="na">getSelectionModel</span><span class="p">().</span><span class="na">selectFirst</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A kötések létrehozása után megvizsgáljuk, hogy az adott <code>Phone</code>-hoz tartozik-e <code>phoneType</code> (kötés miatt ezt látjuk már), amennyiben nem akkor egy új telefonról van szó és ilyen esetben az első lehetséges opciót választjuk ki az enum értékei közül.</p>
+<p>A felületen elhelyezett <code>Cancel</code> gomb hatására az init-ben beállított stage-et fogom bezárni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCancel</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">stage</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>Save</code> egy kicsit fura felépítésű lesz:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSave</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">contact</span><span class="p">.</span><span class="na">getPhones</span><span class="p">().</span><span class="na">remove</span><span class="p">(</span><span class="n">phone</span><span class="p">);</span>
+<span class="w">    </span><span class="n">contact</span><span class="p">.</span><span class="na">getPhones</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">phone</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stage</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A törlés és utána hozzáadás ugyanarra az objektumra redundánsnak tűnik, de mivel ez felelős a hozzáadás és a módosításért is, így van létjogosultsága (új elem esetén nyilván nem tudja kitörölni, csak hozzáadni).</p>
+<h2 id="ellenorzesek-es-kiegeszitesek">Ellenőrzések és kiegészítések<a class="headerlink" href="#ellenorzesek-es-kiegeszitesek" title="Permanent link">&para;</a></h2>
+<p>Az első egy apró kiegészítés a kontakt törléshez, mivel a kontakthoz rendelt telefonszámokat nem töröltük ki.
+A megerősítés után ezt megtehetjük a következőképpen:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Alert</span><span class="w"> </span><span class="n">confirm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Alert</span><span class="p">(</span><span class="n">Alert</span><span class="p">.</span><span class="na">AlertType</span><span class="p">.</span><span class="na">CONFIRMATION</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Are you sure you want to delete contact: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">YES</span><span class="p">,</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">NO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">confirm</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">buttonType</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">buttonType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">ButtonType</span><span class="p">.</span><span class="na">YES</span><span class="p">)){</span>
+<span class="w">            </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">  </span><span class="c1">// hozzuk létre a phoneDAO fieldet is!</span>
+<span class="w">            </span><span class="n">dao</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="contact-ellenorzesek">Contact ellenőrzések<a class="headerlink" href="#contact-ellenorzesek" title="Permanent link">&para;</a></h3>
+<p>Ezután végezzünk el a kötelező elemek megadásának ellenőrzését az <code>AddEditContactController</code>-ben:
+Először is le szeretnénk tiltani a gombot (nem lehet megnyomni), addig amíg van érvénytelen adat.
+Helyezzük el a két <code>Label</code>-t a felületen, ahova a hibaüzeneteket fogjuk írni, illetve injektáljuk is ezeket a controllerbe:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">saveBtn</span><span class="p">;</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">nameErrors</span><span class="p">;</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">emailErrors</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az <code>initialize</code> metódust ezután a következőképpen módosítjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">saveBtn</span><span class="p">.</span><span class="na">disableProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="na">or</span><span class="p">(</span><span class="n">email</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">or</span><span class="p">(</span><span class="n">dateOfBirth</span><span class="p">.</span><span class="na">valueProperty</span><span class="p">().</span><span class="na">isNull</span><span class="p">())));</span>
+
+<span class="n">name</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">addListener</span><span class="p">((</span><span class="n">observable</span><span class="p">,</span><span class="w"> </span><span class="n">oldValue</span><span class="p">,</span><span class="w"> </span><span class="n">newValue</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">newValue</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">newValue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">nameErrors</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Name is required&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">nameErrors</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="n">email</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">addListener</span><span class="p">((</span><span class="n">observable</span><span class="p">,</span><span class="w"> </span><span class="n">oldValue</span><span class="p">,</span><span class="w"> </span><span class="n">newValue</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">newValue</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">newValue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">emailErrors</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Email is required&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="n">emailErrors</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span><span class="w">      </span>
+</code></pre></div></td></tr></table></div>
+<p>Így, a gomb egészen addig <code>disabled</code> állapotban lesz, ameddig vagy a name vagy az email vagy a születési dátum üres/null.
+Az egyes hibajelző <code>Label</code>-ek értékét <code>ChangeListener</code>-ek alapján állítjuk be.</p>
+<h3 id="kereses-a-kontaktok-listajaban">Keresés a kontaktok listájában<a class="headerlink" href="#kereses-a-kontaktok-listajaban" title="Permanent link">&para;</a></h3>
+<p>Először alakítsuk ki a felületi vezérlőket a <code>main_window.fxml</code> oldalon.
+A <code>BorderPane</code> bal oldali eleméhez adjuk hozzá a következőket:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;BorderPane</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;400.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;600.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://javafx.com/javafx/11.0.1&quot;</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml/1&quot;</span><span class="w"> </span><span class="na">fx:controller=</span><span class="s">&quot;hu.alkfejl.controller.MainWindowController&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span>...
+<span class="w">   </span><span class="nt">&lt;left&gt;</span>
+<span class="w">      </span><span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">spacing=</span><span class="s">&quot;10.0&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;200.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;100.0&quot;</span><span class="w"> </span><span class="na">BorderPane.alignment=</span><span class="s">&quot;CENTER&quot;</span><span class="nt">&gt;</span>
+<span class="w">         </span><span class="nt">&lt;children&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Search by Name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;nameSearch&quot;</span><span class="w"> </span><span class="na">onKeyReleased=</span><span class="s">&quot;#onSearch&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Search by Email&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;emailSearch&quot;</span><span class="w"> </span><span class="na">onKeyReleased=</span><span class="s">&quot;#onSearch&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="nt">&lt;/children&gt;&lt;/VBox&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/left&gt;</span>
+<span class="nt">&lt;/BorderPane&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>MainWindowController</code>-en belül injektáljuk a két <code>TextField</code> objektumot, majd készítsük el az <code>onSearch</code> metódust.
+Jelen esetben nem adatázisműveletként valósítjuk meg a keresést (bár valós környezetben így volna szép), hanem a lekért teljes listát filterezzük.
+Emiatt a <code>refreshTable</code>-t módosítjuk úgy, hogy a kontaktok listáját egy field-ben áltároljuk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="n">all</span><span class="p">;</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">nameSearch</span><span class="p">;</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">TextField</span><span class="w"> </span><span class="n">emailSearch</span><span class="p">;</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">refreshTable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">contactTable</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">setAll</span><span class="p">(</span><span class="n">all</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSearch</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">contact</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">contact</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="n">nameSearch</span><span class="p">.</span><span class="na">getText</span><span class="p">())</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">contact</span><span class="p">.</span><span class="na">getEmail</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="n">emailSearch</span><span class="p">.</span><span class="na">getText</span><span class="p">())).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">    </span><span class="n">contactTable</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">setAll</span><span class="p">(</span><span class="n">filtered</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Az <code>onSearch</code>-ön belül Stream API-t használunk az elemek szűréséhez, majd ezt állítjuk be a táblázat elemeiként.</p>
+<h2 id="videok">Videók<a class="headerlink" href="#videok" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://youtu.be/rBlzkJFerFQ">Contacts projekt 3.</a></li>
+<li><a href="https://youtu.be/uXnsSN_EFb4">Contacts projekt 4.</a></li>
+</ul>
+<h2 id="gyakorlo-projekt-pizzazas">Gyakorló Projekt - Pizzázás<a class="headerlink" href="#gyakorlo-projekt-pizzazas" title="Permanent link">&para;</a></h2>
+<p>A feladat egy pizzanyilvántartó program elkészítése Java nyelven, amely követi az MVC modellt. A programnak a következő funkcionalitásokat kell támogatnia.</p>
+<h3 id="pizza-felvetele">Pizza felvétele<a class="headerlink" href="#pizza-felvetele" title="Permanent link">&para;</a></h3>
+<p>A programnak támogatnia kell a pizza felvételét, ahol a következő adatokat kell felvennie:</p>
+<ul>
+<li>Pizza neve, ami szövegesen adható meg</li>
+<li>Pizza leírása, ami tartalmazza, hogy milyen összetevői vannak a pizzának</li>
+<li>Vegetáriánus jelző (<em>Checkbox</em>)</li>
+<li>És végül az ára, ami egy egész szám (<em>Spinner, Slider</em>)</li>
+</ul>
+<p>Megszorítások, követelmények:</p>
+<ul>
+<li>A pizza beszúrásakor kapjon egy egyedi azonosítót.</li>
+<li>A sikeres beszúráskor egy ablak jelenjen meg, amely megmondja a beszúrt pizza sorszámát.</li>
+<li>A rendszer nem tárolhat két ugyanolyan nevű pizzát. Ha ugyanolyan nevű pizzát akarunk beszúrni, akkor a rendszer adjon hibaüzenetet (de ne zárja be a beviteli ablakot).</li>
+</ul>
+<p><img alt="AF-pizza-felvetel" src="../../img/06/AF-pizza-felvetel.png" /></p>
+<p><img alt="AF-pizza-felvetel-sb" src="../../img/06/AF-pizza-felvetel-sb.png" /></p>
+<h3 id="pizzak-listazasa">Pizzák listázása<a class="headerlink" href="#pizzak-listazasa" title="Permanent link">&para;</a></h3>
+<p>A programnak támogatnia kell a pizzák listázását. Nem kell, hogy automatikusan történjen, elegendő valamilyen funkcionalitást biztosítani erre.</p>
+<p><img alt="AF-pizza-lista" src="../../img/06/AF-pizza-lista.png" /></p>
+<h3 id="pizza-rendeles">Pizza rendelés<a class="headerlink" href="#pizza-rendeles" title="Permanent link">&para;</a></h3>
+<p>A programnak támogatni kell a pizza rendelést is. Ez azt jelenti, hogy a felhasználó kiválaszthatja, hogy milyen pizzát szeretne rendelni, mekkora méretűt, hány darabot, és akkor megrendelheti.</p>
+<ul>
+<li>A pizzát kiválasztani a legördülő menü segítségével lehet, ahol az összes elérhető pizza közül lehet választani.<ul>
+<li>A kiválasztott pizza tulajdonságai jelenjen meg alatta.</li>
+</ul>
+</li>
+<li>A kicsi pizza 20%-kal olcsóbb, mint a normál méretű, míg a nagy 20%-kal drágább.</li>
+</ul>
+<p><img alt="AF-pizza-rendeles" src="../../img/06/AF-pizza-rendeles.png" /></p>
+<h2 id="tipushibak">Típushibák<a class="headerlink" href="#tipushibak" title="Permanent link">&para;</a></h2>
+<h3 id="forditasi-hibak">Fordítási hibák<a class="headerlink" href="#forditasi-hibak" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Nem implementált örökölt metódus</li>
+<li>Absztrakt osztály példányosítása</li>
+<li>FXML<ul>
+<li>Rossz osztály van megadva</li>
+<li>@FXML annotáció hiánya</li>
+<li>Rossz az FXML fájl útvonala</li>
+</ul>
+</li>
+<li>Rossz import: <code>javafx.valami</code> helyett  például <code>java.awt.valami</code></li>
+<li>Örökölt metódus láthatósága csökken</li>
+</ul>
+<h3 id="futasi-hibak">Futási hibák<a class="headerlink" href="#futasi-hibak" title="Permanent link">&para;</a></h3>
+<h4 id="adatbazis-dao">Adatbázis, DAO<a class="headerlink" href="#adatbazis-dao" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Rossz az SQL parancs, ami létrehozza a kapcsolatot az adatbázis felé</li>
+<li><code>getConnection("jdbc:sqlite:" + DBFILE);</code> helyett<ul>
+<li><code>getConnection("jdbc:sqlite" + DBFILE);</code></li>
+<li><code>getConnection("jdbc:sqlite: + DBFILE");</code></li>
+<li><code>getConnection("jdbc.sqlite:" + DBFILE);</code></li>
+</ul>
+</li>
+<li><code>INSERT INTO Pizza (Nev, Leiras, Vega, Ar) VALUES (?, ?, ?, ?)</code> hibás<ul>
+<li>Hibás táblanév, mezővés</li>
+<li><code>VALUES</code> helyett <code>VALUE</code></li>
+</ul>
+</li>
+<li><code>PreparedStatement</code> esetében a <code>setXXX</code> esetében az indexelésnek 1-től kell indulnia, és nem 0-tól</li>
+<li>A DAO-ban Adatbázis fájl rosszul van megadva</li>
+</ul>
+<h4 id="view">View<a class="headerlink" href="#view" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Rosszul összerakott GUI</li>
+<li>Egy elem kétszer is előfordul a fában</li>
+</ul>
+<h3 id="logikai-hibak">Logikai hibák<a class="headerlink" href="#logikai-hibak" title="Permanent link">&para;</a></h3>
+<p>Olyan hibák, amelyek nem vezetnek futási hibához, de nem jól működik a program</p>
+<ul>
+<li>A DAO vagy Controller esetében az interfésznek kell lennie a statikus típusnak, és a konkrét megvalósítás a dinamikus típus</li>
+<li>DAO-ban a list esetében nem töröljük a listát, mielőtt ismét feltöltenénk</li>
+<li><code>ConstructTable</code> többszöri meghívása (plusz oszlopok lesznek minden hívásnál)</li>
+<li>Rossz képletek, inicializálatlan értékek, objektumok</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-03-19 07:29:57</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../../js/main.js"></script>
+      
+    
+  </body>
+</html>

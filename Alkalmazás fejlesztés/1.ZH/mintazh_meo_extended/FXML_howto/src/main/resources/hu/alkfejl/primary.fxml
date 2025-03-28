@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.view.PrimaryViewController">
+   <children>
+      <fx:include source="common/menu.fxml" />
+      <Label layoutX="209.0" layoutY="192.0">Welcome to my application!</Label>
+   </children>
+</AnchorPane>

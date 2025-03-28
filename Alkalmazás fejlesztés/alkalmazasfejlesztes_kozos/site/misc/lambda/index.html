@@ -1,0 +1,1914 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../generics/index.html">
+      
+      
+        <link rel="next" href="../troubleshoot/index.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>Extra - Lambda kifejezések - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut-a-lambdakhoz" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extra - Lambda kifejezések
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Extra - Lambda kifejezések
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./index.html" class="md-nav__link md-nav__link--active">
+        Extra - Lambda kifejezések
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anonymous-osztalyok" class="md-nav__link">
+    Anonymous osztályok
+  </a>
+  
+    <nav class="md-nav" aria-label="Anonymous osztályok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-osztalyok-deklaracioja" class="md-nav__link">
+    Anonymous osztályok deklarációja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osztalybovites" class="md-nav__link">
+    Osztálybővítés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kulonbsegek-a-hagyomanyos-es-az-anonim-osztalyok-kozott" class="md-nav__link">
+    Különbségek a hagyományos és az anonim osztályok között
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valtozok-elerese-anonymous-inner-classbol" class="md-nav__link">
+    Változók elérése anonymous inner classból
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#megszoritasok" class="md-nav__link">
+    Megszorítások
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-kifejezesek" class="md-nav__link">
+    Lambda kifejezések
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda kifejezések">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javautilfunction-csomag-legfontosabb-elemei" class="md-nav__link">
+    java.util.function csomag legfontosabb elemei
+  </a>
+  
+    <nav class="md-nav" aria-label="java.util.function csomag legfontosabb elemei">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unaryoperator" class="md-nav__link">
+    UnaryOperator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate" class="md-nav__link">
+    Predicate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparator" class="md-nav__link">
+    Comparator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-ok" class="md-nav__link">
+    Scope-ok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-refernces" class="md-nav__link">
+    Method refernces
+  </a>
+  
+    <nav class="md-nav" aria-label="Method refernces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attekintes" class="md-nav__link">
+    Áttekintés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-method-reference-statikus-metodus-referencia" class="md-nav__link">
+    Static method reference (Statikus metódus referencia)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstruktor-referenciak" class="md-nav__link">
+    Konstruktor referenciák
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-method-of-an-object-of-a-particular-type" class="md-nav__link">
+    Instance method of an object of a particular type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-method-of-a-particular-object-egy-adott-tipusu-objektum-egy-metodusara" class="md-nav__link">
+    Instance method of a particular object (egy adott típusú objektum egy metódusára)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practice-metodus-referenciak" class="md-nav__link">
+    Best practice - metódus referenciák
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anonymous-osztalyok" class="md-nav__link">
+    Anonymous osztályok
+  </a>
+  
+    <nav class="md-nav" aria-label="Anonymous osztályok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-osztalyok-deklaracioja" class="md-nav__link">
+    Anonymous osztályok deklarációja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osztalybovites" class="md-nav__link">
+    Osztálybővítés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kulonbsegek-a-hagyomanyos-es-az-anonim-osztalyok-kozott" class="md-nav__link">
+    Különbségek a hagyományos és az anonim osztályok között
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valtozok-elerese-anonymous-inner-classbol" class="md-nav__link">
+    Változók elérése anonymous inner classból
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#megszoritasok" class="md-nav__link">
+    Megszorítások
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-kifejezesek" class="md-nav__link">
+    Lambda kifejezések
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda kifejezések">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javautilfunction-csomag-legfontosabb-elemei" class="md-nav__link">
+    java.util.function csomag legfontosabb elemei
+  </a>
+  
+    <nav class="md-nav" aria-label="java.util.function csomag legfontosabb elemei">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consumer" class="md-nav__link">
+    Consumer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unaryoperator" class="md-nav__link">
+    UnaryOperator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicate" class="md-nav__link">
+    Predicate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparator" class="md-nav__link">
+    Comparator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    Function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-ok" class="md-nav__link">
+    Scope-ok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-refernces" class="md-nav__link">
+    Method refernces
+  </a>
+  
+    <nav class="md-nav" aria-label="Method refernces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attekintes" class="md-nav__link">
+    Áttekintés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-method-reference-statikus-metodus-referencia" class="md-nav__link">
+    Static method reference (Statikus metódus referencia)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstruktor-referenciak" class="md-nav__link">
+    Konstruktor referenciák
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-method-of-an-object-of-a-particular-type" class="md-nav__link">
+    Instance method of an object of a particular type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-method-of-a-particular-object-egy-adott-tipusu-objektum-egy-metodusara" class="md-nav__link">
+    Instance method of a particular object (egy adott típusú objektum egy metódusára)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practice-metodus-referenciak" class="md-nav__link">
+    Best practice - metódus referenciák
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ut-a-lambdakhoz">Út a lambdákhoz<a class="headerlink" href="#ut-a-lambdakhoz" title="Permanent link">&para;</a></h1>
+<p>Ez a leírás egy általános bevezetőt ad a Java 8-ban megjelent lambda kifejezésekhez.
+A jegyzet bizonyos pontjain kitérünk a JavaFX kapcsolódási pontokra is, de a megállapítások általánosak érvényűek.</p>
+<h2 id="anonymous-osztalyok">Anonymous osztályok<a class="headerlink" href="#anonymous-osztalyok" title="Permanent link">&para;</a></h2>
+<p>Az egyik fő kiváltó oka, hogy léteznek lambda kifejezések, az anonim osztályok létezése.
+Gyorsan ismételjük át ennek alapjait!</p>
+<p>Alapvetően az anonim osztályok azt a célt szolgálják, hogy tömörebben írhassuk a programjainkat.
+Segítségükkel egy időben tudunk <strong>deklarálni</strong> egy osztályt és ebből <strong>példányosítani</strong> is egy objektumot.
+Tekinthetőek lokális osztálynak (mint egy lokális változó, csak ez osztály), aminek nincs neve.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Akkor használjunk anonim inner class-okat, ha csak ott helyben, egyszer lesz rá szükségünk, máskülönben csináljunk egy külön osztályt!</p>
+</div>
+<h3 id="anonymous-osztalyok-deklaracioja">Anonymous osztályok deklarációja<a class="headerlink" href="#anonymous-osztalyok-deklaracioja" title="Permanent link">&para;</a></h3>
+<p>Fontos, hogy az anonim osztályok <strong>kifejezések</strong> lesznek amikor létrehozzuk őket és nem pedig osztály deklarációk (nem kell példányosítani, mivel az is megtörténik).</p>
+<p>Példa: Legyen egy interface-ünk, melyet <code>Hello</code>-nak hívunk és legyen egy <code>sayHi</code> metódusa! </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span> <span class="nc">Hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHi</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezt az interface-t valósítsa meg egy standart osztálydeklaráció!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">EnglishHello</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Hello</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// implemented</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w">            </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezután ebből az osztályból tudunk példányosítani egy objektumot!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Hello</span><span class="w"> </span><span class="n">english</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EnglishHello</span><span class="p">();</span>
+<span class="n">english</span><span class="p">.</span><span class="na">sayHi</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>Nézzük, hogy ananymous módon, hogyan tehetném meg ezt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Hello</span><span class="w"> </span><span class="n">german</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hello</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// implemented</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hallo Welt!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Ebben az esetben olyan mintha egy konstruktort hívnék meg, de mivel interface-t nem lehet példányosítani (a Hello-t) ez így nem elegendő, kell egy blokkot is nyitnom, ahol az interface által előírt metódusokat kell kifejtenem (jelen esetben ez csak a <code>sayHi</code>).
+Még egyszer hangsúlyozom, hogy itt kvázi egy osztálydefiníciót adtam meg, de ehhez csak egy kifejezést használtam (ez egy utasítás része: látszik is, hogy egy pontosvessző van a kapcsos után), magát egy anonim inner class-t.</p>
+<p>Nézzünk egy életszerűbb példát!
+Új szálak létrehozása egy remek példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">MyThread</span><span class="w">  </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="c1">//Anonymous Inner class </span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(){</span><span class="w"> </span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Child Thread&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="na">start</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Main Thread&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>A példában létrehozunk egy új futtatható szálat, melynek implementálnia kell a <code>Runnable</code> interface-t és itt alkalmazzuk az anonim inner class-t.
+Ezután elindítjuk a szálat.</p>
+<p>Másik tipikus használat a GUI alkalmazásokban.
+Például az alábbi JavaFX kódrészlet a <code>btn</code> gombhoz rendel egy eseménykezelőt, mely azt eredményezi, hogy a gomb megnyomásakor kiírjuk a <code>Hello World</code> üzenetet a konzolra.
+A gomb eseménykezelőknek az <code>EventHandler&lt;ActionEvent&gt;</code> interface-t kell megvalósítani.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">();</span>
+<span class="n">btn</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Say &#39;Hello World&#39;&quot;</span><span class="p">);</span>
+
+<span class="n">btn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EventHandler</span><span class="o">&lt;</span><span class="n">ActionEvent</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">ActionEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="osztalybovites">Osztálybővítés<a class="headerlink" href="#osztalybovites" title="Permanent link">&para;</a></h3>
+<p>Az interface-ek megvalósítása mellett az anonim osztályokat használhatjuk úgy, mintha osztályokból származnánk.
+A módja ugyanaz, mint amikor interfészt implementálunk, de a <code>new XXX(){...}</code> kifejezésben az <code>XXX</code> nem interfész, hanem egy <strong>osztály</strong>!</p>
+<p>Az egyszerű <code>sayHi</code> példa ilyen módon így nézne ki.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Sample</span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">class</span> <span class="nc">Hello</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHi</span><span class="p">(){</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">Sring</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+
+<span class="w">        </span><span class="n">Hello</span><span class="w"> </span><span class="n">customHello</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hello</span><span class="p">(){</span>
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hallo Welt&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="n">customHello</span><span class="p">.</span><span class="na">sayHi</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ebben az esetben egy meglévő osztályt terjesztünk ki (konkrétan <code>extends</code>), és itt felülírjuk a <code>sayHi()</code> metódusát.</p>
+<p>Valós helyzetben ezt használhatjuk a <code>TableView</code>-nál, amikor egy oszlop celláit egyedi módon szeretnénk megjeleníteni.
+Az alábbi kódban az oszlop összes cellájában a <code>FooBar</code> szöveg fog megjelenni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">TableColumn</span><span class="o">&lt;</span><span class="n">Foobar</span><span class="p">,</span><span class="w"> </span><span class="n">Void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TableColumn</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;Header&quot;</span><span class="p">);</span>
+<span class="n">col</span><span class="p">.</span><span class="na">setCellFactory</span><span class="p">(</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TableCell</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateItem</span><span class="p">(</span><span class="n">Void</span><span class="w"> </span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">updateItem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">empty</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">setGraphic</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">setGraphic</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;FooBar&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="kulonbsegek-a-hagyomanyos-es-az-anonim-osztalyok-kozott">Különbségek a hagyományos és az anonim osztályok között<a class="headerlink" href="#kulonbsegek-a-hagyomanyos-es-az-anonim-osztalyok-kozott" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Egy normál osztály akármennyi interface-t implementálhat, de egy anonim inner class csak egyet (ez a megadás módjából is jön)</li>
+<li>Az anonim inner class vagy egy interfészt implementálhat vagy egy osztályt terjeszthet ki, de egyszerre mindkettőt nem.</li>
+<li>A reguláris osztályoknak akármennyi konstruktora lehet, viszont az anonim osztályokhoz nem tudunk írni konstruktort, mivel annak neve meg kéne egyezzen az osztály nevével, de ebben az esetben nincs neve. Helyette lehet használni például a példány <a href="https://www.geeksforgeeks.org/g-fact-26-the-initializer-block-in-java/index.html">inicializáló blokkot</a>, mely minden példány létrehozásakor lefut.</li>
+</ul>
+<h3 id="valtozok-elerese-anonymous-inner-classbol">Változók elérése anonymous inner classból<a class="headerlink" href="#valtozok-elerese-anonymous-inner-classbol" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Az anonymous inner class hozzáfér a befoglaló osztály adattagjaihoz</li>
+<li>A befoglaló blokkon belül csak a final lokális változókhoz fér hozzá</li>
+<li>A anonim osztályon belüli változódeklarációk elfedik az ugyanolyan nevű befoglaló blokkban található változókat</li>
+</ul>
+<h3 id="megszoritasok">Megszorítások<a class="headerlink" href="#megszoritasok" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Nem használhatunk <a href="https://www.geeksforgeeks.org/g-fact-79/index.html">statikus inicializáló</a> blokkot</li>
+<li>Statikus adattagokból csak konstansokat használhatunk</li>
+</ul>
+<p>További források:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html">Oracle docs</a></li>
+<li><a href="https://www.geeksforgeeks.org/anonymous-inner-class-java/index.html">GeeksForGeeks</a></li>
+</ul>
+<h2 id="lambda-kifejezesek">Lambda kifejezések<a class="headerlink" href="#lambda-kifejezesek" title="Permanent link">&para;</a></h2>
+<p>Most, hogy már rendberaktuk az anonim inner classokat, ráfordulhatunk magukra a lambda kifejezésekre.</p>
+<p>A lambda kifejezéseket akkor tudjuk használni, amikor egy anonymous inner class-t használunk interfészen, és ott csak egy metódust kell kifejtenünk, azaz az interface csak egy metódust tartalmaz.
+Az ilyen interface-eket hívják <strong>functional interface</strong>-nek.
+Például ilyen a <code>java.lang.Runnable</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FunctionalInterface</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Az 1.8-as JDK-ban ezeket az interface-eket el is látják a <code>FunctionalInterface</code> annotációval, bár ez inkább csak jelzés értékű. Ha az interface ténylegesen csak egy absztrakt metódussal rendelkezik, akkor <code>FunctionalInterface</code> lesz akkor is, ha ez nincs annotálva.</p>
+<p>A lambda expression-ök ilyen interface-ek implementálásakor jöhetnek jól, mivel automatikusan implementálják a functional interface abstract metódusát.
+Nézzünk is egy példát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span> <span class="nc">FuncInterface</span><span class="w"> </span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">abstractFun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
+
+<span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="c1">// by default implements abstractFun() </span>
+<span class="w">        </span><span class="n">FuncInterface</span><span class="w"> </span><span class="n">fobj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">-&gt;</span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="p">};</span><span class="w"> </span>
+
+<span class="w">        </span><span class="n">fobj</span><span class="p">.</span><span class="na">abstractFun</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában amikor deklaráljuk az <code>fobj</code>-t, akkor annak egy lambda expression-t adunk értékül (itt nagy szerepet kap az úgynevezett <a href="https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html">Type Inferencer</a>, azaz a típuskikövetkeztető motor).
+Mivel tudjuk, hogy a bal oldalon egy FuncInterface-t kell kapnunk ezért az értékadás jobb oldalán is ilyen típusú elemnek kell lennie.
+Mivel ott egy lambda kifejezést találunk, ezért azt megpróbálja a rendszer ráhúzni erre az interface-re, azaz a lambda kifejezésnek illeszkednie kell az <code>abstractFun()</code> metódus fejlécéhez (void visszatérés, egy int paraméter).
+Elemezzük a kifejezést!
+A lambda kifejezések általános alakja: <strong><code>(params)-&gt;{függvénytörzs}</code></strong>.
+A lambda kifejezés egy az egyben felfogható úgy, mint egy függvény, aminek a paraméterei a kerek zároljelek között vannak, illetve a törzse a kapcsos zárójelek között van.</p>
+<p><strong>A fenti példa leírható tömörebben is, mivel egy paraméter esetében elhagyhatom a kerek zárójeleket, de 0 paraméter esetében az üres zárójelpárost ki kell írnom, illetve egy utasítás esetén elhagyhatom a törzset körülölelő kapcsos zárójelpárost</strong>
+Továbbá, mivel azt is ismerem, hogy az <code>abstractFun</code>-nak milyen típusú paraméteri vannak, így a paraméter típusokat sem kell kiírnom.
+Tehát a fenti lambda kifejezés tömörebben:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FuncInterface</span><span class="w"> </span><span class="n">fobj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A könnyebb megértés végett a fenti példa Anonymous Inner Class megvalósítással:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FuncInterface</span><span class="w"> </span><span class="n">fobj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FuncInterface</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">abstractFun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">fobj</span><span class="p">.</span><span class="na">abstractFun</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c1">//prints out: 10</span>
+</code></pre></div></td></tr></table></div>
+<p>Látható, hogy a lambda kifejezések sokkal tömörebb írásmódot tesznek lehetővé, továbbá a lambdák előnyei:</p>
+<ul>
+<li>viselkedést (függvényt) adhatunk át paraméterként, a kódot adatként tudjuk kezelni</li>
+<li>az így létrehozott függvényeknek nem kell egyik osztályhoz sem tartozniuk</li>
+<li>objektumként passzolhatjuk a függvényeket a rendszerben és szükség esetén meg lehet őket hívni</li>
+</ul>
+<p>Lambda expression-ök használatát a JDK széleskörűen támogatja.
+A következő példában hozzunk létre egy <code>ArrayList</code>-et, melyet feltöltünk elemekkel, majd listázzuk ki az elemeket(<code>System.out.println</code>-el).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span>
+<span class="w">        </span><span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="n">arr</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">        </span><span class="c1">// összes elem</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span><span class="p">));</span><span class="w">   </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>A legtöbb kollekcióban az 1.8-as JDK óta szerepel a <code>forEach</code> metódus, mely végigmegy a kollekció elemein és meghívja minden elemre a paraméterül kapott függvényt.
+A forEach a következőt várja: <code>Consumer&lt;T&gt; action</code>.
+Ne ijedjünk meg tőle, ő is csak egy simpla functional interface, melynek egy abstract metódusa, az <code>accept</code> egy <code>T</code> típusú paramétert vár és nincs visszatérési értéke.
+Azért kell generikusnak lenni, mert maga a listánk is generikus, tehát egy Integer-eket tartalmazó lista elemeire csak olyan függvényt hívhatunk meg, ami egy Integer-t kap paraméterül.</p>
+<details class="question">
+<summary>A fenti példa alapján írjunk olyan <code>forEach</code>-et a tömbhöz, mely csak a páros számokat írja ki a konzolra!</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">arr</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Felfedezések</p>
+<p>Nézzünk körül, hogy a listákon milyen lambda expression-t paraméterül váró metódusok jelentek még meg az 1.8-as JDK-ban.</p>
+</div>
+<p>Mielőtt a következő feladatot megoldjuk még egy fontos dolgot kell észrevennünk és elraktároznunk elménkben.
+Amikor az interface-nek van visszatérése, de a lambda expression-ben csak egy utasításunk van, akkor annak az egy utasításnak (expression-nek) az értékét (típusát) adjuk vissza eredményül.
+Amennyiben az interface void-ot ad vissza, akkor viszont nem fog a lambda expression törzse sem visszadni semmit.
+Amennyiben a lambda törzsében több utasítás található akkor mindig ki kell írnunk a return kulcsszót is, kivéve ha void visszatérést ír elő a functional interface!</p>
+<details class="question">
+<summary>Írjunk egy functional interface-t, amelynek egy <code>double apply(double a, double b)</code> abstract metódusa van! Az interface neve legyen <code>BasicOperator</code>! Ezt az inteface-t rakjuk egy osztályon belülre, mely osztálynak legyen egy <code>double doCalc(double a, double b, BasicOperator op)</code> metódusa, amely belül meghívja a paraméterül kapott függvényt a két megkapott paraméterre. A main-en belül hívjuk meg a <code>doCalc</code>-ot a 4 alapműveletre (2-t helyben adjunk meg paraméterként, kettőre pedig csináljunk referenciát és csak a refernciát adjuk a <code>doCalc</code>-nak)!</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="nd">@FunctionalInterface</span>
+<span class="w">        </span><span class="kd">interface</span> <span class="nc">BasicOperator</span><span class="p">{</span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">doCalc</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">BasicOperator</span><span class="w"> </span><span class="n">op</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">BasicOperator</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">            </span><span class="n">BasicOperator</span><span class="w"> </span><span class="n">subtract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">));</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; - &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="n">subtract</span><span class="p">));</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; * &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="w">  </span><span class="p">));</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; / &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="w">  </span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="question">
+<summary>Most, hogy megcsináltuk a saját functional interface-ünket, gondolkozzunk el azon, hogy vajon beépített lehetőségünk van-e ugyanerre? Nézzük meg, hogy a <code>java.util.function</code> package-ben milyen megoldások vannak erre! A megoldás csak az összeadásra mutat példát, mivel a többire is hasonlóan alkalmazható.</summary>
+<p>Az egyik opció a <code>DoubleBinaryOperator</code> functional interface használata, ami két double paramétert vár és egy double-t ad vissza:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">doCalc</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">DoubleBinaryOperator</span><span class="w"> </span><span class="n">op</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="na">applyAsDouble</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">DoubleBinaryOperator</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A következő megoldásunk lehet az általánosabb <code>BinaryOperator&lt;T&gt;</code> használata, mely két <code>T</code> típusú paramétert vár és <code>T</code> típussal tér vissza:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">doCalc</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">BinaryOperator</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">op</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+<span class="w">            </span><span class="n">BinaryOperator</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Mivel a <code>BinaryOperator&lt;T&gt;</code> interface a <code>BiFunction&lt;T,U,R&gt;</code> interface egy specializált változata, ezért ez utóbbival is megcsinálhatjuk ugyanezt, bár ez nem a legszebb (viszont általánosabb helyzetekben jól jöhet):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">doCalc</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">op</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
+<span class="w">            </span><span class="n">BiFunction</span><span class="o">&lt;</span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="s">&quot; + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doCalc</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="n">num2</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+</details>
+<h3 id="javautilfunction-csomag-legfontosabb-elemei">java.util.function csomag legfontosabb elemei<a class="headerlink" href="#javautilfunction-csomag-legfontosabb-elemei" title="Permanent link">&para;</a></h3>
+<p>Ebben a fejezetben bemutatjuk a legfontosabb beépített functional interface-eket, melyekkel gyakran találkozhatunk.</p>
+<h4 id="consumer">Consumer<a class="headerlink" href="#consumer" title="Permanent link">&para;</a></h4>
+<p>A <code>Consumer</code> az egyik leggyakrabban használt elem.
+Például az összes <code>Iterable</code> kollekcióban megtalálható <code>forEach</code> metódus egy ilyen <code>Consumer</code> funkcionális interfész megvalósítást vár.</p>
+<p><em>Paraméterek</em>: Egy darab T generikus típusú paraméter</p>
+<p><em>Visszatérés</em>: Nincs</p>
+<p><em>Példa</em>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mf">20.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">42.0</span><span class="p">);</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="n">numbers</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">printer</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="unaryoperator">UnaryOperator<a class="headerlink" href="#unaryoperator" title="Permanent link">&para;</a></h4>
+<p>Egy paraméteren elvégzett műveletet reprezenzál.</p>
+<p><em>Paraméterek</em>: Egy darab T generikus típusú paraméter</p>
+<p><em>Visszatérés</em>: T típusú eredmény</p>
+<p><em>Példa</em>: A listákon hívhatunk egy <code>replaceAll</code> metódust, mely a lista minden elemére meghívja a megadott függvényt. Az alábbi példában minden számnak az abszolút értékét számítja ki.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mf">20.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">42.0</span><span class="p">);</span>
+<span class="n">UnaryOperator</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">abs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="n">numbers</span><span class="p">.</span><span class="na">replaceAll</span><span class="p">(</span><span class="n">abs</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="predicate">Predicate<a class="headerlink" href="#predicate" title="Permanent link">&para;</a></h4>
+<p>Valamilyen feltétel eldöntésére használható.</p>
+<p><em>Paraméterek</em>: Egy darab T generikus típusú paraméter</p>
+<p><em>Visszatérés</em>: Nincs</p>
+<p><em>Példa</em>: A kollekciókban megtalálható egy <code>removeIf</code> metódus, mely a kollekcióból kiveszi az összes olyan elemet, melyre a predikátumot alkalmazva, az igazat adja vissza. A lenti példa a eltávolítja a páros számokat a listából.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">isEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">numbers</span><span class="p">.</span><span class="na">removeIf</span><span class="p">(</span><span class="n">isEven</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="comparator">Comparator<a class="headerlink" href="#comparator" title="Permanent link">&para;</a></h4>
+<p>A <code>Comparator</code> egy jó példa arra, hogy a régebbi funkcionális interfészekkel is gond nélkül használhatjuk a lambda kifejezéseket.
+A <code>Comparator</code> interface Java 1.2 óta jelen van és az általános rendező algoritmusok pl.: (<code>Collections.sort</code>) masszívan támaszkodnak rá.</p>
+<p><em>Paraméterek</em>: Két darab T generikus típusú paraméter</p>
+<p><em>Visszatérés</em>: int, ahol a visszatérés azt jelzi, hogy a két paraméter az összehasonlítás szempontjából milyen viszonyban állnak.
+- &lt; 0: az első paraméter a rendezésben előrébb kerül
+- = 0: a két paraméter ugyanolyan
+- &gt; 0: a második paraméter kerül előrébb a rendezésben</p>
+<p><em>Példa</em>: Szeretnénk egy Double lista elemeit a szinuszaik alapján sorba rendezni:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mf">20.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">23.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">42.0</span><span class="p">);</span>
+
+<span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sinComp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="p">,</span><span class="w"> </span><span class="n">num2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">num2</span><span class="p">)){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">num2</span><span class="p">)){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="n">numbers</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">sinComp</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="function">Function<a class="headerlink" href="#function" title="Permanent link">&para;</a></h4>
+<p>Hasonló a <code>UnaryOperator</code>-hoz, azonban ez utóbbi ugyanolyan típusú értéket ad vissza, mint amilyen típusú a paraméter.
+A <code>Function</code> ezzel szemben lazább feltételrendszert fogalmaz meg, mivel nem kell, hogy ugyanolyan típussal térjünk vissza.</p>
+<p><em>Paraméterek</em>: Egy darab T generikus típusú paraméter</p>
+<p><em>Visszatérés</em>: Egy darab R generikus típusú paraméter</p>
+<p><em>Példa</em>: A Map osztály biztosítja a <code>computeIfAbsent</code> metódust, mely visszaadja a Map-ből a kulcshoz tartozó értéket, ugyanakkor ha a kulcs még nem létezik a Map-ben, akkor létrehozza azt a megadott <code>Function</code> segítségével. A példában a map String-ekhez tárolja el azok hosszát.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lenFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="n">Integer</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">computeIfAbsent</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lenFunc</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="scope-ok">Scope-ok<a class="headerlink" href="#scope-ok" title="Permanent link">&para;</a></h3>
+<p>A lambda expression-ökre hasonló elemek vonatkoznak, mint az anonim inner classokra, azonban van néhány fontos különbség.
+<strong>Amikor anonymous inner class-t használunk, akkor az egy új scope-ot jelent.</strong>
+Ebbe a scope-ba rakhatunk a megvalósításhoz tartozó field-eket, használhatjuk a <strong>this</strong> kulcsszót is, amely ilyenkor az inner class példányára vonatkozik.
+A lambda kifejezések scope-ja viszont a befoglaló scope-ra korlátozódik.
+<strong>Nem tudunk field-eket létrehozni a lambda kifejezésben, csak lokális változókat, illetve a this a befoglaló példányra vonatkozik (például, ha a Test osztály foo metódusában használok egy lambdát akkor a this a Test osztály objektumára vonatkozik).</strong></p>
+<h3 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ahogy már korábbi feladatban is láttuk a <code>java.util.function</code> package-ben található functional interface-ekkel kiválthattuk saját interface írását. Ennek megfelelően <strong>használjunk standard functional interface-eket!</strong></li>
+<li>Saját functional interface-ek írásakor, <strong>használjuk a <code>@FucntionalInterface</code></strong> annotációt. Ez biztosíthatja, hogy később nem bővíti senki az interface-t úgy, hogy az elveszíti functional interface jellegét.</li>
+<li>Inner classok helyett használjunk lambda expression-t ott ahol lehet.</li>
+<li>Próbáljunk elkerülni az olyan metódusok túlterhelését (overload), amik functional interface-t várnak paraméterül:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Processor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProcessorImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Processor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nd">@Override</span>
+<span class="w">      </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// implementation details</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="nd">@Override</span>
+<span class="w">      </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// implementation details</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+  Első ránézésre ez jó ötlet lehet, de amint használni akarjuk a <code>process</code>-t akkor nem tudja eldönteni a rendszer, hogy melyik functional interface-re akarjuk hívni, így ezt csak "csúnyán tudjuk megtenni":
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processor</span><span class="p">.</span><span class="na">process</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// helytelen</span>
+
+
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processor</span><span class="p">.</span><span class="na">process</span><span class="p">((</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// helyes, de nem szép</span>
+</code></pre></div></td></tr></table></div></li>
+<li>A lambdáink legyenek minél rövidebbek és érthetőek (ha kell akkor szervezzük ki a bennük található kódot metódusokba)</li>
+<li>Kerüljük a lambda kifejezésekben a paraméterek típusának kiírását</li>
+<li>Egy paraméter esetében hagyjuk el a befoglaló kerek zárójeleket</li>
+<li>Egy utasítás esetében ne írjunk kapcsos zárójeleket, illetve <code>return</code> utasítást</li>
+</ul>
+<p>További haladó best practice-eket találhatunk <a href="https://www.baeldung.com/java-8-lambda-expressions-tips">itt</a>.</p>
+<h2 id="method-refernces">Method refernces<a class="headerlink" href="#method-refernces" title="Permanent link">&para;</a></h2>
+<p>A method reference témakör szorosan kapcsolódik a lambdákhoz, így érdemes lehet ezeket is megismernünk.</p>
+<h3 id="attekintes">Áttekintés<a class="headerlink" href="#attekintes" title="Permanent link">&para;</a></h3>
+<p>A <strong>method reference egy speciális lambda kifejezésként értelmezhető</strong>.
+Arra használjuk, hogy egyszerű lambda kifejezések helyett létező metódusokra hivatkozzunk és ezeket használjuk fel.
+Például az alábbi lambda kifejezés</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>megadható a következő metódus refernciával is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Vegyük észre a <code>::</code> operátort!
+Használatakor a <code>::</code> elé megy az objektum vagy osztály neve, utána pedig magának a metódusnak a neve paraméterek nélkül (magukat a kerek zárójeleket sem kell kirakni hiszen azt híváskor használjuk).</p>
+<p>A metódus referenciát elnézve az alábbi kérdések merülhetnek fel bennünk:</p>
+<ul>
+<li>Ez most miért lenne szebb mintha lambdát használunk?</li>
+<li>Mi történik a metódus argumentumaival?</li>
+<li>Miért lehet ez egy valid kifejezés?</li>
+<li>Hogyan konstruálhatok valid metódus referenciát?</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">A metódus referenciákat csak ott alkalmazhatjuk, ahol a lambda kifejezések egy darab függvényhívást tartalmaznak. Például a fenti lambda, csak egy <code>System.out.println</code> hívást tartalmazott.</p>
+</div>
+<p>Ezek alapján a következő megállapítást tehetjük:</p>
+<ul>
+<li>Anonim osztályok helyett használhatunk lambda expression-t, ha a megvalósítandó interface-nek egy abstract metódusa van</li>
+<li>Lambda kifejezés helyett használhatunk method reference-t, ha a lambda kifejezés csak egy metódushívást tartalmaz</li>
+</ul>
+<p>4 féle method reference létezik, aszerint, hogy mire fogjuk a referenciát. Mivel elég nehéz magyarra fordítani ezeket, így angol megnevezésüket is használjuk:</p>
+<ul>
+<li>static method reference (statikus metódus referencia)</li>
+<li>constructor method reference (konstruktor referencia)</li>
+<li>instance method of an object of a particular type (egy adott típusú objektum egy metódusára)</li>
+<li>instance method of a particular object (egy objektum metódusára referencia)</li>
+</ul>
+<h3 id="static-method-reference-statikus-metodus-referencia">Static method reference (Statikus metódus referencia)<a class="headerlink" href="#static-method-reference-statikus-metodus-referencia" title="Permanent link">&para;</a></h3>
+<p>A lambda kifejezés, melyet jelen esetben metódus referenciára cserélhetünk az alábbi formát követi:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="na">staticMethod</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Ez metódus referenciával a következőképpen írható:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">Class</span><span class="p">::</span><span class="n">staticMethod</span>
+</code></pre></div></td></tr></table></div>
+<p>A metódus referenciáknál a <code>::</code> operátort használjuk az osztály neve és az osztálymetódus között nem pedig a '.' operátort.
+Ezen felül az argumentumokat elhagyjuk (magukat a kerek zárójeleket is).</p>
+<p>Nézzünk egy faladatot a könnyebb megértés végett!
+A feladat, hogy egy listában lévő számoknak vegyük az abszolútértékét!
+A listán való végigiterálásra már láttuk a <code>forEach</code>-et, viszont ez nem módosítja a lista elemeit, mely a <code>Consumer&lt;T&gt;</code> funkcionális interface megvalósításából adódik, hiszen az void-ot ad vissza.
+A <code>forEach</code> helyett ilyen esetekben használhatjuk a <code>replaceAll</code> metódust, mely egy <code>UnaryOperator&lt;T&gt;</code> funkcionális interface megvalósítást vár.
+A <code>UnaryOperator</code> egy paramétert vár és ugyanolyan típusú a visszatérése, mint a paramétere.
+Erre a sémára illeszkedik a <code>Math.abs</code> függvény mindegyik megvalósítása (külön van minden primitív típusra, ami számot reprezentál).
+Nézzük a megoldást!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="hll"><span class="n">numbers</span><span class="p">.</span><span class="na">replaceAll</span><span class="p">(</span><span class="n">Math</span><span class="p">::</span><span class="n">abs</span><span class="p">);</span>
+</span>
+<span class="n">numbers</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A megoldásban a második sorban van a lényeg.
+A statikus metódus referenciáknál a <code>::</code> operátort kell minden esetben használnunk, melynek jelentése a fenti példában: a <code>Math</code> osztályon belüli <code>abs</code> metódus referenciáját szeretném.
+A fenti lényegi sor lambda megfelelője a következő volna: <code>numbers.replaceAll( n -&gt; Math.abs(n))</code>.</p>
+<p>A paramétereket nem kell átadnunk, azok a színpad mögött automatikusan átadódnak, amikor ténylegesen meghívódik a metódus.
+A fenti példában a <code>Math.abs</code>-ról tudjuk, hogy egy darab paramétert vár és ugyanolyan típusú a visszatérése mint a paraméter.
+Ez pedig pontosan illeszkedik a <code>UnaryOperator</code> által előrtakra.
+Segíthet a megértésben, ha megnézzük, hogy a replaceAll metódus belül, hogyan használja fel a paraméterben kapott <code>UnaryOperator</code> megvalósítást.</p>
+<details class="question">
+<summary>Készítsünk egy saját statikus függvényt, mely double-t vár és double-t ad vissza és a következőt számolja ki: a számot megszorozza 3-mal, majd hozzáad 42-t és gyököt von ezen a részeredményen. Ezt afüggvényt hívjuk meg egy lista összes elemére!</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">myOp</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">num</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">((</span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w"> </span><span class="mf">40.0</span><span class="p">);</span>
+<span class="w">            </span><span class="n">numbers</span><span class="p">.</span><span class="na">replaceAll</span><span class="p">(</span><span class="n">Test</span><span class="p">::</span><span class="n">myOp</span><span class="p">);</span>
+<span class="w">            </span><span class="n">numbers</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="konstruktor-referenciak">Konstruktor referenciák<a class="headerlink" href="#konstruktor-referenciak" title="Permanent link">&para;</a></h3>
+<p>Ebben az esetben a lambda kifejezés, melyet le szeretnénk cserélni a következő formájú:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassName</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>ebből metódus referencia a következő formában néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">ClassName</span><span class="p">::</span><span class="k">new</span>
+</code></pre></div></td></tr></table></div>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Using a method reference</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="k">new</span><span class="p">;</span>
+<span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// új integer létrehozása</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="instance-method-of-an-object-of-a-particular-type">Instance method of an object of a particular type<a class="headerlink" href="#instance-method-of-an-object-of-a-particular-type" title="Permanent link">&para;</a></h3>
+<p>Ebben az esetben a kiváltandó lambda kifejezésünk a következő formájú:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">instanceMethod</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>ahol paraméterül egy objektumot adunk át, melynek valamelyik metódusát hívjuk meg a megadott paraméterrel (paraméterekkel).
+Ez a következőképpen néz ki metódus referencia használatával:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">ObjectType</span><span class="p">::</span><span class="n">instanceMethod</span>
+</code></pre></div></td></tr></table></div>
+<p>Ez a transzformáció már nem annyira triviális, mivel nem az objektumot, hanem annak típusát adjuk át.
+Továbbá a második paraméter a színfalak mögött kerül átadásra.</p>
+<p>Vegyük a következő példát:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">stringArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;Barbara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;James&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mary&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;John&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Patricia&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Robert&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Michael&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Linda&quot;</span><span class="w"> </span><span class="p">};</span>
+<span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">stringArray</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">compareToIgnoreCase</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+A <code>compareToIgnoreCase</code> egy példánymetódus, melynek fejléce a következő formájú: <code>int compareToIgnoreCase(String str)</code>.
+A fenti példában a sort egy <code>Comparator&lt;String&gt;</code>-t vár, ami viszont a következő formájú <code>int compare(String o1, String o2);</code>.
+A metódus referenciánk eredményeképpen az első paraméter lesz maga az objektum, a második a paraméterül kapott String.</p>
+<h3 id="instance-method-of-a-particular-object-egy-adott-tipusu-objektum-egy-metodusara">Instance method of a particular object (egy adott típusú objektum egy metódusára)<a class="headerlink" href="#instance-method-of-a-particular-object-egy-adott-tipusu-objektum-egy-metodusara" title="Permanent link">&para;</a></h3>
+<p>Ebben az esetben a kiváltandó lambda kifejezésünk a következő formájú:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">instanceMethod</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Ennek a metódus reference formája a következő lesz:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">obj</span><span class="p">::</span><span class="n">instanceMethod</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">ComparisonProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareByName</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareByAge</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getBirthday</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">getBirthday</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">ComparisonProvider</span><span class="w"> </span><span class="n">myComparisonProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ComparisonProvider</span><span class="p">();</span>
+<span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">rosterAsArray</span><span class="p">,</span><span class="w"> </span><span class="n">myComparisonProvider</span><span class="p">::</span><span class="n">compareByName</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="best-practice-metodus-referenciak">Best practice - metódus referenciák<a class="headerlink" href="#best-practice-metodus-referenciak" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ahol lehet a lambdák helyett használjunk metódus referenciákat</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2020-04-07 09:19:08</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../../js/main.js"></script>
+      
+    
+  </body>
+</html>

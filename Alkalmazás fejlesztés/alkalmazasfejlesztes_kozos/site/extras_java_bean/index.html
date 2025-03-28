@@ -1,0 +1,1587 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>Érdekességek Java Beanekhez - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#erdekessegek-java-beanekhez" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Érdekességek Java Beanekhez
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mik-a-property-k" class="md-nav__link">
+    Mik a Property-k?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mik-azok-a-kotesek-azaz-binding-ok" class="md-nav__link">
+    Mik azok a kötések, azaz Binding-ok?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javabeans-api-tamogatas-kotesekhez" class="md-nav__link">
+    JavaBeans API támogatás kötésekhez
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-k-hasznalata-javafx-ben" class="md-nav__link">
+    Property-k használata JavaFX-ben
+  </a>
+  
+    <nav class="md-nav" aria-label="Property-k használata JavaFX-ben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lusta-inicializalas" class="md-nav__link">
+    Lusta inicializálás
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#property-hierarchia" class="md-nav__link">
+    Property hierarchia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kotesek-hasznalata-javafx-ben" class="md-nav__link">
+    Kötések használata JavaFX-ben
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-api" class="md-nav__link">
+    Binding API
+  </a>
+  
+    <nav class="md-nav" aria-label="Binding API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magas-szintu-binding-api" class="md-nav__link">
+    Magas szintű Binding API
+  </a>
+  
+    <nav class="md-nav" aria-label="Magas szintű Binding API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluent-api" class="md-nav__link">
+    Fluent API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extrak" class="md-nav__link">
+    Extrák
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alacsony-szintu-binding-api" class="md-nav__link">
+    Alacsony szintű Binding API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osszegzes" class="md-nav__link">
+    Összegzés
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feladatok" class="md-nav__link">
+    Feladatok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#videok" class="md-nav__link">
+    Videók
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="erdekessegek-java-beanekhez">Érdekességek Java Beanekhez<a class="headerlink" href="#erdekessegek-java-beanekhez" title="Permanent link">&para;</a></h1>
+<p>A következőkben megismerkedünk a JavaFX <strong>Property</strong>-kkel.</p>
+<h2 id="mik-a-property-k">Mik a Property-k?<a class="headerlink" href="#mik-a-property-k" title="Permanent link">&para;</a></h2>
+<p>Egy Java osztály kétféle member-t tartalmazhat:</p>
+<ul>
+<li>field-eket</li>
+<li>metódusokat</li>
+</ul>
+<p>Egy osztály field-jei meghatározzák majd az osztályból készített objektumok állapotát, mely állapotot általában elrejtünk (<code>private</code> field-eket használunk).
+A private field-ek kiolvasását és beállítását/módosítását publikus metódusokon keresztül végezzük, melyeket <strong>accessorok</strong>-nak (getter és setter) nevezünk.
+Általánosságában, az olyan osztályokat, melyek hozzáférést engednek a private field-jeikhez publikus accessor-okon keresztül, továbbá van publikus paraméter nélküli konstruktoruk, illetve szerializálhatóak <strong>Java Bean</strong>-eknek nevezzük.
+A Java Bean-ek accessor-ai egyben definiálják a Bean property-jeit is.
+Attól függően, hogy milyen publikus accessor-ok vannak megadva egy Java Bean-hez beszélhetünk</p>
+<ul>
+<li>Csak olvasható</li>
+<li>Csak írható</li>
+<li>Olvasható és Írható</li>
+</ul>
+<p>property-kről is.</p>
+<p>Példa olvasható/írható property-re:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ebben a példában a property neve: <code>name</code>.</p>
+<p>A Java Bean-ek egyik nagy előnye, hogy külső alkalmazások könnyen felhasználhatják őket.
+Ezen felül egy-egy property megfigyelhetővé (<code>Observable</code>) tehető, azaz másik feliratkozhatnak a property változásának eseményére, mely alapján automatikus műveleteket végezhetnek el.</p>
+<p>A fenti példában használt <strong>egyszerű</strong> <code>name</code> property mellett léteznek további property típusok is:</p>
+<ul>
+<li><strong>indexed</strong> property: Property-k egy listája, melyeken belül index-ekkel érünk el egy-egy property-t.</li>
+<li><strong>bound</strong> property: Olyan property, mely képes értesíteni az értékének változásáról a feliratkozókat</li>
+<li><strong>constrained</strong> property: Egy olyan speciális változata a bound property-nek, melynek során az eseménykezelő képes megvétózni egy-egy változtatást.</li>
+</ul>
+<h2 id="mik-azok-a-kotesek-azaz-binding-ok">Mik azok a kötések, azaz Binding-ok?<a class="headerlink" href="#mik-azok-a-kotesek-azaz-binding-ok" title="Permanent link">&para;</a></h2>
+<p>A programozásban sokszor használjuk a binding megnevezést, de jelen esetben az adatkötésekről (Data Binding) lesz szó.
+Az adatkötés során adatok közötti kapcsolatokat definiálunk (általában változók között), mely segítségével a frissítések során biztosítsuk a szinkronizációt.
+Példaként vegyük a következőt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Erre az értékadásra tekinthetünk úgy, mint egy adatkötésre, hiszen <code>x</code> értéke <strong>függ</strong> <code>y</code> és <code>z</code> értékétől.
+Azonban fontos, hogy az értékadásnak mi az időbelisége.
+Amennyiben az <code>y</code> értékéét módosítom az értékadás után, akkor x értéke nem fog frissülni.
+Sok esetben azt szeretnénk, hogy egy hosszabb idejű kötés jöjjön létre, melynek során, ha módosul valamilyen tényező (változóérték), akkor a változás kihatással legyen a függő értékre is.
+A fentiek alapján megkülönböztetünk <strong>függő értéket</strong> (dependant), illetve annak <strong>függőségeit</strong> (dependencies).</p>
+<p>Az adatkötéseket többféleképpen is csoportosíthatjuk.
+Egyrészt az adatkötés <strong>kiértékelési stratégiája</strong> szerint lehet:</p>
+<ul>
+<li><strong>eager binding</strong>: a függőségek módosításakor azonnal újrakalkuláljuk a függő értéket</li>
+<li><strong>lazy binding</strong>: csak a következő kiolvasáskor frissítjük az értéket (hiszen többször is módosulhatnak a függőségek addig, amig egyáltalán szükségünk lesz a függő értékre)</li>
+</ul>
+<p>Másrészt a függőségek <strong>irányát</strong> tekintve beszélhetünk:</p>
+<ul>
+<li><strong>egyirányú</strong> (unidirectional): Egyirányú, azaz a függőségekben bekövetkező változások kihatással vannak a függő értékre, de fordítva nem igaz </li>
+<li><strong>kétirányú</strong> (bidirectional): Oda-vissza irányuló függőség esetén általában két változó közötti adatszinkronizációt értünk (pl.: <code>Person</code> objektum <code>name</code> property-je függ egy <code>TextField</code> aktuális értékétől).</li>
+</ul>
+<h2 id="javabeans-api-tamogatas-kotesekhez">JavaBeans API támogatás kötésekhez<a class="headerlink" href="#javabeans-api-tamogatas-kotesekhez" title="Permanent link">&para;</a></h2>
+<p>A JavaBeans API már régóta ad támogatást az adatkötésekhez, mely során a két legfontosabb osztály:</p>
+<ul>
+<li><code>java.beans.PropertyChangeListener</code></li>
+<li><code>java.beans.PropertyChangeSupport</code></li>
+</ul>
+<p>Tekintsük meg a <code>Person</code> bean osztály kiegészítését:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PropertyChangeSupport</span><span class="w"> </span><span class="n">pcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PropertyChangeSupport</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">newName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">oldName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newName</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Notify the registered listeners about the change</span>
+<span class="w">        </span><span class="n">pcs</span><span class="p">.</span><span class="na">firePropertyChange</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">oldName</span><span class="p">,</span><span class="w"> </span><span class="n">newName</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addPropertyChangeListener</span><span class="p">(</span><span class="n">PropertyChangeListener</span><span class="w"> </span><span class="n">listener</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pcs</span><span class="p">.</span><span class="na">addPropertyChangeListener</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removePropertyChangeListener</span><span class="p">(</span><span class="n">PropertyChangeListener</span><span class="w"> </span><span class="n">listener</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pcs</span><span class="p">.</span><span class="na">removePropertyChangeListener</span><span class="p">(</span><span class="n">listener</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A példában szereplő <code>name</code> property olvasható és írható is, továbbá egy <em>bound</em> property, mivel módosítás során értesítést küld a feliratkozott eseménykezelőknek a módosítás tényéről a <code>pcs.firePropertyChange("name", oldName, newName);</code> hívás segítségével.
+Az érdeklődők a két megadott metódus segítségével tudnak fel- illetve leiratkozni az eseményről (<code>addPropertyChangeListener</code> és <code>removePropertyChangeListener</code>).
+A változtatások detektáláshoz készítsünk egy osztályt, melyben ki is használjuk a fenti lehetőségeket!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Kiss Béla&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Add a property change listener</span>
+<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">addPropertyChangeListener</span><span class="p">(</span><span class="n">Main</span><span class="p">::</span><span class="n">handlePropertyChange</span><span class="p">);</span>
+<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Dr. Kiss Béla&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handlePropertyChange</span><span class="p">(</span><span class="n">PropertyChangeEvent</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">propertyName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getPropertyName</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">propertyName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Name has changed. &quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Old:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getOldValue</span><span class="p">());</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;, New:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getNewValue</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>main</code>-ben létrehozunk egy <code>Person</code> objektumot, majd feliratkoztatjuk a statikus metódusunkat a <code>PropertyChangeEvent</code>-ekre.
+Amikor átállítjuk a <code>Person</code> objektum <code>name</code> property-jét, akkor a setter belül meghívja a <code>pcs.firePropertyChange("name", oldName, newName);</code> metódust, mely értesíti az összes feliratkozót, és ennek eredményeképpen kiírjuk a régi és új értékeket a konzolra.</p>
+<h2 id="property-k-hasznalata-javafx-ben">Property-k használata JavaFX-ben<a class="headerlink" href="#property-k-hasznalata-javafx-ben" title="Permanent link">&para;</a></h2>
+<p>Az előzőleg bemutatott technika az alacsonyszintű Java Beans API-t használta a változások automatikus detektálására.
+A JavaFX egy szinttel feljebb lép és komplexebb, rugalmasabb lehetőségeket nyújt a számunkra.
+Az automatikus változtatás detektáláshoz a legtöbbször az <a href="https://en.wikipedia.org/wiki/Observer_pattern">Observer</a> tervezési mintát alkalmazzák (többek között eseménykezeléseknél is).
+JavaFX-ben az összes property automatikusan <code>Observable</code> is lesz, mely segítségével automatikusan detektálhatjuk, ha az adott property értéke invaliddá válik (változott egy függőségének értéke), illetve azt is ha az értéke megváltozott.</p>
+<p>A JavaFX-ben használatos property-k lehetnek csak olvasható, illetve olvasható/írható property-k.
+Az olvasható/írható property-k teljes mértékben támogatják az adatkötést, csak olvasható esetben viszont az adott property nem függhet mástól, de tőle függhetnek.</p>
+<p>JavaFX-ben a különböző típusú property-khez különböző property osztályok tartoznak, melyek egy hierarchiát alkotnak.
+Például a <code>StringProperty</code>, <code>DoubleProperty</code>, <code>IntegerProperty</code> rendre a <code>String</code>, <code>double</code> és az <code>int</code> típusokhoz tartozó property osztályok.
+Az előbbiek mind-mind absztrakt osztályok, melyek két megvalósítással rendelkeznek.
+Egy megvalósítás az olvasható/írható viselkedéshez, egy pedig a csak olvasható viselkedéshez.
+Például a <code>SimpleDoubleProperty</code> osztály használható olvasható/írható property-khez, illetve a <code>ReadOnlyDoubleProperty</code> a csak olvasható <code>double</code> property-khez.</p>
+<p>Az alábbi példa egy <code>int</code> property-t deklarál, melynek kezdőértékét 42-re állítja:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">IntegerProperty</span><span class="w"> </span><span class="n">intProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A property osztályokhoz kétféle <code>getter</code> és <code>setter</code> tartozik:</p>
+<ul>
+<li><code>get()</code> és <code>set()</code>: primitív típusokkal operálnak</li>
+<li><code>getValue()</code> és <code>setValue()</code>: objektumokkal operálnak</li>
+</ul>
+<p>A csak olvasható property-kkel való munka egy kicsit trükkösebb.
+A <code>ReadOnlyXXXWrapper</code> osztály belül két property-t tárol: egy olvasható/írhatót és egy csak olvashatót is.
+Ezek a property-k folyamatosan szinkronban vannak.
+A <code>ReadOnlyXXXProperty</code> típusú property-t a Wrapper-től kell elkérnünk a <code>getReadOnlyProperty()</code> metódushívással.
+Lássunk egy pici példát is!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ReadOnlyIntegerWrapper</span><span class="w"> </span><span class="n">intWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReadOnlyIntegerWrapper</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">ReadOnlyIntegerProperty</span><span class="w"> </span><span class="n">intProp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intWrapper</span><span class="p">.</span><span class="na">getReadOnlyProperty</span><span class="p">();</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intWrapper:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intWrapper</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intProp:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intProp</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+
+<span class="c1">// Change the value</span>
+<span class="n">idWrapper</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intWrapper:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intWrapper</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intProp:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">intProp</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példa alapján sejthető, hogy amennyiben a Wrapper-t publikusan kiengednénk, akkor nem lenne semmi értelme, mert ugyanúgy módosítható lenne a property értéke.
+Ezért a Wrapper-t általában private field-ként használjuk egy-egy osztályon belül és csak a <code>ReadOnlyXXXProperty</code>-t tesszük publikusan elérhetővé.</p>
+<p>A következő egyszerű (csak egy értéket tároló) típusokhoz használhatunk property osztályokat:</p>
+<ul>
+<li>int</li>
+<li>long</li>
+<li>float</li>
+<li>double</li>
+<li>boolean</li>
+<li>String</li>
+<li>Object</li>
+</ul>
+<p>Egy-egy property a következő információkat tárolja:</p>
+<ul>
+<li>Referencia a bean objektumra, amely őt tárolja</li>
+<li>A property nevét</li>
+<li>A property értékét</li>
+</ul>
+<p>Ez alapján találhatunk konstruktorokat is az adott property-khez, melyekből a legteljesebb peraméterlistával rendelkező a következőképpen néz ki (példában int-re, de általánosan érvényes ez a szabály):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">StringProperty</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleStringProperty</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dr. Kiss Béla&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A property-k nem mindig tartoznak bean-hez, így beszélhetünk egyedülálló (standalone) property-kről.
+Ilyenkor a konstruktorban a bean-t állíthatjuk <code>null</code>-ra.
+Amennyiben az értékeket nem adjuk meg, akkor numerikus értékek esetében 0 lesz az érték, boolean-ra <code>false</code>, továbbá a referencia típusok a <code>null</code> értéket veszik fel.
+Amennyiben a property nevét nem állítjuk be, akkor annak neve egy üres string lesz.</p>
+<p>A property objektumoktól a <code>getBean()</code> és a <code>getName()</code> metódusokkal kérhetjük el a tartalmazó bean referenciáját, illetve a property nevét (a <code>get()</code> és <code>getValue()</code> használatával pedig az értéket, ahogy azt korábban láttuk már).</p>
+<p>Ezek után írjuk újra a <code>Person</code> osztályt úgy, hogy a sima String helyett StringProperty-t használ.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">StringProperty</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleStringProperty</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;John Doe&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">StringProperty</span><span class="w"> </span><span class="nf">nameProperty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában láthatjuk, hogy az accessorok, hogyan módosulnak a property megadásoknak megfelelően.
+Erre azért van szükség, mert továbbra is szeretnénk, hogy a rendszerünk működjön (3rd party alkalmazások is használhatják a rendszerünket esetlegesen).
+Azzal, hogy az accessorokat megtartjuk nem okozunk breaking change-t, viszont nyerünk egy hatalmasat, mivel kihasználhatjuk a property-k előnyeit.</p>
+<h3 id="lusta-inicializalas">Lusta inicializálás<a class="headerlink" href="#lusta-inicializalas" title="Permanent link">&para;</a></h3>
+<p>A property-k előnye némi hátránnyal is jár.
+A primitív típusok kevesebb memóriát esznek, viszont butábbak is.
+Amennyiben egy nagy rendszerünk van, akkor a feltehetőleg ritkábban használt property-ket érdemes lehet lustán inicializálni, ami egy kis plusz kóddal jár, viszont cserébe nyerhetünk egy ki memóriát.
+A lusta inicializálást akkor érdemes használni, ha az adott property értéke legtöbbször egy alapértelmezett értéket vesz fel vagy legtöbbször nem használja ki az adatkötés adta lehetőségeket.</p>
+<p>Vegyünk például egy <code>Monitor</code> osztályt, melyben a monitor típusát is tároljuk.
+Mivel a típusa legtöbbször "flat" lesz, így ezt felhasználhatjuk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Monitor</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DEFAULT_SCREEN_TYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;flat&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">StringProperty</span><span class="w"> </span><span class="n">screenType</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getScreenType</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">screenType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">DEFAULT_SCREEN_TYPE</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">screenType</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setScreenType</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">newScreenType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">screenType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">DEFAULT_SCREEN_TYPE</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">newScreenType</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">screenTypeProperty</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">newScreenType</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">StringProperty</span><span class="w"> </span><span class="nf">screenTypeProperty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">screenType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">screenType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleStringProperty</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;screenType&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DEFAULT_SCREEN_TYPE</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">screenType</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában megadjuk az alapértelmezett értéket, illetve tárolunk egy referenciát magára a <code>StringProperty</code>-re.
+Azonban a property-t csak abban az esetben hozzuk létre ténylegesen, amikor valaki ténylegesen szeretné a <code>StringProperty</code> típusú objektumot használni (pl.: adatkötés létrehozásához).
+A getter egészen addig csak a default értéket adja vissza ameddig a default értéken nem változtatunk.
+Amint egy olyan setter hívás történik, amikor nem a default értéket akarja beállítani a felhasználó, akkor létrejön maga a property is (<code>screenTypeProperty().set(newScreenType);</code> hívás eredményeképpen).</p>
+<p>A fenti példában nem nyerünk olyan sokat, de például a primitív típusoknál eljárhatunk úgy, hogy egészen addig egy primitív típusban tároljuk az értéket, ameddig magát a property-t nem kéri el valaki.</p>
+<h2 id="property-hierarchia">Property hierarchia<a class="headerlink" href="#property-hierarchia" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Property hierarchia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Property Class Hierarchy" src="../img/04/property_class_hierarchy.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>A hierarchia legtetején az <code>Observable</code> interfész áll, mely valamilyen adatot becsomagol és képes értesítéseket küldeni, amikor a tartalmazott adat invaliddá válik.
+Ezekre az eseményekre <code>InvalidationListener</code>-ekkel tudunk feliratkozni, melyek értesülnek az eseményről.
+Fontos, hogy ha egyszer a tartalom invaliddá vált, akkor a következőkben nem generálódik új esemény, így minimalizálva a rendszerben létrejövő események számát.
+Az adat újraszámolása után ismét validdá válik.</p>
+<div class="admonition important">
+<p class="admonition-title">Fontos</p>
+<p>JavaFX-ben minden property egyben <code>Observable</code> is!</p>
+</div>
+<p>Az invalid állapotba lépés nem feltétlenül egyezik meg az adat megváltozásával.
+Például egy <code>ObservableList&lt;T&gt;</code> rendezése során az értékek nem változnak benne, viszont invaliddá válik.
+Ez a megkülönböztetés fontos, mivel a kétféle esemény eltérően viszonyul az azonnali (eager) és lusta (lazy) kiértékeléshez.
+Amikor az adat invaliddá válik, akkor lusta kiértékelés esetén nem számoljuk újra az értékét csak akkor amikor legközelebb használni szeretnénk az adatot.
+Mivel az adat változásáról (<code>ChangeListener</code>-el kezelhetjük) csak akkor tudunk nyilatkozni, ha újraszámoljuk annak értékét, így az nem támogatja a lusta kiértékelést.
+Ezt a fajta megkülönböztetést már az <code>ObservableValue&lt;T&gt;</code> interfész adja számunkra, azaz annyival tud többet az <code>Observable</code>-höz képest, hogy tud értesítéseket küldeni a tárolt érték változásáról, melyet egy <code>ChangeListener</code>-el kezelhetünk.
+A property-kben használt <code>T getValue();</code> metódus az <code>ObservableValue&lt;T&gt;</code> interfészből jön.
+Egy <code>ChangeListener&lt;T&gt;</code> rendelkezik a <code>changed()</code> metódussal, mely megkapja paraméterül a referenciát az <code>ObservableValue&lt;T&gt;</code>-re, illetve a régi és új értékeket.</p>
+<div class="admonition important">
+<p class="admonition-title">Fontos</p>
+<p>Az <code>InvalidationListener</code>-ek használata optimálisabb lehet, mivel így használhatunk lusta kiértékelést.
+Amennyiben viszont az <code>InvalidationListener</code>-en belül szükségünk van az értékre, akkor az olvasási művelet végső soron úgyis triggerelne egy újraszámolást, tehát ilyen esetben használjunk <code>ChangeListener</code>-t!</p>
+</div>
+<p>A <code>ReadOnlyProperty&lt;T&gt;</code> interfész tovább bővíti az <code>ObservableValue&lt;T&gt;</code> interfészt és általános vázat ad az összes olvasható property számára, mellyel így már lekérdezhetjük a tartalmazó bean-t (<code>Object getBean()</code>) és a property nevét (<code>String getName()</code>).</p>
+<p>Az osztály hierarchiából látszik, hogy a teljes értékű <code>Property&lt;T&gt;</code> property-k az írással/adat módosítással kapcsolatos műveleteit a <code>WritableValue&lt;T&gt;</code> interfészből kapják.
+Maga a <code>Property&lt;T&gt;</code> interfész hozza be az adatkötés támogatását a következő metódusok támogatásával:</p>
+<ul>
+<li><code>void bind(ObservableValue&lt;? extends T&gt; observable)</code></li>
+<li><code>void unbind()</code></li>
+<li><code>void bindBidirectional(Property&lt;T&gt; other)</code></li>
+<li><code>void unbindBidirectional(Property&lt;T&gt; other)</code></li>
+<li><code>boolean isBound()</code></li>
+</ul>
+<p>Egyirányú kötést a <code>bind</code> metódus segítségével hozhatunk létre, melyben megadjuk, hogy az aktuális property értéke, mely másik értékhez legyen kötve, azaz mitől függ az értéke.
+Kétirányú kötést a <code>bindBidirectional</code> metódus hívással végezhetünk.
+A paraméterek típusából már látszik néhány dolog.
+Kétirányú kötés nem lehet csak írható/olvasható property-k között, míg egyirányú kötésnél függhetünk csak olvasható értéktől is.
+Fontos, hogy a generikus paramétereknek meg kell egyezniük, mert nyilván egy <code>StringProperty</code> értéke nem függhet egy <code>DoubleProperty</code> értékétől (később azért látunk majd trükköket, hogy hogyan lehet konverziókat végezni).
+A többi metódus eléggé intuitív, így azokat nem magyarázzuk el.</p>
+<h2 id="kotesek-hasznalata-javafx-ben">Kötések használata JavaFX-ben<a class="headerlink" href="#kotesek-hasznalata-javafx-ben" title="Permanent link">&para;</a></h2>
+<p>Az adatkötés nem más, mint egy kifejezés, aminek kiértékelése után egy darab értéket kapunk.
+A kötés egy vagy több <code>ObervableValue&lt;T&gt;</code>-ból tevődik össze, melyek egyben a kötés függőségeit is jelentik.
+A kötés objektum figyeli a függőségeinek változásait és ilyenkor újraszámolja a kifejezés értékét.
+A JavaFX adatkötései mind lusta kiértékeléssel működnek, így valamelyik függőség invaliddá válásakor maga a kötés is invaliddá válik.
+Amikor újra kéri valaki a kötés eredményét, akkor kerül sor a kifejezés újbóli kiértékelésére (<code>get()</code> vagy <code>getValue()</code> hívás hatására).
+Az összes JavaFX property osztály támogatást ad az adatkötésekhez.</p>
+<p>Vegyünk egy egyszerű példát, melyben <code>sum = x + y</code> kifejezést adunk meg egy kötés segítségével.
+Ez a következőképpen adható meg:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">IntegerProperty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">IntegerProperty</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
+
+<span class="n">NumberBinding</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A kötéseknek van egy <code>isValid()</code> metódusa, mellyel lekérhetjük, hogy az adott binding értéke valid-e.
+A <code>NumberBinding</code> aktuális értékének lekéréséhez használhatjuk az <code>intValue()</code>, <code>longValue()</code>, <code>floatValue()</code>, és <code>doubleValue()</code> metódusokat, melyek rendre a megfelelő típusú értékkel térnek vissza.</p>
+<p>Egy kötés belül az összes függőségéhez létrehoz egy-egy <code>InvalidationListener</code>-t, melyek alapján figyeli azokat.
+Amennyiben egy függőség invaliddá válik, akkor maga is invalid lesz.</p>
+<p>Egy kötés objektum értékéhez akár egy property-t is hozzáköthetünk, mivel maga a <code>Binding&lt;T&gt;</code> osztály maga is származik az <code>ObservableValue&lt;T&gt;</code> osztályból (és egy egyirányú kötés megadásakor a <code>bind()</code> paramétere pontosan ez kell, hogy legyen).
+Lássunk is egy példát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">IntegerProperty</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+<span class="n">IntegerProperty</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
+<span class="n">IntegerProperty</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleIntegerProperty</span><span class="p">();</span>
+
+<span class="n">z</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">y</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>Ilyen esetben a <code>z</code> property már a korábban említett <em>bound property</em> kategóriába esik.
+Amennyiben szeretnénk megszüntetni a kötést, akkor használjuk az <code>unbind()</code> metódust!</p>
+<div class="admonition important">
+<p class="admonition-title">Fontos</p>
+<p>Amennyiben egy property értékét függővé tesszük, akkor az értékének direkt beállítása (pl.: <code>z.set(21);</code>) <code>RuntimeException</code>-t eredményez.</p>
+<p>Továbbá az is szabály, hogy egy property-nek egyszerre csak egy darab egyirányú kötése lehet.
+Ha belegondolunk, akkor ez nem nagy meglepetés.
+Mi lenne akkor, ha egyszerre szeretnénk a következők teljesülését <code>z = x + y</code> és <code>z = a + b</code>?
+Ugyanakkor nem fog futásközbeni hibát eredményezni egy újabb <code>bind()</code> hívás csupán az előző kötést felülírja a rendszer, azaz nem kell az új kötés előtt meghívni az <code>unbind()</code>-ot.</p>
+<p>Ezek a korlátozások a kétirányú kötések esetében nem élnek, pusztán az összes property szinkronban lesz.</p>
+</div>
+<h2 id="binding-api">Binding API<a class="headerlink" href="#binding-api" title="Permanent link">&para;</a></h2>
+<p>Az előzőekben már madártávlatból láttuk a kötések működését, most viszont részleteiben is megvizsgáljuk a Binding API-t.
+A Binding API-t két részre oszthatjuk:</p>
+<ul>
+<li>Magas szintű</li>
+<li>Alacsony szintű</li>
+</ul>
+<p>A magas szintű API-t a JavaFX osztályai alkotják, melyek segítségével a legtöbb esetben meg tudjuk adni az összes kötéssel kapcsolatos igényünket.
+Amennyiben mégsem megoldható a kötéssel kapcsolatos összes elvárásunk, akkor az alacsony szintű API használatához le kell származtatnunk egy saját osztályt a magas szintűekből és itt kell kifejtenünk a kötésünk pontos viselkedését.</p>
+<h3 id="magas-szintu-binding-api">Magas szintű Binding API<a class="headerlink" href="#magas-szintu-binding-api" title="Permanent link">&para;</a></h3>
+<p>A magas szintű Binding API két részből tevődik össze.
+Egyrészt a Fluent API-vól és másrészt a <code>Binding</code>osztályból.
+Kötéseket létrehozhatunk a kizárólag az egyik használatával vagy a kettőt tetszőleges kombinálva is.</p>
+<h4 id="fluent-api">Fluent API<a class="headerlink" href="#fluent-api" title="Permanent link">&para;</a></h4>
+<p>A Fluent API, mint olyan egy általános fogalom, illetve tervezési elv, melynek középpontjában a metódus láncolás áll, így megkönnyítve a beállításokat.
+A neve innen is eredeztethető, mivel ilyen módon "folyékonyabban" írható a kód.
+A Fluent API-knál nagyon fontos a visszatérési típus, hogy a metódus láncolásokat el tudjuk végezni.
+Magáról a Fluent API-ról többet olvashatsz <a href="https://en.wikipedia.org/wiki/Fluent_interface">itt</a>.</p>
+<p>Vegyünk egy egyszerű esetet, amikor 3 property értékét szeretnénk összeadni.
+Legyen ez a 3 property <code>x</code>, <code>y</code> és <code>z</code>!
+Alapesetben ezt írnánk, feltéve, hogy mind a 3 property mondjuk <code>IntegerProperty</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A Fluent API kihasználásával viszont ez így is írható:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">x</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">y</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A kulcs, hogy az <code>add()</code> metódus maga is egy <code>NumberBinding</code>-ot ad vissza, aminek szintén van <code>add</code> metódusa, melyek egy helyről "jönnek".
+Ahhoz, hogy jobban átlássuk a teljes képet vizsgáljuk meg a kapcsolódó osztály hierarchiát!</p>
+<table>
+<thead>
+<tr>
+<th>Fluent API osztály hierarchia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Fluent API osztály hierarchia" src="../img/04/fluent_api.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>A fenti ábra az IntegerProperty-re fókuszálva mutatja be az öröklődési hierarchiát, de a többi típusnál is hasonló a felépítés.
+A hierarchia egy részét már ismerjük, azonban vannak fontos további elemek is.
+Az osztályok között vannak olyanok is, amik az automatikus boxing és unboxing miatt vannak jelen.
+A fluent API megértéséhez az <code>XXXExpression</code> és az <code>XXXBinding</code> osztályokra és interfészekre kell fókuszálnunk!</p>
+<p>Az <code>XXXExpression</code> interfészek tartalmazzák az összes olyan metódust, melyek segítenek az adatkötésnek megadott kifejezések specifikálásában.
+Például a fent használt <code>add</code> metódus a <code>NumberExpression</code> interfészből jön.
+Az <code>add</code> mellett használható a <code>negate()</code>, <code>subtract()</code>, <code>multiply()</code>, <code>divide()</code> metódusok hada is.
+Továbbá találunk itt relációs műveleteket is, melyek <code>BooleanBinding</code>-ot adnak vissza, illetve egy további fontos csoportot adnak az <code>asString</code> metódusok, melyek <code>StringBinding</code>-ot adnak vissza (az adatkötések világában tekinthető kvázi a <code>toString()</code>-nek).</p>
+<p>Mielőtt ezen az ágon továbbhaladnánk, vizsgáljuk meg a másik központi elemet, magát a <code>Binding&lt;T&gt;</code> interfészt!
+A <code>Binding&lt;T&gt;</code> interfész reprezentálja azt az értéket, melynek értéke egy vagy több másikétól függ.
+Így az alábbi metódusokat biztosítja:</p>
+<ul>
+<li><code>public void dispose()</code>: Jelezhetjük, hogy a <code>Binding</code>-ot már nem használjuk, így a függőségekre való referenciákat eldobja a rendszer (GC miatt lehet rá szükség)</li>
+<li><code>public ObservableList&lt;?&gt; getDependencies()</code>: Nem módosítható listát ad vissza. Ezen keresztül nem tudunk újabb függőségeket felvenni, csupán debug célokat szolgál, így azt production kódban soha ne használjuk!</li>
+<li><code>public void invalidate()</code>: A kötést invalid állapotba helyezi</li>
+<li><code>public boolean isValid()</code>: állapot lekérdezéshez</li>
+</ul>
+<p>A <code>NumberBinding</code> pusztán egy marker interfész az összes szám alapú kötéshez, melyet aztán a tényleges implementációk megvalósítanak, mint például az <code>IntegerBinding</code>, <code>DoubleBinding</code>, stb.</p>
+<p>A másik öröklődési ágról egy <code>IntegerProperty</code> megkapja a korábban már kifejtett <code>NumberExpression</code> által megadott metódusokat.
+Ezen felül az <code>ObservableNumberValue</code> interfész biztosítja az <code>intValue()</code>, <code>longValue()</code>, stb. metódusokat.
+A <code>NumberExpression</code> osztály egy konkrét megvalósítása a <code>NumberExpressionBase</code>.</p>
+<p>A fentiek megértése után már elég jó benyomásunk van a magasszintű Binding API használatáról, de a <code>Binding</code> osztályokat használjam vagy a property értékét vessem alá adatkötésnek?
+Nézzünk egy példát, ahol a kör területét számoljuk ki annak sugara alapján.
+A példában megmutatjuk mindkét megközelítést:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CircleTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">DoubleProperty</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Binding a kör területére</span>
+<span class="w">        </span><span class="n">DoubleBinding</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">r</span><span class="p">).</span><span class="na">multiply</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;r = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, terület = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">area</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="w">        </span><span class="n">r</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;r = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, terület = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">area</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// DoubleProperty értékének kötése egy kifejezéshez, ami a területet adja meg</span>
+<span class="w">        </span><span class="n">DoubleProperty</span><span class="w"> </span><span class="n">area2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">();</span>
+<span class="w">        </span><span class="n">area2</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">r</span><span class="p">).</span><span class="na">multiply</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;r = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, terület2 = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">area2</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A számok mellett érdemes lehet megnézni a <code>StringProperty</code>-hez tartozó Fluent API-t is, mivel a String már referencia típus, nem pedig primitív.</p>
+<table>
+<thead>
+<tr>
+<th>String Fluent API osztály hierarchia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="StringFluent API osztály hierarchia" src="../img/04/string_property_class_hierarchy.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Az <code>ObservableStringValue</code> <code>get()</code> metódusa nyilván egy String-et ad vissza.
+A <code>StringExpression</code> nem aritmetikai műveleteket támogat, hanem string műveleteket, mint például konkatenáció, összehasonlítás, null check, stb.
+A <code>getValue()</code> metódus mellett rendelkezünk ebben az esetben egy <code>getValueSafe()</code> metódussal is, mely <code>null</code> esetén üres <code>String</code>-et ad vissza.</p>
+<h4 id="extrak">Extrák<a class="headerlink" href="#extrak" title="Permanent link">&para;</a></h4>
+<p>Az <code>ObjectExpression</code> és az <code>ObjectBinding</code> segítségével tetszőleges objektumokra történő kötések hozhatók létre.
+A hierarchia nagyon hasonló a <code>String</code>-nél látottakhoz.
+Lássunk egy példát a használatára</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PersonBindingTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Kiss Béla&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Nagy János&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">ObjectProperty</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">person1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleObjectProperty</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ObjectProperty</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">person2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleObjectProperty</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">p2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Kötés, ami összehasonlítja a két property egyenlőségét</span>
+<span class="w">        </span><span class="n">BooleanBinding</span><span class="w"> </span><span class="n">isEqual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">person1</span><span class="p">.</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">person1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isEqual</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="w">        </span><span class="n">person2</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isEqual</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A Binding API biztosít a számunkra ternary operátort is a <code>When</code> osztály formájában:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">When</span><span class="p">(</span><span class="n">condition</span><span class="p">).</span><span class="na">then</span><span class="p">(</span><span class="n">value1</span><span class="p">).</span><span class="na">otherwise</span><span class="p">(</span><span class="n">value2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><code>value1</code>-nek és <code>value2</code>-nek ugyanolyan típusúnak kell lennie.</p>
+<p>A fentiek mellett az API ad számunkra még egy <code>Bindings</code> osztályt, mely rengeteg statikus metódust tartalmaz.
+Lényege, hogy egyszerűen és gyorsan lehet kötéseket létrehozni.
+Mivel a lista igen hosszú így itt azt nem mutatjuk be (illetve több dolog i kiváltható vele amit már részletesen megnéztünk).</p>
+<h3 id="alacsony-szintu-binding-api">Alacsony szintű Binding API<a class="headerlink" href="#alacsony-szintu-binding-api" title="Permanent link">&para;</a></h3>
+<p>Előfordulhatnak estek amikor a magas szintű Binding API nem megfelelő az igényeinknek.
+Például egy <code>Observable</code> számnak nem tudjuk a négyzetgyökét kiszámoltatni.
+Ilyenkor saját kiterjesztéseket írhatunk, melyek megvalósítják az igényelt funkcionalitást.
+Ennek 3 lépése van:</p>
+<ol>
+<li>Az egyik létező <code>Binding</code> osztályt terjesszük ki (származtassunk belőle). A négyzetgyökös példánál maradva használhatjuk a <code>DoubleBinding</code>-ot.</li>
+<li>Mindig hívjuk meg a parent <code>bind()</code> metódusát a függőségek kötéséhez! Itt az összes függőséget adjuk meg.</li>
+<li>A lényeg pedig, hogy a <code>computeValue()</code> metódust írjuk felül! (Amennyiben egyéb funkcionalitás is szükséges, akkor természetesen több metódust is felülírhatunk)</li>
+</ol>
+<p>Például a négyzetgyök kiszámításához a következőt írhatjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">DoubleProperty</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+<span class="n">DoubleProperty</span><span class="w"> </span><span class="n">sqrtOfNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">();</span>
+
+<span class="n">DoubleBinding</span><span class="w"> </span><span class="n">squareRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DoubleBinding</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">computeValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">sqrtOfNum</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">squareRoot</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel a fenti példában anonymous class-t használtunk (aminek ugyebár nincs konstruktora), így az init blokkban hívtuk meg a <code>bind()</code> metódust.
+Amennyiben többször is szeretnénk felhasználni a kötés típusunkat, akkor érdemes nevesíteni az osztályt, ami nézhet ki az alábbihoz hasonlóan:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SquareRootBinding</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DoubleBinding</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ObservableNumberValue</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SquareRootBinding</span><span class="p">(</span><span class="n">ObservableNumberValue</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">computeValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A használat helye:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">DoubleProperty</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">(</span><span class="mf">25.0</span><span class="p">);</span>
+<span class="n">DoubleProperty</span><span class="w"> </span><span class="n">sqrtOfNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDoubleProperty</span><span class="p">();</span>
+
+<span class="n">DoubleBinding</span><span class="w"> </span><span class="n">squareRootBinding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SquareRootBinding</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="n">sqrtOfNum</span><span class="p">.</span><span class="na">bind</span><span class="p">(</span><span class="n">squareRootBinding</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sqrtOfNum</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+<span class="n">num</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sqrtOfNum</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel akár egész számokat is használhatunk, így nem szorítjuk meg túlságosan azt, hogy milyen <code>Observable</code> objektumokat kaphatunk paraméterül, viszont arra szükségünk van, hogy a megadott <code>Observable</code> objektumtól le tudjuk kérni a <code>double</code> értékét, mivel négyzetgyököt csak erre tudunk számolni.
+Emiatt az <code>ObservableNumberValue</code> típust választjuk, mely tartalmazza a <code>doubleValue()</code> metódust.</p>
+<h2 id="osszegzes">Összegzés<a class="headerlink" href="#osszegzes" title="Permanent link">&para;</a></h2>
+<p>A property-k és az adatkötések rendkívül fontos részét képezik az egész JavaFX API-nak.
+Amennyiben megvizsgáljuk a grafikus vezérlőelemeket, azt fogjuk tapasztalni, hogy az összes adatot property formájában tárolják.</p>
+<p>Például egy <code>TextField</code> az aktuális szöveg értékét egy property-ben tárolja:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">TextField</span><span class="w"> </span><span class="n">tf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TextField</span><span class="p">(</span><span class="s">&quot;Foo Bar&quot;</span><span class="p">);</span>
+<span class="n">StringProperty</span><span class="w"> </span><span class="n">textProp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf</span><span class="p">.</span><span class="na">textProperty</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>Ez hatalmas előnyt ad a kezünkbe, mivel a különböző felületi elemek adatai között rugalmasan hozhatunk létre adatkötéseket.
+Ezen felül akár a model osztályainkat is megírhatjuk property-k segítségével, melyeket így könnyebben szinkronban tarthatunk a felületi vezérlőkkel.</p>
+<h2 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Csináljunk egy egyszerű JavaFX alkalmazást, ahol <code>Label</code> elemek segítségével az ablak aktuális méretét mutatjuk!
+A feladat megoldása során használjunk property-ket és kötéseket!</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsünk egy saját, alacsony szintű Binding-ot, mely képes a szám <code>sin</code>-át kiszámítani!
+Származtassunk le a <code>DoubleBinding</code> osztályból!</p>
+</div>
+<h2 id="videok">Videók<a class="headerlink" href="#videok" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://youtu.be/rneR5uDrZng?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Property bevezető</a></li>
+<li><a href="https://youtu.be/tV6Ax4jFnik?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Adatkötések, Java Beans Property figyelés</a></li>
+<li><a href="https://youtu.be/H9f_UjhowM8?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">JavaFX Property-k</a></li>
+<li><a href="https://youtu.be/F7Nxw85iTYU?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">ReadOnlyProperty és lusta kiértékelés</a></li>
+<li><a href="https://youtu.be/XS9OYHelRIA?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Property hierarchia</a></li>
+<li><a href="https://youtu.be/w9PEOaN9M5o?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Binding-ok használata</a></li>
+<li><a href="https://youtu.be/B-ONlHhNWZw?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Magas szintű Binding API</a></li>
+<li><a href="https://youtu.be/ywB_tSR8S2s?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Alacsony szintű Binding API</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-03-06 13:12:22</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>

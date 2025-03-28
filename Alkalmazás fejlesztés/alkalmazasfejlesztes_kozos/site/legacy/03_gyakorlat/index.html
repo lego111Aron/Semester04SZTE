@@ -1,0 +1,1689 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02_gyakorlat/index.html">
+      
+      
+        <link rel="next" href="../04_gyakorlat/index.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>3. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3. gyakorlat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./index.html" class="md-nav__link md-nav__link--active">
+        3. gyakorlat
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fxml" class="md-nav__link">
+    FXML
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    Controller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fxml-betoltes" class="md-nav__link">
+    FXML betöltés
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML betöltés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fxml-nyalanksagok" class="md-nav__link">
+    FXML nyalánkságok
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML nyalánkságok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ujrafelhasznalhato-objektumok-megadasa" class="md-nav__link">
+    Újrafelhasználható objektumok megadása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location-megadasa" class="md-nav__link">
+    Location megadása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxml-include" class="md-nav__link">
+    FXML include
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstansok-hasznalata" class="md-nav__link">
+    Konstansok használata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxml-elemek-hivatkozasa" class="md-nav__link">
+    FXML elemek hivatkozása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemek-masolasa" class="md-nav__link">
+    Elemek másolása
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stiluslapok-hasznalata" class="md-nav__link">
+    Stíluslapok használata
+  </a>
+  
+    <nav class="md-nav" aria-label="Stíluslapok használata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nevkonvenciok" class="md-nav__link">
+    Névkonvenciók
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alapertelmezett-stiluslap" class="md-nav__link">
+    Alapértelmezett stíluslap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-stilus" class="md-nav__link">
+    Inline stílus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stilusok-prioritasa" class="md-nav__link">
+    Stílusok prioritása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selector-ok" class="md-nav__link">
+    Selector-ok
+  </a>
+  
+    <nav class="md-nav" aria-label="Selector-ok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-selector" class="md-nav__link">
+    Class selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id-selector" class="md-nav__link">
+    id selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#egyeb-selector-ok" class="md-nav__link">
+    Egyéb selector-ok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fxml" class="md-nav__link">
+    FXML
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    Controller
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fxml-betoltes" class="md-nav__link">
+    FXML betöltés
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML betöltés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fxml-nyalanksagok" class="md-nav__link">
+    FXML nyalánkságok
+  </a>
+  
+    <nav class="md-nav" aria-label="FXML nyalánkságok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ujrafelhasznalhato-objektumok-megadasa" class="md-nav__link">
+    Újrafelhasználható objektumok megadása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location-megadasa" class="md-nav__link">
+    Location megadása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxml-include" class="md-nav__link">
+    FXML include
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konstansok-hasznalata" class="md-nav__link">
+    Konstansok használata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fxml-elemek-hivatkozasa" class="md-nav__link">
+    FXML elemek hivatkozása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemek-masolasa" class="md-nav__link">
+    Elemek másolása
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stiluslapok-hasznalata" class="md-nav__link">
+    Stíluslapok használata
+  </a>
+  
+    <nav class="md-nav" aria-label="Stíluslapok használata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nevkonvenciok" class="md-nav__link">
+    Névkonvenciók
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alapertelmezett-stiluslap" class="md-nav__link">
+    Alapértelmezett stíluslap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inline-stilus" class="md-nav__link">
+    Inline stílus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stilusok-prioritasa" class="md-nav__link">
+    Stílusok prioritása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selector-ok" class="md-nav__link">
+    Selector-ok
+  </a>
+  
+    <nav class="md-nav" aria-label="Selector-ok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-selector" class="md-nav__link">
+    Class selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id-selector" class="md-nav__link">
+    id selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#egyeb-selector-ok" class="md-nav__link">
+    Egyéb selector-ok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-gyakorlat">3. gyakorlat<a class="headerlink" href="#3-gyakorlat" title="Permanent link">&para;</a></h1>
+<p>Korábban láttuk, hogy hogyan lehet a JavaFX API-t felhasználni arra, hogy grafikus felhasználói felületeket hozzunk létre.
+Ebben a fejezetben azt nézzük meg, hogy hogyan lehet ezt másképpen <strong>deklaratív</strong> módon megadni, melyért az FXML felelős.</p>
+<h2 id="fxml">FXML<a class="headerlink" href="#fxml" title="Permanent link">&para;</a></h2>
+<p>Az FXML nem más, mint egy XML alapú leíró nyelv, mely segítségével JavaFX alkalmazások esetén a felhasználói felületek szerkezete leírható, az alkalmazás kódtól teljesen elkülönítve, tehát az FXML felelős a mit kérdésre válaszolni, de a viselkedést már nem itt adjuk meg hanem Java kódban.</p>
+<p>Tekintsük a következő JavaFX API-val összerakott felületet!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.VBox</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.control.Label</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.control.Button</span><span class="p">;</span>
+
+<span class="n">VBox</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">VBox</span><span class="p">();</span>
+<span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;FXML is awesome&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Yeah&quot;</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>Ennek a felületnek az FXML megfelelője:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="cp">&lt;?import javafx.scene.layout.VBox?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.Label?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.Button?&gt;</span>
+
+<span class="nt">&lt;VBox&gt;</span>
+<span class="w">    </span><span class="nt">&lt;children&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;FXML is awesome&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Yeah&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/children&gt;</span>
+<span class="nt">&lt;/VBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>FXML állományokat a <code>*.fxml</code> kiterjesztésű fájlokban tároljuk.</p>
+<p>Az első sort már ismerjük (prolog sor), mely után az importok következnek, majd maguk grafikus komponensek.</p>
+<div class="admonition info">
+<p class="admonition-title">Megjegyzés</p>
+<p>Az FXML általánosabb értelemben is használható, mivel az egy szerializálási formája a Java objektumoknak, azaz nem csak a JavaFX GUI elemeinek leírására használható, hanem tetszőleges Java objektumok állapotának mentésére.</p>
+</div>
+<p>Amennyiben a fenti XML alapú fájlt manuálisan kellene szerkesztenünk, akkor nyilván inkább a JavaFX API-t választanánk nagy többséggel, ugyanakkor az egyszerű formája miatt lehetőség van arra, hogy különböző eszközökkel grafikusan állítsuk elő a felhasználói interfészeket.
+Erre a célra készült a <a href="https://gluonhq.com/products/scene-builder/index.html">SceneBuilder</a>, melynek segítségével "összehúzogathatjuk" a grafikus elemeket (WYSWYG eszköz).</p>
+<p>A SceneBuilder-t az IntelliJ alapból felkínálja az <code>*.fxml</code> kiterjesztésű fájlok szerkesztéséhez, ám a telepített eszköz futtatható fájlját be kell állítani a <code>Settings-&gt;Languages&amp;Frameworks-&gt;JavaFX-&gt;Path to SceneBuilder</code> segítségével.
+Ezután tetszőleges FXML fájlon jobb kattintás, és a legalsó menüpont a SceneBuilder, ami megnyitja az állományt a vizuális szerkesztővel.</p>
+<p><img alt="SceneBuilder main page" src="../../img/05/SceenBuilder.png" title="SceneBuilder main page" /></p>
+<div class="admonition info">
+<p class="admonition-title">Megjegyzés</p>
+<p>Az IntelliJ-n belül is lehet használni a SceneBuilder-t, mint bundle-t, de ekkor néhány funkcióhoz nem férünk hozzá.</p>
+</div>
+<p>Az FXML alapjait egy kis példa feladaton fogjuk bemutatni.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat (01_fxml-basic)</p>
+<p>Hozzuk létre a SceneBuilder segítségével az alábbi felhasználói felületet!
+A nyomógomb megnyomására a szövegmezőben lévő szöveg íródjon ki konzolra.</p>
+<p><img alt="alt text" src="../../img/05/SceneBuilder_demo.png" title="SceneBuilder demo GUI" /></p>
+<p><strong>Feladat lépései:</strong></p>
+<ol>
+<li>Induljunk ki egy üres JavaFX projektből (amennyiben archetype-ból indulunk ki, akkor töröljünk ki mindent)!</li>
+<li>Hozzunk létre egy sample.fxml fájlt a <code>src/main/resources/hu/alkfejl</code> mappában!</li>
+<li>Nyissuk meg SceneBuilder-ben a fájlt (jobb klikk az fxml fájlon -&gt; Open In SceneBuilder)</li>
+<li>Állítsuk össze az ablakot (<code>HBox</code>-on belül egy gomb és egy <code>TextField</code>)</li>
+<li>Cseréljük a gomb feliratát (Properties fül alatt), és állítsunk be <code>fx:id</code>-t az elemeknek (Inspector -&gt; Code)</li>
+<li>Mentsük el, és tanulmányozzuk a generált fxml-t!</li>
+<li>Az <code>App.java</code>-ban töltsük be az FXML-et, és cseréljük le a SceneGraph-ot a betöltöttre</li>
+<li>Adjuk meg controller-t class-nak a <code>hu.alkfejl.App</code> osztályt</li>
+<li>Vegyünk fel egy <code>handleEcho</code> eseménykezelőt a gombhoz</li>
+<li>Implementáljuk a metódust úgy, hogy gombnyomás hatására a szövegmező tartalma képernyőre íródjon (FXML dependency <code>pom.xml</code>-be, és FXML annotációk)</li>
+</ol>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="cp">&lt;?import javafx.scene.control.Button?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.TextField?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.layout.HBox?&gt;</span>
+
+
+<span class="nt">&lt;HBox</span><span class="w"> </span><span class="na">maxHeight=</span><span class="s">&quot;-Infinity&quot;</span><span class="w"> </span><span class="na">maxWidth=</span><span class="s">&quot;-Infinity&quot;</span><span class="w"> </span><span class="na">minHeight=</span><span class="s">&quot;-Infinity&quot;</span><span class="w"> </span><span class="na">minWidth=</span><span class="s">&quot;-Infinity&quot;</span><span class="w"> </span><span class="na">prefHeight=</span><span class="s">&quot;400.0&quot;</span><span class="w"> </span><span class="na">prefWidth=</span><span class="s">&quot;600.0&quot;</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://javafx.com/javafx/11.0.1&quot;</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml/1&quot;</span><span class="w"> </span><span class="na">fx:controller=</span><span class="s">&quot;hu.alkfejl.App&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;children&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;myButton&quot;</span><span class="w"> </span><span class="na">mnemonicParsing=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Button&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#buttonClick&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;myTextF&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/children&gt;</span>
+<span class="nt">&lt;/HBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ez a kódrészlet annak felel meg, mintha létrehoznánk egy <code>HBox</code>, egy <code>Button</code> és egy <code>TextField</code> komponenst, és a <code>Buttont</code>-t, valamint a <code>TextField</code>-et hozzáadnánk a <code>HBox</code> gyerekeihez.</p>
+<p>A generált FXML eléggé intuitív ahhoz, hogy értelmezni lehessen, ugyanakkor néhány elemet érdemes közelebbről megnéznünk.</p>
+<p>Az import sorok tervezési időben informálják a SceneBuilder-t vagy a betöltéskor az <code>FXMLLoader</code>-t, hogy mely JavaFX osztályokat kell behúzni, kvázi egyenértékű a sima Java-s importtal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Figyelem</p>
+<p>Az FXML tartalma nincs séma által validálva (XSD). A használt XML namespace-ekre azért van szükség, hogy azok segítsék az FXMLLoader, a SceneBuilder, illetve az IDE-k működését.</p>
+</div>
+<p>A példában az <code>fx</code> prefixet két helyen használjuk:</p>
+<ul>
+<li><code>fx:controller</code>: A legfelső elemen adhatjuk meg, mely futás időben informálja az alkalmazásunkat, hogy melyik <strong>controller</strong>-el működik együtt ez az FXML állomány. Itt tudjuk megadni majd az eseménykezelő metódusokat az adott elemekhez, mármint a tényleges metódus definíciókat. Fontos, hogy az itt megadott kontroller osztályt az FXMLLoader példányosítja.</li>
+<li><code>fx:id</code>: Minden elemhez hozzárendelhető, mely egyedileg azonosítja az FXML-ben megadott Node-ot. Betöltés után a Node-okat ezen a néven érhetjük el (ilyen nevű field-eket kell majd használnunk a controller-ben is, ha szeretnénk az adott Node-ot a Java kódból is használni, máskülönben elhagyható mind a field, mind az <code>fx:id</code> megadás). </li>
+</ul>
+<p>Az FXML-ben az eseménykezelőket is megadhatjuk, melyek definíciója a controller-ben van.
+A JavaFX API-tól eltérően itt a <code>set</code> előtagot nem kell kiírnunk.
+Tehát például a <code>setOnAction()</code>-ből csak szimplán <code>onAction</code> attribútum lesz az FXML-en belül.
+Az attribútumban az eseménykezelő metódus nevét kell megadnunk, illetve az elé egy <code>#</code> jelet is el kell helyeznünk (amennyiben az eseménykezelő definíciója magában az FXML-ben van megadva, például, <code>fx:script</code> tag-ek között, akkor nem kell kiírni a <code>#</code> prefixet).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>onAction=&quot;#buttonClick&quot;
+</code></pre></div></td></tr></table></div>
+<p>A megadott metódusoknak alapvetően illeszkedniük kell az <code>EventHandler&lt;T&gt;</code> interfész <code>void handle(T event)</code> metódusához, ahol a <code>T</code> típus az eseménynek megfelelően van megadva (gombnyomás esetén <code>ActionEvent</code>, egéresemények esetén <code>MouseEvent</code>, stb.).
+Az <code>event</code> paraméter el is hagyható abban az esetben, ha nincs rá szükségünk.</p>
+<div class="admonition note">
+<p class="admonition-title">Megjegyzés</p>
+<p>Az eseménykezelőket nem csak a controllerben tudjuk megadni.
+Lehetőség van arra is, hogy magában az FXML-ben adjunk meg eseménykezelőket:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?language JavaScript?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.Button?&gt;</span>
+
+<span class="nt">&lt;fx:script&gt;</span>
+<span class="w">    </span>function<span class="w"> </span>f1()<span class="w"> </span>{
+<span class="w">        </span>java.lang.System.out.println(&quot;f1&quot;);
+<span class="w">    </span>};
+
+<span class="w">    </span>function<span class="w"> </span>f2()<span class="w"> </span>{
+<span class="w">        </span>java.lang.System.out.println(&quot;f2&quot;);
+<span class="w">    </span>};
+<span class="nt">&lt;/fx:script&gt;</span>
+<span class="nt">&lt;Button</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;f1();&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h3 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h3>
+<p>Az FXML-ben összeállított user interface elmeivel természetesen továbbra is szeretnénk az alkalmazásból kommunikálni, de hogyan érhetjük el őket Java kódból, ha az elemeket FXML-ből dinamikusan tölti be az FXMLLoader, és nem mi hoztuk kézzel létre a kódban a megfelelő GUI komponens típusú változókat?
+A megoldás az <code>@FXML</code> annotáció használata, mely a field neve alapján és az FXML-ben található <code>fx:id</code> alapján kezdeményezi az összeköttetést.
+Amennyiben a controller-ben ellátunk field-eket/metódusokat a <code>@FXML</code> marker annotációval, akkor a field-eket/metódusokat a SceneBuilder-ben is látni fogjuk és megadhatjuk őket id-ként, illetve eseménykezelőként.</p>
+<div class="admonition note">
+<p class="admonition-title">Megjegyzés</p>
+<p>Amit a <code>@FXML</code> annotációval ellátunk nem szükséges, hogy <code>public</code> láthatósággal bírjon. Az annotáció alkalmazása az FXML-ben láthatóvá teszi akár a private field-eket és metódusokat is. </p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="n">TextField</span><span class="w"> </span><span class="n">myTextF</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">myTextF</span><span class="p">.</span><span class="na">getText</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Az FXML és a kód közti kapcsolatot az annotáció teremti meg, ám ahhoz hogy automatikusan tudja melyik FXML-ben deklarált <code>TextField</code>-et kell a változóval összekötni, a változó nevének meg kell egyeznie az FXML-ben deklarált elem <code>fx:id</code> attribútumával!</p>
+<p>Az FXML annotáció használatához ráadásul egy új függőséget is fel kell vennünk a POM.xml-be:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.openjfx<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>javafx-fxml<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>11<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="fxml-betoltes">FXML betöltés<a class="headerlink" href="#fxml-betoltes" title="Permanent link">&para;</a></h2>
+<p>Az FXML-ben leírt user interface-eket be kell tölteni az alkalmazás kódban, hogy az ott leírt felület létrejöjjön, és a <code>SceneGraph</code> előálljon belőle, amit aztán a szokásos módon meg tudunk jeleníteni egy <code>Stage</code> tartalmaként.
+Erre a feladatra a Java kódban az <code>FXMLLoader</code>-t használjuk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FXMLLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="p">(</span><span class="n">getClass</span><span class="p">().</span><span class="na">getResource</span><span class="p">(</span><span class="s">&quot;sample.fxml&quot;</span><span class="p">));</span>
+<span class="n">Parent</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+<span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">275</span><span class="p">);</span>
+
+<span class="n">MyController</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">getController</span><span class="p">();</span>
+
+<span class="n">setTitle</span><span class="p">(</span><span class="s">&quot;FXML Welcome&quot;</span><span class="p">);</span>
+<span class="n">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="n">show</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>A <code>sample.fxml</code> fájlnak elérhetőnek kell lennie a class mellett, amit legegyszerűbben úgy tudunk elérni, hogy az FXML állományokat az <code>src/main/resources</code> mappa alá gyűjtjük ugyanolyan mappa szerkezetben, amilyenben a betöltést végző osztály csomag hierarchiája megkövetel.</p>
+</div>
+<p>A betöltött FXML tartalmat aztán felhasználhatjuk egy az egyben Scene Graph-ként (mivel, hogy az is) és mint ahogyan a fenti példában akár lehet ez a root node-ja egy <code>Scene</code>-nek, de az is előfordulhat, hogy csak egy részfát töltünk be egy FXML-ből és az része lesz egy komplexebb felületnek (újrafelhasználásnál jól jöhet).
+Fontos, hogy az FXML állományokat futás közben tölti be az <code>FXMLLoader</code>, így csak ebben a pillanatban tudjuk meg, hogy az adott állomány megfelel-e az FXML specifikációjának.</p>
+<p>Az <code>FXMLLoader</code>-nek van statikus <code>load</code> metódusa is, de javallott a fent bemutatott módon használni, azaz példányosítani, mivel így kérhetünk referenciát a controller-re is, mely sokszor jó szolgálatot tesz.
+Ez azt is jelenti, hogy direktben nekünk nem kell példányosítanunk a controller-t, mivel azt elvégzi helyettünk az <code>FXMLLoader</code>.</p>
+<p>A halandó embereknek általában elég lesz ez a sima konstruktor, mely az FXML állományra várja az URL hivatkozást, de érdemes lehet a többi konstruktort is megnézni, mert van például, ami képes <code>ResourceBundle</code>-t fogadni, mely a többnyelvű alkalmazások írását támogatja.
+Például:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Locale</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Locale</span><span class="p">(</span><span class="s">&quot;en&quot;</span><span class="p">);</span>
+<span class="n">ResourceBundle</span><span class="w"> </span><span class="n">bundle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResourceBundle</span><span class="p">.</span><span class="na">getBundle</span><span class="p">(</span><span class="s">&quot;messages&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="p">);</span><span class="w"> </span><span class="c1">// messages_en.properties állományt tölti be</span>
+<span class="n">FXMLLoader</span><span class="w"> </span><span class="n">fxmlLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FXMLLoader</span><span class="p">(</span><span class="n">App</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">fxml</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.fxml&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">bundle</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezután az FXML-ben található <code>text</code>-eknél megadhatunk <code>%_msg_id</code> alakú attribútumokat, ahol <code>msg_id</code> a nyelvi fájlokban az adott kulcs értéke. Például:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;secondaryButton&quot;</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;%switch.to.primary&quot;</span><span class="w"> </span><span class="na">onAction=</span><span class="s">&quot;#switchToPrimary&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>mely szöveg megfelelője a <code>messages_en.properties</code> fájlban:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">switch.to.primary</span><span class="o">=</span><span class="s">Switch to Primary View</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>ResourceBundle</code>-on felül megadhatunk a <code>builderFactory</code>-t, melyet az <code>FXMLLoader</code> használ a különböző típusú <code>Node</code>-ok létrehozásakor, illetve ennek megfelelően az alapértelmezett callback-et is felülírhatjuk, mely a controller visszaadását valósítja meg (alapvetően a paraméteres konstruktorral példányosítja a controller-t a rendszer, de így felül tudjuk ezt is írni).
+Ezen felül még az FXML dokumentumok parse-olásakor használt karakterkódolást is megadhatjuk (alapértelmezett UTF-8), továbbá a betöltéshez használandó egyéb loader-eket.
+A fenti sorrendben megadott lehetséges paraméterekkel a legbővebb konstruktor a következő módon néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">FXMLLoader</span><span class="p">(</span>
+<span class="w">    </span><span class="n">URL</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ResourceBundle</span><span class="w"> </span><span class="n">resources</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BuilderFactory</span><span class="w"> </span><span class="n">BuilderFactory</span><span class="w"> </span><span class="n">builderFactory</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Callback</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">controllerFactory</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Charset</span><span class="w"> </span><span class="n">charset</span><span class="p">,</span>
+<span class="w">    </span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">FXMLLoader</span><span class="o">&gt;</span><span class="w"> </span><span class="n">loaders</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Az első két paramétert használjuk a leggyakrabban, a többit csak nagyon speciális esetben kell használnunk.</p>
+<p>Az FXMLLoader objektumokon a fenti konstruktor paraméterek alapján getter és setter metódusok is segítik a munkát, azaz egy-egy elem később is beállítható a hozzátartozó setter-el (pl.: <code>setLocation(URL url)</code>), illetve később lekérhető az értéke (pl.: <code>getCharset()</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Megjegyzés</p>
+<p>Az <code>FXMLLoader</code> <code>load()</code> metódusa generikus, mely segítségével megadhatjuk a root node típusát.
+Például:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HBox</span><span class="w"> </span><span class="n">rootNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="o">&lt;</span><span class="n">HBox</span><span class="o">&gt;</span><span class="n">load</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>Az FXMLLoader továbbá támogatja az <code>InputStream</code>-ből történő beolvasást is.</p>
+</div>
+<p>Az <code>FXMLLoader</code> használata során, amikor betöltjük az FXML dokumentumot, akkor sokszor szükség lehet arra, hogy az FXML-ben megadott grafikus elemeknek valamilyen kezdőértéket adjunk.
+Amennyiben a konstruktorban próbáljuk beállítani az értékeket, akkor nagy valószínűséggel <code>NullPointerException</code>-el találjuk szembe magunkat, mivel a field injektálások még nem történnek meg ilyenkor.
+Szerencsére van egy egyszerű megoldás erre a problémára, mivel az <code>FXMLLoader</code> automatikusan meghívja az <code>initialize()</code> metódust, akkor amikor a field injektálások megtörténtek.
+Az <code>initailize()</code> metódus felüldefiniálásához implementáljuk a <code>javafx.fxml.Initializable</code> interfészt!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrimaryController</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Initializable</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">URL</span><span class="w"> </span><span class="n">location</span><span class="p">,</span><span class="w"> </span><span class="n">ResourceBundle</span><span class="w"> </span><span class="n">resources</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// itt lehet a felületi vezérlők inicializálását elvégezni        </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Hozzunk létre egy új projektet IntelliJ-n belül, melynek során a <code>javafx-archetype-fxml</code>-t adjuk meg mint projekt archetype!
+Próbáljuk meg megérteni a kapott projekt vázat!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p><a href="https://www.youtube.com/watch?v=WJb1cIvcdAU"><img alt="FXML archetype" src="https://img.youtube.com/vi/WJb1cIvcdAU/0.jpg" /></a></p>
+</details>
+<h3 id="fxml-nyalanksagok">FXML nyalánkságok<a class="headerlink" href="#fxml-nyalanksagok" title="Permanent link">&para;</a></h3>
+<p>A következőkben olyan FXML feature-ök kerülnek bemutatásra, amelyek megkönnyíthetik a munkánkat, de nélkülük is teljes életet élhetünk.</p>
+<h4 id="ujrafelhasznalhato-objektumok-megadasa">Újrafelhasználható objektumok megadása<a class="headerlink" href="#ujrafelhasznalhato-objektumok-megadasa" title="Permanent link">&para;</a></h4>
+<p>Az FXML-ben megadhatunk olyan elemeket, amiket többször is szeretnénk felhasználni.
+Ezeket az <code>fx:define</code> között kell megadnunk, majd később az <code>fx:id</code>-ban megadott azonosítót használhatjuk fel úgy, hogy az elé egy <code>$</code> jelet rakunk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?import javafx.scene.layout.VBox?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.Label?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.Button?&gt;</span>
+<span class="cp">&lt;?import javafx.geometry.Insets?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.ToggleGroup?&gt;</span>
+<span class="cp">&lt;?import javafx.scene.control.RadioButton?&gt;</span>
+
+<span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">fx:controller=</span><span class="s">&quot;hu.alkfejl.Test&quot;</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fx:define&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Insets</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;margin&quot;</span><span class="w"> </span><span class="na">top=</span><span class="s">&quot;5.0&quot;</span><span class="w"> </span><span class="na">right=</span><span class="s">&quot;5.0&quot;</span><span class="w"> </span><span class="na">bottom=</span><span class="s">&quot;5.0&quot;</span><span class="w"> </span><span class="na">left=</span><span class="s">&quot;5.0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ToggleGroup</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;genderGroup&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fx:define&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Label</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Gender&quot;</span><span class="w"> </span><span class="na">VBox.margin=</span><span class="s">&quot;$margin&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RadioButton</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Male&quot;</span><span class="w"> </span><span class="na">toggleGroup=</span><span class="s">&quot;$genderGroup&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RadioButton</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Female&quot;</span><span class="w"> </span><span class="na">toggleGroup=</span><span class="s">&quot;$genderGroup&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RadioButton</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Unknown&quot;</span><span class="w"> </span><span class="na">toggleGroup=</span><span class="s">&quot;$genderGroup&quot;</span><span class="w"> </span><span class="na">selected=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Close&quot;</span><span class="w"> </span><span class="na">VBox.margin=</span><span class="s">&quot;$margin&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/VBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>$</code>-al kezdődő megadásokat a rendszer objektum referenciaként kezeli.
+Amennyiben a <code>$</code> az azonosító részét képezi akkor escape-eljük <code>\$</code>-al!</p>
+<h4 id="location-megadasa">Location megadása<a class="headerlink" href="#location-megadasa" title="Permanent link">&para;</a></h4>
+<p>A <code>@</code>-al kezdődő attribútum értékek mindig egy helyre (fájlra, pl.: egy képre, vagy FXML állományra) mutatnak.
+A <code>@/</code>-el kezdődő megadás a classpath-hoz viszonyított relatív megadási mód.
+Amennyiben <code>/</code> nélkül használjuk akkor az adott FXML fájlhoz viszonyított relatív megadási módot követünk.</p>
+<p>A következő példában egy <code>ImageView</code>-ban megjeleníteni kívánt kép URL-jét adjuk meg (classpath-hoz viszonyítva):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;ImageView&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Image</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;@/resources/images/logo.jpg&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ImageView&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="fxml-include">FXML include<a class="headerlink" href="#fxml-include" title="Permanent link">&para;</a></h4>
+<p>Az FXML dokumentumok között használhatunk include-ot is, azaz az egyik FXML dokumentumból használhatunk egy másikat include formájában.
+Ennek formája a következő:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;fx:include</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;other_fxml_doc&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A szabály az, hogy minden FXML dokumentumnak egy kontrollere lehet.
+Amikor egymásba ágyazunk FXML dokumentumokat, akkor is mindegyiknek lehet saját kontroller osztálya.</p>
+<h4 id="konstansok-hasznalata">Konstansok használata<a class="headerlink" href="#konstansok-hasznalata" title="Permanent link">&para;</a></h4>
+<p>Az FXML-ben felhasználhatjuk a Java osztályokban megadott static final konstansok értékét.
+Ezeket az értékeket az <code>fx:constant</code>-al hivatkozhatjuk.
+Például a <code>Long</code> osztály <code>MAX_VALUE</code> értékét a következőképpen használhatjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;Long</span><span class="w"> </span><span class="na">fx:constant=</span><span class="s">&quot;MAX_VALUE&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Egy nagyobb példaként tekintsük a következőt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fx:define&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Integer</span><span class="w"> </span><span class="na">fx:constant=</span><span class="s">&quot;MAX_VALUE&quot;</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;maxInt&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fx:define&gt;</span>
+<span class="w">    </span><span class="nt">&lt;alignment&gt;&lt;Pos</span><span class="w"> </span><span class="na">fx:constant=</span><span class="s">&quot;CENTER&quot;</span><span class="nt">/&gt;&lt;/alignment&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;TextField</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;$maxInt&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TextField&gt;</span>
+<span class="w">        </span><span class="nt">&lt;text&gt;&lt;Long</span><span class="w"> </span><span class="na">fx:constant=</span><span class="s">&quot;MIN_VALUE&quot;</span><span class="nt">/&gt;&lt;/text&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/TextField&gt;</span>
+<span class="nt">&lt;/VBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A példában egy <code>VBox</code>-ban két <code>TextField</code>-et jelenítünk meg, az egyiknek az <code>Integer</code> legkisebb értékét adjuk szövegként, míg a másiknak a legnagyobbat.
+Ezen felül láthatunk példát a <code>VBox</code> <code>alignment</code> tulajdonságának beállítására is.</p>
+<h4 id="fxml-elemek-hivatkozasa">FXML elemek hivatkozása<a class="headerlink" href="#fxml-elemek-hivatkozasa" title="Permanent link">&para;</a></h4>
+<p>Egy FXML dokumentumon belül hivatkozhatunk az elemekre az <code>fx:reference</code> elem használatával.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fx:define&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Image</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;resources/images/test.jpg&quot;</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;myImg&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fx:define&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ImageView&gt;</span>
+<span class="w">        </span><span class="nt">&lt;image&gt;</span>
+<span class="w">            </span><span class="nt">&lt;fx:reference</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;myImg&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/image&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ImageView&gt;</span>
+<span class="nt">&lt;/VBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában az <code>ImageView</code>-ban megjelenítendő képet egy referenciával adjuk meg.
+A fenti kód ekvivalens a következővel:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;VBox</span><span class="w"> </span><span class="na">xmlns:fx=</span><span class="s">&quot;http://javafx.com/fxml&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fx:define&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Image</span><span class="w"> </span><span class="na">url=</span><span class="s">&quot;resources/images/test.jpg&quot;</span><span class="w"> </span><span class="na">fx:id=</span><span class="s">&quot;myImg&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fx:define&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ImageView</span><span class="w"> </span><span class="na">image=</span><span class="s">&quot;$myImg&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/VBox&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="elemek-masolasa">Elemek másolása<a class="headerlink" href="#elemek-masolasa" title="Permanent link">&para;</a></h4>
+<p>Előfordulhat, hogy egy FXML elemet le szeretnénk másolni az összes attribútumával együtt.
+Erre az <code>&lt;fx:copy&gt;</code>-t használhatjuk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;fx:copy</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;fx:id of the source object&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ahhoz, hogy a <code>copy</code> működjön az adott osztálynak rendelkeznie kell egy copy konstruktorral, azaz olyan konstruktorral, amely az adott osztály egy objektumát várja.
+Például:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// The copy constructor</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (Copied)&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="stiluslapok-hasznalata">Stíluslapok használata<a class="headerlink" href="#stiluslapok-hasznalata" title="Permanent link">&para;</a></h2>
+<p>Ahogyan a webes környezetben is, JavaFX-ben is lehetőség van, hogy a megjelenést, a formázást személyre szabjuk és ezen szabályok összességét leválasszuk magukról a UI elemekről és egy szeparált helyen adjuk meg őket.
+A nagyszerű az egészben, hogy nem kell egy új dolgot megtanulni, mivel használhatunk CSS stíluslapokat a formázások megadásához.</p>
+<p>Egy példa, amely már JavaFX-ben használható (és egy kis emlékeztető):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">-fx-background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">-fx-text-fill</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>.button</code> az úgynevezett <strong>selector</strong>, melyhez property-value párosokat adhatunk meg a kívánt formázások elérésének érdekében.
+A fő különbség, hogy a property-k megadásánál a <code>-fx-</code> prefixet is meg kell adnunk!</p>
+<p>A fent megadott stíluslapot mentsük el például <code>resources/css/style.css</code> néven!
+Ezután válasszuk ki azt a <code>Scene</code>-t, amelyikre szeretnénk az adott CSS-t alkalmazni és a következő kóddal tegyük is ezt meg!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">scene</span><span class="p">.</span><span class="na">getStylesheets</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;/css/style.css&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>scene.getStylesheets</code> egy <code>ObservableList</code>-et ad vissza, melyhez hozzáadhatunk egy vagy több stíluslapot, amit az adott <code>Scene</code>-re értelmezni szeretnénk.
+A stíluslapok <code>Node</code>-okhoz rendelése azonban nem korlátozódik pusztán a <code>Scene</code>-re.
+Stíluslapokat rendelhetünk a <code>Parent</code> típusú elemekhez is.</p>
+<h3 id="nevkonvenciok">Névkonvenciók<a class="headerlink" href="#nevkonvenciok" title="Permanent link">&para;</a></h3>
+<p>A JavaFX-ben található osztályokból használt objektumokat (összeset) a class-selectorral tudjuk kiválasztani, de csupa kisbetűvel kell írnunk az osztály nevét.
+Például a <code>Button</code> típusú objektumokat a <code>.button</code>-el.</p>
+<p>Amikor összetett neve van egy osztálynak (pl.: ComboBox), akkor szintén csak kisbetűket használunk, de a szavak közé kötőjelet írunk (pl.: combo-box).
+A Java osztályok használatáról később még részletesebben írunk.</p>
+<h3 id="alapertelmezett-stiluslap">Alapértelmezett stíluslap<a class="headerlink" href="#alapertelmezett-stiluslap" title="Permanent link">&para;</a></h3>
+<p>A JavaFX egy beépített, alapértelmezett stíluslapot használ, melyet <code>MODENA</code>-nak hívnak.
+Mi magunk is lekérhetjük és beállíthatjuk az alapértelmezett stíluslapot, melyet alkalmazásszinten fog használni a rendszer.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Application</span><span class="p">.</span><span class="na">setUserAgentStylesheet</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="na">STYLESHEET_CASPIAN</span><span class="p">);</span><span class="w"> </span><span class="c1">// A Caspian volt a régebbi alapértelmezés</span>
+<span class="n">Application</span><span class="p">.</span><span class="na">getUserAgentStylesheet</span><span class="p">();</span><span class="w"> </span><span class="c1">// itt csak egy stíluslap adható meg ezért nem listát ad vissza</span>
+</code></pre></div></td></tr></table></div>
+<p>A getter adhat vissza <code>null</code>-t is, ami azt jelzi, hogy a rendszer az alapértelmezést használja.</p>
+<h3 id="inline-stilus">Inline stílus<a class="headerlink" href="#inline-stilus" title="Permanent link">&para;</a></h3>
+<p>Az eddig látottak alapján külső stíluslapokat tudunk megadni, ugyanakkor a <code>Node</code> típusú objektumok rendelkeznek inline stílussal is, melyhez a következő metódusok adnak segítséget:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">setStyle</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">inlineStyle</span><span class="p">)</span>
+<span class="n">getStyle</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Például egy gomb inline formázásának megadásához:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">);</span>
+<span class="n">btn</span><span class="p">.</span><span class="na">setStyle</span><span class="p">(</span><span class="s">&quot;-fx-text-fill: red; -fx-font-weight: bold;&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="stilusok-prioritasa">Stílusok prioritása<a class="headerlink" href="#stilusok-prioritasa" title="Permanent link">&para;</a></h3>
+<p>Egy-egy vezérlőelemre több forrásból is érkezhetnek formázási szabályok (pl.: egy külső stíluslapból, a default stílusból, inline, property-ből, stb.).
+Tekintsük az alábbi példát:</p>
+<p><code>style.css</code>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">-fx-font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><code>App.java</code>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Button&quot;</span><span class="p">);</span>
+<span class="n">btn</span><span class="p">.</span><span class="na">setStyle</span><span class="p">(</span><span class="s">&quot;-fx-font-size: 16px&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">//inline style</span>
+<span class="n">btn</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Font</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"> </span><span class="c1">// property setting</span>
+
+<span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">btn</span><span class="p">);</span>
+<span class="n">scene</span><span class="p">.</span><span class="na">getStylesheets</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="s">&quot;resources/css/style.css&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A megadott <code>font-size</code>-ok közül melyiket fogja értelmezni a rendszer?
+A prioritás a következő (legmagasabbtól a legalacsonyabb prioritásig):</p>
+<ul>
+<li>Inline style (legmagasabb, azaz felülír minden egyéb helyen megadottat)</li>
+<li>Szülő stíluslapja</li>
+<li>Scene stíluslapja</li>
+<li>JavaFX API segítségével beállított tulajdonságok (<code>btn.setFont(new Font(10));</code>)</li>
+<li>Alapértelmezett stíluslapok (legkisebb prioritás)</li>
+</ul>
+<h3 id="selector-ok">Selector-ok<a class="headerlink" href="#selector-ok" title="Permanent link">&para;</a></h3>
+<p>JavaFX-ben is használhatunk különböző selector-okat, melyek közül a legfontosabbakat vesszük sorra.</p>
+<h4 id="class-selector">Class selector<a class="headerlink" href="#class-selector" title="Permanent link">&para;</a></h4>
+<p>Minden <code>Node</code> típusú elem rendelkezik a <code>styleClass</code> változóval, melynek típusa <code>ObservableList&lt;String&gt;</code>, azaz egy <code>Node</code>-ot több osztályhoz is hozzárendelhetünk.</p>
+<div class="admonition important">
+<p class="admonition-title">Fontos</p>
+<p>Ne keverjük össze az objektum osztályát (típusát), a CSS osztállyal!</p>
+</div>
+<p>A class selector hasonlóan működik, mint hagyományos CSS környezetben, azaz a <code>.</code> prefixszel kell ellátnunk ezeket a selector-okat a CSS-ben.</p>
+<p>Korábban láttuk, hogy az összes gombot is kiválaszthatjuk ha a <code>.button</code> selector-t használjuk.
+Ennek oka, hogy a JavaFX sok esetben alapértelmezett styleClass-t is megad az elemekhez, mely az adott objektum típusának kisbetűsített és kötőjelesített változata.
+Fontos megjegyezni, hogy a konténer osztályokhoz nem rendel hozzá alapértelmezett styleClass-t a rendszer.</p>
+<p>Az alapértelmezett styleClass-ok belekerülnek az említett <code>ObservableList&lt;String&gt;</code> típusú listába, így egy adott elemre lekérhetjük azok listáját, pl.: <code>btn.getStyleClass()</code>.</p>
+<h4 id="id-selector">id selector<a class="headerlink" href="#id-selector" title="Permanent link">&para;</a></h4>
+<p>Hasonlóképpen a hagyományos CSS-hez, itt is használhatunk id alapú selector-t, melyhez a <code>#</code> prefixet kell használnunk!
+Pl.:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">#</span><span class="nn">myBtn</span><span class="p">{</span>
+<span class="w">    </span><span class="nv">-fx-font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Button</span><span class="w"> </span><span class="n">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Push me&quot;</span><span class="p">);</span>
+<span class="n">btn</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="s">&quot;myBtn&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// FXML-ben az fx:id-val is ugyanezt a hatást érhetjük el</span>
+<span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="egyeb-selector-ok">Egyéb selector-ok<a class="headerlink" href="#egyeb-selector-ok" title="Permanent link">&para;</a></h4>
+<ul>
+<li>JavaFX-ben is használható az univerzális selector, azaz a <code>*</code>, mely minden <code>Node</code>-ra illeszkedik.</li>
+<li>Több selector csoportosításakor használható a felsorolás, melynek során a selector-ok közé <code>,</code>-t kell tennünk (<code>.hbox, .button</code> -&gt; hbox és button stílusosztállyal rendelkező elemek együttes kiválasztása)</li>
+<li>Leszármazott kiválasztásnál a selectorok közé space-t kell tennünk (pl.: <code>.hbox .button</code> -&gt; hbox stílusú elemeken belüli gombok kiválasztása)</li>
+<li>child selector-t a <code>&gt;</code> használatával alkalmazhatunk (pl.: <code>.hbox &gt; .button</code> -&gt; hbox-on belüli button gyerekek kiválasztása)</li>
+<li>A testvér (sibling) és az attribútum selector-ok <strong>NEM</strong> támogatottak JavaFX-ben!</li>
+<li>állapot alapú selectorok a <code>:</code>-al adhatóak meg (pl.: <code>.button:hover</code>)</li>
+</ul>
+<p>A selector-okat nem csak a CSS-ben használhatjuk fel, arra is jók, hogy egy <code>Node</code> keresésénél felhasználjuk őket.
+A <code>Scene</code> és maga a <code>Node</code> is rendelkezik egy <code>lookup(String selector)</code> metódussal, melynek paraméterként megadható tetszőleges selector, majd a metódus ez alapján visszaadja a megtalált <code>Node</code>-ot.
+A <code>Scene</code> metódusa a teljes SceneGraph-ban keres, míg a <code>Node</code>-ra hívott az általa tartalmazott <code>Node</code>-ok között keres (magát is beleértve).
+Amennyiben több <code>Node</code>-ot szeretnénk egyszerre kiválasztani, akkor használhatjuk a <code>lookupAll(String selector)</code> metódust, mely <code>Set&lt;Node&gt;</code>-al tér vissza.
+Pl.:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scene</span><span class="p">.</span><span class="na">lookup</span><span class="p">(</span><span class="s">&quot;#myBtn&quot;</span><span class="p">);</span>
+<span class="n">Nodes</span><span class="w"> </span><span class="n">buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scene</span><span class="p">.</span><span class="na">lookupAll</span><span class="p">(</span><span class="s">&quot;.button&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h1 id="videok">Videók<a class="headerlink" href="#videok" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://youtu.be/KaT_SUz6Bxg?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">FXML Alapok</a></li>
+<li><a href="https://youtu.be/NfFxZT6pi-A?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">FXML field injection és eseménykezelés</a></li>
+<li><a href="https://youtu.be/HfKdBs6UGxQ?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">FXMLLoader és ResourceBundle használata</a></li>
+<li><a href="https://youtu.be/lm56K3Lhp88?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Initializable interfész és Node-ok keresése</a></li>
+<li><a href="https://youtu.be/WJb1cIvcdAU?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">FXML archetype</a></li>
+<li><a href="https://youtu.be/YqaU-sI3ioA?list=PL4xWiuk8DkBVMJo9CbXLva87Atn7QVtWH">Stíluslapok használata JavaFX-ben</a></li>
+</ul>
+<h1 id="referenciak">Referenciák<a class="headerlink" href="#referenciak" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html">FXML referencia</a></li>
+<li><a href="https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html">CSS referencia</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-03-19 07:29:57</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../../js/main.js"></script>
+      
+    
+  </body>
+</html>

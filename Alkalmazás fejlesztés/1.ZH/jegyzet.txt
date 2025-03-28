@@ -1,0 +1,25 @@
+Az fxml fileoknál fontos, hogy a view benne legyen az elérési útvonalba
+Az App-ban nem kell változtatni semmit
+
+A view belül:
+	Primary esetén a stage és a scene kell
+	Listázás esetén <>, imp ini, kell egy controller get el
+	Hozzáad esetén imp ini, változók
+
+modell
+	két konstruktor
+
+controller
+	kell egy dao
+	kell egy mobilcontroller
+
+--------------------------------
+
+A p. menete
+
+törlés
+warp
+fxml
+view
+	alapok
+	hibák

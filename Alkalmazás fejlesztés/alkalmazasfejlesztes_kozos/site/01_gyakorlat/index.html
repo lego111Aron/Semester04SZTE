@@ -1,0 +1,2296 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../00_Kovetelmenyek/index.html">
+      
+      
+        <link rel="next" href="../02_gyakorlat/index.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>1. gyakorlat (XML + Maven) - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. gyakorlat (XML + Maven)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1. gyakorlat (XML + Maven)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./index.html" class="md-nav__link md-nav__link--active">
+        1. gyakorlat (XML + Maven)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xml-extensible-markup-language" class="md-nav__link">
+    XML (eXtensible Markup Language)
+  </a>
+  
+    <nav class="md-nav" aria-label="XML (eXtensible Markup Language)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xml-fa" class="md-nav__link">
+    XML fa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#karakter-entitasok" class="md-nav__link">
+    Karakter entitások
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemek" class="md-nav__link">
+    Elemek
+  </a>
+  
+    <nav class="md-nav" aria-label="Elemek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gyerek-elem-vagy-attributum" class="md-nav__link">
+    Gyerek elem vagy attribútum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nevterek-namespaces" class="md-nav__link">
+    Névterek (namespaces)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-rendszerek" class="md-nav__link">
+    Build rendszerek
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven" class="md-nav__link">
+    Maven
+  </a>
+  
+    <nav class="md-nav" aria-label="Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven-fo-kepessegei" class="md-nav__link">
+    Maven fő képességei:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-telepitese" class="md-nav__link">
+    Maven telepítése
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-project-object-model" class="md-nav__link">
+    POM - Project Object Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-fajl-tipusok" class="md-nav__link">
+    POM fájl típusok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuggosegek" class="md-nav__link">
+    Függőségek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-k" class="md-nav__link">
+    Repository-k
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-eletciklusok" class="md-nav__link">
+    Build életciklusok
+  </a>
+  
+    <nav class="md-nav" aria-label="Build életciklusok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin-ok-es-goal-ok" class="md-nav__link">
+    Plugin-ok és Goal-ok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-k-hasznalata" class="md-nav__link">
+    Property-k használata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-build-szekcio" class="md-nav__link">
+    POM - Build szekció
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profilok" class="md-nav__link">
+    Profilok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-projekt-parancssorbol" class="md-nav__link">
+    Maven projekt parancssorból
+  </a>
+  
+    <nav class="md-nav" aria-label="Maven projekt parancssorból">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alkalmazas-futtatasa" class="md-nav__link">
+    Alkalmazás futtatása
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xml-extensible-markup-language" class="md-nav__link">
+    XML (eXtensible Markup Language)
+  </a>
+  
+    <nav class="md-nav" aria-label="XML (eXtensible Markup Language)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xml-fa" class="md-nav__link">
+    XML fa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#karakter-entitasok" class="md-nav__link">
+    Karakter entitások
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elemek" class="md-nav__link">
+    Elemek
+  </a>
+  
+    <nav class="md-nav" aria-label="Elemek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gyerek-elem-vagy-attributum" class="md-nav__link">
+    Gyerek elem vagy attribútum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nevterek-namespaces" class="md-nav__link">
+    Névterek (namespaces)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-rendszerek" class="md-nav__link">
+    Build rendszerek
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven" class="md-nav__link">
+    Maven
+  </a>
+  
+    <nav class="md-nav" aria-label="Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maven-fo-kepessegei" class="md-nav__link">
+    Maven fő képességei:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-telepitese" class="md-nav__link">
+    Maven telepítése
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-project-object-model" class="md-nav__link">
+    POM - Project Object Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-fajl-tipusok" class="md-nav__link">
+    POM fájl típusok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuggosegek" class="md-nav__link">
+    Függőségek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-k" class="md-nav__link">
+    Repository-k
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-eletciklusok" class="md-nav__link">
+    Build életciklusok
+  </a>
+  
+    <nav class="md-nav" aria-label="Build életciklusok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin-ok-es-goal-ok" class="md-nav__link">
+    Plugin-ok és Goal-ok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-k-hasznalata" class="md-nav__link">
+    Property-k használata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pom-build-szekcio" class="md-nav__link">
+    POM - Build szekció
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profilok" class="md-nav__link">
+    Profilok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-projekt-parancssorbol" class="md-nav__link">
+    Maven projekt parancssorból
+  </a>
+  
+    <nav class="md-nav" aria-label="Maven projekt parancssorból">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alkalmazas-futtatasa" class="md-nav__link">
+    Alkalmazás futtatása
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-gyakorlat">1. gyakorlat<a class="headerlink" href="#1-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="xml-extensible-markup-language">XML (eXtensible Markup Language)<a class="headerlink" href="#xml-extensible-markup-language" title="Permanent link">&para;</a></h2>
+<p>Az XML-t adatok tárolására és továbbítására tervezték.
+Mind ember és mind gép számára olvasható formátumban tárolja az adatot (azaz, szöveges formátumban és nem binárisan).
+Az XML szoftver- és hardverfüggetlen eszköz, így például előszeretettel alkalmazták/alkalmazzák web szolgáltatásokban adatok továbbítására.
+Önmagában nem csinál semmit, nincsenek előre definiált tagek.</p>
+<p>Egy egyszerű XML példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;note&gt;</span>
+<span class="w">    </span><span class="nt">&lt;to&gt;</span>Béla<span class="nt">&lt;/to&gt;</span>
+<span class="w">    </span><span class="nt">&lt;from&gt;</span>Jani<span class="nt">&lt;/from&gt;</span>
+<span class="w">    </span><span class="nt">&lt;heading&gt;</span>Reminder<span class="nt">&lt;/heading&gt;</span>
+<span class="w">    </span><span class="nt">&lt;body&gt;</span>Don&#39;t<span class="w"> </span>forget<span class="w"> </span>me<span class="w"> </span>this<span class="w"> </span>weekend!<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/note&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az XML-t sokszor használják arra, hogy az adatot elszeparálják a megjelenítéstől, továbbá előszeretettel alkalmazzák konfigurációs állományokként (pl.: <code>build.xml</code> Ant esetében, illetve <code>pom.xml</code> Maven esetében, stb).
+Ilyen értelemben egyenértékű lehet a JSON-nel is, melyben szintén adatokat adhatunk meg.</p>
+<h3 id="xml-fa">XML fa<a class="headerlink" href="#xml-fa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Az XML dokumentumok elemei egy <strong>fa struktúrá</strong>t alkotnak, melyet szokás <strong>XML DOM</strong>-nak is hívni (HTML DOM mintájára).</li>
+<li>Minden XML dokumentumban <strong>pontosan egy gyökér</strong> található.</li>
+<li>Minden pontnak lehetnek <strong>gyerekei</strong> is.</li>
+<li>A fenti példában <code>&lt;note&gt;</code> a gyökér, melynek négy gyereke van (<code>to</code>, <code>from</code>, <code>heading</code> és <code>body</code>)</li>
+</ul>
+<p>Az XML-ek első sorában az úgynevezett <strong>prolog sor</strong> található, mely speciális formátumú és opcionális.
+A lenti példában a használt XML verzióját (kezdetektől fogva 1.0) és a karakterkódolást adja meg (az alapértelmezett az UTF-8).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A prolog sor nem része az XML dokumentumnak, ezért nincs szükség lezáró tagre.</p>
+<p>Egy XML dokumentum <strong>jól formázott</strong>, ha teljesülnek a következők:</p>
+<ul>
+<li>Nincs átlapoló tag-pár (Például nincs ilyen: <code>&lt;to&gt; &lt;from&gt; &lt;/to&gt; &lt;/from&gt;</code>)</li>
+<li>Minden tagnek van lezáró párja</li>
+<li>Minden attribútum érték idézőjelek vagy aposztrófok között szerepel</li>
+<li>Pontosan egy gyökér elem található a dokumentumban</li>
+</ul>
+<h3 id="karakter-entitasok">Karakter entitások<a class="headerlink" href="#karakter-entitasok" title="Permanent link">&para;</a></h3>
+<p>Mivel az XML-ben vannak speciális karakterek, ezeket valahogy máshogy kell írnunk, ha egy ilyen karaktert szeretnénk adatként tárolni. Ezek a <strong>karakter entitások</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Karakter entitás</th>
+<th align="center">Megjelenés</th>
+<th align="center">Elnevezés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;lt;</td>
+<td align="center">&lt;</td>
+<td align="center">kisebb mint</td>
+</tr>
+<tr>
+<td>&amp;gt;</td>
+<td align="center">&gt;</td>
+<td align="center">nagyobb mint</td>
+</tr>
+<tr>
+<td>&amp;amp;</td>
+<td align="center">&amp;</td>
+<td align="center">és jel</td>
+</tr>
+<tr>
+<td>&amp;apos;</td>
+<td align="center">'</td>
+<td align="center">aposztróf</td>
+</tr>
+<tr>
+<td>&amp;quot;</td>
+<td align="center">"</td>
+<td align="center">idézőjel</td>
+</tr>
+</tbody>
+</table>
+<p>Például azt szeretnénk írni a <code>&lt;heading&gt;</code> tag-ek közé, hogy x &lt; y, akkor azt a következőképpen tehetjük meg:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;heading&gt;</span><span class="w"> </span>x<span class="w"> </span><span class="ni">&amp;lt;</span><span class="w"> </span>y<span class="w"> </span><span class="nt">&lt;/heading&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="elemek">Elemek<a class="headerlink" href="#elemek" title="Permanent link">&para;</a></h3>
+<p>Minden XML elem a következőket tartalmazhatja:</p>
+<ul>
+<li>szöveg (Pl: <code>&lt;to&gt;</code> <strong>szöveg</strong> <code>&lt;/to&gt;</code> )</li>
+<li>attribútum (Pl: <code>&lt;note id="attr"&gt; &lt;/note&gt;</code> )</li>
+<li>további elemek, azaz gyerek elemek (Pl: a <code>note</code> tartalmazza a <code>to</code>, <code>from</code>, <code>heading</code>, <code>body</code> tageket)</li>
+<li>a fentiek kombinációja (egy elemnek lehet egyszerre attribútuma, lehet benne szöveg, illetve a szöveg mellett további elemeket is tartalmazhat)</li>
+</ul>
+<p>Az alábbi példában láthatunk egy olyan esetet, amikor egy elem kombinálva tartalmazza az összes lehetőséget:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;note</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;12&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>Ez<span class="w"> </span>itt<span class="w"> </span>a<span class="w"> </span>szöveg<span class="w"> </span>rész.
+<span class="w">    </span><span class="nt">&lt;child_element&gt;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="nt">&lt;/child_element&gt;</span>
+<span class="nt">&lt;/note&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az XML tagek lehetnek üresek is, azaz nincs bennük se szöveg, se másik elem:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;heading&gt;&lt;/heading&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezt rövidebben is írhatjuk, az alábbi formában, melyet <strong>self-closing tag</strong>-nek nevezünk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;heading</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="gyerek-elem-vagy-attributum">Gyerek elem vagy attribútum<a class="headerlink" href="#gyerek-elem-vagy-attributum" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;note&gt;</span>
+<span class="w">    </span><span class="nt">&lt;to&gt;</span>Jozsi<span class="nt">&lt;/to&gt;</span>
+<span class="nt">&lt;/note&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti XML részlet ekvivalens a következő kóddal:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;note</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Jozsi&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Látható, hogy teljesen mindegy, melyik módot választjuk, mivel maga az adat így vagy úgy, de meg lesz adva.
+Akkor mégis mikor melyiket használjuk?
+<strong>Alapgondolat</strong>: Az elemre vonatkozó meta-adatokat tároljuk attribútumokban a többit pedig gyermek elemként hozzuk létre.
+Tehát a <code>to</code> legyen inkább gyermek elem.
+Ha a <code>note</code>-ra vonatkozó meta-adatunk van (Pl: <code>id</code>), akkor azt tároljuk attribútumként.
+Amikor valamilyen összetett adatról van szó (Pl. a <code>to</code> adaton belül tárolunk egy <code>name</code>, illetve <code>email</code> adatot), akkor nyilvánvalóan gyerek elemet használjunk!</p>
+<h3 id="nevterek-namespaces">Névterek (namespaces)<a class="headerlink" href="#nevterek-namespaces" title="Permanent link">&para;</a></h3>
+<p>Az XML névterek alapvető funkciója, hogy a névütközéseket elkerüljük. Ez akkor fordulhat elő, ha különböző XML-eket (különböző domain) akarunk egyesíteni.
+Például egy <em>HTML table</em>-t használó részlet:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;table&gt;</span>
+<span class="w">  </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;td&gt;</span>Apples<span class="nt">&lt;/td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;td&gt;</span>Bananas<span class="nt">&lt;/td&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Egy másik dokumentumban viszont a <em>table</em> egy bútordarabra vonatkozik:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;table&gt;</span>
+<span class="w">    </span><span class="nt">&lt;name&gt;</span>African<span class="w"> </span>Coffee<span class="w"> </span>Table<span class="nt">&lt;/name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;width&gt;</span>80<span class="nt">&lt;/width&gt;</span>
+<span class="w">    </span><span class="nt">&lt;length&gt;</span>120<span class="nt">&lt;/length&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha ezt a két dokumentumot összefésülnénk, akkor névütközés lépne fel, mivel mindkettő dokumentumban van table, azonban teljesen más a jelentésük (ráadásul más elemeket is tartalmaznak).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;h:table&gt;</span>
+<span class="w">  </span><span class="nt">&lt;h:tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h:td&gt;</span>Apples<span class="nt">&lt;/h:td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h:td&gt;</span>Bananas<span class="nt">&lt;/h:td&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/h:tr&gt;</span>
+<span class="nt">&lt;/h:table&gt;</span>
+
+<span class="nt">&lt;f:table&gt;</span>
+<span class="w">  </span><span class="nt">&lt;f:name&gt;</span>African<span class="w"> </span>Coffee<span class="w"> </span>Table<span class="nt">&lt;/f:name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;f:width&gt;</span>80<span class="nt">&lt;/f:width&gt;</span>
+<span class="w">  </span><span class="nt">&lt;f:length&gt;</span>120<span class="nt">&lt;/f:length&gt;</span>
+<span class="nt">&lt;/f:table&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példa még nem teljes, mivel névtereket már használunk benne, de még nem definiáltuk a "h" és "f" névtereket.
+A névtereket bármelyik elem <code>xmlns</code> attribútumában definiálhatjuk.
+A névterek definiálásának szintaxisa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>xmlns:prefix=&quot;URI&quot;
+</code></pre></div></td></tr></table></div>
+<p>A fenti példa helyesen a névtér definíciókkal kiegészítve így néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;root&gt;</span>
+<span class="w">    </span><span class="nt">&lt;h:table</span><span class="w"> </span><span class="na">xmlns:h=</span><span class="s">&quot;http://www.w3.org/TR/html4/&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;h:tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;h:td&gt;</span>Apples<span class="nt">&lt;/h:td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;h:td&gt;</span>Bananas<span class="nt">&lt;/h:td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/h:tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/h:table&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;f:table</span><span class="w"> </span><span class="na">xmlns:f=</span><span class="s">&quot;http://www.w3schools.com/furniture&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;f:name&gt;</span>African<span class="w"> </span>Coffee<span class="w"> </span>Table<span class="nt">&lt;/f:name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;f:width&gt;</span>80<span class="nt">&lt;/f:width&gt;</span>
+<span class="w">        </span><span class="nt">&lt;f:length&gt;</span>120<span class="nt">&lt;/f:length&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/f:table&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A névtér definícióját az összes gyermek elem örököli, azaz minden gyereknél használhatjuk a definiált namespace prefix-et.
+A névtereket a root elemnél is definiálhatjuk, majd a gyerekelemek között bárhol használhatjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;root</span>
+<span class="w">    </span><span class="na">xmlns:h=</span><span class="s">&quot;http://www.w3.org/TR/html4/&quot;</span>
+<span class="w">    </span><span class="na">xmlns:f=</span><span class="s">&quot;http://www.w3schools.com/furniture&quot;</span><span class="nt">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A névtereknél a az URI-nak nem kell létezőnek lennie, csak az egyediséget hivatott biztosítani.
+A vállalatok azonban arra szokták használni, hogy a névteret leíró oldalra mutassanak.
+Megadhatunk alapértelmezett névteret (default namespace) is, melynek formája:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>xmlns=&quot;URI&quot;
+</code></pre></div></td></tr></table></div>
+<p>Ilyenkor az összes gyerek elem ugyanabba a namespace-be fog tartozni.
+Vegyük észre, hogy ebben az esetben a prefix megadását elhagyjuk!
+A fenti példa default névterekkel:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;root&gt;</span>
+<span class="w">    </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/TR/html4/&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>Apples<span class="nt">&lt;/td&gt;</span>
+<span class="w">            </span><span class="nt">&lt;td&gt;</span>Bananas<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/table&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.w3schools.com/furniture&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>African<span class="w"> </span>Coffee<span class="w"> </span>Table<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;width&gt;</span>80<span class="nt">&lt;/width&gt;</span>
+<span class="w">        </span><span class="nt">&lt;length&gt;</span>120<span class="nt">&lt;/length&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel prefixet sem használunk a névtér megadásánál, így a gyerek elemekben sem kell hogy megadjuk azokat, mivel automatikusan a fában fölfelé elindulva a legelső megtalált névtérbe fognak tartozni.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat (01_users)</p>
+<p>Készítsünk egy XML dokumentumot manuálisan!
+A dokumentumban felépítése legyen a következő:</p>
+<ul>
+<li>A győkérelem legyen a <code>users</code></li>
+<li>
+<p>A <code>users</code> elemen belül legyen 3 <code>user</code> elem, ahol minden <code>user</code> a következő tulajdonságokkal rendelkezik:</p>
+<ul>
+<li><code>id</code></li>
+<li><code>name</code></li>
+<li><code>email</code></li>
+<li><code>age</code></li>
+</ul>
+</li>
+</ul>
+<p>Az összes <code>user</code> teetszőleges adatot tartalmazhat.</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;users&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Gipsz<span class="w"> </span>Jakab<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>gipsz@jakab.hu<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>21<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Kandisz<span class="w"> </span>Nóra<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>kandisz@nora.hu<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>54<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Beviz<span class="w"> </span>Elek<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>beviz@elek.com<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>14<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="nt">&lt;/users&gt;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Az XML alapjait a következő videó foglalja össze:</p>
+<p><a href="https://www.youtube.com/watch?v=Rcp_ciNbBDI"><img alt="XML Alapok" src="https://img.youtube.com/vi/Rcp_ciNbBDI/0.jpg" /></a></p>
+<h2 id="build-rendszerek">Build rendszerek<a class="headerlink" href="#build-rendszerek" title="Permanent link">&para;</a></h2>
+<p>Általánosságában a build rendszerek segítenek, hogy a fejlesztési folyamat sokkal könnyebben és gördülékenyebben mehessen végbe.
+De mit is nevezünk pontosan build folyamatnak?
+Általánosságában véve mondhatjuk azt, hogy a build folyamat során a forráskódból valamilyen futtatható terméket kapunk.
+A fordítás mellett támogatást ad <strong>függőségek</strong> (3rd-party libek) kezelésére, egyéb jar-ok classpath-ba rakására, <strong>tesztek futtatására</strong>, a lefordított kódot <strong>csomagba</strong> rakhatjuk (JAR, WAR, vagy ZIP).
+Az elkészült csomagokat aztán publikálni is lehet egy alkalmazásszerverre vagy egy repository-ba.
+Ebben is segítenek a build rendszerek, mint amilyen a Maven is, mely képes ezeket a lépéseket automatizálni, így a kézi buildelés során esetlegesen bekövetkező hibák számát is lecsökkenthetjük.</p>
+<h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
+<p>A <a href="https://maven.apache.org/index.html">Maven</a> egy build keretrendszer a sok közül, mely Java nyelvű alkalmazások build-eléséhez ad segítséget.
+Azon felül, hogy a buildelés automatizálható a segítségével, bizonyos mintákat (best practices) is előnyben részesít, mely alapján segíti a projekt felépítésének könnyebb érthetőségét, így a produktivitást is növelve.
+Egy ilyen best practice például a forráskódok helye, ami alapból a projekt gyökérkönyvtára alatt az <code>src</code> mappában található.
+Amennyiben ezt a best practice-t követjük, akkor a build leíróban, mely a <code>pom.xml</code> lesz, nem is kell megadnunk azt, hogy hol találhatóak a forráskód fájljaink.</p>
+<p>A Maven a következő feladatok elvégzésében segédkezik, azaz automatizálja azokat:</p>
+<ul>
+<li>Build (kódgenerálás, fordítás, package-elés)</li>
+<li>Dokumentáció generálása (pl.: Javadoc)</li>
+<li>Reporting</li>
+<li>Függőségek kezelése</li>
+<li>SCM (Source Code Management)</li>
+<li>Release</li>
+<li>Distribution</li>
+</ul>
+<p>Az automatizálás előnye, hogy kisebb a hibalehetőség (nincs emberi tényező), illetve gyorsabb is maga a folyamat.</p>
+<h3 id="maven-fo-kepessegei">Maven fő képességei:<a class="headerlink" href="#maven-fo-kepessegei" title="Permanent link">&para;</a></h3>
+<ul>
+<li>egyszerű projekt létrehozás, mely követi a best practice-t. A maven projekt template-eket kínál, amiket <strong>archetype</strong>-nak nevez.</li>
+<li>függőségkezelés: automatikusan frissíti, letölti és validálja a függőségeket (library-k).</li>
+<li>központi repository: a projektünk függőségeit a lokális gépről vagy publikus repository-kból szerzi be a Maven (pl: <a href="https://search.maven.org/index.html">Maven Central Repository</a>)</li>
+</ul>
+<h3 id="maven-telepitese">Maven telepítése<a class="headerlink" href="#maven-telepitese" title="Permanent link">&para;</a></h3>
+<p>Parancssori Maven-hez:</p>
+<ul>
+<li>Legyen JDK a gépre telepítve</li>
+<li>JAVA_HOME környezeti változót állítsd be</li>
+<li>PATH környezeti változóhoz add hozzá a $JAVA_HOME/bin bejegyzést (Win alatt %JAVA_HOME%\bin)</li>
+<li>Töltsd le a Maven-t (<a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>)</li>
+<li>Csomagold ki valahova a tömörített állományokat</li>
+<li>ahova kicsomagoltad a maven-t add hozzá a PATH-hoz (bin könyvtárral együtt)</li>
+<li>nyiss egy terminált és futtasd az '<strong>mvn --version</strong>' parancsot</li>
+</ul>
+<p>Eclipse és IntelliJ is ad bundled Maven-t, azaz az IDE-ben beépítve, a parancssori telepítése nélkül is lesz már ilyenünk.</p>
+<h3 id="pom-project-object-model">POM - Project Object Model<a class="headerlink" href="#pom-project-object-model" title="Permanent link">&para;</a></h3>
+<p>Minden Maven projektben megtalálható egy <strong><code>pom.xml</code></strong> állomány, mely a projekt gyökérkönyvtárában foglal helyet.
+Ebben az állományban vannak a config-ok, a projekt alapinformációi.</p>
+<p>Amiket itt megadhatunk:</p>
+<ul>
+<li>függőségek</li>
+<li>pluginok</li>
+<li>goal-ok</li>
+<li>build profilok</li>
+<li>projekt verzió</li>
+</ul>
+<p>Mivel minden projektet egy group (<code>groupId</code>) és egy name (<code>artifactId</code>) azonosít a maven repository-ban (nézzünk szét a Maven központi repoban: <a href="https://search.maven.org/index.html">https://search.maven.org/</a> és keressünk rá például a JUnit-ra!), ezért a mi projektünknek is kell ilyenekkel rendelkeznie (persze emiatt még nem lesz publikálva a projektünk a központi repository-ba).</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat (02_FirstMaven)</p>
+<p>Készítsünk egy új Maven projektet és nézzük meg annak eredményét, azaz a legenerált projektet!</p>
+</div>
+<p>Lépések (IntelliJ):</p>
+<ul>
+<li>File-&gt;New-&gt;Project...</li>
+<li>Bal oldalon válasszuk ki a <code>Maven</code>-t! Válasszuk ki a szimpatikus JDK verziót!</li>
+<li>Most még <strong>ne</strong> pipáljuk be a <code>Create from archetype</code> opciót!</li>
+<li>A következő lépésben adjuk meg a projekt nevét és helyét!</li>
+<li>Az <code>Artifact Coordinates</code> alatt megadhatjuk a <code>groupId</code>-t, <code>artifactId</code>-t és a <code>version</code>-t is.</li>
+<li>Az utolsó oldalon a használni kívánt maven-t választhatjuk ki, illetve megadhatjuk a user setting fájlt és a lokál repo helyét. Ezeket most hagyjuk alapértelmezetten.</li>
+<li>Finish</li>
+</ul>
+<p>Nézzünk meg az eredményt!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+<span class="w">         </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">         </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>hu.alkfejl<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>FirstMaven<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Minden <code>pom.xml</code> fájlban a dokumentum gyökere a <code>project</code> elem.
+Itt különböző namespace definíciók vannak megadva attribútumként, illetve a maven XSD (XML Schema Definition) fájlra is találhatunk hivatkozást (az XSD adja meg, hogy egy POM sémának megfelelő XML dokumentumban milyen elemek, milyen attribútumok, stb. szerepelhetnek).</li>
+<li>A model version a pom.xml-re vonatkozik. Ezt mindig 4.0.0-ra állítsuk, mivel jelenleg ez az egyetlen használatos verzió!</li>
+<li><code>groupId, artifactId, version</code> olyan kötelező elemek, melyek egyértelműen azonosítanak egy-egy projektet a maven repository-ban.</li>
+<li>A <code>groupId</code> a vállalat vagy szervezetre vonatkozó egyedi azonosító. Pl: <code>com.company</code></li>
+<li>Az <code>artifactId</code> a projektre vonatkozó azonosító. A <code>groupId</code>-val együtt egyértelműen meghatározza a projektet a repository-ban.</li>
+<li>A <code>version</code> a projekt verzióját adja meg. A repository-ban egy projekthez különböző verziók is adottak lehetnek, így ezt is egyértelműsíteni kell.</li>
+</ul>
+<h3 id="pom-fajl-tipusok">POM fájl típusok<a class="headerlink" href="#pom-fajl-tipusok" title="Permanent link">&para;</a></h3>
+<p>Alapvetően 3 típusa létezik:</p>
+<ul>
+<li><strong>Egyszerű (Simple) POM fájl</strong>: Lényegében az a fájl, amit fentebb kaptunk. Csak azok az információk vannak benne, ami az adott projektre vonatkozik.</li>
+<li><strong>Super POM fájl</strong>: Minden <em>egyszerű POM fájl</em>nak van őse, amit <em>super POM</em>-nak nevezünk. Ezekben a Super POM-okban alapértelmezett beállításokat találunk, melyeket megörökölnek az egyszerű POM fájlok. A Super POM-ok a Maven telepítési könyvtárában találhatóak meg: <code>M2_HOME/lib</code> alatt. A Super POM-okat soha ne módosítsuk, mert ezzel pont az alapértelmezett konfigurációk előnyét csorbítjuk!</li>
+<li><strong>Effective POM fájl</strong>: A super és a simple POM-ok kombinációja, azaz a tényleges (effective) POM fájl, melyet az adott projekten alkalmazunk.</li>
+</ul>
+<p>Összefoglalásképpen, az általunk írt <code>pom.xml</code> egy super POM-ból származik, amely egy csomó alap dolgot megad (hogyan kell fordítani a projektet, hogyan kell futtatni a teszteket, stb.), pontosan azért, hogy nekünk már csak az eltéréseket kelljen megadni, így kevesebb konfigurációval máris egy ténylegesen működő build leíró fájlunk lesz.
+A saját pom.xml fájlunk kiegészítését a super POM-al együtt (azaz az effective POM-ot) megnézhetjük, ha kiadjuk a következő parancsot:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>help:effective-pom
+</code></pre></div></td></tr></table></div>
+<p>Ezt meg tudjuk csinálni az IntelliJ-n belül is.
+Ehhez a Maven nézetre is szükségünk lesz.
+Ha nincs megnyitva: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> -&gt; <code>Maven</code>.</p>
+<p><img alt="intellij_maven_window.png" src="../img/01/intellij_maven_window.png" /></p>
+<p>Itt a kis 'm'-re kattintva beírhatjuk oda a fenti parancsot.
+Ha futtatjuk, akkor az eredményt az IntelliJ-n belül láthatjuk.</p>
+<p>IntelliJ-n belül egy másik mód erre, ha a <code>pom.xml</code> állományra jobb klikkelünk és a <code>Maven -&gt; Show Effective POM</code> opciót kiválasztjuk.</p>
+<h3 id="fuggosegek">Függőségek<a class="headerlink" href="#fuggosegek" title="Permanent link">&para;</a></h3>
+<p>Azokat a külső lib-eket vagy keretrendszereket, amiket a projektünk használ <strong>függőségeknek</strong> nevezzük.
+A Maven képes automatikusan letölteni a forráskódot és a dokumentációt is hozzá.
+Nem kell letöltenünk a megfelelő verziójú JAR-t valahonnan a netről, majd hozzáadni a projektünk lib-jeihez, classpath-ba rakni stb.</p>
+<p>Egészítsük ki a pom.xml-t a következőkkel (project elem gyereke)!</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
+<span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">        </span><span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>1.2.17<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</code></pre></div></td></tr></table></div>
+A dependency-knél is <code>groupId</code>, <code>artifactId</code> és <code>version</code> alapján megy az azonosítás.
+Ez alapján tudja a rendszer, hogy mit kell letölteni.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsünk egy <code>Main</code> állományt a projektben és használjuk a <code>log4j</code>-t benne!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.log4j.Level</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.log4j.Logger</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">Main</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Starting main&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">logger</span><span class="p">.</span><span class="na">isDebugEnabled</span><span class="p">()){</span>
+<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;This is debug&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Ending main&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Ha azt kapjuk, hogy <code>release version x not supported</code>, akkor a következőket kell tennünk (ez a maven miatt van sajnos, aki 1.5-re állítja a fordítót).
+A <code>pom.xml</code>-ben adjuk hozzá az Apache Maven Compiler Plugin-t (kicsit később még beszélünk a plugin-ekről).</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">            </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">                </span><span class="nt">&lt;source&gt;</span>11<span class="nt">&lt;/source&gt;</span>
+<span class="w">                </span><span class="nt">&lt;target&gt;</span>11<span class="nt">&lt;/target&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warn">
+<p class="admonition-title">Figyelem</p>
+<p>Arra figyeljünk, hogy amennyiben a Maven automatikus import-ot nem engedélyeztük a projektben, akkor nyomjuk meg a refresh gombot a Maven fülön, mivel ilyen esetben nem tölti le automatikusan a függőségeket a rendszer!</p>
+</div>
+<p><strong>Tranzitív függőségek</strong>: Amikor egy függőségünknek további függőségei vannak, akkor tranzitív függőségről beszélünk.</p>
+<p>Például a <code>junit-jupiter-engine</code> függőségnek van egy további függősége (mások mellett) a <code>junit-jupiter-api</code>-ra, így ez utóbbitól a mi alkalmazásunk tranzitívan függ.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Próbáljuk ki, hogy függőségként megadjuk az alábbit:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>junit-jupiter-engine<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>5.7.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+, majd IntelliJ-n belül a Maven fülön a <code>Dependencies</code> alatt megvizsgáljuk a függőségeket!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Megjegyzés</p>
+<p>A tranzitív függőségek miatt előfordulhat, hogy egy függőség többször kerül megadásra (direkt és tranzitív módon is akár).
+Ilyenkor a nem kívánatos tranzitív függőséget kizárhatjuk a következőképpen (ha például JUnit 4-ről van szó):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>...
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="nt">&lt;exclusions&gt;</span>
+<span class="w">        </span><span class="nt">&lt;exclusion&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/exclusion&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<p>A függőségeknek lehetnek scope-jai, melyek a következők lehetnek:</p>
+<ul>
+<li><strong>compile</strong>: Alapértelmezett scope (ha nem írjuk ki akkor is ez lesz). Az ilyen módon megadott függőségek belekerülnek a classpath-ba.</li>
+<li><strong>provided</strong>: Hasonló a <em>compile</em>-hoz, de itt a függőséget futásközben kapja meg a rendszer. A függőség elérhető lesz fordítási időben is, de az a végső artifact-ba nem kerül bele. Példa: <code>javax.servlet-api</code></li>
+<li><strong>runtime</strong>: A függőség csak futás közben lesz elérhető, fordításnál nem. Például, ha MySQL-t használunk az alkalmazásunkban, akkor a MySQL driver függőségét runtime-ra állítva biztosak lehetünk abban, hogy a JDBC API-t használjuk és a konkrét driver-t csak futás közben használja a rendszer.</li>
+<li><strong>test</strong>: Ezek a függőségek csak a tesztek futtatása közben lesznek elérhetőek. Tipikus példa: TestNG, JUnit</li>
+</ul>
+<h3 id="repository-k">Repository-k<a class="headerlink" href="#repository-k" title="Permanent link">&para;</a></h3>
+<p>A Maven repository-kból tölti le a függőségeket (libek és plugin-ok), illetve itt tárolja a build eredményeket is (akár mi is publikálhatjuk saját projektünket).
+Van egy lokális repository, mely a home könyvtár <code>.m2/</code> könyvtárában található meg.
+Amennyiben egy lib vagy plugin a lokális repoban elérhető, akkor a Maven azt használja, máskülönben letölti a központi repóból és eltárolja a lokálisban is, így legközelebb már nem kell a távoli repository-hoz fordulnia.
+Vannak olyan lib-ek, amik nem a Maven központi repoban vannak, hanem valamelyik másik repoban (pl: JBoss alkalmazásszerver).
+Az ilyen esetekben további repokat adhatunk meg a pom.xml-ben.</p>
+<p>Példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;repositories&gt;</span>
+<span class="w">    </span><span class="nt">&lt;repository&gt;</span>
+<span class="w">        </span><span class="nt">&lt;id&gt;</span>JBoss<span class="w"> </span>repository<span class="nt">&lt;/id&gt;</span>
+<span class="w">        </span><span class="nt">&lt;url&gt;</span>http://repository.jboss.org/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="build-eletciklusok">Build életciklusok<a class="headerlink" href="#build-eletciklusok" title="Permanent link">&para;</a></h3>
+<p>Az alap koncepciók után nézzük, hogy a Maven milyen módon build-eli a Java projektünket!</p>
+<p>Minden maven build egy életciklust követ, melyek <strong>fázisok</strong>ból állnak, és a fázisokhoz <strong>goal</strong>-ok rendelhetőek.
+Pl egy életciklusra: fordíts, csomagold az állományokat jar-ba és rakd ki a maven repoba.</p>
+<p>Alapból a következő életciklusok állnak rendelkezésre:</p>
+<ul>
+<li><strong>default</strong></li>
+<li><strong>clean</strong></li>
+<li><strong>site</strong></li>
+</ul>
+<p>Ezek az életciklusok egymástól függetlenek, és akár egyszerre is végrehajthatóak.
+A <em>default</em> életciklus a következő fázisokra osztható:</p>
+<ul>
+<li>validate – a projekt pom.xml állományának helyességét ellenőrzi</li>
+<li>compile – fordítás binárissá</li>
+<li>test – unit tesztek futtatása</li>
+<li>package – a lefordított kódot csomagba pakoljuk (ZIP, WAR, JAR, EAR)</li>
+<li>integration-test – további tesztek futtatása, melyhez kell már a csomag is</li>
+<li>verify – a csomag helyességének ellenőrzése</li>
+<li>install – a lokális maven repoba rakja bele a csomagot</li>
+<li>deploy – távoli szeróra vagy központi repoba rakja ki a csomagot</li>
+</ul>
+<p>A fenti build folyamat eredményeképpen előálló fájlokat a <em>clean</em> lifecycle-el törölhetjük (<code>.class</code> és metaadatokat tartalmazó fájlok, lényegében a <code>target</code> mappa tartalma).
+Ezek mellett a <em>site</em> lifecycle segítségével a Javadoc-ot generáltathatjuk le a rendszerrel.</p>
+<p>A fent említett fázisokhoz mindig tartozik egy <strong>pre</strong> és egy <strong>post</strong> rész is, amikhez definiálhatjuk további goal-okat, melyek rendre a fázis előtt vagy után futnak le (a pre és a post között van a sima fázis is. Pl: pre-compile, compile, post-compile).</p>
+<p>Na de mi is akkor egy <strong>goal</strong>?
+A goal egy jól meghatározott feladat, mely hozzájárul a projekt buildeléséhez.
+Egy goal fázisokhoz tartozhat (0 vagy több is lehet).
+Az a goal ami nem tartozik egy fázishoz sem, az csak életcikluson kívül, direkt hívható.</p>
+<p>Vegyünk egy példát!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>dependency:copy-dependencies<span class="w"> </span>package
+</code></pre></div></td></tr></table></div>
+<p>Ebben a parancsban a <code>clean</code> egy életciklus, a <code>package</code> a default életciklus egy build fázisa, a <code>dependency:copy-dependencies</code> viszont egy goal.
+A parancsban megadott sorrendben fognak lefutni a build fázisok és goal-ok.</p>
+<p><strong>Összességében gondolhatunk egy fázisra úgy, mint goal-ok halmazára.
+Illetve egy életciklusra, úgy mint fázisok egymásutániságára.</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Nézzük meg az IntelliJ-ben is a lehetőségeket!</p>
+</div>
+<h4 id="plugin-ok-es-goal-ok">Plugin-ok és Goal-ok<a class="headerlink" href="#plugin-ok-es-goal-ok" title="Permanent link">&para;</a></h4>
+<p>Egy plugin nem más mint goal-ok halmaza, melyek mindegyike valamilyen fázisban kerül végrehajtásra (ez a sorrendiség miatt fontos).</p>
+<p>Van egy rakás beépített plugin amit használhatunk. Ezeket megnézhetjük <a href="https://maven.apache.org/plugins/index.html">itt</a>.</p>
+<p>A Maven rendelkezik egy alapértelmezett megadással is, hogy melyik fázishoz milyen goal-ok vannak alapból bekötve.
+Lásd <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Built-in_Lifecycle_Bindings">itt</a>.</p>
+<p>Hogy egy fázishoz tartozó goal-okat lefuttassunk a következőt kell kiadnunk a parancssorban:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>&lt;phase&gt;
+</code></pre></div></td></tr></table></div>
+<p>Például az <code>mvn clean install</code> parancs kiadására eltávolítjuk az előzőleg konstruált csomagot és a lefordított állományokat (clean fázis), majd lefuttattjuk az összes fázist, ami szükséges az install-hoz.</p>
+<p>A plugin jobb megértéséhez vizsgáljuk meg a <strong>Maven Compiler Plugin</strong>-t, mely a forráskódok lefordításáért felelős (.class fájlok előállítása), azaz ekvivalens egy <code>javac</code> futtatással.
+A compiler plugin használatához a következőt kell megadnunk a <code>pom.xml</code>-ben:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A compiler plugin engedélyezi a <code>compile</code> fázis használatát a default lifecycle-ben.
+Ezután adjuk ki a következő parancsot, hogy lefordítsuk a projekt forrásállományait!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>compiler:compile
+</code></pre></div></td></tr></table></div>
+<p>Hatására a lefordított állományok a <code>target</code> mappa alatt jönnek létre.</p>
+<p>IntelliJ-ben szimplán dupla kattoljunk a Maven fül alatt a compile lifecycle elemre és hasonló hatást érhetünk el!</p>
+<h3 id="property-k-hasznalata">Property-k használata<a class="headerlink" href="#property-k-hasznalata" title="Permanent link">&para;</a></h3>
+<p>A pom.xml-ben ha több helyen akarunk konstans értékeket felhasználni, akkor érdemes lehet property-ket használni.
+A definiált property-ket a pom.xml-ben bárhol felhasználhatjuk és hivatkozni a <code>${property_name}</code> alakban kell.</p>
+<p>Például a fenti maven compiler használatát így is módosíthatjuk a pom.xml-ben.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;java_version&gt;</span>11<span class="nt">&lt;/java_version&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+
+<span class="nt">&lt;build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">            </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">            </span><span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">            </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">                </span><span class="nt">&lt;source&gt;</span>${java_version}<span class="nt">&lt;/source&gt;</span>
+<span class="w">                </span><span class="nt">&lt;target&gt;</span>${java_version}<span class="nt">&lt;/target&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A property-k jól jöhetnek az útvonalmegadásoknál is.</p>
+<h3 id="pom-build-szekcio">POM - Build szekció<a class="headerlink" href="#pom-build-szekcio" title="Permanent link">&para;</a></h3>
+<p>A pom.xml egy fontos szelete a build, melybe már raktunk plugin-t is fentebb.
+Ebben a részben adhatjuk meg az alapértelmezett Maven goal-t, a projekt binárisainak mappáját, az alkalmazásunk nevét.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;defaultGoal&gt;</span>install<span class="nt">&lt;/defaultGoal&gt;</span>
+<span class="w">    </span><span class="nt">&lt;directory&gt;</span>${basedir}/target<span class="nt">&lt;/directory&gt;</span>
+<span class="w">    </span><span class="nt">&lt;finalName&gt;</span>${artifactId}-${version}<span class="nt">&lt;/finalName&gt;</span>
+<span class="w">    </span>//...
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti részletben használt property-ket használhatjuk anélkül, hogy azokat a properties elemben definiáljuk, ezeket szolgáltatja a rendszer.</p>
+<p>A Maven alapjait az alábbi videó foglalja össze:</p>
+<p><a href="https://www.youtube.com/watch?v=D0_GDOEEijE"><img alt="XML Alapok" src="https://img.youtube.com/vi/D0_GDOEEijE/0.jpg" /></a></p>
+<h3 id="profilok">Profilok<a class="headerlink" href="#profilok" title="Permanent link">&para;</a></h3>
+<p>A fejlesztés közben általában felmerül az igény, hogy másképpen menjen a build folyamata fejlesztés közben, mint amikor production kódot akarunk előállítani és azt valahova élesíteni.
+Erre kitűnő megoldást adnak a profilok, amik igazából különböző konfigurációkat adnak meg a pom.xml-en belül.</p>
+<p>Példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;profiles&gt;</span>
+<span class="w">   </span><span class="nt">&lt;profile&gt;</span>
+<span class="w">       </span><span class="nt">&lt;id&gt;</span>production<span class="nt">&lt;/id&gt;</span>
+<span class="w">       </span><span class="nt">&lt;build&gt;</span>
+<span class="w">           </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">               </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">               </span>//...
+<span class="w">               </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">           </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/build&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/profile&gt;</span>
+<span class="w">   </span><span class="nt">&lt;profile&gt;</span>
+<span class="w">       </span><span class="nt">&lt;id&gt;</span>development<span class="nt">&lt;/id&gt;</span>
+<span class="w">       </span><span class="nt">&lt;activation&gt;</span>
+<span class="w">           </span><span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/activation&gt;</span>
+<span class="w">       </span><span class="nt">&lt;build&gt;</span>
+<span class="w">           </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">               </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">               </span>//...
+<span class="w">               </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">           </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/build&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/profile&gt;</span>
+<span class="nt">&lt;/profiles&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában a development az alapértelmezett (<code>activeByDefault</code> elem adja meg), de amennyiben a <code>production</code>-t akarjuk használni akkor a következőt kell kiadni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>install<span class="w"> </span>-Pproduction
+</code></pre></div></td></tr></table></div>
+<p>Az is lehet, hogy a development közben nem szeretnénk, ha a tesztek lefutnának.
+Ilyenkor a következőt használhatjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;profile&gt;</span>
+<span class="w">    </span><span class="nt">&lt;id&gt;</span>development<span class="nt">&lt;/id&gt;</span>
+<span class="hll"><span class="w">    </span><span class="nt">&lt;properties&gt;</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&lt;maven.test.skip&gt;</span>true<span class="nt">&lt;/maven.test.skip&gt;</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&lt;/properties&gt;</span>
+</span><span class="w">    </span><span class="nt">&lt;activation&gt;</span>
+<span class="w">        </span><span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/activation&gt;</span>
+<span class="w">    </span><span class="nt">&lt;build&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugins&gt;</span>
+<span class="w">            </span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">            </span>//...
+<span class="w">            </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugins&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/profile&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="maven-projekt-parancssorbol">Maven projekt parancssorból<a class="headerlink" href="#maven-projekt-parancssorbol" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>archetype:generate<span class="w"> </span>-DgroupId<span class="o">=</span>hu.alkfejl<span class="w"> </span>-DartifactId<span class="o">=</span>commandline-maven<span class="w"> </span>-DarchetypeArtifactId<span class="o">=</span>maven-archetype-quickstart
+</code></pre></div></td></tr></table></div>
+<p>A fenti parancs hatására generálódik egy projekt, mely a maven-archetype-quickstart projekt sablont használja.
+Emellett a <code>groupId</code>-t és az <code>artifactId</code>-t adtuk meg.
+Alapértelmezetten interaktív módban indul a generálás.
+Ha ezt ki akarjuk kapcsolni, akkor a <code>-DinteractiveMode=false</code> kapcsolót is adjuk át a maven-nek!
+A létrehozott projektben benne lesz a JUnit, illetve egy egyszerű 'Hello World' jellegű <code>App.java</code> állomány.</p>
+<p>A maven <strong>archetype</strong>-ok előre definiált projekt vázakat/sablonokat tartalmaznak, melyek közül választhatjuk a nekünk legjobban megfelelőt.</p>
+<p>Ha elkészült a projektünk, akkor fordítsuk le azt maven-nel:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>compile
+</code></pre></div></td></tr></table></div>
+<p>Ekkor a maven végigmegy az összes fázison, ami a compile-ig van a sorban és magán a compile-on is.
+Végeredményként lefordítja a projekt állományait.</p>
+<p>Tesztek futtatásához:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span><span class="nb">test</span>
+</code></pre></div></td></tr></table></div>
+<p>Csomag készítéséhez:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>package
+</code></pre></div></td></tr></table></div>
+<h4 id="alkalmazas-futtatasa">Alkalmazás futtatása<a class="headerlink" href="#alkalmazas-futtatasa" title="Permanent link">&para;</a></h4>
+<p>Az alkalmazást futtathatjuk is a maven segítségével.
+Ehhez egy plugin-re lesz szükségünk, melynek neve: <code>exec-maven-plugin</code>.</p>
+<p>A pom.xml <code>plugins</code> részben helyezzük el a következőt:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.5.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;mainClass&gt;</span>hu.alkfejl.App<span class="nt">&lt;/mainClass&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Ezután:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mvn<span class="w"> </span>exec:java
+</code></pre></div></td></tr></table></div>
+<p>paranccsal futtathatjuk majd a projektünket.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat (03_XML_Reader)</p>
+<p>Olvassuk be az előzőleg elkészített <code>users.xml</code> állomány felhasználóit:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;users&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Gipsz<span class="w"> </span>Jakab<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>gipsz@jakab.hu<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>21<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Kandisz<span class="w"> </span>Nóra<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>kandisz@nora.hu<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>54<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="w">    </span><span class="nt">&lt;user</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>Beviz<span class="w"> </span>Elek<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;email&gt;</span>beviz@elek.com<span class="nt">&lt;/email&gt;</span>
+<span class="w">        </span><span class="nt">&lt;age&gt;</span>14<span class="nt">&lt;/age&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/user&gt;</span>
+<span class="nt">&lt;/users&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A beolvasáshoz használhatjuk a következő függőséget, melyről további infomrációk elérhetőek <a href="https://github.com/FasterXML/jackson-dataformat-xml">itt</a></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.dataformat<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>jackson-dataformat-xml<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>2.10.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>User.java:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.annotation.JsonProperty</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement</span><span class="p">;</span>
+
+<span class="nd">@JacksonXmlRootElement</span><span class="p">(</span><span class="n">localName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;User{&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;id=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;, name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;, email=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;, age=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getEmail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setEmail</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getAge</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Users.java
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Users</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@JacksonXmlElementWrapper</span><span class="p">(</span><span class="n">useWrapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JacksonXmlProperty</span><span class="p">(</span><span class="n">localName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getUsers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setUsers</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">users</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Main.java:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.fasterxml.jackson.dataformat.xml.XmlMapper</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Files</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.nio.file.Paths</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">readXML</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">){</span>
+
+<span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">try</span><span class="p">{</span>
+<span class="w">            </span><span class="n">XmlMapper</span><span class="w"> </span><span class="n">mapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XmlMapper</span><span class="p">();</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">file</span><span class="p">)));</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="w"> </span><span class="n">clazz</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;XML file path is missing&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">filepath</span><span class="p">).</span><span class="na">exists</span><span class="p">()){</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;XML file is missing&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Users</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readXML</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="w"> </span><span class="n">Users</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="na">getUsers</span><span class="p">().</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Feladat (04_commandline-maven)</p>
+<p>Keressük meg a parancssori Maven parancsok IDE-n belüli megfelelőit!
+Próbáljunk ki valamilyen archetype-ot is!</p>
+</div>
+<h1 id="referenciak">Referenciák<a class="headerlink" href="#referenciak" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://www.w3schools.com/xml/index.html">W3Schools - XML Tutorial</a></li>
+<li><a href="https://maven.apache.org/index.html">Maven Homepage</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-03-22 09:20:54</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>
