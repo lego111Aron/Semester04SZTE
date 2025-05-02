@@ -1,0 +1,2101 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>9. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#java-server-pages-jsp" class="md-nav__link">
+    Java Server Pages (JSP)
+  </a>
+  
+    <nav class="md-nav" aria-label="Java Server Pages (JSP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jsp-eletciklusok" class="md-nav__link">
+    JSP életciklusok
+  </a>
+  
+    <nav class="md-nav" aria-label="JSP életciklusok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eletciklus-metodusok" class="md-nav__link">
+    Életciklus metódusok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp-scripting" class="md-nav__link">
+    JSP scripting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implicit-objektumok" class="md-nav__link">
+    Implicit-objektumok
+  </a>
+  
+    <nav class="md-nav" aria-label="Implicit-objektumok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-implicit-objektum" class="md-nav__link">
+    Request implicit objektum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-implicit-objektum" class="md-nav__link">
+    Response implicit objektum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-implicit-objektum" class="md-nav__link">
+    Config implicit objektum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-implicit-objektum" class="md-nav__link">
+    Application implicit objektum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-implicit-objektum" class="md-nav__link">
+    Session implicit objektum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagecontext-implicit-objektum" class="md-nav__link">
+    pageContext implicit objektum
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp-direktivak" class="md-nav__link">
+    JSP direktívák
+  </a>
+  
+    <nav class="md-nav" aria-label="JSP direktívák">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-direktiva" class="md-nav__link">
+    page direktíva
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include-direktiva" class="md-nav__link">
+    include direktíva
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taglib-direktiva" class="md-nav__link">
+    taglib direktíva
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression-language" class="md-nav__link">
+    Expression Language
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-operatorok" class="md-nav__link">
+    EL operátorok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jsp-action-tag-ek" class="md-nav__link">
+    JSP action tag-ek
+  </a>
+  
+    <nav class="md-nav" aria-label="JSP action tag-ek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jspusebean" class="md-nav__link">
+    jsp:useBean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jspforward" class="md-nav__link">
+    jsp:forward
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jspinclude" class="md-nav__link">
+    jsp:include
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jstl" class="md-nav__link">
+    JSTL
+  </a>
+  
+    <nav class="md-nav" aria-label="JSTL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cout" class="md-nav__link">
+    c:out
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cimport" class="md-nav__link">
+    c:import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cset" class="md-nav__link">
+    c:set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cremove" class="md-nav__link">
+    c:remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cif" class="md-nav__link">
+    c:if
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cchoose" class="md-nav__link">
+    c:choose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cforeach" class="md-nav__link">
+    c:forEach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credirect" class="md-nav__link">
+    c:redirect
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feladatok" class="md-nav__link">
+    Feladatok
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="9-gyakorlat">9. gyakorlat<a class="headerlink" href="#9-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="java-server-pages-jsp">Java Server Pages (JSP)<a class="headerlink" href="#java-server-pages-jsp" title="Permanent link">&para;</a></h2>
+<p>A JSP technológia csakúgy, mint a Servletek azért hivatottak, hogy a webes alkalmazásokat készíthessünk.
+Gondoljunk rájuk úgy, mint a szervleteket kiegészítő technológiára.
+A JSP ténylegesen maga is egy Servlet, a Servletből származik.
+Minden funkciót, amit a servletek kapcsán tanultunk itt is használni tudunk.
+A JSP oldalakra tekintsünk úgy, mint egyszerű HTML oldalakra, azonban azok dinamikus voltát az biztosítja, hogy beágyazhatunk beléjük Java kódot, mellyel a tartalmat generálhatjuk (dinamikussá tehetjük).
+Az előző órán látottak alapján mindenki azt mondhatja, hogy a komplex HTML válasz előállítása a servleten belül nem csak hogy macerás, de magas hibahajlammal bír.</p>
+<p>A JSP oldalak megértését nagyban segíti az alábbi ábra áttanulmányozása:</p>
+<p><center>
+<img alt="jspflow" src="../img/09/jspflow.svg" />
+</center></p>
+<p>Az egyik kulcslépés a JSP-k servletekké alakítása.
+Ezt az átalakítást az alkalmazás szerver végzi el.
+Ezután a megszokott folyamat zajlik.</p>
+<p>A JSP oldalak, HTML-szerűen tagekkel írhatóak le, de benne Java kódot is írhatunk.
+Hozzunk létre egy új Maven webapp-os projektet, ahogy azt a szervleteknél is tettük és adjuk, hozzá a dependency-khez a servlet-api-t.
+Ezután a generált projekt index.jsp oldalán a következő kódot írjuk be, majd indítsunk el a Tomcat Servert (beállítás ugyanaz, mint a servleteknél):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+  <span class="err">&lt;</span>% out.print(2*5); %&gt;  
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div>
+<p>Ez a 10-es eredményt írja ki. Később megnézzük, hogy pontosan mi történik.</p>
+<p>A JSP oldalakat a projektünkön belül a webapp mappába kell helyezni, de fontos, hogy ne a <code>WEB-INF</code> mappába rakjuk, mert az zárt az alkalmazásszerveren belül, azokat a fájlokat a kliens nem éri el direkt módon (web.xml-ben kell ilyen esetben megadni).
+<code>Jobb klikk webapp -&gt; New -&gt; JSP/JSPX Page -&gt; JSP Page</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>A JSP oldalakat használjuk megjelenítésre, a controller logikát szervezzük Servletekbe!</p>
+</div>
+<p>Amint azt láttuk a servleteket az alkalmazásszerverünk Servlet konténere menedzseli.
+A JSP oldalakat a JSP konténer kezeli.
+JSP fejlesztés során ajánlott a maven dependency-k közé felvenni a következőt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>2.2.1-b03<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Adjunk hozzá egy új JSP oldalt a projektünkhöz és az első oldalra helyezzünk el egy linket, ami átvisz a másik oldalra!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>index.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;second.jsp&quot;</span><span class="p">&gt;</span>Go To Second Page<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>second.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">&lt;</span>%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Second Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Second Page<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A <code>second.jsp</code>-ben található első sort az IntelliJ generálja. Később megismerkedünk ezekkel az elemekkel is.</p>
+</details>
+<h3 id="jsp-eletciklusok">JSP életciklusok<a class="headerlink" href="#jsp-eletciklusok" title="Permanent link">&para;</a></h3>
+<p>A JSP oldalak az alábbi életciklussal rendelkeznek. Egy részüket már láthattuk korábban:</p>
+<ul>
+<li><strong>Transzformálás</strong>: A JSP oldalak szervletté alakítása. Pl.: <code>index.jsp</code> -&gt; <code>index_jsp.java</code></li>
+<li><strong>Fordítás</strong>: A legenerált szervleteket lefordítjuk, amennyiben az átalakítás sikeres volt</li>
+<li><strong>Osztálybetöltés</strong>: Memóriába töltés</li>
+<li><strong>Példányosítás</strong>: A JSP konténer létrehoz egy példányt a JSP oldalból (már szervletként gondolhatunk rá)</li>
+<li><strong>Inicializálás</strong>: ServletConfig és ServletContext elérhetővé válik az oldal számára</li>
+<li><strong>Kérés feldolgozás</strong>: Minden kérést külön szálon szolgálnak ki a JSP oldalak is, mint ahogyan a szervleteknél is</li>
+<li><strong>Megsemmisítés</strong>: Hasonlóan, mint a szervleteknél a JSP oldalak is megsemmisülnek életük végén (pl.: szerver leállítás)</li>
+</ul>
+<h4 id="eletciklus-metodusok">Életciklus metódusok<a class="headerlink" href="#eletciklus-metodusok" title="Permanent link">&para;</a></h4>
+<p>Ahogy a szervleteknél is jelen voltak az életciklusokat támogató metódusok (init, service, destroy), itt is megtalálhatóak:</p>
+<ul>
+<li>jspInit(): a JspPage interface-ben van megadva</li>
+<li>_jspService(HttpServletRequest request, HttpServletResponse response): HttpJspPage interface tartalmazza</li>
+<li>jspDestroy(): a JspPage interface-ben van megadva</li>
+</ul>
+<p>A <code>JspPage</code> és a <code>HttpJspPage</code> interfészeket nem kell megadnunk direktben, ezeket az interface-eket automatikusan implementálja minden JSP oldal.
+Ezeket a metódusokat a JSP oldalon belül tudjuk felüldefiniálni, amennyiben az szükséges (általában nem az) a declaration tag-ek használatával (lásd lentebb).</p>
+<h3 id="jsp-scripting">JSP scripting<a class="headerlink" href="#jsp-scripting" title="Permanent link">&para;</a></h3>
+<p>A JSP oldalakon belül használhatunk úgynevezett scripting tageket (<code>&lt;%...%&gt;</code>).
+Ezeken belül java kódokat és kifejezéseket adhatunk meg.
+3 típusát különböztetjük meg:</p>
+<ul>
+<li>scriptlet tag: <code>&lt;% java source code %&gt;</code></li>
+<li>expression tag: <code>&lt;%= expresison %&gt;</code></li>
+<li>declaration tag: <code>&lt;%! declaration %&gt;</code></li>
+</ul>
+<p>Példa egy paraméter kiírására:</p>
+<p>index.html
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;welcome.jsp&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;go&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>  
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>  
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<p>welcome.jsp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+  <span class="err">&lt;</span>%  
+    String name = request.getParameter(&quot;username&quot;);
+    out.print(&quot;welcome &quot;+name);  
+  %&gt;  
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span> 
+</code></pre></div></td></tr></table></div></p>
+<p>Ez kiírja az index.html form-jában megadott felhasználói nevet a JSP oldalon.
+Vegyük észre az <code>out.print</code> sort, melyben kérdezhetnénk, hogy miért nincs a <code>System</code> az out eléírva.
+A JSP oldalakon használható néhány előre definiált, úgynevezett <strong>implicit objektum</strong>, mint például az <code>out</code>, melynek típusa <code>JspWriter</code>, működését tekintve pedig a servletekben használt <code>PrintWriter</code>-hez hasonlít.
+Egy másik implicit objektum is szerepel, mégpedig a <code>request</code>.
+Ez a <code>HttpServletRequest</code> objektumunkat jelöli és automatikusan megkapja a JSP oldal.
+A scriptletek mindig java utasításokat tartalmaznak, így az utasítások végére pontosvesszőt kell írnunk!</p>
+<p>A servletekben HTML kódot írtunk Java kódba, most pedig HTML-be írunk Java-t.
+Nem úgy tűnik, hogy sokkal jobb volna a JSP...
+Valóban a scriptletek eléggé el tudják csúfítani a JSP oldalak forráskódját, ezért is találták ki az <a href="#Expression-Language">Expression Language</a> technológiát, melyet a későbbiekben tárgyalunk.</p>
+<p>A JSP tartalmára tekinthetünk, úgy mintha a service metódusban lennénk és ott írnánk ki a HTML-es tartalmat (végső soron tényleg ez történik).
+A scriptlet-ként írt kód, így ebbe a metódusba kerül, melynek következményeként a scriptletben nem definiálhatunk metódusokat vagy adattagokat.
+Erre ad megoldást a declaration tag (ez <code>&lt;%! ... %&gt;</code>), mivel az ezek közé a tag-ek közé írt kódot a service() metóduson kívülre generálja az alkalmazás szerver JSP translator motorja.</p>
+<p>Példa.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+    <span class="err">&lt;</span>%!   
+      int cube(int n){  
+        return n*n*n*;  
+      }  
+    %&gt; 
+
+    Cube of 3 is: <span class="err">&lt;</span>% out.print(cube(3)); %&gt;
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<p>A 3. tag az expression tag, melybe írt kód a response output stream-jére íródik.
+Nem kell out.print-et írni!
+Főként változók vagy metódushívások értékének kiírására használható.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+      Current Time: <span class="err">&lt;</span>%= java.util.Calendar.getInstance().getTime() %&gt;  
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+  <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<h3 id="implicit-objektumok">Implicit-objektumok<a class="headerlink" href="#implicit-objektumok" title="Permanent link">&para;</a></h3>
+<p>A JSP oldalakon implicit objektumokat is kapunk, melyet a web konténer inicializál.
+Ezek közül már láttuk is az <code>out</code> és a <code>request</code> implicit objektumokat, melyek rendre a servlet-nél látott <code>PrintWriter</code>-hez hasonló (<code>JspWriter</code> típusú) output stream írója, illetve a <code>HttpServletRequest</code> objektumunk.</p>
+<p>A következő implicit objektumok közül válogathatunk (zárójelben a típusukat láthatjuk):</p>
+<ul>
+<li>application (<code>ServletContext</code>)</li>
+<li>config (<code>ServletConfig</code>)</li>
+<li>jspContext (<code>JspContext</code>)</li>
+<li>out (<code>JspWriter</code>)</li>
+<li>page (<code>Object</code>)</li>
+<li>pageContext (<code>PageContext</code>)</li>
+<li>request (<code>HttpServletRequest</code>)</li>
+<li>response (<code>HttpServletResponse</code>)</li>
+<li>session (<code>HttpSession</code>)</li>
+<li>exception (<code>Throwable</code>)</li>
+</ul>
+<p>A fenti implicit objektumokat a scriptletekben bárhol használhatjuk, mivel az olyan, mintha a <code>_jspService()</code> metódusban írnánk kódot.
+Ezt továbbgondolva, adódik, hogy ezeket az implicit objektumokat <strong>nem használhatjuk a declaration tag-ek között</strong>, mivel az magához a servlet osztályhoz fog tartozni (adattagokat és metódusokat definiálhatok).</p>
+<p>Most nézzük meg a fontosabb implicit objektumokat részletesebben!</p>
+<h4 id="request-implicit-objektum">Request implicit objektum<a class="headerlink" href="#request-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>A request implicit objektumot a szervlet <code>service(HttpServletRequest req, ...)</code> metódusában paraméterként megkapott <code>request</code> objektummal azonosítható (ténylegesen ugyanaz az objektum), típusa <code>HttpServletRequest</code>.
+Funkcionalitását tekintve is megegyezik a servletekben megismert <code>request</code> objektummal, attribútumokat állíthatunk be, kérhetünk le, ugyanígy a paramétereket is elérhetjük.</p>
+<h4 id="response-implicit-objektum">Response implicit objektum<a class="headerlink" href="#response-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>A response implicit objektumot a szervlet <code>service(..., HttpServletResponse resp)</code> metódusában paraméterként megkapott response objektummal azonosítható, típusa <code>HttpServletResponse</code>.
+Hasonlóan használható mint a szervleteknél.</p>
+<p>Példa jsp oldalon belüli redirect-re:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">&lt;</span>%   
+  response.sendRedirect(&quot;http://www.google.com&quot;);  
+%&gt;  
+</code></pre></div></td></tr></table></div></p>
+<h4 id="config-implicit-objektum">Config implicit objektum<a class="headerlink" href="#config-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>Amennyiben a jsp oldalunknak szeretnénk init paramétereket beállítani, akkor azt nem tudjuk megtenni olyan annotációs formában, csak a web.xml-ben.
+Nézzünk egy példát, hogy hogyan lehet JSP oldalakat megadni a web.xml-ben!</p>
+<p>index.jsp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Hello<span class="w"> </span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameter</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span><span class="w"> </span><span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>web.xml
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE web-app PUBLIC</span>
+<span class="cp"> &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+<span class="cp"> &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span>
+
+<span class="nt">&lt;web-app&gt;</span>
+<span class="w">  </span><span class="nt">&lt;display-name&gt;</span>Archetype<span class="w"> </span>Created<span class="w"> </span>Web<span class="w"> </span>Application<span class="nt">&lt;/display-name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;servlet&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servlet-name&gt;</span>index<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jsp-file&gt;</span>/index.jsp<span class="nt">&lt;/jsp-file&gt;</span>
+<span class="w">    </span><span class="nt">&lt;init-param&gt;</span>
+<span class="w">      </span><span class="nt">&lt;param-name&gt;</span>name<span class="nt">&lt;/param-name&gt;</span>
+<span class="w">      </span><span class="nt">&lt;param-value&gt;</span>Kandisz<span class="w"> </span>Nóra<span class="nt">&lt;/param-value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/init-param&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/servlet&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;servlet-mapping&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servlet-name&gt;</span>index<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;url-pattern&gt;</span>/index<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/servlet-mapping&gt;</span>
+<span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A JSP oldalon kiírjuk a web.xml-ben megadott <code>name</code> init paraméter értékét.
+A web.xml-es megadás arra is megfelelő, hogy elrejtsük az url-ből, hogy jsp oldalakkal játszunk a háttérben.
+Mivel a JSP oldalak servletekké alakulnak a háttérben, ezért a web.xml-ben is ugyanúgy adjuk meg őket, mint ahogyan az a hagyományos servleteknél történt, viszont vegyük észre, hogy itt megadjuk a <code>jsp-file</code> elemet is, melyben megadjuk azt, hogy itt egy jsp fájlról van szó.</p>
+<h4 id="application-implicit-objektum">Application implicit objektum<a class="headerlink" href="#application-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>Hasonlóan a <code>ServletConfig</code> objektumhoz, a ServletContext-hez is hozzáférhetünk implicit objektum formájában.
+A <code>ServletContext</code> objektumnak megfelelő implicit objektum az <code>application</code>.</p>
+<p>Példa context param kiolvasására:</p>
+<p>web.xml:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;web-app&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;servlet&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;servlet-name&gt;</span>welcome<span class="nt">&lt;/servlet-name&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;jsp-file&gt;</span>/welcome.jsp<span class="nt">&lt;/jsp-file&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/servlet&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;servlet-mapping&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;servlet-name&gt;</span>welcome<span class="nt">&lt;/servlet-name&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;url-pattern&gt;</span>/welcome<span class="nt">&lt;/url-pattern&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/servlet-mapping&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;context-param&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;param-name&gt;</span>driver<span class="nt">&lt;/param-name&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;param-value&gt;</span>org.sqlite.JDBC<span class="nt">&lt;/param-value&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/context-param&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;/web-app&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>welcome.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">&lt;</span>%   
+  String driver=application.getInitParameter(&quot;driver&quot;);  
+  out.print(&quot;driver name is=&quot;+driver);  
+%&gt;  
+</code></pre></div></td></tr></table></div></p>
+<h4 id="session-implicit-objektum">Session implicit objektum<a class="headerlink" href="#session-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>A request-től elkérhető <code>HttpSession</code> típusú objektum megfelelője.</p>
+<p>Példa session használatára.</p>
+<p>index.html
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;welcome.jsp&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;uname&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;go&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>  
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>  
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<p>welcome.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+  <span class="err">&lt;</span>%   
+    String name = request.getParameter(&quot;uname&quot;);  
+    out.print(&quot;Welcome &quot; + name);  
+    session.setAttribute(&quot;user&quot;,name);
+  %&gt;
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div>
+A beállított attribútumot más oldalakon a <code>session.getAttribute("user")</code> hívással kérhetjük le.
+Mivel a session-kezelés eléggé költséges, így ha nincs rá szükség, akkor megmondhatjuk a JSP oldalnak, hogy ne készítsen session objektumot az adott oldalhoz.
+A session például felesleges lehet a login oldalon.
+Ehhez a <code>&lt;%@ page session="false" %&gt;</code> kódrészletet illesszük az oldal tetejére.
+A pontos viselkedést később tisztázzuk a direktíváknál.</p>
+<h4 id="pagecontext-implicit-objektum">pageContext implicit objektum<a class="headerlink" href="#pagecontext-implicit-objektum" title="Permanent link">&para;</a></h4>
+<p>A pageContext objektum a <code>javax.servlet.jsp.PageContext</code> osztály egy példánya, melyen keresztül elérhetőek a különböző scope-okban lévő attribútumok (session scope, request scope, application scope).
+A pageContext-en keresztül a többi implicit objektumot is el tudjuk érni.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span><span class="w">  </span>
+<span class="nt">&lt;body&gt;</span><span class="w">  </span>
+<span class="k">&lt;%</span><span class="w">   </span>
+<span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;uname&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Welcome &quot;</span><span class="o">+</span><span class="n">name</span><span class="p">);</span><span class="w">  </span>
+
+<span class="n">pageContext</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">PageContext</span><span class="p">.</span><span class="na">SESSION_SCOPE</span><span class="p">);</span><span class="w">    </span>
+<span class="k">%&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/body&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/html&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A pageContext implicit objektumot ritkábban használjuk, mivel helyette használhatjuk az implicit objektumokat közvetlenül.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsünk JSP oldalt, melyen egy gomb megnyomásakor egy számláló értékét növeljük eggyel! A számlálót nem kell kell külön szervletben növelni. Csináljunk mindent egyetlen JSP oldalon!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>index.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span>
+<span class="w">  </span><span class="k">&lt;%!</span>
+<span class="w">      </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">%&gt;</span>
+
+<span class="w">  </span><span class="k">&lt;%</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;submit&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">          </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="k">%&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;h1&gt;</span>Counter<span class="w"> </span>value:<span class="w"> </span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/h1&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;index.jsp&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>Increment<span class="nt">&lt;/button&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/form&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A form-on belül a gombnak a <code>name</code> attribútumát fontos submit-re állítani, mert a request paraméterei között ilyen néven fogjuk elérni azt. Az eredmény az, hogy csak akkor növeljük a counter értékét, ha a postban megtalálható volt a submit paraméter (bármi is legyen az értéke).</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsünk egy form-ot, melyen bekérjük a felhasználó adatait: név, email, születési év! A form megnyomásakor kerüljünk át egy másik jsp oldalra, ahol kiírjuk ezeket a paramétereket, de előtte a kapott értékeket (ha vannak) beletesszük a session-be. A kiírás is a session-ből történjen!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>index.jsp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">&lt;html&gt;</span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;h1&gt;</span>Update<span class="w"> </span>profile<span class="nt">&lt;/h1&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;details.jsp&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div&gt;</span>
+<span class="w">          </span><span class="nt">&lt;label</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/label&gt;</span>
+<span class="w">          </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;text&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div&gt;</span>
+<span class="w">          </span><span class="nt">&lt;label</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;email&quot;</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+<span class="w">          </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;email&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div&gt;</span>
+<span class="w">          </span><span class="nt">&lt;label</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;age&quot;</span><span class="nt">&gt;</span>Age<span class="nt">&lt;/label&gt;</span>
+<span class="w">          </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;number&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;age&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;age&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">      </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>Update<span class="w"> </span>profile<span class="nt">&lt;/button&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/form&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>details.jsp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;title&gt;</span>User<span class="w"> </span>details<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="k">&lt;%</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">name</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">email</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">email</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">age</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()){</span>
+<span class="w">        </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">%&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>User<span class="w"> </span>details<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;table&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>Name:<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Not specified&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>Email:<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Not specified&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">)</span><span class="w">  </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tr&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tr&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span>Age:<span class="nt">&lt;/td&gt;</span>
+<span class="w">        </span><span class="nt">&lt;td&gt;</span><span class="k">&lt;%=</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Not specified&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">%&gt;</span><span class="nt">&lt;/td&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+</details>
+<h3 id="jsp-direktivak">JSP direktívák<a class="headerlink" href="#jsp-direktivak" title="Permanent link">&para;</a></h3>
+<p>A direktívák az alkalmazásszervernek szóló üzenetek, melyekkel megmondhatjuk, hogy a JSP oldalt milyen módon alakítsa szervletté a konténer, illetve módosítani tudjuk, hogy milyen képességű szervletünk keletkezik a transzformálás után.
+3 típusa van:</p>
+<ul>
+<li>page direktíva</li>
+<li>include direktíva</li>
+<li>taglib direktíva</li>
+</ul>
+<p>Ezek szintaxisa</p>
+<blockquote>
+<p>&lt;%@ directive attribute="value" %&gt;</p>
+</blockquote>
+<p>, ahol a <code>directive</code> maga a <code>page</code>, <code>include</code>, vagy <code>taglib</code>.</p>
+<h4 id="page-direktiva">page direktíva<a class="headerlink" href="#page-direktiva" title="Permanent link">&para;</a></h4>
+<p>Az egész oldalra vonatkozó attribútumok megadására szolgál.
+Egy <code>page</code> direktívához megadhatóak attribútumok, melyeket egy vagy akár több <code>page</code> direktívában helyezhetünk el a hatás ugyanaz.
+Használata:</p>
+<blockquote>
+<p>&lt;%@ page attribute="value" %&gt;</p>
+</blockquote>
+<p>Nézzük milyen attribútumokkal találkozhatunk a leggyakrabban.</p>
+<p><strong>import</strong>: Hasonlóan a java-s import-hoz itt is pontosan egy java osztályt húzhatunk be vele.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;java.util.Date&quot;</span><span class="w"> </span><span class="k">%&gt;</span><span class="w"> </span>
+<span class="nt">&lt;html&gt;</span><span class="w">  </span>
+<span class="nt">&lt;body&gt;</span><span class="w">  </span>
+Today<span class="w"> </span>is:<span class="w"> </span><span class="k">&lt;%=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">()</span><span class="k">%&gt;</span>
+<span class="nt">&lt;/body&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/html&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div>
+Addig nem használhatjuk a <code>Date</code> osztályt, ameddig nem húztuk be.</p>
+<p><strong>contentType</strong>: Ahogyan a servleteknél a <code>response.setContentType("text/html")</code> beállította a response mime típusát, itt ezt a következőképpen tehetjük meg.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+
+  <span class="err">&lt;</span>%@ page contentType=&quot;text/html&quot; %&gt;  
+
+  Szevasz Jozsi!
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div>
+<p><strong>errorPage</strong>: Ebben az attribútumban megadhatjuk, hogy amennyiben az oldalunk egy hibát dob, akkor azt melyik hibaoldal kezelje le. Itt bármilyen URI-t megadhatunk.</p>
+<p><strong>isErrorPage</strong>: Ezt akkor adjuk meg, amikor az adott jsp oldal egy hibakezelő oldal.
+Az implicit objektumok között szerepelt az <code>exception</code>, amiről nem beszéltünk még.
+Ez az implicit objektum csak az olyan oldalakon érhető el, melyeknél az <code>isErrorPage</code> attribútumot igazra állítottuk.</p>
+<p><strong>session</strong>: Ahogy azt korábban már láttuk a session objektum létrehozását tilthatjuk le.
+Alapértelmezetten engedélyezve van.</p>
+<h4 id="include-direktiva">include direktíva<a class="headerlink" href="#include-direktiva" title="Permanent link">&para;</a></h4>
+<p>Az include direktíva segítségével behúzhatjuk más erőforrások (jsp, hmtl, text fájlok) tartalmát.
+Igen hasznos lehet akkor, amikor az oldalainkat logikailag fel akarjuk osztani pl: header, main, footer részekre.
+Az <code>include</code>-ot a következő formában használjuk:</p>
+<blockquote>
+<p>&lt;%@ include file="test.jsp" %&gt;</p>
+</blockquote>
+<p>ahol a test.jsp egy relatív útvonalmegadás az aktuális jsp oldalhoz képest.</p>
+<p>Például egy header behúzása:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+  <span class="err">&lt;</span>%@ include file=&quot;header.html&quot; %&gt;
+
+  Today is: <span class="err">&lt;</span>%= java.util.Calendar.getInstance().getTime() %&gt;  
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<h4 id="taglib-direktiva">taglib direktíva<a class="headerlink" href="#taglib-direktiva" title="Permanent link">&para;</a></h4>
+<p>A taglib direktíva tag library-k behúzására alkalmazható, melyek custom tag-eket tartalmaznak.
+Később majd látjuk, hogy hogyan csinálhatunk saját tageket.
+Pl.: a <code>&lt;%= java.util.Calendar.getInstance().getTime() %&gt;</code> scriptlet helyett, csinálhatunk egy saját <code>&lt;currentTime&gt;</code> tag-et, mely kiírja az aktuális időt és ilyen módon nem "koszolja" össze a forráskódot.</p>
+<h3 id="expression-language">Expression Language<a class="headerlink" href="#expression-language" title="Permanent link">&para;</a></h3>
+<p>Az Expression Language vagy röviden EL, egy olyan bővítés, mely sokkal egyszerűbbé teszi az objektumokkal való munkát, mint például a request, application, response, stb.
+Mint korábban láttuk, nem igazán jó, hogy a JSP-ben alapvetően HTML kód van, mely teli van tűzdelve Java kódokkal.
+Az Expression Language ebben is segít.</p>
+<p>Szintaxisa:</p>
+<blockquote>
+<p>${ expression } </p>
+</blockquote>
+<p>Az ilyen kifejezéseket a JSP oldalon belül akárhol használhatjuk.</p>
+<p>Ahogy a scriptletekben is rendelkezünk implicit objektumokkal, így az Expression Language-ben is elérjük ezeket.</p>
+<p>Implicit objektumok listája:</p>
+<ul>
+<li>pageScope (csak az ezen oldalhoz tárolt attribútumok map-je)</li>
+<li>requestScope (a request-ben tárolt attribútumok map-je)</li>
+<li>sessionScope (a session-ben tárolt attribútumok map-je)</li>
+<li>applicationScope (a ServletContext-ben tárolt attribútumok map-je)</li>
+<li>param (request paraméterek lekérdezéséhez)</li>
+<li>paramValues (a request paraméterek listája)</li>
+<li>header (a kérés header-je)</li>
+<li>headerValues (az összes request header lekérdezése)</li>
+<li>cookie (cookie-k lekérdezéséhez)</li>
+<li>initParam (a context init paraméterek lekérdezéséhez, amit a web.xml-ben adtunk meg, servlet init paramhoz nem használható)</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Figyelem</p>
+<p>A fenti implicit objektumokat ne keverjük össze a JSP implicit objektumokkal!</p>
+</div>
+<p>Az Expression Language igazi ereje abban van, hogy nem kell folyamatosan váltanunk HTML és java code között.</p>
+<p>Vegyük a következő példát:</p>
+<p>index.html
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>  
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;welcome.jsp&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;uname&quot;</span><span class="p">&gt;</span>  
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;go&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>  
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>  
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>  
+</code></pre></div></td></tr></table></div></p>
+<p>welcome.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="k">&lt;%</span><span class="w">   </span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;uname&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Welcome &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span><span class="k">%&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/html&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>Expression Language használatával a welcome.jsp a következőképpen is írható:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span><span class="w"> </span>
+<span class="w">    </span>Welcome<span class="w"> </span>${param.uname}
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/html&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div>
+<p>Az EL-el írt kód sokkal rövidebb, sokkal tisztább, könnyebben érthető, így mindenképpen ajánlatos a használata.</p>
+<div class="admonition note">
+<p class="admonition-title">Segítség!!! Nem működik az EL!</p>
+<p>Ennek több oka lehet.
+A legvalószínűbb az, hogy a web.xml rosszul van megírva.
+Mivel a 2.4-es servlet specifikációtól kezdődően támogatott az EL, így a Maven által generált webapp nem igazán jó, mivel abban 2.3-as DTD specifikáció van megadva, ami igencsak helytelen.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="cp">&lt;!DOCTYPE web-app PUBLIC</span>
+<span class="cp">  &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+<span class="cp">  &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;web-app&gt;</span>
+<span class="w">    </span><span class="nt">&lt;display-name&gt;</span>Archetype<span class="w"> </span>Created<span class="w"> </span>Web<span class="w"> </span>Application<span class="nt">&lt;/display-name&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A legegyszerűbb megoldás, hogy a <code>&lt;!DOCTYPE ...</code> megadást kitöröljük.</p>
+</div>
+<h4 id="el-operatorok">EL operátorok<a class="headerlink" href="#el-operatorok" title="Permanent link">&para;</a></h4>
+<p>A legtöbb EL implicit objektum egy map amiből értékeket kérdezhetünk le.
+Erre használható a <strong>property access operátor (.)</strong>, amivel a mapből lekérhetjük a megfelelő értéket.
+Például:</p>
+<blockquote>
+<p>${requestScope.person.name}</p>
+</blockquote>
+<p>Ez lekéri a requestScope-ban definiált person attribútumot, melynek aztán lekéri a name attribútumát.
+A person itt már nem egy map, hanem egy Bean objektum.
+Az ilyen Bean objektumokon is használhatjuk a property access operátort.
+A Bean alatt az általunk már megismert Bean-eket értjük (publikus konstruktor, getter/setter, szerializálható).
+Fontos, hogy Bean-en és java.util.Map objektumokon használhatjuk ezt az operátort.</p>
+<p>A következő fontos operátor a <strong>collection access operátor</strong>.
+Tömbök vagy listák elemeihez kapunk hozzáférést a használatukkal.
+Példák:</p>
+<blockquote>
+<p>${myList[1]}  // a myList lista 1 elemét adja vissza</p>
+<p>${myList[“1”]} // nem csak számmal, hanem string-el is megadhatjuk az indexet</p>
+<p>${myMap[expr]} // ha az index nem string akkor a paraméter EL kifejezésként kiértékelődik</p>
+<p>${myMap[myList[1]]} // akár többszörösen is egymásba lehet ágyazni</p>
+</blockquote>
+<p>Az EL kifejezéseken belül használhatjuk a további megszokott egyszerű operátorokat is:</p>
+<ul>
+<li>aritmetikai operátorok (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>)</li>
+<li>logikai operátorok (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>)</li>
+<li>relációs operátorok (<code>&lt;</code>, <code>&gt;</code>, <code>==</code>, <code>!=</code>, <code>&lt;=</code>, <code>&gt;=</code>)</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Fontos</p>
+<p>Fontos észben tartani a következőket, amikor EL-t használunk:</p>
+<ul>
+<li>Az EL kifejezések mindig a következő formában szerepelnek: <code>${...}</code></li>
+<li>Egy oldalon a EL feldolgozást letilthatjuk a <code>&lt;%@ page isELIgnored="true" %&gt;</code> page direktíva használatával</li>
+<li>Az EL segítségével lekérdezhetünk attribútumokat, header-öket, cookie-kat, viszont <strong>nem állíthatunk be értéket</strong></li>
+<li>Az EL implicit objektumai különböznek a JSP implicit objektumaitól, kivéve a pageContext</li>
+<li>Az EL NULL-barát: nem dobál exception, ha nincs meg valamilyen attribútum</li>
+</ul>
+</div>
+<h3 id="jsp-action-tag-ek">JSP action tag-ek<a class="headerlink" href="#jsp-action-tag-ek" title="Permanent link">&para;</a></h3>
+<p>A jsp action tag-ek halmaza sokat segíthet, hogy ne kelljen átváltani java kódra, helyette jsp-t írhatunk továbbra is.
+Itt csak a legfontosabbakat action tag-eket mutatjuk be.</p>
+<h4 id="jspusebean">jsp:useBean<a class="headerlink" href="#jspusebean" title="Permanent link">&para;</a></h4>
+<p>Akkor használjuk, ha egy Java Bean-t le szeretnénk kérni egy adott scope-ból, vagy egy új objektumot létrehozni egy adott scope-ban.
+Példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:useBean id=&quot;person&quot; class=&quot;hu.alkfejl.Person&quot; scope=&quot;session&quot; /&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ebben az esetben a JSP konténer megkeresi a person nevű bejegyzést a session-ben.
+Amennyiben ilyet nem talál, akkor létrehoz egy új Person objektumot és person néven be is állítja azt a session-ben.
+Miután definiáltuk a Bean-t a JSP oldalon, onnantól kezdve lekérhetjük a property-jeit egy másik jsp action tag-gel, melyet <code>getProperty</code>-nek hívnak:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:getProperty name=&quot;person&quot; property=&quot;name&quot; /&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezt viszont nem igazán szoktuk használni, mivel már ismerjük az EL képességeit, tehát a fenti megfelelője:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>${person.name}
+</code></pre></div></td></tr></table></div>
+<p>A get mellett van egy setProperty jsp action tag, amit viszont már sokkal inkább használunk, mivel az EL segítségével nem tudunk értékeket beállítani.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:setProperty name=&quot;person&quot; property=&quot;name&quot; value=&quot;Gipsz Jakab&quot; /&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha a name property-t csak akkor akarjuk beállítani, ha új objektumot kellett létrehozni (azaz nem volt még benne a sessionben), akkor a setProperty-t a useBean tag gyerekeként adjuk meg!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:useBean id=&quot;person&quot; class=&quot;hu.alkfejl.Person&quot; scope=&quot;session&quot;&gt;</span>
+<span class="w">  </span><span class="k">&lt;jsp:setProperty name=&quot;person&quot; property=&quot;name&quot; value=&quot;Gipsz Jakab&quot; /&gt;</span>
+<span class="k">&lt;/jsp:useBean&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Néhány tudnivaló:</p>
+<ul>
+<li>Amennyiben a useBean-ek nem adunk meg scope-ot akkor a <code>page</code> az alapértelmezett.</li>
+<li>Ha a request paraméterek alapján akarom beállítani a property-t, akkor a setProperty <code>param</code> attribútumában adhatom meg, hogy milyen nevű request paraméter értékét akarom a bean-nek odaadni. Ha a property neve megegyezik a request paraméter nevével, akkor elhagyhatom a param attribútumot.</li>
+<li>Amennyiben a bean összes property-jét be akarom állítani és azok neve rendre megegyezik a request paraméterek neveivel, akkor írhatom a következőt: <code>&lt;jsp:setProperty name="person" property="*" /&gt;</code></li>
+</ul>
+<h4 id="jspforward">jsp:forward<a class="headerlink" href="#jspforward" title="Permanent link">&para;</a></h4>
+<p>A szervleteknél megismert <code>RequestDispatcher forward</code> metódusa helyett használható.</p>
+<p>Az alábbi kódrészletek ekvivalensek:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:forward page=&quot;welcome.jsp&quot; /&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ugyanez a servlet doGet, doPost, stb metódusokban:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;welcome.jsp&quot;</span><span class="p">);</span>
+<span class="n">rd</span><span class="p">.</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="jspinclude">jsp:include<a class="headerlink" href="#jspinclude" title="Permanent link">&para;</a></h4>
+<p>A szervleteknél megismert <code>RequestDispatcher include</code> metódusával megegyező.</p>
+<p>Az alábbi kódrészletek ekvivalensek:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;jsp:include page=&quot;welcome.jsp&quot; /&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ugyanez a servlet doGet, doPost, stb metódusokban:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;welcome.jsp&quot;</span><span class="p">);</span>
+<span class="n">rd</span><span class="p">.</span><span class="na">include</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Egy fontos különbség azonban van: <strong>include direktíva használatakor az include a transzformáláskor történik (azaz része lesz a lefordított servlet-nek), míg jelen esetben futási időben</strong>.
+Ez azt jelenti, hogy abban az esetben ha erősen dinamikus JSP oldalunk van, akkor az include direktíva csődöt mondhat, így ilyenkor érdemes lehet a <code>jsp:include</code>-ot használni.</p>
+<h3 id="jstl">JSTL<a class="headerlink" href="#jstl" title="Permanent link">&para;</a></h3>
+<p>A JSTL (JSP Standard Tag Library) egy adag egyedi tag-et ad a kezünkbe, melyekkel sokkal könnyebb a fejlesztés, illetve az EL mellett, a JSTL használatával is sokkal szebb kódot írhatunk a JSP oldalban, anélkül, hogy váltanunk kéne scriptlet-re.
+A JSTL szolgáltat néhány bejárással és elágazással kapcsolatos tag-et.
+A JSTL-ben több csoport található meg, de mi csak a core library-t fogjuk használni.
+Ennek használatához először a pom.xml-be fel kell vennünk a következő dependency-t:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Majd azon az oldalon, ahol használni szeretnénk a jstl-t ott a következőt kell, beillesztenünk.</p>
+<blockquote>
+<p>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</p>
+</blockquote>
+<h4 id="cout">c:out<a class="headerlink" href="#cout" title="Permanent link">&para;</a></h4>
+<p>A c:out hasonlít a <code>&lt;%= ... %&gt;</code> expression scriptlet-hez, viszont itt EL-el használhatjuk.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="k">%&gt;</span><span class="w">  </span>
+<span class="nt">&lt;html&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;body&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;c:out</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${sessionScope.user.name}&quot;</span><span class="nt">/&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/html&gt;</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A fenti kód a session-ből kiszedné a beállított user bean objektumot, melynek a kiírja a name fieldjét.</p>
+<h4 id="cimport">c:import<a class="headerlink" href="#cimport" title="Permanent link">&para;</a></h4>
+<p>Hasonló a <code>&lt;jsp:include&gt;</code> action tag-hez, viszont képes külső url-ekről is behúzni a tartalmat.</p>
+<h4 id="cset">c:set<a class="headerlink" href="#cset" title="Permanent link">&para;</a></h4>
+<p>A <code>&lt;c:set&gt;</code> változók beállítására használható, melynek megadhatjuk a scope-ot is (requestScope, sessionScope, applicationScope).</p>
+<p>Példa:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;c:set</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;income&quot;</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;session&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${99 * 20 * 100}&quot;</span><span class="nt">/&gt;</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p>Fontos, hogy a scope megadásánál nem kell megadni a teljes implicit objektumot, azaz nem sessionScope-ot írunk, hanem szimplán session-t.</p>
+<h4 id="cremove">c:remove<a class="headerlink" href="#cremove" title="Permanent link">&para;</a></h4>
+<p>A <code>c:set</code> ellenkezője, eltávolíthatunk a megadott scope-ból változókat.
+Fő a takarítás magunk után, ha már nincs szükségünk valamire.</p>
+<blockquote>
+<p><c:remove var="income"></p>
+</blockquote>
+<h4 id="cif">c:if<a class="headerlink" href="#cif" title="Permanent link">&para;</a></h4>
+<p>A válaszba feltételesen helyezhetünk el tartalmat.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;c:if</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${income &gt; 8000}&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">   </span><span class="nt">&lt;p&gt;</span>My<span class="w"> </span>income<span class="w"> </span>is:<span class="w"> </span><span class="nt">&lt;c:out</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${income}&quot;</span><span class="nt">/&gt;&lt;p&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/c:if&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A fenti példában csak akkor írjuk ki a jövedelmet, ha az nagyobb mint 8000.</p>
+<h4 id="cchoose">c:choose<a class="headerlink" href="#cchoose" title="Permanent link">&para;</a></h4>
+<p>A Java-s switch megfelelője.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;c:choose&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;c:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${income &lt;= 1000}&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">       </span>Income<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>good.<span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;/c:when&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;c:when</span><span class="w"> </span><span class="na">test=</span><span class="s">&quot;${income &gt; 10000}&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">        </span>Income<span class="w"> </span>is<span class="w"> </span>very<span class="w"> </span>good.<span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;/c:when&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;c:otherwise&gt;</span><span class="w">  </span>
+<span class="w">       </span>Income<span class="w"> </span>is<span class="w"> </span>undetermined...<span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;/c:otherwise&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/c:choose&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A case ágaknak megfeleltethető a when, illetve a default ágnak az otherwise.</p>
+<h4 id="cforeach">c:forEach<a class="headerlink" href="#cforeach" title="Permanent link">&para;</a></h4>
+<p>Iterációhoz használható a c:forEach tag, melyben index alapú, illetve a tényleges foreach iteráció is megadható.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;c:forEach</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;j&quot;</span><span class="w"> </span><span class="na">begin=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">end=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">   </span>Item<span class="w"> </span><span class="nt">&lt;c:out</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${j}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/c:forEach&gt;</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div></p>
+<p>Egy másik példa során, ha adott mondjuk a sessionben egy List<String> típusú lista akkor annak elemeit a következőképpen írhatjuk ki.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;c:forEach</span><span class="w"> </span><span class="na">items=</span><span class="s">&quot;${sessionScope.texts}&quot;</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">   </span><span class="nt">&lt;c:out</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;${text}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/c:forEach&gt;</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="credirect">c:redirect<a class="headerlink" href="#credirect" title="Permanent link">&para;</a></h4>
+<p>A szervleteknél látott <code>response.sendRedirect("welcome.jsp")</code> mintájára használható, de megint csak nem kell átváltanunk scriptlet-be.
+Az url-ben megadható külső erőforrás is.</p>
+<blockquote>
+<p><c:redirect url="http://facebook.com"/></p>
+</blockquote>
+<h3 id="feladatok">Feladatok<a class="headerlink" href="#feladatok" title="Permanent link">&para;</a></h3>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsünk egy képek feltöltésére alkalmas JSP alkalmazást, mely Base64-be alakítja át a képet!</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>index.jsp:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;image-upload&quot;</span><span class="w"> </span><span class="na">enctype =</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label</span><span class="w"> </span><span class="na">for=</span><span class="s">&quot;img&quot;</span><span class="nt">&gt;</span>Select<span class="w"> </span>image:<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;img&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;img&quot;</span><span class="w"> </span><span class="na">accept=</span><span class="s">&quot;image/*&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>ImageUpload.java:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.ServletException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.annotation.MultipartConfig</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.annotation.WebServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.Part</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.InputStream</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.SequenceInputStream</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Base64</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Vector</span><span class="p">;</span>
+
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/image-upload&quot;</span><span class="p">)</span>
+<span class="nd">@MultipartConfig</span><span class="p">(</span>
+<span class="w">        </span><span class="n">fileSizeThreshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1 MB</span>
+<span class="w">        </span><span class="n">maxFileSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 5 MB</span>
+<span class="w">        </span><span class="n">maxRequestSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1">// 25 MB</span>
+<span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ImageUpload</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">resp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">InputStream</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allParts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Part</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="na">getParts</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">allParts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">part</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">SequenceInputStream</span><span class="w"> </span><span class="n">appended</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SequenceInputStream</span><span class="p">(</span><span class="n">allParts</span><span class="p">.</span><span class="na">elements</span><span class="p">());</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">appended</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Base64</span><span class="p">.</span><span class="na">getEncoder</span><span class="p">().</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Fontos, hogy a form-ban megadjuk, hogy multipart data-t küldünk majd.
+A szervletben a <code>MultipartConfig</code> annotációban jelezhetjük, hogy mekkora mennyiségű adatot hajlandó fogadni a szervletünk.
+Ezután az adatrészeket a request-től a <code>getParts()</code>-al kérhetjük le, és minden part-tól elkérhetünk egy InputStream-et.
+Mivel nekünk a kép egyben kell, ezért ezeket a Streameket össze kell fűznünk.
+Erre alkalmas a <code>SequenceInputStream</code>, melynek van egy konstruktora, mely Enumeration<InputStream>-et vár.
+Emiatt egy <code>Vector</code>-ba összegyűjtjük az InputStreameket, melyre az <code>elements()</code> hívás pontosan egy ilyen enumeration-t ad vissza.
+Ebből a <code>SequenceInputStream</code>-ből már kinyerhetjük a byte tömböt, melyet aztán a Base64 encoderrel tudunk kódolni String-gé.</p>
+<p>A kinyert String-et lementhetjük akár adatbázisba is.
+Most csak kiírjuk a konzolra.
+Teszteléskor használhatunk egy online decodert, hogy visszanyerjük az eredeti képet.
+Pl.: <a href="https://codebeautify.org/base64-to-image-converter">https://codebeautify.org/base64-to-image-converter</a></p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsük el a <code>contacts</code> projektünket JSP oldalak és servletek használatával!
+Első körben elegendő a listázást és a hozzáadást implementálni.</p>
+</div>
+<details class="success">
+<summary>Megoldás</summary>
+<p>A megoldást lásd a pub-on!</p>
+</details>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-03-26 17:49:11</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>
