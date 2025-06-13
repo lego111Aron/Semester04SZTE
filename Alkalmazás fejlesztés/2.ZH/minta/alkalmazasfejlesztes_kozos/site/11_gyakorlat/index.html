@@ -1,0 +1,1232 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>11. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sajat-tagek-custom-tags" class="md-nav__link">
+    Saját tagek (Custom tags)
+  </a>
+  
+    <nav class="md-nav" aria-label="Saját tagek (Custom tags)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-tagek-attributumai" class="md-nav__link">
+    Custom tagek attribútumai
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="11-gyakorlat">11. gyakorlat<a class="headerlink" href="#11-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="sajat-tagek-custom-tags">Saját tagek (Custom tags)<a class="headerlink" href="#sajat-tagek-custom-tags" title="Permanent link">&para;</a></h2>
+<p>A felhasználó saját maga hozhat létre új tagaket.
+Ezáltal segít abban, hogy ne kelljen scriptleteket használni, illetve segít szeparálni az üzleti logikát a megjelenítéstől.
+Ezek mellett talán a legnagyobb előnye, hogy ezeket a tageket újra fel tudjuk használni több helyen is.
+Kétféleképpen használhatjuk a saját tagjeinket:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;prefix:tagname</span><span class="w"> </span><span class="na">attr1=</span><span class="s">value1....attrn=valuen</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+vagy
+
+<span class="nt">&lt;prefix:tagname</span><span class="w"> </span><span class="na">attr1=</span><span class="s">value1....attrn=valuen</span><span class="w"> </span><span class="nt">&gt;</span><span class="w">  </span>
+<span class="w">  </span>body<span class="w"> </span>code<span class="w">  </span>
+<span class="nt">&lt;/prefix:tagname&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A saját tagek definíciójához nagyobb szabadságot ad, ha TLD-ket (Tag Library Descriptor-okat) adunk meg, de ez túlmutat a céljainkon, mivel kicsit nehézkes és több helyen kell ezeket megadni.</p>
+<p>Egy másik, egyszerűbb módja, hogy a tag definíciókat a WEB-INF/tags mappában helyezzük el.
+Készítsük el a current-datetime taget!</p>
+<p>WEB-INF/tags/current-datetime.tag
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;java.time.LocalDateTime&quot;</span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="k">%&gt;</span>
+
+<span class="k">&lt;%</span>
+<span class="w">  </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">());</span>
+<span class="k">%&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Figyeljük meg, hogy a <code>page</code> direktíva helyett azt írtjuk, hogy <code>tag</code>, ezzel is jelezvén, hogy egy saját tag-et definiálunk.
+A tag egyszerűen kiírja az aktuális dátumot és időt.</p>
+<p>Használata, index.jsp
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;t:current-datetime</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A taglib direktívában nem az uri-t kell megadnunk, hanem a tagdir attribútumban a saját tagjeink könyvtárát.
+Innentől már használhatjuk a tags könyvtárban lévő tageket mint például a current-datetime-ot.</p>
+<h3 id="custom-tagek-attributumai">Custom tagek attribútumai<a class="headerlink" href="#custom-tagek-attributumai" title="Permanent link">&para;</a></h3>
+<p>Az előző példában csak egy tag-et csináltunk, de annak nem voltak attribútumai, ami viszont egy elég általános elvárás egy saját tag-től.</p>
+<p>Készítsük el azt a saját tag-et amelyet a következőképpen tudunk használni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;t:cube</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ehhez készítünk egy cube.tag állományt a WEB-INF/tags mappába, melynek tartalma:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="k">%&gt;</span>
+
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="n">required</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;java.lang.Double&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="k">&lt;%</span>
+<span class="w">  </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="k">%&gt;</span>
+</code></pre></div></td></tr></table></div>
+Mint az kitűnik, attribútumot a <code>&lt;%@ attribute %&gt;</code> direktívával adhatunk meg.
+Ez a direktíva csak tag definícióknál használható, jsp oldalaknál nem.
+Az attribútumnak meg lehet adni a nevét, hogy kötelező-e, mint azt a fenti példában is láthatjuk.
+Nagyon fontos a <code>type</code> attribútum. 
+A példában a 3. hatványra emelő tagünknek egy számot kell várnia, azonban az attribútumok alaptípusa <code>java.util.String</code>.
+A mi esetünkben ez egy nagy exception-t eredményezne, mivel arra nem tudja értelmezni a <code>value * value</code> kifejezést, így a type-ot megadtuk, hogy Double-t várjon és így működik is a tag.
+Ezen felül az attribútumnak adhatunk leírást is a <code>description</code> megadásával.</p>
+<p>Amennyiben nem attribútumban, hanem a tagek között akarjuk megadni az értéket a cube-nak, akkor a következőt kell tennünk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;jsp:doBody</span><span class="w"> </span><span class="na">scope=</span><span class="s">&quot;request&quot;</span><span class="w"> </span><span class="na">var=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="k">&lt;%</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(((</span><span class="n">String</span><span class="p">)</span><span class="n">request</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;value&quot;</span><span class="p">)).</span><span class="na">trim</span><span class="p">());</span>
+<span class="w">  </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="k">%&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A jsp:doBody segítségével a custom tagünk közötti body részt értékelhetjük ki.
+A kiértékelés eredményét egyből nyomhatjuk az outba, ekkor nem kell sem a scope sem a var attribútumot használnunk.
+Ha viszont szeretnénk felhasználni az értékét később, akkor érdemes lehet eltárolni, mint ahogyan most is ki akarjuk számolni a köbét.
+Ehhez kiolvassuk a tartalmat, majd string-é alakítjuk és trimmeljük, hogy tudjunk parsolni olyat is ha különböző sorban van a nyitó és záró tag, illetve közte az adat.
+Használni egyszerűen a következőképpen lehet:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;t:cube&gt;</span>3<span class="nt">&lt;/t:cube&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az attribute direktívának van egy további paramétere, mégpedig, hogy az attribútum az fragment-e.
+Ez azt jelenti, hogy a tag paraméterül jsp kódrészletet kap.
+Ezek nagyon jól használhatóak, ha például template-et kell készítenünk az oldalainkhoz.</p>
+<p>A cube tag-et bővítsük, hogy benne még további jsp-t adhassunk meg!
+A tag definícióban az alábbiakat kell írnunk:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="k">%&gt;</span>
+
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="n">required</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;java.lang.Double&quot;</span><span class="w">  </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="w"> </span><span class="n">fragment</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="k">%&gt;</span>
+
+<span class="k">&lt;%</span>
+<span class="w">  </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="k">%&gt;</span>
+
+<span class="nt">&lt;jsp:invoke</span><span class="w"> </span><span class="na">fragment=</span><span class="s">&quot;content&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div></td></tr></table></div>
+A kapott jsp fragment-et az oldalon belül a <code>&lt;jsp:invoke&gt;</code> használatával illeszthetjük be.
+Ezt akár több ponton is megtehetjük.
+Ezután a használatát tekintve a következőket kell tennünk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;t:cube</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;jsp:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>asdqwe
+<span class="w">  </span><span class="nt">&lt;/jsp:attribute&gt;</span>
+<span class="nt">&lt;/t:cube&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Most, hogy az alapokat megnéztük ideje, hogy átalakítsuk az alkalmazásunkat úgy, hogy az page template-eket használjon.
+Az esetleges újdonságokat menet közben még tisztázzuk.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Alakítsuk át úgy a contacts alkalmazásunkat, hogy page template-eket használjon!</p>
+</div>
+<p>Először is különböztessük meg azt a különböző eseteket, amikre szükségünk lehet:</p>
+<ul>
+<li>Common header szükséges az oldalhoz</li>
+<li>Common header és menü is szükséges az oldalon</li>
+</ul>
+<p>Ez alapján kétféle page template-et fogunk elkészíteni.
+Vegyük az elsőt, melyben csak a common header lesz benne.
+Ehhez a <code>WEB-INF</code> alatt hozzuk létre a <code>tags</code> könyvtárat, ahol létrehozzuk a <code>basic-layout.tag</code> állományt, melynek a következő tartalma lesz:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Basic Page template&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="n">required</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;java.lang.String&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="n">fragment</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;footer&quot;</span><span class="w"> </span><span class="n">fragment</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+
+<span class="nt">&lt;html&gt;</span>
+<span class="w">    </span><span class="nt">&lt;head&gt;</span>
+<span class="w">        </span><span class="nt">&lt;title&gt;</span>${title}<span class="nt">&lt;/title&gt;</span>
+<span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;${pageContext.request.contextPath}/css/style.css&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="w"> </span><span class="na">href=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span>
+<span class="w">              </span><span class="na">href=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;</span>
+<span class="w">              </span><span class="na">integrity=</span><span class="s">&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot;</span>
+<span class="w">              </span><span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;script</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;</span>
+<span class="w">                </span><span class="na">integrity=</span><span class="s">&quot;sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo&quot;</span>
+<span class="w">                </span><span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="w">        </span><span class="nt">&lt;script</span>
+<span class="w">                </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot;</span>
+<span class="w">                </span><span class="na">integrity=</span><span class="s">&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1&quot;</span>
+<span class="w">                </span><span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="w">        </span><span class="nt">&lt;script</span>
+<span class="w">                </span><span class="na">src=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;</span>
+<span class="w">                </span><span class="na">integrity=</span><span class="s">&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&quot;</span>
+<span class="w">                </span><span class="na">crossorigin=</span><span class="s">&quot;anonymous&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;jsp:invoke</span><span class="w"> </span><span class="na">fragment=</span><span class="s">&quot;header&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/head&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;body&gt;</span>
+<span class="w">        </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;body&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;jsp:doBody/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">        </span><span class="nt">&lt;jsp:invoke</span><span class="w"> </span><span class="na">fragment=</span><span class="s">&quot;footer&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fájl elején megadjuk, hogy egy custom tag-ről van szó (aminek neve megegyezik a fájl nevével: <code>basic-layout</code>), majd megadjuk, hogy milyen attribútumokat fogunk használni ebben a tag-ben.
+Az első attribútum a <code>title</code>, mely az oldal címét adja meg és annak típusú <code>String</code>.
+Ha megnézzük, hogy hol használjuk fel a <code>title</code> attribútumot, akkor láthatjuk, hogy a <code>&lt;title&gt;${title}&lt;/title&gt;</code> megadásban szerepel, ami az oldal címét adja meg.
+Ilyenkor a tag-et a következőképpen fogjuk használni: <code>&lt;basic-layout title="Login"&gt;...&lt;/basic-layout&gt;</code>, melynek eredményeképpen a megadott oldal címe <code>Login</code> lesz.</p>
+<p>A <code>&lt;head&gt;</code> részben a korábban <code>common-header.jsp</code> oldalon megadott elemeket helyezzük el.
+Ugyanakkor itt van még egy fontos pont, amikor meghívjuk a <code>header</code> attribútumot, amely viszont már egy fragment a <code>title</code>-el ellentétben, így az tartalmazhat HTML részfát is akár.
+Erre azért van szükség, mert az egyes oldalak esetleg tovább szeretnék bővíteni a <code>&lt;head&gt;</code>-ben megadott elemeket, mint például az <code>add-contact.jsp</code>-ben szeretnénk használni az <code>add-contact.js</code> állományt (máshol viszont nem).
+Ugyanezt végezzük el a <code>footer</code>-re, melyet jelenleg ugyan nem használunk, de később jól jöhet.</p>
+<p>A használat helyén a <code>&lt;basic-layout title="xxx"&gt;...&lt;/basic-layout&gt;</code> között megadott tartalmat a <code>&lt;jsp:doBody/&gt;</code> hívással írhatjuk ki a template-ben.
+Ezt a tartalmat egy <code>div</code>-ben helyezzük el <code>&lt;div id="body" class="container"&gt;</code>.</p>
+<p>Miután megvan a template, nézzük, hogy hogyan használhatjuk fel azt például a <code>login.jsp</code> oldalon:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;t:basic-layout</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Login&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;../LoginController&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="w">  </span><span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/t:basic-layout&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában a behúzzuk a használni kívánt tagek mappáját: <code>tagdir</code> és adunk neki egy prefixet, mely most a <code>t</code>.
+Ezután egyszerűen használjuk a saját <code>basic-layout</code> tag-ünket, ahol megadjuk a <code>title</code> attribútumot.
+Most a megadott <code>&lt;form&gt;</code> elem kerül a template-ben megadott <code>&lt;jsp:doBody/&gt;</code> helyre.</p>
+<p>A teljesség kedvéért alul látható a böngészőben elérhető HTML, ahol már a saját tag- feloldását láthatjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/contacts_web_war/css/style.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+              <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;</span>
+              <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot;</span>
+              <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;</span>
+                <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo&quot;</span>
+                <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span>
+                <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js&quot;</span>
+                <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1&quot;</span>
+                <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span>
+                <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js&quot;</span>
+                <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM&quot;</span>
+                <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;body&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;../LoginController&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>Username<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">required</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;username&quot;</span>
+                        <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Username&quot;</span><span class="p">/&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>Password<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">required</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+                        <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Password&quot;</span><span class="p">/&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;register.jsp&quot;</span><span class="p">&gt;</span>Register<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ezt az alap template-et a login mellett a <code>register.jsp</code> is használja, mely nagyon hasonló lesz a login-hoz:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html;charset=UTF-8&quot;</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;t:basic-layout</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Register&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;../RegisterController&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>...
+<span class="w">    </span><span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/t:basic-layout&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az eddigi form-ot átmozgattuk a <code>basic-layout</code> tag body részébe, illetve más <code>title</code>-t adtunk meg, de más különbség nincs.</p>
+<p>Ezután nézzük meg azt, hogy hogyan használhatjuk fel a <code>basic-layout</code> tag-et egy másik tag definíciójában, azaz hogyan bővíthetjük ezt a tag-et (a menüvel).
+Nyilvánvalóan a <code>basic-layout</code>-ban szereplő elemeket szeretnénk a <code>basic-layout-menu</code> tag-ben is alkalmazni, viszont kódot nem szeretnénk duplikálni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">description</span><span class="o">=</span><span class="s">&quot;Basic Page template&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="n">fragment</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;footer&quot;</span><span class="w"> </span><span class="n">fragment</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="n">required</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;java.lang.String&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;t:basic-layout</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;${title}&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jsp:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;jsp:invoke</span><span class="w"> </span><span class="na">fragment=</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/jsp:attribute&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jsp:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;footer&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;jsp:invoke</span><span class="w"> </span><span class="na">fragment=</span><span class="s">&quot;footer&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/jsp:attribute&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;jsp:body&gt;</span>
+<span class="w">        </span><span class="nt">&lt;nav</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;navbar fixed-top navbar-expand-lg navbar-light bg-light&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/nav&gt;</span>
+<span class="w">        </span><span class="nt">&lt;jsp:doBody/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/jsp:body&gt;</span>
+<span class="nt">&lt;/t:basic-layout&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Mivel hasonlóan meg szeretnénk adni egy <code>basic-layout-menu</code> tag-nek is a <code>title</code>-t, az esetleges <code>header</code>-t és <code>footer</code>-t, így ezeket az attribútumokat itt is "kivezetjük", melyeket majd továbbadjuk a <code>basic-layout</code>-nak.
+Ez látszódik például a <code>&lt;t:basic-layout title="${title}"&gt;</code> sorban is.
+A <code>header</code> és a <code>footer</code> megadása kicsit másképpen működik.
+A <code>header</code> beillesztéséhez a <code>&lt;jsp:invoke fragment="header" /&gt;</code>-ot kell meghívnunk, melyet "kívülről" kapunk.
+Mivel ezt a <code>&lt;t:basic-layout&gt;</code>-nak szeretnénk továbbadni, így itt meg kell adni, hogy a <code>basic-layout</code> <code>header</code> attribútumát szeretnénk beállítani, ezért kell a <code>&lt;jsp:attribute name="header"&gt;</code> megadás.
+Hasonlóképpen a kívülről kapott <code>basic-layout-menu</code> tartalmát tovább szeretnénk adni a <code>basic-layout</code> body-jaként, így ezt <code>&lt;jsp:body&gt;</code> tag-ek között kell megadnunk.
+Annyi a különbség, hogy a kívülről kapott body HTML tartalom elé berakjuk a <code>nav</code>-ot, azaz a menüt.</p>
+<p>Nézzük, hogy hogyan használja fel a <code>list-contact.jsp</code> oldal a template-et:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="k">%&gt;</span>
+
+<span class="k">&lt;jsp:include page=&quot;/ContactController&quot;/&gt;</span>
+
+<span class="nt">&lt;t:basic-layout-menu</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;List Contact&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;table</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;table&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>...
+<span class="w">    </span><span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/t:basic-layout-menu&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A tag felhasználása a megszokott módon történik, nincs semmi mágia.
+A különbség annyi, hogy most már a <code>&lt;basic-layout-menu&gt;</code> tag-et használjuk.</p>
+<p>Viszont van egy fontos különbség, akkor amikor a <code>header</code>-be vagy a <code>footer</code>-be is bele szeretnénk valamit rakni.
+Ez igazából hasonlóan megy, mint a <code>basic-layout-menu</code>-nél.
+Lássuk az <code>add-contact.jsp</code> oldalt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">import</span><span class="o">=</span><span class="s">&quot;hu.alkfejl.model.Phone&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="n">uri</span><span class="o">=</span><span class="s">&quot;http://java.sun.com/jsp/jstl/core&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">language</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="w"> </span><span class="n">contentType</span><span class="o">=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span><span class="w"> </span><span class="n">pageEncoding</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+<span class="k">&lt;%@</span><span class="w"> </span><span class="n">taglib</span><span class="w"> </span><span class="n">prefix</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="w"> </span><span class="n">tagdir</span><span class="o">=</span><span class="s">&quot;/WEB-INF/tags&quot;</span><span class="w"> </span><span class="k">%&gt;</span>
+
+<span class="nt">&lt;t:basic-layout-menu</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Add Contact&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jsp:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;script</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;${pageContext.request.contextPath}/js/add-contact.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/jsp:attribute&gt;</span>
+<span class="w">    </span><span class="nt">&lt;jsp:body&gt;</span>
+<span class="w">        </span><span class="k">&lt;jsp:useBean id=&quot;contact&quot; class=&quot;hu.alkfejl.model.Contact&quot; scope=&quot;request&quot;/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;form</span><span class="w"> </span><span class="na">action=</span><span class="s">&quot;${pageContext.request.contextPath}/ContactController&quot;</span><span class="w"> </span><span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span>...
+<span class="w">        </span><span class="nt">&lt;/form&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/jsp:body&gt;</span>
+<span class="nt">&lt;/t:basic-layout-menu&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Szokásos módon behúzzuk a használni kívánt tag-ek könyvtárát: <code>&lt;%@ taglib prefix="t" tagdir="/WEB-INF/tags" %&gt;</code>.
+Ezután a <code>&lt;basic-layout-menu&gt;</code>-on belül a header-t szeretnénk megadni, ahol a <code>&lt;script src="${pageContext.request.contextPath}/js/add-contact.js"&gt;&lt;/script&gt;</code> bővítést szeretnénk eszközölni.
+Ezután pedig a body-ban megadni a <code>useBean</code>-nel a megfelelő <code>Contact</code> objektumot és a <code>form</code>-ot.
+Amennyiben nem jeleznénk, hogy mi a header attribútum és mi a <code>basic-layout-menu</code> body-ja, akkor a rendszer mindent body-nak venne, így megadjuk a header attribútum értékét a <code>&lt;jsp:attribute name="header"&gt;</code> tag használatával, illetve a <code>&lt;jsp:body&gt;</code>-val magát <code>basic-layout-menu</code> body-ját.</p>
+<p>A <code>profile.jsp</code> oldalon hasonló módosításokat kell tennünk, mint az <code>add-contact.jsp</code>-n, így azt itt már nem mutatjuk be.</p>
+<p>Ezzel elkészítettük a kontakt alkalmazásunk webes változatát is.
+A teljes projektet lásd a pub-on!</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-04-13 13:36:13</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>

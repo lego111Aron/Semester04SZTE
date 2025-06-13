@@ -1,0 +1,33 @@
+A .sqlite-ból kimásolni az URL-t
+GetServlet
+
+
+curl -X POST -H "Content-Type: application/json" -d'{"cim":"Mexico5","hossz":150,"eloado":"Justin","stilus":"jazz"}' "http://127.0.0.1:8080/api/add"
+
+Invoke-WebRequest -Uri "http://127.0.0.1:8080/api/add" `
+  -Method POST `
+  -Headers @{ "Content-Type" = "application/json" } `
+  -Body '{"cim":"Mexico5","hossz":150,"eloado":"Justin","stilus":"jazz"}'
+
+
+package hu.alkfejl.servlet;
+
+import com.google.gson.Gson;
+import hu.alkfejl.model.Zene;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+@WebServlet(urlPatterns = "api/preference")
+public class PrefServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Zene zene = new Gson().fromJson(req.getReader(), Zene.class);
+        Cookie suti = new Cookie("hozzadas", zene.getStilus());
+    }
+}

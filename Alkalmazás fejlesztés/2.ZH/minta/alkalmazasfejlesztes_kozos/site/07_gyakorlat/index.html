@@ -1,0 +1,1543 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>7. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parhuzamositas" class="md-nav__link">
+    Párhuzamosítás
+  </a>
+  
+    <nav class="md-nav" aria-label="Párhuzamosítás">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maximumkereses-parhuzamositasa" class="md-nav__link">
+    Maximumkeresés párhuzamosítása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javafx" class="md-nav__link">
+    JavaFX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javafx-concurrency-api" class="md-nav__link">
+    JavaFX Concurrency API
+  </a>
+  
+    <nav class="md-nav" aria-label="JavaFX Concurrency API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worker-allapotai" class="md-nav__link">
+    Worker állapotai
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-property-jei" class="md-nav__link">
+    Worker property-jei
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontakt-alkalmazas-tovabbfejlesztese" class="md-nav__link">
+    Kontakt alkalmazás továbbfejlesztése
+  </a>
+  
+    <nav class="md-nav" aria-label="Kontakt alkalmazás továbbfejlesztése">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mainwindowscontroller" class="md-nav__link">
+    MainWindowsController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addeditcontactcontroller" class="md-nav__link">
+    AddEditContactController
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#videok" class="md-nav__link">
+    Videók
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenciak" class="md-nav__link">
+    Referenciák
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="7-gyakorlat">7. gyakorlat<a class="headerlink" href="#7-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="parhuzamositas">Párhuzamosítás<a class="headerlink" href="#parhuzamositas" title="Permanent link">&para;</a></h2>
+<p>Az eddig bemutatott projektek esetén a programok egy <em>szálon</em> futottak szekvenciálisan. Ez azt jelenti, hogy a végrehajtás "sorról sorra" történik (a fordítás optimalizációit és a JVM trükkjeit figyelmen kívül hagyva).</p>
+<p>A Java nyelv egy többszálú programozási nyelv, ami azt jelenti, hogy olyan programok készíthetők a segítségével, melyek egyszerre több szálon futnak. Mivel a legtöbb mai számítógép (még a beágyazott rendszerek is) támogatja ezt a futtatási módszert, így kihasználható a nyelv adta lehetőség.</p>
+<p>A párhuzamos programozás több kérdést vet fel, melyek egy része a közös erőforrás használatáról és a szálak közötti szinkronizációról szólnak. Ezek egy részével a kurzus előadásán és <em>Operációs rendszerek</em> kurzuson találkoztak a hallgatók. Jelen gyakorlat főleg a JavaFX-ben alkalmazható megoldásokkal foglalkozik.</p>
+<h3 id="maximumkereses-parhuzamositasa">Maximumkeresés párhuzamosítása<a class="headerlink" href="#maximumkereses-parhuzamositasa" title="Permanent link">&para;</a></h3>
+<p>A következő példa szemlélteti a naiv maximumkeresést egy konzolos alkalmazásban.</p>
+<p>Az alkalmazás létrehozása (<em>Programozás-I ismétlés</em>):</p>
+<ol>
+<li>IntelliJ IDEA: File - New Project</li>
+<li>Java (nem kell kiválasztani semmilyen frameworkot) - Next</li>
+<li>Create project from template - Command Line App</li>
+<li>A projekt helye és a csomag tetszőleges (pl. Asztal, <code>hu.alkfejl.max</code>)</li>
+</ol>
+<p>Amennyiben a fenti lépések alapján nem sikerült létrehozni a projektet, az <a href="https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html">IntelliJ honlapján</a> képekkel illusztrálva ugyanez a leírás megtalálható.</p>
+<p>A következő kódrészlet készít egy <code>ARRAY_SIZE</code> méretű tömböt és feltölti véletlenszerűen generált adatokkal. A tömbön végig kell iterálni és meghatározni a maximális értékű elemét.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500000000</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="o">[</span><span class="n">ARRAY_SIZE</span><span class="o">]</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A cél az, hogy az algoritmus futási idejét mérjük és összehasonlítsuk a párhuzamos futtatás eredményével. Ezt a <code>System.nanoTime()</code> hívások segítségével tehetjük meg az alábbi formában.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">singleThreadStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span>
+<span class="w">      </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">singleThreadTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">singleThreadStart</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az így előállt programot futtatva és kiíratva a <code>max</code> és a <code>singleThreadTime</code> értékeit az alábbi kimenetet kapjuk:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Maximum<span class="w"> </span>value:<span class="w"> </span><span class="m">0</span>.9999999940819203
+Single<span class="w"> </span>thread<span class="w"> </span>execution<span class="w"> </span>time:<span class="w"> </span><span class="m">398</span><span class="w"> </span>ms
+</code></pre></div></td></tr></table></div>
+<p>A futásidő a használt számítógép erőforrásaitól függően változhat (és minden futtatás során egy kicsit változik is), de ez az érték tekintendő alapvonalnak, amihez képest a párhuzamos megvalósítás "jóságát" vizsgáljuk.</p>
+<p>Az az ötletünk támadhat, hogy a nagy elemszámú tömböt több kis részre osztjuk (teoretikusan, másolás nélkül) és a kis részeken egyszerre kellene végrehajtani a maximumkeresést. Az egyes lokális maximumokat megvárva azok közül kiválasztható a tényleges, globális maximum értéke.</p>
+<p>Ahhoz, hogy a maximumkeresés több szálon legyen végrehajtva, egy új osztályt kell létrehozni, mely a <code>Thread</code> osztályból öröklődik és a <code>run()</code> metódust felüldefiniálja. Az osztály a következőképpen épül fel.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MaxSearchThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">localMaximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fromIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">toIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">MaxSearchThread</span><span class="p">(</span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fromIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">toIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">fromIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fromIndex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">toIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toIndex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fromIndex</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">toIndex</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">localMaximum</span><span class="p">)</span>
+<span class="w">        </span><span class="n">localMaximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A konstruktorban át kell adni a vizsgálandó tömböt és azt, hogy a tömb melyik részén végezze el a keresést. Az, hogy hány részre van osztva a keresési tér a szálak számától függ.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">NUMBER_OF_THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaxSearchThread</span><span class="o">&gt;</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NUMBER_OF_THREADS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">NUMBER_OF_THREADS</span><span class="p">);</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">NUMBER_OF_THREADS</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">MaxSearchThread</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MaxSearchThread</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">  </span><span class="n">threads</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">thread</span><span class="p">);</span>
+<span class="w">  </span><span class="n">thread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A szálak számától függően feldaraboljuk a tömböt, 4 szál esetén 4 részre és mindegyik szál az egyiken dolgozik. A <code>threads</code> lista szükséges ahhoz, hogy a szálak által produkált eredményeket elérjük. A <code>thread.start()</code> hívás után a program futása úgymond "kettéválik", a <code>for</code> ciklus is folytatódik, illetve a <code>thread</code> objektum futása egy külön szálon megkezdődik.</p>
+<p>A példában 4 db szál külön életet él, viszont a <code>main</code> függvényben szeretnénk a lokális maximumértékeiket megszerezni. Ahhoz hogy megvárjuk egy szál futásának végét, a <code>.join()</code> hívással blokkolható a fő szál amíg a kívánt szál <code>run</code> metódusa véget nem ér.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">multipleThreadsMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">MaxSearchThread</span><span class="w"> </span><span class="n">findMaxThread</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">threads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">findMaxThread</span><span class="p">.</span><span class="na">join</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">findMaxThread</span><span class="p">.</span><span class="na">localMaximum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">multipleThreadsMax</span><span class="p">)</span>
+<span class="w">        </span><span class="n">multipleThreadsMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findMaxThread</span><span class="p">.</span><span class="na">localMaximum</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>join()</code> metódus <code>InterruptedException</code> kivételt dobhat, így <code>try-catch</code> blokkba kell tenni és lekezelni az esetlegesen dobott kivételt.</p>
+<p>A szálak létrehozása elé és a globális maximumérték meghatározása mögé beszúrva <code>System.nanoTime()</code> hívásokat, lemérhető a párhuzamos megvalósítás futásideje.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Single<span class="w"> </span>thread<span class="w"> </span>max:<span class="w">   </span><span class="m">0</span>.9999999982963121
+Multiple<span class="w"> </span>thread<span class="w"> </span>max:<span class="w"> </span><span class="m">0</span>.9999999982963121
+
+Single<span class="w"> </span>thread<span class="w"> </span>time:<span class="w">   </span><span class="m">409</span><span class="w"> </span>ms
+Multiple<span class="w"> </span>thread<span class="w"> </span>time:<span class="w"> </span><span class="m">246</span><span class="w"> </span>ms
+</code></pre></div></td></tr></table></div>
+<p>Látható, hogy ugyanazt a maximumértéket találták meg (elvárt viselkedés), illetve a párhuzamos futás 163 ms-sel gyorsabban végzett. A szálak menedzselése és a kontextusváltások plusz terhet jelentenek a JVM számára, így túl sok szálat indítani nem érdemes, illetve kis adaton (kis tömbméret esetén) nem fog túl sok javulást hozni.</p>
+<p>Ha a <code>MaxSearchThread::call</code> és a <code>main</code> metódusokban elhelyezzük a <code>System.out.println(Thread.currentThread().getName());</code> sort, akkor a konzolon követhető, hogy milyen nevű threadek lettek létrehozva, illetve melyik fut.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>main
+Thread-0
+Thread-1
+Thread-2
+Thread-3
+</code></pre></div></td></tr></table></div>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<ol>
+<li>
+<p>Módosítsuk az <code>ARRAY_SIZE</code> értékét: próbáljuk ki milyen futásidők születnek, amennyiben sokkal kisebb, vagy sokkal nagyobb tömbön kell keresni.
+Esetleg szükséges lehet a <code>heap</code> méretét megnövelni, melyhez itt található <a href="https://www.jetbrains.com/help/idea/increasing-memory-heap.html">leírás</a>.</p>
+</li>
+<li>
+<p>Módosítsuk a <code>NUMBER_OF_THREADS</code> értékét: kevesebb vagy több szál futtatása esetén milyen eredmények születnek?</p>
+</li>
+</ol>
+</div>
+<p>A megvalósított projekt megtalálható <code>pub/Alkalmazásfejlesztés-I/07</code> mappában,  <strong>01_ParallelCommandLine</strong> néven.</p>
+<h3 id="javafx">JavaFX<a class="headerlink" href="#javafx" title="Permanent link">&para;</a></h3>
+<p>Felhasználói felületek esetén is fontos szerepe van a párhuzamosításnak.
+Az eddigi gyakorlatok során minden esetben egy helyi SQLite adatbázishoz kapcsolódott az alkalmazás, így nem tapasztaltunk késleltetést.
+Amennyiben az adatbázis egy szerveren van, a szerver terheltsége és hálózati késleltetés függvényében akár másodperceket is várhatunk a válaszra.
+A várakozás során a felhasználói felület teljesen le van fagyva.</p>
+<p>A modern kor felhasználója nem tud várni, bármi történik reszponzív kell maradjon az alkalmazás: görgetni, nyomkodni lehessen.
+Ez elérhető olyan formában, hogy a potenciálisan hosszan tartó folyamatokat külön szál végzi el, mely "vissza szól" a UI-nak, ha kész van.</p>
+<p>JavaFX esetében van egy kitüntetett szál, amin az összes UI esemény feldolgozása zajlik.
+Ezt a szálat hívják <strong>JavaFX Application Thread</strong>-nek.
+A SceneGraph Node-jai nem <a href="https://en.wikipedia.org/wiki/Thread_safety">Thread-safe</a>-ek, azaz több szálon történő hozzáférésük nem engedélyezett.
+Ennek előnye, hogy gyorsabb, mert nem kell szinkron blokkokkal operálni, ugyanakkor nem tudjuk csak egy szálról használni őket.
+A UI elemekhez csak az Application Thread-ről férhetünk hozzá.
+Ennek eredményeképpen ajánlatos a hosszan futó feladatokat elkerülni a felületen, mivel az Application Thread addig blokkolva lesz és így egy nem reszponzív felületet kapunk.</p>
+<p>Nézzünk egy egyszerű példát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">App</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Initial state&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">goBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Go&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">exitBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Exit&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">goBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">runTask</span><span class="p">());</span>
+<span class="w">        </span><span class="n">exitBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Platform</span><span class="p">.</span><span class="na">exit</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">HBox</span><span class="w"> </span><span class="n">buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">goBtn</span><span class="p">,</span><span class="w"> </span><span class="n">exitBtn</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">VBox</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">VBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">buttons</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">480</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">runTask</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">maxIter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxIter</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Processing &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; of &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">maxIter</span><span class="p">;</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+<span class="w">                </span><span class="n">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+<span class="w">                </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">launch</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Amikor a <code>Go</code> gombot megnyomja a felhasználó akkor a konzolon látszik, hogy hanyadik iterációban tart a program (<code>Processing 5 of 5</code>), ugyanakkor a UI-on egészen addig az <code>Initial state</code> szöveg látszódik a <code>Label</code>-en, ameddig mind az 5 iteráció le nem ment, azaz addig blokkolva van a UI.
+Miközben fut a <code>Go</code>, próbáljuk megnyomni az <code>Exit</code> gombot.
+Azt tapasztaljuk, hogy ez csak akkor fog lefutni, azaz akkor lép ki az alkalmazásból, amikor a <code>runTask</code> lefutott. </p>
+<p>A fenti probléma megoldása, hogy ne futtassunk hosszú feladatokat az eseménykezelőkben, pontosabban azokat egy külön szálon indítsuk el a háttérben, ne pedig az Application Thread-et blokkoljuk ezzel.</p>
+<p>Elsőként lássunk egy rossz példát, melynek során egy külön thread-ben indítjuk a <code>runTask</code>-ot.
+A <code>start</code>-on belül csak az eseménykezelőt írjuk át a következőképpen:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">goBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">startTaskOnThread</span><span class="p">());</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startTaskOnThread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">runTask</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Thread</span><span class="w"> </span><span class="n">longRunningThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">longRunningThread</span><span class="p">.</span><span class="na">setDaemon</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// ha megálítjuk az alkalmazásunkat, akkor vele hal ez a szál is</span>
+<span class="w">    </span><span class="n">longRunningThread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+A megoldás a következő hibát fogja eredményezni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>java.lang.IllegalStateException: Not on FX application thread; currentThread = Thread-3`
+</code></pre></div></td></tr></table></div>
+<p>, mely a <code>label.setText(status);</code> utasításon keletkezik.
+A JavaFX Runtime ellenőrzi, hogy UI-t befolyásoló utasításokat csak az Application Thread-ről adhatunk ki.</p>
+<p>A helyes megoldás csak kicsiben különbözik a fentitől.
+A sima <code>label.setText(status)</code> hívás helyett a következőt kell használni:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Platform</span><span class="p">.</span><span class="na">runLater</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">status</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>Platform.runLater</code> a paraméterben megadott <code>Runnable</code>-t futtatja valamikor a jövőben az Application Thread-en, így nem okoz olyan problémát, mint amit az előző esetben tapasztaltunk.</p>
+<p>A fenitek csak idealizált környezetben alkalmazhatók, illetve van egy szabály, amit már meg is sértünk, hiszen külön szálból visszaszólunk az Application Thread-nek, hogy frissítse a <code>label</code> szövegét, ami korántsem elegáns.
+Ezen felül ebben a környezetben a task nem tud visszaadni eredményt, nincs megbízható kivételkezelés, nem tudunk megbízhatóan leállítani, újraindítani és ütemezni task futtatásokat.
+A következőkben ezeket a problémákat oldjuk meg a <strong>JavaFX Concurrency API</strong> segítségével.</p>
+<h3 id="javafx-concurrency-api">JavaFX Concurrency API<a class="headerlink" href="#javafx-concurrency-api" title="Permanent link">&para;</a></h3>
+<p>A JavaFX Concurrency API a hagyományos concurrency API-ra épít, azaz a <code>java.util.concurrent</code> csomag alatt található elemekre.
+Maga a JavaFX Concurrency API egyáltalán nem terjedelmes, viszont annál hasznosabb kiegészítéseket tartalmaz a GUI alkalmazások többszálúsításához.</p>
+<p>Az egyik központi elem a <code>Worker&lt;V&gt;</code> interface, mely egy feladatot (task-ot) reprezentál, amit egy vagy több háttérszálon kell végrehajtani.
+Ami nagyon fontos, hogy a <code>Worker</code> státuszát az Application Thread követni tudja.
+A <code>Worker</code> három implementációját is megkapjuk, melyek a következő absztrakt osztályok:</p>
+<ul>
+<li><code>Task&lt;V&gt;</code>: "Egyszer használatos" feladat futtatásához.</li>
+<li><code>Service&lt;V&gt;</code>: Többször is futtatható feladat futtatásához</li>
+<li><code>ScheduledService&lt;V&gt;</code>: A <code>Service</code> kiterjesztése úgy, hogy meghatározott időintervallumonként futtatja a rendszer.</li>
+</ul>
+<p>A fenti osztályok generikus paramétere a <code>Worker</code> visszatérési típusát adja meg.
+Amennyiben egy <code>Worker</code> nem ad vissza eredményt, úgy használjuk a <code>Void</code> megadást!</p>
+<h4 id="worker-allapotai">Worker állapotai<a class="headerlink" href="#worker-allapotai" title="Permanent link">&para;</a></h4>
+<p>Egy <code>Worker</code> a következő állapotok egyikében lehet, melyet a <code>Worker.State</code> enum ír le:</p>
+<ul>
+<li><code>READY</code></li>
+<li><code>SCHEDULED</code></li>
+<li><code>RUNNING</code></li>
+<li><code>SUCCEEDED</code></li>
+<li><code>CANCELLED</code></li>
+<li><code>FAILED</code></li>
+</ul>
+<p>Az állapotok közötti lehetséges átmeteket a következő ábra mutatja be.</p>
+<p><center>
+<img alt="State Transitions" src="../img/07/state_transitions.png" />
+</center></p>
+<p>Amikor egy <code>Worker</code>-t létrehozunk, akkor a <code>READY</code> állapotba kerül.
+A végrehajtás előtt ütemezett, azaz <code>SCHEDULED</code> állapotba kerül, melyből a futó (<code>RUNNING</code>) állapotba kerülhet.
+Ezután 3 féle forgatókönyv létezik:</p>
+<ul>
+<li>Futás közben kezeletlen kivétel keletkezik -&gt; <code>FAILED</code></li>
+<li><code>cancel()</code> metódus hívás eredményeképpen <code>CANCELLED</code> állapotba kerül. Mivel bármikor dönthetünk úgy, hogy mégsem szeretnénk futtatni a <code>Worker</code>-t, így nem csak a <code>RUNNING</code>, hanem a <code>READY</code> és <code>SCHEDULED</code> állapotokból is átkerülhetünk <code>CANCELLED</code> állapotba</li>
+<li>Emellett nyilván sikeresen is lefuthat egy <code>Worker</code>, melynek eredményeképpen a <code>SUCCEEDED</code> állapotba kerül</li>
+</ul>
+<p>A Service-ek ezen 3 állapotból visszakerülnek a READY állapotba, hogy a futtatás megismételhető legyen (az ábrán ezt a szaggatott vonalak jelzik).</p>
+<p>Az állapotok közötti váltások <code>WorkerStateEvent</code> eseményeket is generálnak, így könnyen kezelhetjük, azt hogy például mi történjen hiba esetén (pl.: néhányszor próbálkozunk még az újrafuttatással utána viszont jelezzük a problémát).</p>
+<h4 id="worker-property-jei">Worker property-jei<a class="headerlink" href="#worker-property-jei" title="Permanent link">&para;</a></h4>
+<p>Minden <code>Worker</code> a következő property-kkel rendelkezik, melyeket a létrehozáskor lehetőségünk van megadni:</p>
+<ul>
+<li><code>title</code>: a task neve</li>
+<li><code>message</code>: visszajelzések küldésére használatos (pl.: <code>Processed 1 out of 10</code>)</li>
+<li><code>running</code>: megmondja, hogy a feladat éppen fut-e (<code>SCHEDULED</code> is már igazat ad vissza)</li>
+<li><code>state</code>: az előző fejezetben bemutatott állapotok közül adja vissza az éppen aktuálisat</li>
+<li><code>workDone, totalWork, progress</code>: a feladat készültségét lehet jelezni vele</li>
+<li><code>value</code>: A <code>Worker</code> eredményét adja vissza</li>
+<li><code>exception</code>: Amennyiben a <code>Worker</code> <code>FAILED</code> állapotba került, akkor a kivétel ide kerül, mely <code>Throwable</code> típusú, azaz tovább is dobhatjuk az Application Thread-en, ha úgy tartja kedvünk</li>
+</ul>
+<p>Ha a futó <code>Worker</code> állapotáról szeretnénk információkat megjeleníteni, akkor nyugodtan kössünk vezérlőket ezekhez a property-khez, illetve használhatunk <code>Invalidation</code>- és <code>ChangeListener</code>-eket is, melyekben UI elemeket hivatkozunk.</p>
+<p>Nézzük, hogyan lehet <code>Task</code> használata mellett elvégezni az előző feladatokat:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">App</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Initial state&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">progressLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Progress: 0%&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">valueLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Current Value: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Label</span><span class="w"> </span><span class="n">stateLabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Label</span><span class="p">(</span><span class="s">&quot;Current State: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">goBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Go&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">cancelBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Cancel Task&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">exitBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Button</span><span class="p">(</span><span class="s">&quot;Exit&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">setOnSucceeded</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">updateProgress</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// set progress to done (100%)</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">maxIter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxIter</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Processing &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; of &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">maxIter</span><span class="p">;</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="na">updateMessage</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="na">updateValue</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="na">updateProgress</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">maxIter</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">isCancelled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">goBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">startTaskOnThread</span><span class="p">());</span>
+<span class="w">        </span><span class="n">cancelBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">cancel</span><span class="p">());</span>
+<span class="w">        </span><span class="n">exitBtn</span><span class="p">.</span><span class="na">setOnAction</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Platform</span><span class="p">.</span><span class="na">exit</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">//bindings</span>
+<span class="w">        </span><span class="n">label</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="na">messageProperty</span><span class="p">());</span>
+<span class="w">        </span><span class="n">progressLabel</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">Bindings</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;Progress: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">progressProperty</span><span class="p">().</span><span class="na">multiply</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="na">asString</span><span class="p">().</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;%&quot;</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">valueLabel</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">Bindings</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;Current Value: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">valueProperty</span><span class="p">().</span><span class="na">asString</span><span class="p">()));</span>
+<span class="w">        </span><span class="n">stateLabel</span><span class="p">.</span><span class="na">textProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">Bindings</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;Current State: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">stateProperty</span><span class="p">().</span><span class="na">asString</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="n">goBtn</span><span class="p">.</span><span class="na">disableProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="na">stateProperty</span><span class="p">().</span><span class="na">isNotEqualTo</span><span class="p">(</span><span class="n">Worker</span><span class="p">.</span><span class="na">State</span><span class="p">.</span><span class="na">READY</span><span class="p">));</span>
+<span class="w">        </span><span class="n">cancelBtn</span><span class="p">.</span><span class="na">disableProperty</span><span class="p">().</span><span class="na">bind</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="na">stateProperty</span><span class="p">().</span><span class="na">isNotEqualTo</span><span class="p">(</span><span class="n">Worker</span><span class="p">.</span><span class="na">State</span><span class="p">.</span><span class="na">RUNNING</span><span class="p">));</span>
+
+
+<span class="w">        </span><span class="n">HBox</span><span class="w"> </span><span class="n">buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">goBtn</span><span class="p">,</span><span class="w"> </span><span class="n">cancelBtn</span><span class="p">,</span><span class="w"> </span><span class="n">exitBtn</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">VBox</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">VBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">progressLabel</span><span class="p">,</span><span class="w"> </span><span class="n">valueLabel</span><span class="p">,</span><span class="w"> </span><span class="n">stateLabel</span><span class="p">,</span><span class="w"> </span><span class="n">buttons</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">480</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startTaskOnThread</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">longRunningThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">longRunningThread</span><span class="p">.</span><span class="na">setDaemon</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">longRunningThread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">launch</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Az első és legfontosabb, hogy a feladatot egy <code>Task</code> formájában adjuk meg, melyet egy field-ben el is tárolunk.
+Az init blokkban megadunk egy eseménykezelőt is, mely akkor fut le, ha a task <code>SUCCEEDED</code> állapotba kerül.
+Hasonló eseménykezelőket találhatunk a különböző állapotokhoz, illetve van egy általános eseménykezelő is, melynek meg lehet adni az esemény típusát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">task</span><span class="p">.</span><span class="na">addEventHandler</span><span class="p">(</span><span class="n">WorkerStateEvent</span><span class="p">.</span><span class="na">WORKER_STATE_SUCCEEDED</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Success&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Az absztrakt <code>call</code> metódus kifejtésében annyi változik, hogy a property-k értékét frissítjük az <code>updateXXX</code> metódusok használatával, így a folyamatról a UI-on is megjeleníthetünk információkat, ahogy azt meg is tesszük majd jelen esetben.
+Amennyiben <code>InterruptedException</code>-t kapunk, akkor leállítjuk a for ciklus futását és visszatérünk az aktuális i értékkel (ilyenkor vizsgáljuk, hogy azért kaptunk-e ilyen kivételt, mert valaki a <code>cancel()</code>-t meghívta-e).</p>
+<p>Ezután a felületre kivezetünk néhány property-t (binding-ok segítségével), hogy követni tudjuk a háttérben futó feladat állapotát.</p>
+<div class="admonition info">
+<p class="admonition-title">Megjegyzés</p>
+<p>A <code>Service</code> osztály belül egy <code>Task</code>-ot tartalmaz, illetve használata nagyban megegyezik a <code>Task</code> használatával.
+Itt nem fogjuk bemutatni részletesen sem a <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/Service.html"><code>Service</code></a> sem pedig a <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html"><code>ScheduledService</code></a> használatát.</p>
+</div>
+<h3 id="kontakt-alkalmazas-tovabbfejlesztese">Kontakt alkalmazás továbbfejlesztése<a class="headerlink" href="#kontakt-alkalmazas-tovabbfejlesztese" title="Permanent link">&para;</a></h3>
+<p>A kiinduló projekt megtalálható a <code>pub/Alkalmazásfejlesztés-I/06/01_contacts_final</code> mappában.</p>
+<div class="admonition warning">
+<p class="admonition-title">Figyelem</p>
+<p>Ne felejtsük el átírni az <code>application.properties</code> fájlban az adatbázis elérését!</p>
+</div>
+<p>A táblázat jobb oldalán, minden sorban található egy "Delete" és egy "Edit" gomb. Tegyük fel, hogy ezek hatására egy lassú hálózati kommunikáción keresztüli akció fut le, ami blokkolja a UI felületet és nem lehet görgetni még be nem fejeződik.
+Ennek imitálásához egy 5 másodperces várakozást tegyünk be a DAO megvalósításába.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">try</span><span class="p">(</span><span class="n">Connection</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">connectionURL</span><span class="p">);</span>
+<span class="w">        </span><span class="n">PreparedStatement</span><span class="w"> </span><span class="n">stmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">DELETE_CONTACT</span><span class="p">);</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">stmt</span><span class="p">.</span><span class="na">setInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">contact</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="hll"><span class="w">        </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span><span class="w">        </span><span class="n">stmt</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">();</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">throwables</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">throwables</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ami a kontextusban változott: a <code>stmt.executeUpdate();</code> elé került egy sleep.
+A várakozást jelentő függvényhívás is dobhat <code>InterruptedException</code> kivételt, amit le kell kezelni!
+A <code>catch</code> ág képes arra, hogy több kivételosztályt is elkapjon egyszerre, és az osztályokat <code>|</code> (vagy) jellel kell elválasztani.
+Ugyanez a módosítás kerüljön bele az összes Contact DAO metódusba, kivéve a <code>findAll</code>-t.</p>
+<p>A módosult metódusok: <code>save</code>, <code>delete</code>.</p>
+<p>A futtatás utáni elvárt eredmény, hogy az alkalmazás indulása után minden művelet sokáig tart és addig a táblázat nem görgethető, hozzáadás ablak kifagy.</p>
+<p>Ahhoz hogy reszponzív maradjon a UI, amíg a back-end fut, a következő változtatások szükségesek.</p>
+<h4 id="mainwindowscontroller">MainWindowsController<a class="headerlink" href="#mainwindowscontroller" title="Permanent link">&para;</a></h4>
+<p>A <code>hu.alkfejl.controller</code> csomagban található <code>MainWindowController</code> osztály <code>deleteContact</code> metódusát kell felokosítani ahhoz, hogy a <code>PersonController.getInstance().delete(p);</code> metódushívás ne legyen blokkoló. Ehhez az előbb ismertetett <em>Thread</em>-eket kell alkalmazni.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">deleteContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Alert</span><span class="w"> </span><span class="n">confirm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Alert</span><span class="p">(</span><span class="n">Alert</span><span class="p">.</span><span class="na">AlertType</span><span class="p">.</span><span class="na">CONFIRMATION</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Are you sure you want to delete contact: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">YES</span><span class="p">,</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">NO</span><span class="p">);</span>
+<span class="w">    </span><span class="n">confirm</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">buttonType</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">buttonType</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">ButtonType</span><span class="p">.</span><span class="na">YES</span><span class="p">)){</span>
+
+<span class="w">            </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nd">@Override</span>
+<span class="w">                </span><span class="kd">protected</span><span class="w"> </span><span class="n">Void</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">                    </span><span class="n">dao</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">};</span>
+
+<span class="w">            </span><span class="n">task</span><span class="p">.</span><span class="na">setOnSucceeded</span><span class="p">(</span><span class="n">event1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">refreshTable</span><span class="p">());</span>
+
+<span class="w">            </span><span class="n">Thread</span><span class="w"> </span><span class="n">deleteThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<span class="w">            </span><span class="n">deleteThread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Amikor a felhasználó megerősíti, hogy ténylegesen ki akarja törölni a kiválasztott sort, akkor egy <code>Task</code> (<code>javafx.concurrent.Task</code>) objektumot hozunk létre.
+Az IDEA legenerálja a szükséges kódrészletet, és a <strong>call</strong> metódust kell megvalósítani.
+Jelen esetben ez csak tovább hív a DAO-ba (eddig is ezt csinálta az itt talált kódrészlet).</p>
+<p>Mint ahogy azt már láttuk, a <code>Task</code> objektum önmagában nem futtatható, egy <code>Thread</code>-et kell létrehozni belőle, ami tudja futtatni.
+Az eseménykezelő feladata, hogy frissítse a táblázatot a <code>Task</code> futásának végeztével (elvárható, hogy a törölt sor nem jelenik meg újra).</p>
+<h4 id="addeditcontactcontroller">AddEditContactController<a class="headerlink" href="#addeditcontactcontroller" title="Permanent link">&para;</a></h4>
+<p>Új kontakt hozzáadásánál és a módosításánál is a <code>onSave</code> metódus fut le.
+Ami eltér az előző fejezettől az az,hogy most kellene tudnunk azt is, hogy milyen eredménnyel futott le a módosítás és ennek függvényében jelezni a felhasználó felé, hogy sikeres-e a művelet. Az alábbi kódrészlet a <code>onSave</code> függvényt taglalja.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FXML</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSave</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="n">Boolean</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">contact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contactDAO</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">contact</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">contact</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">deleteAll</span><span class="p">(</span><span class="n">contact</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+
+<span class="w">            </span><span class="n">contact</span><span class="p">.</span><span class="na">getPhones</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">phone</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">phone</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">                </span><span class="n">phoneDAO</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">phone</span><span class="p">,</span><span class="w"> </span><span class="n">contact</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">Thread</span><span class="w"> </span><span class="n">updateThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<span class="w">    </span><span class="n">updateThread</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">App</span><span class="p">.</span><span class="o">&lt;</span><span class="n">MainWindowController</span><span class="o">&gt;</span><span class="n">loadFXML</span><span class="p">(</span><span class="s">&quot;/fxml/main_window.fxml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">App</span><span class="p">.</span><span class="na">getStage</span><span class="p">(),</span><span class="w"> </span><span class="n">mainWindowController</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">task</span><span class="p">.</span><span class="na">setOnSucceeded</span><span class="p">(</span><span class="n">event</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Alert</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Alert</span><span class="p">(</span><span class="n">Alert</span><span class="p">.</span><span class="na">AlertType</span><span class="p">.</span><span class="na">INFORMATION</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Saving contact was successful&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
+<span class="w">                </span><span class="n">alert</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">();</span>
+<span class="w">                </span><span class="n">mainWindowController</span><span class="p">.</span><span class="na">refreshTable</span><span class="p">();</span>
+
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Alert</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Alert</span><span class="p">(</span><span class="n">Alert</span><span class="p">.</span><span class="na">AlertType</span><span class="p">.</span><span class="na">ERROR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Saving contact failed&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ButtonType</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
+<span class="w">                </span><span class="n">alert</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <code>call</code> nem sokban különbözik az előzőtől.
+Utána viszont hasznát vesszük a megírt <code>loadFXML</code> metódusnak, mivel frissítenünk kell majd a táblázatunkat a fő ablakon.
+A <code>refreshTable</code> metódust publikusra kellett módosítanunk, de ez rendben van, hiszen miért ne frissíthetnénk a táblázatot egy-egy kérés alkalmával.</p>
+<p>A módosítások után a UI reszponzív marad, de 5 másodperc után ad visszajelzést, a kért esemény lefutása után.</p>
+<h2 id="videok">Videók<a class="headerlink" href="#videok" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=e_SgS_QtaOA">Szálak Bevezetés</a></li>
+<li><a href="https://www.youtube.com/watch?v=7DnX1gQOxZ8">JavaFX szálak bevezetés</a></li>
+<li><a href="https://www.youtube.com/watch?v=H_v1LRwteNg">JavaFX Worker szálak (JavaFX Concurrency API)</a></li>
+<li><a href="https://www.youtube.com/watch?v=C2iODfS71iE">Contacts alkalmazás szálakkal</a></li>
+</ul>
+<h2 id="referenciak">Referenciák<a class="headerlink" href="#referenciak" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Párhuzamos programozás jegyzet - A. Kertész, L. Schrettner, /pub</li>
+<li><a href="https://www.tutorialspoint.com/java/java_multithreading.htm">Java Multithreading, TutorialsPoint</a></li>
+<li><a href="https://docs.oracle.com/javafx/2/threads/jfxpub-threads.htm">Concurrency in JavaFX</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-04-13 13:17:24</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>

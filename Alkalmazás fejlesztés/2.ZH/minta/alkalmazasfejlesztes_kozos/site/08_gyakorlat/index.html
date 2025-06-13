@@ -1,0 +1,1890 @@
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+    
+    
+      
+        <title>8. gyakorlat - Alkalmazásfejlesztés I. gyakorlat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Indigo" data-md-color-accent="Indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-gyakorlat" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Élőfej">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-header__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alkalmazásfejlesztés I. gyakorlat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. gyakorlat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Keresés">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Törlés" aria-label="Törlés" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Keresés inicializálása
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigáció" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Alkalmazásfejlesztés I. gyakorlat" class="md-nav__button md-logo" aria-label="Alkalmazásfejlesztés I. gyakorlat" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z"/></svg>
+
+    </a>
+    Alkalmazásfejlesztés I. gyakorlat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Általános
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Általános
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Kezdőlap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Kovetelmenyek/index.html" class="md-nav__link">
+        Követelmények
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Jegyzet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Jegyzet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat (XML + Maven)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat (Alap JavaFX elemek)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat (Táblázat kezelés)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat (FXML)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat (DAO)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_webapi/index.html" class="md-nav__link">
+        6. gyakorlat (Web API)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_kivonat/index.html" class="md-nav__link">
+        Web API kivonat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/generics/index.html" class="md-nav__link">
+        Extra - Java Generikusok
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/lambda/index.html" class="md-nav__link">
+        Extra - Lambda kifejezések
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/troubleshoot/index.html" class="md-nav__link">
+        Troubleshoot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Régi anyag
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Régi anyag
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/01_gyakorlat/index.html" class="md-nav__link">
+        1. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/02_gyakorlat/index.html" class="md-nav__link">
+        2. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/03_gyakorlat/index.html" class="md-nav__link">
+        3. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/04_gyakorlat/index.html" class="md-nav__link">
+        4. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/05_gyakorlat/index.html" class="md-nav__link">
+        5. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/06_gyakorlat/index.html" class="md-nav__link">
+        6. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/07_gyakorlat/index.html" class="md-nav__link">
+        7. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/08_gyakorlat/index.html" class="md-nav__link">
+        8. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/09_gyakorlat/index.html" class="md-nav__link">
+        9. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/10_gyakorlat/index.html" class="md-nav__link">
+        10. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/11_gyakorlat/index.html" class="md-nav__link">
+        11. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/12_gyakorlat/index.html" class="md-nav__link">
+        12. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy/13_gyakorlat/index.html" class="md-nav__link">
+        13. gyakorlat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#servletek" class="md-nav__link">
+    Servletek
+  </a>
+  
+    <nav class="md-nav" aria-label="Servletek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mik-azok-a-servletek" class="md-nav__link">
+    Mik azok a servletek?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hello-world-servlet" class="md-nav__link">
+    Hello World Servlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servletek-eletciklusa" class="md-nav__link">
+    Servletek életciklusa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adatok-kuldese-a-szervernek" class="md-nav__link">
+    Adatok küldése a szervernek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-codes" class="md-nav__link">
+    Status codes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webxml" class="md-nav__link">
+    web.xml
+  </a>
+  
+    <nav class="md-nav" aria-label="web.xml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servletek-es-url-ek" class="md-nav__link">
+    Servletek és URL-ek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welcome-file-lista" class="md-nav__link">
+    Welcome File Lista
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servletek-egyuttmukodese" class="md-nav__link">
+    Servletek együttműködése
+  </a>
+  
+    <nav class="md-nav" aria-label="Servletek együttműködése">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bejelentkezes-pelda" class="md-nav__link">
+    Bejelentkezés példa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atiranyitas" class="md-nav__link">
+    Átirányítás
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servletconfig" class="md-nav__link">
+    ServletConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servletcontext" class="md-nav__link">
+    ServletContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributumok" class="md-nav__link">
+    Attribútumok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#munkamenet-kezelese-session-management" class="md-nav__link">
+    Munkamenet kezelése (session management)
+  </a>
+  
+    <nav class="md-nav" aria-label="Munkamenet kezelése (session management)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsession" class="md-nav__link">
+    HttpSession
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterek" class="md-nav__link">
+    Filterek
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="8-gyakorlat">8. gyakorlat<a class="headerlink" href="#8-gyakorlat" title="Permanent link">&para;</a></h1>
+<h2 id="servletek">Servletek<a class="headerlink" href="#servletek" title="Permanent link">&para;</a></h2>
+<h3 id="mik-azok-a-servletek">Mik azok a servletek?<a class="headerlink" href="#mik-azok-a-servletek" title="Permanent link">&para;</a></h3>
+<p>A servletek egy Web- vagy Alkalmazásszerveren programok, melyek egyfajta köztes rétegként szolgálnak a kérések (HTTP kérések) és az adatbázis és/vagy más alkalmazások között.</p>
+<p>A servletek segítségével elküldhetünk a szervernek user form adatokat, adatokat mutathatunk webes felületen a felhasználónak, melyek az adatbázisból érkeznek, továbbá a statikus HTML tartalmak mellett dinamikusan állíthatunk elő HTML tartalmakat. Innen a név: <strong>Java Dinamikus Web</strong>.</p>
+<p>A Java servleteket Java osztályok segítségével valósíthatjuk meg, melyek a következő package-ekben találhatóak meg:</p>
+<ul>
+<li><code>javax.servlet</code></li>
+<li><code>javax.servlet.http</code></li>
+</ul>
+<p>A servleteket ugyanúgy le kell fordítani, mint bármelyik másik Java osztályt.</p>
+<h3 id="hello-world-servlet">Hello World Servlet<a class="headerlink" href="#hello-world-servlet" title="Permanent link">&para;</a></h3>
+<p>A servletek fejlesztéséhez szükségünk van néhány eszközre. Mint azt már fent olvashattuk kell egy szerver, amin majd fut az alkalmazásunk. Esetünkben az Apache Tomcat alkalmazásszervert fogjuk használni.</p>
+<p>Az általunk használt verzió a 9-es, melyet letölthetünk <a href="https://tomcat.apache.org/download-90.cgi">innen</a>.</p>
+<p>Én csak a zip-et mutatom meg, mivel ezt egységesen lehet kezelni minden platformon.
+Tehát töltsük le a zippelt verziót!
+Ezután csomagoljuk ki egy kellemes helyre (például <code>C:\apps\apache-tomcat-9.0.31</code>). Az alverzióban lehetnek eltérések, de ez nálunk nem fog semmit sem befolyásolni.</p>
+<p>Ezután indítsuk el az IntelliJ-t és készítsünk egy új <strong>Maven</strong> projektet!</p>
+<p><img alt="new_maven_webapp" src="../img/08/new_maven_webapp.png" /></p>
+<p>Java 11-et fogunk használni, így az legyen letöltve, illetve beállítva a <code>$Path</code> és a <code>$JAVA_HOME</code> környezeti változókban.
+A projekt SDK-ját is 11-re állítjuk, mint ahogy a képen ez látszik is.
+Nyomjuk meg a Next-et!
+A project nevéhez adjuk meg a <code>HelloWorld</code>-öt!
+Az Artifact Coordinates alatt adjuk meg a groupId-t (pl: <code>hu.alkfejl</code>), majd <kbd>Next</kbd> és <kbd>Finish</kbd>.</p>
+<p>Eredményképpen a projekt struktúrája valahogy így kell kinézzen:</p>
+<p><img alt="project_structure" src="../img/08/project_structure.png" /></p>
+<p>Ha ezzel megvagyunk, akkor a jobb felső sarokban adjunk hozzá egy új konfigurációt, itt fogjuk megadni, hogy a Tomcat szerveren futassa az alkalmazásunkat a rendszer.</p>
+<p><img alt="add_config" src="../img/08/add_config.png" /></p>
+<p>A felugró ablakban a bal oldalon a Válasszuk ki a Template-ek közül a Tomcat Server/Local menüpontot!
+Ezután a jobb oldalon a Server fül alatt az Application Server-nél nyomjuk a Configure... gombra!
+A felugró ablakon adjuk meg a Tomcat server mappáját (pl: <code>C:\apps\apache-tomcat-9.0.31</code>)!
+Nyomjuk meg az <kbd>Ok</kbd> gombot!
+A Server fül többi eleme maradhat alapértelmezetten, talán a legfelső <code>Name</code> sort érdemes lehet átírni Tomcat-re.
+A jobb felső sarokban, ha rányomunk a create configuration-re, akkor ezt a szerverbeálltást más alkalmazásoknál is használhatjuk majd, így érdemes lehet erre kattintani.
+Ekkor viszont alul kiírja a <code>Warning: No artifacts marked for deployment</code> szöveget a rendszer.
+Kattintsunk a fix-re gombra és válasszuk ki az <code>&lt;alkalmazásunk neve&gt;:war</code> elemet (Pl: <code>Test:war</code>)!
+Ezután <kbd>Apply</kbd> és <kbd>Ok</kbd>!</p>
+<p>Ha ezekkel megvagyunk, akkor mehet a zöld play gomb.
+Miután elinul a Tomcat server, akkor automatikusan felrakja az alkalmazásunkat a rendszer a Tomcat-re és egy böngészőben elindítja azt.</p>
+<p>Videó a folyamatról:
+<a href="https://www.youtube.com/watch?v=U2eqxOs2z4E"><img alt="First Maven Web" src="https://img.youtube.com/vi/U2eqxOs2z4E/0.jpg" /></a></p>
+<p>Ha a fentiekkel megvagyunk akkor létre is hozhatunk egy tényleges servletet.
+Az eddigi egy statikus HTML oldallal még nem dinamikus web.
+A maven archetype alapból nem generál nekünk java forrást, így jobb klikk a main-re a project struktúrán belül, majd <code>New</code>-&gt;<code>Directiory</code>&gt;<code>java</code>.
+Eután ebbe a könyvtárba hozzunk létre egy új osztályt.
+Class name-nek adjuk meg a <code>HelloWorldServlet</code>-et!
+Írjuk bele az alábbiakat a fájlba!
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.ServletException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.annotation.WebServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorldServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">().</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Served at: &quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getContextPath</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+A fenti kódot nem tudja értelmezni a rendszer, hiszen hiányzik egy fontos maven dependency.
+Tegyük be a következő maven dependency-t a pom.xml-be!
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Figyelem</p>
+<p>10-es Tomcat esetében több dolgot másképpen kell csinálnunk, mivel breaking change-ek léptek fel.
+Például a fenti függőség már nem megfelelő, mivel a 10-es Tomcat már nem a <code>javax.servlet-api</code>-t használja, hanem a <code>jakarta.servlet-api</code>-t, melyhez tartozó Maven dependency:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>jakarta.servlet<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>jakarta.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>5.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Emiatt az összes helyen, ahol a függőség osztályait használjuk, az importokat is meg kell változtatni.
+A <code>servlet-api</code> mellett a JSP is megváltozott <code>javax.servlet.jsp</code>-ról <code>jakarta.servlet.jsp</code>-re, továbbá a később használni kívánt EL (Expression Language) függőség is megváltozott a <code>javax.el</code>-ről <code>jakarta.el</code>-re.</p>
+<p>A változások teljes listája megtalálható <a href="http://tomcat.apache.org/migration-10.html">itt</a>.</p>
+<p>A fenti változtatások miatt a Tomcat 9.x.x verzióját javasoljuk használni, mivel a példakódok mind ezzel készültek.</p>
+</div>
+<p>A kis zöld play gomb helyett most egy újrajátszás gomb van (amennyiben még fut a Tomcat), melyre ha rányomunk és a redeploy-t választjuk, akkor a Tomcat szerverre újratölti az alkalmazásunkat a rendszer, azaz újra lefordítja egy <strong>war</strong>-rá (ez a jar webes megfelelője: Web Archive-ból jön a név) és beletolja az alkalmazásszerverbe.
+Ugyanezt a lenti a Server-&gt;Deployment-&gt;Deploy all gombra kattintva is megtehetjük.</p>
+<p>Ezzel meg is van a minta projektünk.
+A továbbiakban közelebbről is megnézzük a generált projektet és a generált fájlok tartalmát.</p>
+<p>Videó az első szervlet létrehozásáról:
+<a href="https://www.youtube.com/watch?v=Hl6TN7xT_QU"><img alt="First Maven Web" src="https://img.youtube.com/vi/Hl6TN7xT_QU/0.jpg" /></a></p>
+<h3 id="servletek-eletciklusa">Servletek életciklusa<a class="headerlink" href="#servletek-eletciklusa" title="Permanent link">&para;</a></h3>
+<p>A servletek életciklusa 3 fő részre osztható:</p>
+<ul>
+<li><code>init()</code>: a servlet létrejöttekor hívódik meg (<strong>csak egyszer</strong>). Általában egy servlet akkor jön létre, amikor először kér hozzáférést egy felhasználó, de rendelkezhetünk másképpen is (pl. a szerver indításakor töltődjön be a servlet is).</li>
+<li><code>service()</code>: a felhasználói kéréseket (esetünkben HTTP kérések) a service szolgálja ki</li>
+<li><code>destroy()</code>: a servlet megsemmisítésekor hívódik</li>
+</ul>
+<p>A fenti metódusokat a <a href="https://www.baeldung.com/java-servlets-containers-intro">szervlet konténer</a> hívja meg. </p>
+<p>A servlet létrehozása után, amikor a felhasználó kérést küld egy szervernek, akkor a servletből egy példány létezik és a kéréseket külön szálak kezelik.
+Ezeket a kéréseket a servlet <code>service()</code> metódusa kezeli (mindet külön szálon).
+A service metódus belül "szétválogatja" a kérések típusát és meghívja, a <code>doGet(...)</code>, <code>doPost(...)</code>, stb. metódusokat.
+A fenti példában csak a GET kéréseket kezeljük.
+GET kérés például, ha az URL-re navigálunk.
+A doGet-nek, ahogyan minden doXXX metódusnak két paramétere van melyek igen fontosak, hiszen így tudhatunk meg információkat a kérés pontos mivoltáról, illetve a válaszba így helyezhetünk el információkat (válasz státusz kódja, válasz header-ök, cookie-k, stb).
+A két paraméter típusa:</p>
+<ul>
+<li><code>HttpServletRequest</code>: a kérés típusa</li>
+<li><code>HttpServletResponse</code>: a válasz típusa</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=jl1rNMDU3nw"><img alt="Servlet Lifecycle" src="https://img.youtube.com/vi/jl1rNMDU3nw/0.jpg" /></a></p>
+<h3 id="adatok-kuldese-a-szervernek">Adatok küldése a szervernek<a class="headerlink" href="#adatok-kuldese-a-szervernek" title="Permanent link">&para;</a></h3>
+<p>Az alkalmazásunk működésekor biztosan szükségünk lesz valamilyen információkra, melyet a felhasználó küld az alkalmazásszervernek.
+A GET és a POST esetében eltérő opcióink vannak.</p>
+<p>A GET esetében az úgynevezett <strong>queryString</strong>-ben szokás küldeni információkat.
+Pl.:</p>
+<blockquote>
+<p>http://www.test.com/hello?key1=value1&amp;key2=value2</p>
+</blockquote>
+<p>Az adatokat az URL-ben küldjük el a szervernek.
+Az URL-ben a query string kezdetét a '?' jelzi, majd utána <code>key=value</code> formában adhatjuk meg az adatokat, melyeket '&amp;' választ el egymástól.
+Ezeket a paraméterek a servlet megkapja és ezt fel tudjuk majd használni.</p>
+<p>POST esetében is használhatunk queryString-et, de a POST kérés rendelkezik törzzsel is.
+Szerencsére a törzsben és a queryString-ben érkező paramétereket egységesen érhetjük el, nem kell külön-külön vizsgálnunk őket.</p>
+<p>Az adatok kinyerésére a servletben 4 fő metódus használható:</p>
+<ul>
+<li><code>getParameter()</code></li>
+<li><code>getParameterValues()</code></li>
+<li><code>getParameterNames()</code></li>
+<li><code>getParameterMap()</code></li>
+</ul>
+<p>Nézzünk erre egy példát! Az előző példát módosíthatjuk egyelőre:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.io.PrintWriter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.ServletException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.annotation.WebServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServlet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorldServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">      </span><span class="c1">// Beállítjuk, hogy milyen mime típusú válaszunk lesz</span>
+<span class="w">      </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w"> </span><span class="c1">// így tudunk majd a válasz objektumba törzsébe írni</span>
+
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span>
+<span class="w">         </span><span class="s">&quot;&lt;html&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s">&quot;&lt;head&gt;&lt;title&gt;Paraméterek használata&lt;/title&gt;&lt;/head&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s">&quot;&lt;body&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;&lt;ul&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">&quot;  &lt;li&gt;First Name: &quot;</span>
+<span class="w">                  </span><span class="o">+</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;first_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="s">&quot;  &lt;li&gt;Last Name: &quot;</span>
+<span class="w">                  </span><span class="o">+</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;last_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;&lt;/ul&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s">&quot;&lt;/body&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">         </span><span class="s">&quot;&lt;/html&gt;&quot;</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A példában csak a doGet metódust definiáljuk, melyben a válasznak beállítjuk a tartalom típusát (mime type), majd a response objektum-hoz lekérjük a <code>PrintWriter</code>-t és ezen keresztül fogjuk írni a választ.
+A válaszba egy HTML-t generálunk, melybe belerakjuk az előzetesen elküldött <code>first_name</code> és <code>last_name</code> paramétereket.</p>
+<p>Miután elkészítettük a servletünket és futtatjuk azt a Tomcat serverünkön, írjuk be a következőt a böngésző címsorába:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>http://localhost:8080/HelloWorld/HelloWorldServlet?first_name=John&amp;last_name=Doe
+</code></pre></div></td></tr></table></div>
+<p>A szerver által küldött válaszba így belekerülnek az elküldött adatok.</p>
+<p><a href="https://www.youtube.com/watch?v=jE9qPxyx6LU"><img alt="Servlet Params" src="https://img.youtube.com/vi/jE9qPxyx6LU/0.jpg" /></a></p>
+<p>Most nézzük meg ugyanezt egy form használatával!
+Ehhez készítsünk egy HTML állományt!
+Az is megfelelő ha az index.jsp-t írjuk át:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action </span><span class="o">=</span> <span class="s">&quot;HelloWorldServlet&quot;</span> <span class="na">method </span><span class="o">=</span> <span class="s">&quot;GET&quot;</span><span class="p">&gt;</span>
+         First Name: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type </span><span class="o">=</span> <span class="s">&quot;text&quot;</span> <span class="na">name </span><span class="o">=</span> <span class="s">&quot;first_name&quot;</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+         Last Name: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type </span><span class="o">=</span> <span class="s">&quot;text&quot;</span> <span class="na">name </span><span class="o">=</span> <span class="s">&quot;last_name&quot;</span> <span class="p">/&gt;</span>
+         <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type </span><span class="o">=</span> <span class="s">&quot;submit&quot;</span> <span class="na">value </span><span class="o">=</span> <span class="s">&quot;Submit&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Amit nagyon fontos észrevenni, hogy a <code>form</code> rendelkezik egy <code>action</code> és egy <code>method</code> attribútummal.
+Az <code>action</code>-ben mondhatjuk meg, hogy ki fogja kezelni a kérést, melynek típusát pedig a <code>method</code>-ban adhatjuk meg (jelenleg GET).</p>
+<p>A fenti servlet-et egy az egyben használhatjuk.
+Miután megnyomjuk a submit gombot egy GET kérést küldünk a <code>HelloWorldServlet</code>-nek, ami az előzővel megegyező kimenetet adja, ha a formba ugyanazokat az adatokat írjuk, mint amit a queryString-ben megadtunk.
+A form-on belül fontos az input elemeknek a <code>name</code> attribútuma, mivel a servlet ilyen néven fogja elérni ezeket a paramétereket.
+Azt is fontos látni, hogy a form nem a query stringben küldi a paramétereket, hanem a form data-ban, viszont a szerver oldalon (a szervletben) egységesen tudjuk a paramétereket kiolvasni és nem kell azzal foglalkoznunk, hogy azt hol adták meg.</p>
+<p>A fenti példában, ha átírjuk az index.jsp-ben, hogy GET helyett POST-ot használjunk, akkor nem fog működni a történet, de nagyon egyszerűen megoldható.
+A servletben hozzunk létre egy <code>doPost(...)</code> metódust is, mely a következőképpen néz ki:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">resp</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">doGet</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">resp</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti kódrészlet nemes egyszerűséggel továbbadja a doGet-nek a feladatot (továbbítja a kérés és a válasz objektumokat is).
+Az eredmény pedig ugyanaz lesz, de ezennel POST kéréstípust használtunk.</p>
+<p>A következő példában az összes elküldött paramétert kiírjuk a válaszban.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">      </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span>
+<span class="w">         </span><span class="s">&quot;&lt;html&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s">&quot;&lt;head&gt;&lt;title&gt;Paraméterek&lt;/title&gt;&lt;/head&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s">&quot;&lt;body&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">               </span><span class="s">&quot;&lt;table&gt;\n&quot;</span>
+<span class="w">      </span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameterNames</span><span class="p">();</span>
+
+<span class="w">      </span><span class="k">while</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">params</span><span class="p">.</span><span class="na">nextElement</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&lt;tr&gt;&quot;</span>
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;td&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;/td&gt;&quot;</span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;td&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;/td&gt;&quot;</span>
+<span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&lt;/tr&gt;&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&lt;/table&gt;\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">           </span><span class="s">&quot;&lt;/body&gt;&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">           </span><span class="s">&quot;&lt;/html&gt;&quot;</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><a href="https://www.youtube.com/watch?v=m0XyF8br5ZA"><img alt="Servlet Params" src="https://img.youtube.com/vi/m0XyF8br5ZA/0.jpg" /></a></p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Készítsük el a fenti példát úgy, hogy a <code>getParameterMap()</code> metódust használjuk a paraméterek kinyeréséhez!
+Arra figyeljünk, hogy lehetnek olyan paraméterek, melyekhez több érték tartozik.
+Ezért ad vissza a getParameterMap() egy String -&gt; String[] map-et.</p>
+</div>
+<h3 id="status-codes">Status codes<a class="headerlink" href="#status-codes" title="Permanent link">&para;</a></h3>
+<p>A válaszban a szerver beállíthat egy status code-ot, melyet aztán a kliens oldalon különböző célokra használhatunk.
+Néhány gyakori HTTP status code:</p>
+<ul>
+<li>200: OK (minden rendben van)</li>
+<li>400: Bad Request (a szerver nem érti, hogy mit szeretne a kliens a kérésével)</li>
+<li>401: Unauthorized (nincs joga a felhasználónak, pl.: csak admin kérdezhet ilyet tőlem...)</li>
+<li>404: Not Found (nem találom azt az erőforrást amire szükséged van. Pl.: olyan HTML oldalt keresek ami nem létezik a szerveren)</li>
+<li>500: Internal Server Error: A szerveren valami nem várt hiba történt</li>
+</ul>
+<p>Ezeken felül még rengeteg féle <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status</a> code van, de ezekkel már bőven el lehet indulni.</p>
+<p>Állítsunk be status code-ot a válaszban!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span>
+<span class="w">     </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">     </span><span class="c1">// Set error code and reason.</span>
+<span class="w">     </span><span class="n">response</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ha a böngészőben (pl.: Chrome-ban) a <code>http://localhost:8080/HelloWorld/HelloWorldServlet</code> helyre látogatunk és előszedjük a fejlesztői eszközöket (Chrome-ban <kbd>F12</kbd>), ott válasszuk ki a network fület!
+Itt láthatjuk, hogy történt egy kérés a HelloWorldServlet-re, melynek a status code-ja 200-at adott vissza.</p>
+<p><img alt="status_ok" src="../img/08/status_ok.png" /></p>
+<p>Magát a HelloWorldServlet kérést is kiválaszthatjuk, ha rákattintunk, és ekkor több információt láthatunk az adott kérésről.</p>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Próbáljuk ki, hogy átírjuk a status code-ot mondjuk 404-re vagy valamilyen hibajelző status code-ra!
+Próbáljuk ki, a következőt is: <code>response.sendError(401, "Need auth");</code></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Feladat</p>
+<p>Az előző témában megírt form-os példát egészítsük ki úgy, hogy amennyiben a paraméterek között nem szerepel valamelyik elvárt érték (last_name vagy first_name), akkor 400-as hibakódot adunk vissza.</p>
+</div>
+<h3 id="webxml">web.xml<a class="headerlink" href="#webxml" title="Permanent link">&para;</a></h3>
+<p>Itt az ideje, hogy megvizsgáljuk a <code>web.xml</code> állományt, melyet legeneráltattunk a rendszerrel!
+A <code>web.xml</code> egy úgynevezett <strong>deployment descriptor</strong>, melyet a deploy-olás során használ a rendszer (azaz akkor amikor a legyártott war-t belerakjuk az alkalmazásszerverbe és ott elindul az alkalmazás).</p>
+<p>A deployment descriptor egy általános elnevezése az olyan konfigurációs fájloknak, melyek egy alkalmazás, webes tárolóba történő telepítésének módját definiálják, strukturált formában.</p>
+<p>A Java Platform, Enterprise Edition leírói megadják, hogyan legyenek telepítve a modulok és komponensek. Ilyen komponensek lehetnek például webalkalmazások. Ez a leíró fájl tartalmazza az utasításokat a webalkalmazás telepítéséhez, melyet "deployment tool" fog értelmezni. Ez a beállítások alapján, különféle konténer és biztonsági beállítást végez el, valamint speciális környezeti beállításokat alkalmazhat.
+A szervleteket az alkalmazásszerver az úgynevezett <strong>servlet konténerbe</strong> tölti be és itt fognak futni ezek a szervletek.</p>
+<p>Webalkalmazásoknál a telepítési leírókat <code>web.xml</code>-nek hívják, és a projekt mappaszerkezetében a <code>WEB-INF</code> mappában található.
+A <code>web.xml</code>-ben is megadhatóak például a servlet elnevezések és az URL leképezések.</p>
+<h4 id="servletek-es-url-ek">Servletek és URL-ek<a class="headerlink" href="#servletek-es-url-ek" title="Permanent link">&para;</a></h4>
+<p>A <code>web.xml</code> egy kapcsolatot definiál URL címek és a szervletek között, melyek a kéréseket szolgálják ki. A Webkiszolgáló arra használja ezt a konfigurációs fájlt, hogy megkeresse az adott URL-hez tartozó szervletet, és meghívja a kéréshez tartozó osztály megfelelő metódusát. (pl. a doGet() metódust a HTTP GET kérések esetén).</p>
+<p>Egy URL-t egy szervlethez a következő módon lehet kapcsolni. A <code>&lt;servlet&gt;</code> kulcsszóval deklaráljuk a szervletet, majd megadjuk a kapcsolatot egy URL címmel. Ezt a <code>&lt;servlet-mapping&gt;</code> kulcsszóval tehetjük meg.</p>
+<p>A <code>&lt;servlet&gt;</code> elem megadásához definiálnunk kell a nevét, az osztályát és a kezdeti paramétereit (ha vannak ilyenek). Az osztály tag arra a Java osztályra hivatkozik, amely a szervlethez befutó kérések kezelését valósítja meg. Többször is deklarálható ugyanaz az osztály, ha a kiindulási paraméterei különbözőek, azonban a névnek egyedinek kell lennie a teljes fájlban.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;servlet&gt;</span>
+<span class="w">   </span><span class="nt">&lt;servlet-name&gt;</span>HelloWorldServlet<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">   </span><span class="nt">&lt;servlet-class&gt;</span>HelloWorldServlet<span class="nt">&lt;/servlet-class&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+
+<span class="nt">&lt;servlet-mapping&gt;</span>
+<span class="w">   </span><span class="nt">&lt;servlet-name&gt;</span>HelloWorldServlet<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">   </span><span class="nt">&lt;url-pattern&gt;</span>/HelloWorldServlet<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fenti példában definiálunk egy Servlet-et, melynek neve <code>HelloWorldServlet</code> lesz.
+A hozzá tartozó osztály ugyanerre a névre hallgat.
+Ezután a <code>&lt;servlet-mapping&gt;</code>-ben megadhatjuk, hogy az előzetesen <code>HelloWorldServlet</code> névre keresztelt servlet az összes olyan kérést szolgálja ki, amely a <code>/HelloWorldServlet</code> URL-re történik.
+Ha minden kérést ezzel a servlettel szeretnénk kiszolgálni, akkor írhatnánk ezt is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;servlet-mapping&gt;</span>
+<span class="w">   </span><span class="nt">&lt;servlet-name&gt;</span>HelloWorldServlet<span class="nt">&lt;/servlet-name&gt;</span>
+<span class="w">   </span><span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Az alkalmazásunkban, ha megtekintjük a <code>web.xml</code> állományt, akkor mégsem látunk ilyen servlet megadást.
+Ez azért van, mert a 3.0-ás servlet standardba bekerült egy új elem, melynek segítségével könnyebben megadhatjuk a fenti URL leképezést.
+Ehhez vizsgáljuk, meg a <code>HelloWorldServlet</code> osztályt!
+Vegyük észre az alábbi annotációt az osztályon!</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Ez pontosan azt mondja meg a rendszernek, hogy ez az osztály egy servlet, mely a <code>/HelloWorldServlet</code> URL-re érkező kéréseket fogja kiszolgálni.
+Ebben az esetben a servlet neve megegyezik az osztály nevével.
+Amennyiben máshogy szeretnénk rendelkezni akkor az annotációnak megadhatunk további paramétereket is.
+Példák:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Servlet nevének megadása</span>
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;HelloWorldServlet&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">urlPatterns</span><span class="o">=</span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">)</span>
+
+<span class="c1">// több url pattern megadása</span>
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="n">urlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/HelloWorld&quot;</span><span class="p">})</span>
+
+<span class="c1">//init-paramok megadása</span>
+<span class="nd">@WebServlet</span><span class="p">(</span>
+<span class="w">        </span><span class="n">urlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/HelloWorldServlet&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">initParams</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nd">@WebInitParam</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;saveDir&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;D:/FileUpload&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="nd">@WebInitParam</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;allowedTypes&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jpg,jpeg,gif,png&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>A teljes listát lásd <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebServlet.html">itt</a>.</p>
+<h4 id="welcome-file-lista">Welcome File Lista<a class="headerlink" href="#welcome-file-lista" title="Permanent link">&para;</a></h4>
+<p>Amikor egy URL nem egy fájlra, hanem a szerveren található valamely almappára hivatkozik, akkor lehetőség van megadni egy sor alapértelmezett oldalt, amik kezelik a kérést.
+A welcome file listát a <code>web.xml</code>-en belül kell megadnunk.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;welcome-file-list&gt;</span>
+<span class="w">    </span><span class="nt">&lt;welcome-file&gt;</span>index.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+<span class="w">    </span><span class="nt">&lt;welcome-file&gt;</span>index.html<span class="nt">&lt;/welcome-file&gt;</span>
+<span class="nt">&lt;/welcome-file-list&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ebben az esetben, ha ellátogatunk a <code>localhost/&lt;alkalmazásunk neve&gt;</code> helyre, akkor a rendszer elsőként egy <code>index.jsp</code>-t fog keresni és ezt küldi vissza válaszként, ha ilyet nem talál, akkor megpróbálja ugyanezt az <code>index.html</code>-el.</p>
+<h3 id="servletek-egyuttmukodese">Servletek együttműködése<a class="headerlink" href="#servletek-egyuttmukodese" title="Permanent link">&para;</a></h3>
+<p>A <code>RequestDispatcher</code> osztály nyújt ehhez támogatást, melynek segítségével a kérést egy másik erőforráshoz (HTML, servlet, JSP) juttathatjuk el.
+Használhatjuk arra is, hogy egy másik erőforrás (HTML, servlet, JSP) válaszát elhelyezzük az eredeti kérést kiszolgáló servlet válaszába (igazából több erőforrás játszik szerepet a válasz létrehozásában).</p>
+<p>A <code>RequestDispatcher</code> két metódust ad erre:</p>
+<ul>
+<li><code>public void forward(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException</code></li>
+<li><code>public void include(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException</code></li>
+</ul>
+<p>A következő ábrán a <code>forward</code> látható:</p>
+<p><center>
+<img alt="forward" src="../img/08/forward.svg" />
+</center></p>
+<p>A felhasználó küld egy kérést, melyre a Servlet1 ad valamilyen választ (a response-ban bármit állíthatunk), pl beleírja az output stream-be, hogy cica (de még nem küldi a választ vissza a kliensnek!!!).
+Ezután továbbítjuk a Servlet2-höz a RequestDispatcher segítségével.
+A Servlet2 elhelyezi a válaszban a saját eredményeit (pl beleírja, hogy macska).
+Ezután már nem forwardolunk, hanem a választ visszaküldjük a kliensnek, mely így tartalmazza a Servlet1 és a Servlet2 válaszait is.
+Az is előfordulhat, hogy a Servlet1 nem helyezett el semmilyen konkrét elemet a válaszban, viszont mondjuk ő állít be automatikusan egy szükséges paramétert Servlet2 számára.</p>
+<p>Ehhez képest az include egy picit másképpen működik, ahogy azt az alábbi ábra jól mutatja:</p>
+<p><center>
+<img alt="include" src="../img/08/include.svg" />
+</center></p>
+<p>A Servlet1 include-olja a Servlet2-t, mely elkészíti a válaszát és azt a Servlet1 válaszába is belerakjuk.</p>
+<p>A RequestDispatcher-re az alábbi módon szerezhetünk referenciát:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;Servlet2&quot;</span><span class="p">);</span>
+<span class="n">rd</span><span class="p">.</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w"> </span><span class="c1">// a kérés és válasz továbbítása Servlet2-nek</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="bejelentkezes-pelda">Bejelentkezés példa<a class="headerlink" href="#bejelentkezes-pelda" title="Permanent link">&para;</a></h4>
+<p>index.html
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;servlet1&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>  
+  Name:<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;userName&quot;</span><span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>  
+  Password:<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;userPass&quot;</span><span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>  
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;login&quot;</span><span class="p">/&gt;</span>  
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Login.java
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">...</span>
+<span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/servlet1&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Login</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;userPass&quot;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;servlet&quot;</span><span class="p">){</span><span class="w">  </span>
+<span class="w">        </span><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;servlet2&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">rd</span><span class="p">.</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="k">else</span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Sorry UserName or Password Error!&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&quot;/index.html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">rd</span><span class="p">.</span><span class="na">include</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>WelcomeServlet.java:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@WebServlet</span><span class="p">(</span><span class="s">&quot;/servlet2&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WelcomeServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doPost</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&quot;userName&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Welcome &quot;</span><span class="o">+</span><span class="n">n</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A fenti példa pusztán a szervletek együttműködését mutatja be, production kódba ne használjunk ilyen logint!!!</p>
+<h3 id="atiranyitas">Átirányítás<a class="headerlink" href="#atiranyitas" title="Permanent link">&para;</a></h3>
+<p>Az include-hoz és a forward-hoz hasonló a <code>sendRedirect</code> metódus, de fontos különbségek vannak, melynek megértését az alábbi ábra mutatja:</p>
+<p><center>
+<img alt="redirect" src="../img/08/redirect.svg" />
+</center></p>
+<p>Ebben az esetben a Servlet1 válaszban annyit küld, hogy neked kliens fiam, valahova máshova kell menned, hogy megkapd a megfelelő választ.
+Ezt vissza is küldi a kliensnek, majd Servlet2-höz megy el a kliens és ő fogja a végeredményt elétárni.
+Példa: Amennyiben sikerült bejelentkezni egy rendszerbe (servlet1 végzi az autentikációt), akkor az alkalmazásszerver továbbirányítja a felhasználót valamilyen kezdőképernyőre, mondjuk a profiljára.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&quot;http://www.inf.u-szeged.hu&quot;</span><span class="p">);</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="servletconfig">ServletConfig<a class="headerlink" href="#servletconfig" title="Permanent link">&para;</a></h3>
+<p>A web konténer minden szervlet számára készít egy ServletConfig obkjektumot, mely lehetővé teszi a servletek konfigurációját, paraméterezését.</p>
+<p>Példa:</p>
+<p>web.xml
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;web-app&gt;</span><span class="w">  </span>
+
+<span class="w">  </span><span class="nt">&lt;servlet&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;servlet-name&gt;</span>DemoServlet<span class="nt">&lt;/servlet-name&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;servlet-class&gt;</span>DemoServlet<span class="nt">&lt;/servlet-class&gt;</span><span class="w">  </span>
+
+<span class="w">    </span><span class="nt">&lt;init-param&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;param-name&gt;</span>driver<span class="nt">&lt;/param-name&gt;</span><span class="w">  </span>
+<span class="w">      </span><span class="nt">&lt;param-value&gt;</span>org.sqlite.JDBC<span class="nt">&lt;/param-value&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;/init-param&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;/servlet&gt;</span><span class="w">  </span>
+
+<span class="w">  </span><span class="nt">&lt;servlet-mapping&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;servlet-name&gt;</span>DemoServlet<span class="nt">&lt;/servlet-name&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;url-pattern&gt;</span>/servlet1<span class="nt">&lt;/url-pattern&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;/servlet-mapping&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;/web-app&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>DemoServlet:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">...</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoServlet</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="p">,</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">ServletConfig</span><span class="w"> </span><span class="n">config</span><span class="o">=</span><span class="n">getServletConfig</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">driver</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameter</span><span class="p">(</span><span class="s">&quot;driver&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Driver is: &quot;</span><span class="o">+</span><span class="n">driver</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition danger">
+<p class="admonition-title">Fontos</p>
+<p>A paraméter csak az adott servletben lesz elérhető!!! Amennyiben alkalmazás szintű 'globális' paraméterre van szükségünk, akkor használjuk a <a href="#servletcontext">ServletContext</a>-et!</p>
+</div>
+<p>A request-ben elhelyezett paraméterekhez hasonlóan itt is lekérhető az összes inicializáló paraméter:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">ServletConfig</span><span class="w"> </span><span class="n">config</span><span class="o">=</span><span class="n">getServletConfig</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">=</span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameterNames</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">()){</span><span class="w">  </span>
+<span class="w">      </span><span class="n">str</span><span class="o">=</span><span class="n">e</span><span class="p">.</span><span class="na">nextElement</span><span class="p">();</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;&lt;br&gt;Name: &quot;</span><span class="o">+</span><span class="n">str</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; value: &quot;</span><span class="o">+</span><span class="n">config</span><span class="p">.</span><span class="na">getInitParameter</span><span class="p">(</span><span class="n">str</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">...</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="servletcontext">ServletContext<a class="headerlink" href="#servletcontext" title="Permanent link">&para;</a></h3>
+<p>A web konténer a szervletekhez készít egy-egy különálló Config objektumot, melyet az előző fejezetben láttunk, azonban ezen felül készít egy globális láthatóságú <code>ServletContext</code> objektumot is, melyet minden szervletből elérhetünk.
+A globális láthatóságú, több szervletből is használni kívánt paramétereket a context-ben állítsuk be!</p>
+<p>A <code>ServletContext</code> objektumot a servlettől, a request, és a ServletConfig-tól is elkérhetjük.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ServletContext</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getServletContext</span><span class="p">();</span><span class="w">  </span><span class="c1">//servlettől</span>
+
+<span class="n">ServletContext</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getServletContext</span><span class="p">();</span><span class="w"> </span><span class="c1">//request-től</span>
+
+<span class="n">ServletContext</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getServletConfig</span><span class="p">().</span><span class="na">getServletContext</span><span class="p">();</span><span class="c1">// configtól</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A web.xml-ben a következőképpen adhatunk meg paramétert:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;web-app&gt;</span><span class="w">  </span>
+<span class="w"> </span>......<span class="w">  </span>
+
+<span class="w">  </span><span class="nt">&lt;context-param&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;param-name&gt;</span>parametername<span class="nt">&lt;/param-name&gt;</span><span class="w">  </span>
+<span class="w">    </span><span class="nt">&lt;param-value&gt;</span>parametervalue<span class="nt">&lt;/param-value&gt;</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">&lt;/context-param&gt;</span><span class="w">  </span>
+<span class="w"> </span>......<span class="w">  </span>
+<span class="nt">&lt;/web-app&gt;</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A Context-ből is lehetőségünk van lekérni az összes init paramétert:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="n">ServletContext</span><span class="w"> </span><span class="n">context</span><span class="o">=</span><span class="n">getServletContext</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="o">=</span><span class="n">context</span><span class="p">.</span><span class="na">getInitParameterNames</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="attributumok">Attribútumok<a class="headerlink" href="#attributumok" title="Permanent link">&para;</a></h3>
+<p>Az attribútumokat több scope-ban is beállíthatjuk.
+Tekinthetünk rájuk úgy, mint különböző scope-ban definiált változókra.
+A scope-ok a következőek lehetnek:</p>
+<ul>
+<li>request scope -&gt; <code>HttpServletRequest</code></li>
+<li>session scope -&gt; <a href="#httpsession">HttpSession</a></li>
+<li>application scope (context scope) -&gt; <a href="#servletcontext">ServletContext</a></li>
+</ul>
+<p>Az összes scope-ban a következő metódusokat használhatjuk:</p>
+<ul>
+<li><code>public void setAttribute(String name,Object object)</code></li>
+<li><code>public Object getAttribute(String name)</code></li>
+<li><code>public void removeAttribute(String name)</code></li>
+</ul>
+<p>Példa, amiben az application (context) scope-ot használjuk egy attribútum beállítására, majd azt a másik servletben kiolvassuk
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">...</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoServlet1</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w">  </span>
+<span class="w">  </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="n">res</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">ServletContext</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getServletContext</span><span class="p">();</span><span class="w">  </span>
+<span class="w">      </span><span class="n">context</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;company&quot;</span><span class="p">,</span><span class="s">&quot;IBM&quot;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Welcome to first servlet&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;&lt;a href=&#39;servlet2&#39;&gt;visit&lt;/a&gt;&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>DemoServlet2:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoServlet2</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">HttpServlet</span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doGet</span><span class="p">(</span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w">  </span>
+<span class="w">  </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">try</span><span class="p">{</span><span class="w">  </span>
+<span class="w">      </span><span class="n">res</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">ServletContext</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getServletContext</span><span class="p">();</span><span class="w">  </span>
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">context</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;company&quot;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Welcome to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="munkamenet-kezelese-session-management">Munkamenet kezelése (session management)<a class="headerlink" href="#munkamenet-kezelese-session-management" title="Permanent link">&para;</a></h3>
+<p>Mivel a HTTP protokoll egy állapotmentes protokoll, azaz a kérések között nincs állapotmentés, azért valamilyen megoldásra szükség van, hogy ezt a hiányosságot kiküszöböljük.</p>
+<p>A munkamentek követésére lehetőséget nyújtanak a következők:</p>
+<ul>
+<li><a href="#cookies">Cookies</a></li>
+<li>Hidden Form Field</li>
+<li>URL újraírás</li>
+<li><a href="#httpsession">HttpSession</a></li>
+</ul>
+<h4 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h4>
+<p>A Cookie egy kicsi információszelet, mely megőrződik a kérések között.
+Egy cookie-nak van neve, értéke, és további opcionális attribútuimai (comment, verziószám, maximum kor)</p>
+<p>Egy új kérésnél a válaszhoz hozzáadhatjuk a cookie-t és innentől kezdve a kliens az összes kérésben elküldi az általunk a szerverről visszaküldött cookie-t.
+A cookie alapvetően a kliens böngészőjének cache-ben tárolódik.</p>
+<p>Két típusa:</p>
+<ul>
+<li>Non-persistent: egy session alatt él, amikor a felhasználó becsukja a böngészőt akkor a cookie törlődik</li>
+<li>persistent: több session-ön keresztül él, csak akkor töröljük a cookie-t, ha a felhasználó kilép.</li>
+</ul>
+<p>Hártánya, hogy ha a kliens nem engedélyezi a cookie-k használatát, akkor az egész session tracking nem fog működni, továbbá a cookie-ban csak szöveges információt tarthatunk (számot szövegként tudunk tárolni, de bináris infot már nem).</p>
+<p>A cookie-k használatához a <code>Cookie</code> osztály ad segítséget.</p>
+<p>Példa egy cookie hozzáadására:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Cookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cookie</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="s">&quot;Bela&quot;</span><span class="p">);</span>
+<span class="n">response</span><span class="p">.</span><span class="na">addCookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Figyelem</p>
+<p>A Tomcat 8.5 utáni verziója már az <a href="https://tools.ietf.org/html/rfc6265">RFC 6265</a> szabványt használja a Cookie-k tekintetében, ami nem engedi meg a whitespace-ek használatát a cookie-kban.</p>
+</div>
+<p>Mivel a cookie kliens oldalon tárolt, így törlése kicsit trükkösebb:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Cookie</span><span class="w"> </span><span class="n">ck</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Cookie</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// vagy lehet nullra is állítani</span>
+<span class="n">ck</span><span class="p">.</span><span class="na">setMaxAge</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// fontos, hogy a érvényesség rögtön le is jár</span>
+<span class="n">response</span><span class="p">.</span><span class="na">addCookie</span><span class="p">(</span><span class="n">ck</span><span class="p">);</span><span class="w"> </span><span class="c1">// így frissíteni, fogja a cookie-t a böngésző</span>
+</code></pre></div></td></tr></table></div></p>
+<p>A cookie-k lekérése:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Cookie</span><span class="w"> </span><span class="n">ck</span><span class="o">[]=</span><span class="n">request</span><span class="p">.</span><span class="na">getCookies</span><span class="p">();</span><span class="w"> </span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ck</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w">  </span>
+<span class="w">  </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;&lt;br&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ck</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ck</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="httpsession">HttpSession<a class="headerlink" href="#httpsession" title="Permanent link">&para;</a></h4>
+<p>A munkamenet követésének egyik lehetséges megoldásaként a session szolgál, mely egy-egy felhasználóhoz külön-külön biztosít egy ilyen scope-ot, azaz a felhasználó munkamenetéhez adhatunk hozzá/olvashatunk ki adatokat.
+A web konténer minden felhasználóhoz egy egyedi session id-t rendel, mellyel aztán azonosítja a felhasználói munkamenetet.</p>
+<p>Session lekérése:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">HttpSession</span><span class="w"> </span><span class="nf">getSession</span><span class="p">()</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">HttpSession</span><span class="w"> </span><span class="nf">getSession</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">create</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+A paraméter néküli változat létrehozza a felhasználóhoz a session-t ha az még nem létezik.
+A második, paraméteres metódusban viszont mi magunk adhatjuk meg, hogy a Session-t létrehozzuk-e vagy sem abban az esetben, ha az még nem létezett.</p>
+<p>Hasznos metódusok:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="c1">// a session azonosítóját adja vissza, mely egyedi</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getCreationTime</span><span class="p">()</span><span class="w"> </span><span class="c1">//millisecben a létrehozás dátuma (1970. jan. 1-től eltelt millisec)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getLastAccessedTime</span><span class="p">()</span><span class="w"> </span><span class="c1">// az az idő szintén millisec-ben, amikor a kliens legutoljára küldött kérést, mely ehhez a sessionhöz tartozott</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">invalidate</span><span class="p">()</span><span class="w"> </span><span class="c1">// a session érvénytelenítése. Minden belepakolt adatot eldobunk</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Attribútum beállítása:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HttpSession</span><span class="w"> </span><span class="n">session</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">();</span><span class="w">  </span>
+<span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Gipsz Jakab&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Attribútim lekérése:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">HttpSession</span><span class="w"> </span><span class="n">session</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">();</span>
+<span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="filterek">Filterek<a class="headerlink" href="#filterek" title="Permanent link">&para;</a></h3>
+<p>A filter egy olyan objektum, melynek utasításai közvetlenül a kérés kiszolgálása előtt (pre-process) vagy közvetlenül a válasz előállítása (még nem küldjük vissza) után (post-processing) futnak le.
+Használható például adatkonverzióra, logolásra, tömörítésre, kódolásra és dekódolásra, input validációra, autentikációra, autorizációra stb.</p>
+<p>Fontos osztályok:</p>
+<ul>
+<li>Filter (maga a filter osztály)</li>
+<li>FilterChain (minden filter helyet foglal egy filter láncban, melyet meg is kap a filter)</li>
+<li>FilterConfig (minden filternek lehetnek egyedi beállításai, hasonlóképpen mint a ServletConfig a Servlet esetében)</li>
+</ul>
+<p>A filternek nem doGet, doPost, stb metódusai vannak, hanem egy doFilter metódusa, ahol a filter logikáját adhatjuk meg.</p>
+<p>A filtereket is a web.xml-ben adhatjuk meg. A filtereknek is meg lehet adni, hogy mely url-ekre fusson le.
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;web-app&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;filter&gt;</span><span class="w">  </span>
+<span class="nt">&lt;filter-name&gt;</span>...<span class="nt">&lt;/filter-name&gt;</span><span class="w">  </span>
+<span class="nt">&lt;filter-class&gt;</span>...<span class="nt">&lt;/filter-class&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/filter&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;filter-mapping&gt;</span><span class="w">  </span>
+<span class="nt">&lt;filter-name&gt;</span>...<span class="nt">&lt;/filter-name&gt;</span><span class="w">  </span>
+<span class="nt">&lt;url-pattern&gt;</span>...<span class="nt">&lt;/url-pattern&gt;</span><span class="w">  </span>
+<span class="nt">&lt;/filter-mapping&gt;</span><span class="w">  </span>
+
+<span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Ha a filterek sorrendje számít akkor használjuk a web xml-t!
+Amilyen sorrendben szerepelnek a web.xml-ben olyan sorrendben fognak lefutni.
+Ugyanakkor, lehetőség van a <code>WebFilter</code> annotáció használatára is, de itt a sorrendet nem tudjuk befolyásolni.</p>
+<p>Példa:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@WebFilter</span><span class="p">(</span><span class="s">&quot;/*&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Filter</span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">FilterConfig</span><span class="w"> </span><span class="n">config</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doFilter</span><span class="p">(</span><span class="n">ServletRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">ServletResponse</span><span class="w"> </span><span class="n">resp</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="n">FilterChain</span><span class="w"> </span><span class="n">chain</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">ServletException</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="o">=</span><span class="n">resp</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">  </span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;filter is invoked before&quot;</span><span class="p">);</span><span class="w">  </span>
+
+<span class="w">      </span><span class="n">chain</span><span class="p">.</span><span class="na">doFilter</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">resp</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;filter is invoked after&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">destroy</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span>
+
+<span class="p">}</span><span class="w">  </span>
+</code></pre></div></td></tr></table></div></p>
+<p>A servleteknél látott módon a filtereknek is lehet paramétereket megadni, melynek kezelése ugyanúgy megy mint a servleteknél.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Utolsó frissítés:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-04-13 13:36:13</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2004-2024 Szegedi Tudományegyetem, Informatikai Intézet, Szoftverfejlesztés Tanszék
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/index.html" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "search.result.more.one": "1 tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.more.other": "# tov\u00e1bbi tal\u00e1lat az oldalon", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.term.missing": "\u00dcres", "select.version": "Verzi\u00f3v\u00e1lt\u00e1s"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+    
+  </body>
+</html>
